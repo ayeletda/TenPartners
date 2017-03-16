@@ -15,7 +15,7 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Recommended IDE | [VSCode](https://code.visualstudio.com) |
 | Group Chat | [![Join the chat at https://gitter.im/jce-il/tenPartners](https://badges.gitter.im/jce-il/tenPartners.svg)](https://gitter.im/jce-il/tenPartners?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
 | Build Status (CI) |  [![Build Status](https://travis-ci.org/jce-il/tenPartners.svg?branch=master)](https://travis-ci.org/jce-il/tenPartners) |
-| Issues | [![GitHub issues](https://img.shields.io/github/issues/Ayelet/TenPartners.svg?style=flat)](https://github.com/Ayelet/TenPartners/issues) |
+| Issues | [![GitHub issues](https://img.shields.io/github/issues/jce-il/tenPartners.svg?style=flat)](https://github.com/jce-il/tenPartners/issues) |
 
 ## Disclaimer
 This project is developed as part of the requirements for a [software engineering course](https://github.com/jce-il/se-class/wiki) at the software engineering department - [Azrieli College of Engineering](http://www.jce.ac.il/), Jerusalem, Israel.
