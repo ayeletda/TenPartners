@@ -2,9 +2,7 @@
 
 This project is developed as part of the requirements for a software engineering course at the software engineering department - Azrieli College of Engineering, Jerusalem, Israel.
 
-(See also:rRecommended [checklist](https://github.com/ddbeck/readme-checklist/blob/master/checklist.md) for a README) 
-
-![project logo (this one for is taken from basecamp - a project management service)](https://www.klipfolio.com/sites/default/files/integrations/basecamp.png)
+![project logo (this one for is taken from basecamp - a project management service)](https://i.imgur.com/PzFVuya.png)
 
 ## Tools & Practices
 We're trying to use the best tools and practices in order to produce a quality enginneered product.
