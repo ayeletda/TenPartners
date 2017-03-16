@@ -1,5 +1,8 @@
 # tenPartners
 
+Tenpartners is a grass-roots, nonprofit effort created by businesspeople and lay leaders who care about Jewish values and continuity, to address all of the issues with a unique, simple, and engaging innovation. TEN partnerships are nondenominational, local nonprofit partnerships, made up of ten people from a local Jewish community, preferably of various affiliations or not even affiliated at all, who organize and run programs for their local Jewish communities that promote positive Jewish values and experiences. These ten partners fund the local TEN partnership with relatively small, equal, one-time “investments.” These funds are used to run the programs selected by the partners. And the programs are designed not to bleed cash, but instead to actually recoup their costs; not so that anyone profits, because the partnership is not-for-profit, but simply to make sure that the TEN partnership can keep running programs without having to raise more money.
+
+
 This project is developed as part of the requirements for a software engineering course at the software engineering department - Azrieli College of Engineering, Jerusalem, Israel.
 
 ![project logo (this one for is taken from basecamp - a project management service)](https://i.imgur.com/PzFVuya.png)
