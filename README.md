@@ -1,6 +1,6 @@
-# project-template
+# tenPartners
 
-A template repository with wiki for a team project at JCE's software engineering course (replace with the mission of your project).
+This project is developed as part of the requirements for a software engineering course at the software engineering department - Azrieli College of Engineering, Jerusalem, Israel.
 
 (See also:rRecommended [checklist](https://github.com/ddbeck/readme-checklist/blob/master/checklist.md) for a README) 
 
