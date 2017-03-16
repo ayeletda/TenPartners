@@ -1,7 +1,5 @@
 # tenPartners
 
-This project is developed as part of the requirements for a software engineering course at the software engineering department - Azrieli College of Engineering, Jerusalem, Israel.
-
 ![project logo (this one for is taken from basecamp - a project management service)](https://i.imgur.com/PzFVuya.png)
 
 
@@ -10,32 +8,25 @@ Tenpartners is a grass-roots, nonprofit effort created by businesspeople and lay
 
 ## Tools & Practices
 We're trying to use the best tools and practices in order to produce a quality enginneered product.
-(replace 'jce-il/project-template' with your 'advaav/tenPartners' and register to the relevant services)
-
 
 |Category|Status|
 |---|---|
 | Version Control System| git & github |
 | Recommended IDE | [VSCode](https://code.visualstudio.com) |
 | Group Chat | [![Join the chat at https://gitter.im/jce-il/tenPartners](https://badges.gitter.im/jce-il/tenPartners.svg)](https://gitter.im/jce-il/tenPartners?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
-| Build Status (CI) |  [![Build Status](https://travis-ci.org/jce-il/project-template.svg?branch=master)](https://travis-ci.org/jce-il/project-template) |
-| Dependencies | [![David](https://img.shields.io/david/dev/idleberg/vscode-badges.svg?style=flat-square)](https://david-dm.org/jce-il/project-template?type=dev) |
+| Build Status (CI) |  [![Build Status](https://travis-ci.org/jce-il/tenPartners.svg?branch=master)](https://travis-ci.org/jce-il/tenPartners) |
+| Dependencies | [![David](https://img.shields.io/david/dev/idleberg/vscode-badges.svg?style=flat-square)](https://david-dm.org/jce-il/tenPartners?type=dev) |
 | License | [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/) |
-| Test Coverege | [![codecov.io](https://codecov.io/github/jce-il/project-template/coverage.svg?branch=master)](https://codecov.io/github/jce-il/project-template?branch=master) |
-| Code Quality | [![Code Climate](https://codeclimate.com/github/jce-il/project-template.svg)](https://codeclimate.com/github/jce-il/project-template) |
-| Code Style | [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/jce-il/project-template) |
-| Current Release | [![Current Version](https://img.shields.io/github/release/jce-il/project-template.svg?style=flat)](https://github.com/jce-il/project-template/releases) |
-| Issues | [![GitHub issues](https://img.shields.io/github/issues/jce-il/project-template.svg?style=flat)](https://github.com/jce-il/project-template/issues) |
-| Project Management Board| [here](https://github.com/jce-il/project-template/projects/1) |
-| Contributors | [![GitHub contributors](https://img.shields.io/github/contributors/jce-il/project-template.svg)](https://github.com/jce-il/project-template/graphs/contributors)|
+| Test Coverege | [![codecov.io](https://codecov.io/github/jce-il/tenPartners/coverage.svg?branch=master)](https://codecov.io/github/jce-il/tenPartners?branch=master) |
+| Code Quality | [![Code Climate](https://codeclimate.com/github/jce-il/tenPartners.svg)](https://codeclimate.com/github/jce-il/tenPartners) |
+| Code Style | [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/jce-il/tenPartners) |
+| Current Release | [![Current Version](https://img.shields.io/github/release/jce-il/tenPartners.svg?style=flat)](https://github.com/jce-il/tenPartners/releases) |
+| Issues | [![GitHub issues](https://img.shields.io/github/issues/jce-il/project-template.svg?style=flat)](https://github.com/jce-il/tenPartners/issues) |
+| Project Management Board| [here](https://github.com/jce-il/tenPartners/projects/1) |
+| Contributors | [![GitHub contributors](https://img.shields.io/github/contributors/jce-il/tenPartners.svg)](https://github.com/jce-il/tenPartners/graphs/contributors)|
 | Deployment | [![Heroku](http://heroku-badge.herokuapp.com/?app=my-app&style=flat&svg=1&root=index.html)] |
-| Security | [![Known Vulnerabilities](https://snyk.io/test/github/jce-il/project-template/badge.svg)](https://snyk.io/test/github/jce-il/project-template) |
-| Documnetation | [![Inline docs](http://inch-ci.org/github/jce-il/project-template.svg?branch=master)](http://inch-ci.org/github/jce-il/project-template) |
-| Project Course Status | ... |
-
-## Please visit our [live application](https://demo.reactstarterkit.com/)
-- Alright, currently only a landing page...
-
+| Security | [![Known Vulnerabilities](https://snyk.io/test/github/jce-il/tenPartners/badge.svg)](https://snyk.io/test/github/jce-il/tenPartners) |
+| Documnetation | [![Inline docs](http://inch-ci.org/github/jce-il/project-template.svg?branch=master)](http://inch-ci.org/github/jce-il/tenPartners) |
 
 ## Disclaimer
 This project is developed as part of the requirements for a [software engineering course](https://github.com/jce-il/se-class/wiki) at the software engineering department - [Azrieli College of Engineering](http://www.jce.ac.il/), Jerusalem, Israel.
