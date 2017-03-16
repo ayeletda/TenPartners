@@ -14,7 +14,6 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Version Control System| git & github |
 | Recommended IDE | [VSCode](https://code.visualstudio.com) |
 | Group Chat | [![Join the chat at https://gitter.im/jce-il/tenPartners](https://badges.gitter.im/jce-il/tenPartners.svg)](https://gitter.im/jce-il/tenPartners?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
-| Build Status (CI) |  [![Build Status](https://travis-ci.org/jce-il/tenPartners.svg?branch=master)](https://travis-ci.org/jce-il/tenPartners) |
 | Issues | [![GitHub issues](https://img.shields.io/github/issues/ayeletda/TenPartners.svg?style=flat)](https://github.com/ayeletda/TenPartners/issues) |
 
 ## Disclaimer
