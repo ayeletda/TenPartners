@@ -1,4 +1,4 @@
-# tenPartners
+# TenPartners
 
 ![project logo (this one for is taken from basecamp - a project management service)](https://i.imgur.com/PzFVuya.png)
 
