@@ -3,7 +3,7 @@
 ![project logo (this one for is taken from basecamp - a project management service)](https://i.imgur.com/PzFVuya.png)
 
 
-tenpartners, winner of the 2011 Jewish Futures Competition, is a non-profit platform that enables
+TenPartners, winner of the 2011 Jewish Futures Competition, is a non-profit platform that enables
 young Jews to collaborate and create great Jewish experiences for their local Jewish
 communities. We make Jewish community service more grass-roots, collaborative and accessible
 to a new generation of lay leaders. Members of a TEN partnership fund equal, small one-time
