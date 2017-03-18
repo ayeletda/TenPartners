@@ -3,7 +3,23 @@
 ![project logo (this one for is taken from basecamp - a project management service)](https://i.imgur.com/PzFVuya.png)
 
 
-Tenpartners is a grass-roots, nonprofit effort created by businesspeople and lay leaders who care about Jewish values and continuity, to address all of the issues with a unique, simple, and engaging innovation. TEN partnerships are nondenominational, local nonprofit partnerships, made up of ten people from a local Jewish community, preferably of various affiliations or not even affiliated at all, who organize and run programs for their local Jewish communities that promote positive Jewish values and experiences. These ten partners fund the local TEN partnership with relatively small, equal, one-time “investments.” These funds are used to run the programs selected by the partners. And the programs are designed not to bleed cash, but instead to actually recoup their costs; not so that anyone profits, because the partnership is not-for-profit, but simply to make sure that the TEN partnership can keep running programs without having to raise more money.
+tenpartners, winner of the 2011 Jewish Futures Competition, is a non-profit platform that enables
+young Jews to collaborate and create great Jewish experiences for their local Jewish
+communities. We make Jewish community service more grass-roots, collaborative and accessible
+to a new generation of lay leaders. Members of a TEN partnership fund equal, small one-time
+donations into a local bank account that they manage, and then evaluate and vote on program
+proposals using our custom-built and easy-to- use collaboration platform. Members take turns
+(voluntarily) taking responsibility for a specific project. The TEN partnership system fosters
+creativity, involvement, collaboration and leadership without demanding large amounts of time or
+money or in-person meetings.
+
+A TEN partnership's programs must be financially sustainable - they must be designed to recoup
+their underwritten cost, so that the partnership stays “evergreen” without needing further funding.
+
+The dinosaur/institution model of Jewish communal organizations is by and large not attracting
+our next generation of communal lay leaders. tenpartners' unique technology platform and
+communal action business model enables or addresses many of the major hot-button issues
+facing the Jewish communal world today.
 
 
 ## Tools & Practices
