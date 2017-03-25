@@ -7,9 +7,13 @@
 <div class="col-md-6 col-md-offset-3">
     <h2>Login</h2>
             <label for="username">Username</label>
-            <input type="text" class="form-control" name="username">
+            <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+
+
             <label for="password">Password</label>
-            <input type="text" class="form-control" name="password">
+            <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+
+
             <button [disabled]="loading" class="btn btn-primary">Login</button>
 
 
