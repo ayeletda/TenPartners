@@ -2,14 +2,18 @@
   <app-header></app-header>
 </div>
 
-<h1>
-  {{title}}
-</h1>
-
 <div class="container">
-  <div class="col-xs-6 col-sm-4 col-md-3">
-   About us 
-  </div>
+
+<div class="col-md-6 col-md-offset-3">
+    <h2>Login</h2>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username">
+            <label for="password">Password</label>
+            <input type="text" class="form-control" name="password">
+            <button [disabled]="loading" class="btn btn-primary">Login</button>
 
 
+
+  <app-footer></app-footer>
+ </div>
 </div>
