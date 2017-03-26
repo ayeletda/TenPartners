@@ -12,7 +12,8 @@ export class AppComponent {
 clicked(){
 this.username =null;
 this.password = null;
-alert("Welcome tenPartner!");
 }
+
+
 
 }
