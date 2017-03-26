@@ -1,0 +1,12 @@
+  <h2>Login</h2>
+            <label for="username">Username</label>
+            <input type="text" class="form-control" name="username" #username required />
+
+
+            <label for="password">Password</label>
+            <input type="password" class="form-control" name="password" #password required />
+
+
+            <button [disabled]="loading" class="btn btn-primary" (click)="clicked(username,password)" >Login</button>
+            
+       
