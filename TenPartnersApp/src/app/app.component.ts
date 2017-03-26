@@ -6,9 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  username:string = '';
+  password:string = '';
 
 clicked(){
-
+this.username =null;
+this.password = null;
 alert("Welcome tenPartner!");
 }
 
