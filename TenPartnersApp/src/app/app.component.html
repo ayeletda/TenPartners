@@ -8,13 +8,15 @@
     <h2>Login</h2>
             <label for="username">Username</label>
             <input type="text" class="form-control" name="username" [(ngModel)]="model.username" #username="ngModel" required />
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
 
 
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" [(ngModel)]="model.password" #password="ngModel" required />
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
 
 
-            <button [disabled]="loading" class="btn btn-primary">Login</button>
+            <button [disabled]="loading" class="btn btn-primary" (click)="clicked()" >Login</button>
             
        
 
