@@ -68,7 +68,7 @@ Please visit our wiki for furthur project info:
 - [Iteration 1 - MVP](../../wiki)
 - [Iteration 2 - Feature X](../../wiki)
 - [Iteration 3 - Feature Y](../../wiki)
-- [Iteration 4 - Feature Z](../../wik)
+- [Iteration 4 - Feature Z](../../wiki)
 
 
 
