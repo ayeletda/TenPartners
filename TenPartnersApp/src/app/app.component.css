@@ -1,5 +1,13 @@
 .container{
 
 margin-top: 50px;
+width: 100%;
 
+}
+
+app-main-page{
+
+  align-items: center;
+  display:inline-block;
+  justify-content: center;
 }
