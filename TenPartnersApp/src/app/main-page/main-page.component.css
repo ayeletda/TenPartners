@@ -1,0 +1,20 @@
+.mainPage{
+margin-top: 20px;
+background-color: cornsilk;
+height:500px;
+
+}
+
+button{
+ margin-left: auto;
+ position: relative;
+border-radius: 10px 10px 10px 10px;
+justify-content: space-between;
+}
+
+.wellcom{
+
+padding-bottom: 20px;
+font-family: monospace;
+
+}
