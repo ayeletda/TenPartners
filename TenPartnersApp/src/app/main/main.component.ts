@@ -15,11 +15,10 @@ export class MainComponent implements OnInit {
 
 
 clicked(username:HTMLInputElement, password:HTMLInputElement){
-  
-if(username.value=="advaav55@gmail.com"&&password.value=="1234")
+  if(username.value=="advaav55@gmail.com"&&password.value=="1234")
     alert("Wellcom tenPartner")
 
-password.value=null;
+  password.value=null;
 username.value=null;
 }
 
