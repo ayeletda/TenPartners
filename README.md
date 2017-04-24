@@ -56,7 +56,7 @@ Please visit our wiki for furthur project info:
 
 ### [User Manual](../../wiki/user-manual)
 
-### [Development Manual](../../wiki/development-manual)
+### [Developers Manual](../../wiki/developers-manual)
 
 ### [Team Page](../../wiki/team)
 
