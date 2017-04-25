@@ -54,7 +54,9 @@ This project is developed as part of the requirements for a [software engineerin
 
 Please visit our wiki for furthur project info: 
 
-### [User Manual](../../wiki/user-manual) (empty for now)
+### [User Manual](../../wiki/user-manual)
+
+### [Developers Manual](../../wiki/developers-manual)
 
 ### [Team Page](../../wiki/team)
 
@@ -66,10 +68,10 @@ Please visit our wiki for furthur project info:
 
 ### Iteration Pages
 - [Iteration 0 - ZFR](../../wiki/iter0-zfr)
-- [Iteration 1 - MVP](../../wiki)
-- [Iteration 2 - Feature X](../../wiki)
-- [Iteration 3 - Feature Y](../../wiki)
-- [Iteration 4 - Feature Z](../../wiki)
+- [Iteration 1 - MVP](../../wiki/iter1-MVP)
+- [Iteration 2 - Feature X](../../wiki/iter2-FeatureX)
+- [Iteration 3 - Feature Y](../../wiki/iter3-FeatureY)
+- [Iteration 4 - Feature Z](../..//wiki/iter4-FeatureZ)
 
 
 
