@@ -1,6 +1,11 @@
 
+.bar{
+    display: block;
+    float: none;
+}
 button{
-    width: 42%;
+    width: fixed;
+    height: fixed;
     padding: 2%;
     margin: 2%;
     text-align: center;
@@ -9,5 +14,14 @@ button{
     background-color: #e2e2e2;
     float: left;
     border-radius: 10px 10px 10px 10px;
-
 }
+
+.settings{
+position: absolute;
+padding-left: auto;
+float: right;
+display: block;
+cursor: pointer;
+
+
+} 
