@@ -4,19 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import {RouterModule} from '@angular/router'; 
 import {appRoutes} from './routes';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     LoginComponent,
     HomeComponent,
+    SettingsComponent,
     
   ],
   imports: [
