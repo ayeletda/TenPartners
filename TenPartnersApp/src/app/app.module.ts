@@ -9,6 +9,7 @@ import { HomeComponent } from './pages/home/home.component';
 import {RouterModule} from '@angular/router'; 
 import {appRoutes} from './routes';
 import { SettingsComponent } from './pages/settings/settings.component';
+import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
     LoginComponent,
     HomeComponent,
     SettingsComponent,
+    MyProjectsComponent,
     
   ],
   imports: [
