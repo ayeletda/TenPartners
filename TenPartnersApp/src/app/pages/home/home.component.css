@@ -1,17 +1,13 @@
 
 button{
-border-radius: 10px 10px 10px 10px;
-float: left;
-height: auto;
-width: auto;
-margin: 0 auto;
+    width: 42%;
+    padding: 2%;
+    margin: 2%;
+    text-align: center;
+    min-height: 100px;
+    line-height: 100px;
+    background-color: #e2e2e2;
+    float: left;
+    border-radius: 10px 10px 10px 10px;
 
-}
-
-
-.bar{
-  padding-top: 20px;
-  overflow: auto;
-  margin: 0 auto;
-  display: flex;
 }
