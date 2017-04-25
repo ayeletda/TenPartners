@@ -6,11 +6,9 @@ margin: 0 auto;
 
 }
 
-.wellcom{
-font-family: monospace;
-}
 
 .bar{
+  padding-top: 20px;
   width: 500px;
   overflow: auto;
   margin: 0 auto;

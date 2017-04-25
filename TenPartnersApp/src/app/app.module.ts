@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import {RouterModule} from '@angular/router'; 
@@ -16,7 +15,6 @@ import {appRoutes} from './routes';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent,
     LoginComponent,
     HomeComponent,
     
