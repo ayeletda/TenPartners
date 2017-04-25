@@ -4,8 +4,8 @@
     float: none;
 }
 button{
-    width: fixed;
-    height: fixed;
+    width: 42%;
+    height: auto;
     padding: 2%;
     margin: 2%;
     text-align: center;
@@ -14,6 +14,7 @@ button{
     background-color: #e2e2e2;
     float: left;
     border-radius: 10px 10px 10px 10px;
+    display: table-cell;
 }
 
 .settings{
