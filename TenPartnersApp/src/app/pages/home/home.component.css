@@ -2,6 +2,8 @@
 button{
 border-radius: 10px 10px 10px 10px;
 float: left;
+height: auto;
+width: auto;
 margin: 0 auto;
 
 }
@@ -9,7 +11,6 @@ margin: 0 auto;
 
 .bar{
   padding-top: 20px;
-  width: 500px;
   overflow: auto;
   margin: 0 auto;
   display: flex;
