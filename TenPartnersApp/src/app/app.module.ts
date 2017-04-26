@@ -10,6 +10,7 @@ import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
+import { BoardComponent } from './pages/board/board.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
     HomeComponent,
     SettingsComponent,
     MyProjectsComponent,
+    BoardComponent,
     
   ],
   imports: [

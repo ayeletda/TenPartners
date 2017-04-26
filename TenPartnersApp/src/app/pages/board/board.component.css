@@ -1,0 +1,203 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,700|Spirax");
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    font-family: "Segoe UI", sans-serif;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+header{
+    height: 5%;
+    width: 100%;
+
+}
+
+header a img {
+    width: 8%;
+    height: 8%;
+    border: 0;
+
+}
+
+body {
+    height: 60%;
+    width: 100%;
+    font-size: 20px;
+}
+
+
+
+#SuggestedProjects {
+    width: 80%;
+    height: 30%;
+    margin-right: 10%;
+    margin-left: 10%;
+    display: block;
+}
+
+.SuggestedProject {
+    background: #f1f1f1;
+    color: #3498db;
+    margin: 10px;
+    padding: 2%;
+    width: 20%;
+    height: 20%;;
+    position: relative;
+    text-align: center;
+}
+
+#SuggestedProjects .SuggestedProject .clock{
+    border: none;
+    box-sizing: border-box;
+    float: left;
+    width:27%;
+    height: 20%;
+    margin:1%;
+}
+
+#SuggestedProjects .SuggestedProject .clock img{
+    width:100%;
+    height: 100%;
+}
+
+#SuggestedProjects .SuggestedProject h1 {
+    border: none;
+    box-sizing: border-box;
+    float: left;
+    width: 60%;
+    margin-top: 6%;
+}
+
+#SuggestedProjects .SuggestedProject .forP {
+    width: 100%;
+    height: 60%;
+    overflow: auto;
+}
+
+#SuggestedProjects .SuggestedProject p {
+    width: 100%;
+    height: 500px;
+    overflow: auto;
+}
+
+.slick-slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+}
+
+.slick-slider .slick-arrow.slick-next {
+    text-indent: -9999px;
+    right: -30px;
+    border-radius: 40%;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    padding: 1%;
+    cursor: pointer;
+    color: transparent;
+    border-color:  #3498db;
+    outline: none;
+    background-color: transparent;
+}
+
+.slick-slider .slick-arrow.slick-prev {
+    text-indent: -9999px;
+    left: -30px;
+    border-radius: 40%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    padding:1%;
+    cursor: pointer;
+    color: transparent;
+    border-color:  #3498db;
+    outline: none;
+    background-color:transparent;
+}
+
+.slick-slider .slick-arrow.slick-next:before {
+    position: absolute;
+    text-indent: 0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    content: '❯';
+    color: #3498db;
+    border-radius: 60%;
+}
+
+.slick-slider .slick-arrow.slick-prev::before {
+    position: absolute;
+    text-indent: 0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    content: '❮';
+    color: #3498db;
+}
+
+.selectProject{
+    border: none;
+    border-radius: 8%;
+}
+
+.selectProject button{
+    background: #3498db;
+    color: #fff;
+    display: block;
+    margin: 3% auto;
+    padding: 2%;
+    text-align: center;
+    width:50%;
+    border: none;
+    border-radius: 5%;
+    font-size: 100%;
+}
+
+#dataBaseButton{
+    background: #3498db;
+    color: #fff;
+    display: block;
+    margin: 2% auto;
+    padding: 2%;
+    text-align: center;
+    width: 90%;
+    height: 5%;
+    border: none;
+    border-radius: 5%;
+    font-size: 100%;
+}
+
+.clear {
+    clear: both;
+}
