@@ -13,9 +13,7 @@ export class BoardComponent implements OnInit {
   ngOnInit() {
   
   }
-  any(event){
-    event.currentTargetuggestedProjects.slick();
-  }
+ 
 
 }
 
