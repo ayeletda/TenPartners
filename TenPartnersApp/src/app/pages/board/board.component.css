@@ -2,6 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
+/*
 @import url("https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,400,700|Spirax");
 
 html, body, div, span, applet, object, iframe,
@@ -25,8 +26,9 @@ time, mark, audio, video {
     font-family: "Segoe UI", sans-serif;
     vertical-align: baseline;
 }
-
+*/
 /* HTML5 display-role reset for older browsers */
+/*
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
@@ -201,3 +203,4 @@ body {
 .clear {
     clear: both;
 }
+*/
