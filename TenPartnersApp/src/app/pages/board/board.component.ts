@@ -11,11 +11,14 @@ export class BoardComponent implements OnInit {
    constructor(private router: Router) { }
 
   ngOnInit() {
+  
   }
- 
+  any(event){
+    event.currentTargetuggestedProjects.slick();
+  }
 
 }
 
 
-
+ 
 
