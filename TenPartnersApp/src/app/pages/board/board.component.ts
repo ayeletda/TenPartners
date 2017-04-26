@@ -12,8 +12,10 @@ export class BoardComponent implements OnInit {
 
   ngOnInit() {
   }
+ 
 
 }
-this.element(document.getElementById('SuggestedProjects')).scope().slick();
+
+
 
 
