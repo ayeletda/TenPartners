@@ -14,3 +14,6 @@ export class BoardComponent implements OnInit {
   }
 
 }
+this.element(document.getElementById('SuggestedProjects')).slick();
+
+
