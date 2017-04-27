@@ -4,26 +4,30 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { MainComponent } from './main/main.component';
-import { MainPageComponent } from './main-page/main-page.component';
-import { VotingPageComponent } from './voting-page/voting-page.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
+import {RouterModule} from '@angular/router'; 
+import {appRoutes} from './routes';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
+import { BoardComponent } from './pages/board/board.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    MainComponent,
-    MainPageComponent,
-    VotingPageComponent,
+    LoginComponent,
+    HomeComponent,
+    SettingsComponent,
+    MyProjectsComponent,
+    BoardComponent,
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

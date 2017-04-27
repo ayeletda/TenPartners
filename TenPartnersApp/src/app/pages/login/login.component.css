@@ -1,0 +1,16 @@
+.btn-primary{
+margin-top: 10px;
+}
+
+.about{
+text-align: center;
+font-style: bold;
+}
+
+img{
+    height: 70px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    }

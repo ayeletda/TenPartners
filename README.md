@@ -30,21 +30,22 @@ We're trying to use the best tools and practices in order to produce a quality e
 | Version Control System| git & github |
 | Recommended IDE | [VSCode](https://code.visualstudio.com) |
 | Group Chat | [![Join the chat at https://gitter.im/jce-il/tenPartners](https://badges.gitter.im/jce-il/tenPartners.svg)](https://gitter.im/jce-il/tenPartners?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) |
-| Build Status (CI) |  [![Build Status](https://travis-ci.org/ayeletda/TenPartners.svg?branch=master)](https://travis-ci.org/jce-il/project-template) |
+| Build Status (CI) |  [![Build Status](https://travis-ci.org/jce-il/project-template.svg?branch=master)](https://travis-ci.org/jce-il/project-template) |
 | Dependencies | [![David](https://img.shields.io/david/dev/idleberg/vscode-badges.svg?style=flat-square)](https://david-dm.org/jce-il/project-template?type=dev) |
 | License | [![Open Source Love](https://badges.frapsoft.com/os/mit/mit.svg?v=102)](https://github.com/ellerbrock/open-source-badge/) |
-| Test Coverege | [![codecov.io](https://codecov.io/github/ayeletda/TenPartners/coverage.svg?branch=master)](https://codecov.io/github/ayeletda/TenPartners?branch=master) |
-| Code Quality | [![Code Climate](https://codeclimate.com/github/jce-il/project-template.svg)](https://codeclimate.com/github/ayeletda/TenPartners) |
-| Code Style | [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/ayeletda/TenPartners) |
-| Current Release | [![Current Version](https://img.shields.io/github/release/ayeletda/TenPartners.svg?style=flat)](https://github.com/ayeletda/TenPartners/releases) |
+| Test Coverege | [![codecov.io](https://codecov.io/github/jce-il/project-template/coverage.svg?branch=master)](https://codecov.io/github/jce-il/project-template?branch=master) |
+| Code Quality | [![Code Climate](https://codeclimate.com/github/jce-il/project-template.svg)](https://codeclimate.com/github/jce-il/project-template) |
+| Code Style | [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/jce-il/project-template) |
+| Current Release | [![Current Version](https://img.shields.io/github/release/jce-il/project-template.svg?style=flat)](https://github.com/jce-il/project-template/releases) |
 | Issues | [![GitHub issues](https://img.shields.io/github/issues/ayeletda/TenPartners.svg?style=flat)](https://github.com/ayeletda/TenPartners/issues) |
 | Project Management Board| [here](https://github.com/ayeletda/TenPartners/projects/1) |
-| Contributors | [![GitHub contributors](https://img.shields.io/github/contributors/ayeletda/TenPartners.svg)](https://github.com/jce-il/project-template/graphs/contributors)|
+| Contributors | [![GitHub contributors](https://img.shields.io/github/contributors/jce-il/project-template.svg)](https://github.com/jce-il/project-template/graphs/contributors)|
 | Deployment | [![Heroku](http://heroku-badge.herokuapp.com/?app=my-app&style=flat&svg=1&root=index.html)] |
 | Security | [![Known Vulnerabilities](https://snyk.io/test/github/jce-il/project-template/badge.svg)](https://snyk.io/test/github/jce-il/project-template) |
 | Documnetation | [![Inline docs](http://inch-ci.org/github/jce-il/project-template.svg?branch=master)](http://inch-ci.org/github/jce-il/project-template) |
+| Project Course Status | ... |
 
-## Please visit our [live application](link)
+## Please visit our [live application](https://demo.reactstarterkit.com/)
 - Alright, currently only a landing page...
 
 
@@ -53,7 +54,9 @@ This project is developed as part of the requirements for a [software engineerin
 
 Please visit our wiki for furthur project info: 
 
-### [User Manual](../../wiki/user-manual) (empty for now)
+### [User Manual](../../wiki/user-manual)
+
+### [Developers Manual](../../wiki/developers-manual)
 
 ### [Team Page](../../wiki/team)
 
@@ -65,10 +68,10 @@ Please visit our wiki for furthur project info:
 
 ### Iteration Pages
 - [Iteration 0 - ZFR](../../wiki/iter0-zfr)
-- [Iteration 1 - MVP](../../wiki)
-- [Iteration 2 - Feature X](../../wiki)
-- [Iteration 3 - Feature Y](../../wiki)
-- [Iteration 4 - Feature Z](../../wiki)
+- [Iteration 1 - MVP](../../wiki/iter1-MVP)
+- [Iteration 2 - Feature X](../../wiki/iter2-FeatureX)
+- [Iteration 3 - Feature Y](../../wiki/iter3-FeatureY)
+- [Iteration 4 - Feature Z](../..//wiki/iter4-FeatureZ)
 
 
 
