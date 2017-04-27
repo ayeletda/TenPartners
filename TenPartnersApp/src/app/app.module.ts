@@ -21,6 +21,7 @@ import { BoardComponent } from './pages/board/board.component';
     SettingsComponent,
     MyProjectsComponent,
     BoardComponent,
+    BoardComponent,
     
   ],
   imports: [
