@@ -6,12 +6,24 @@ import { Router } from '@angular/router';
   templateUrl: './voting.component.html',
   styleUrls: ['./voting.component.css']
 })
-export class VotingComponent implements OnInit {
 
-  constructor() { }
+export class VotingComponent implements OnInit 
+{
+   for : number = 0;
+   avoidance : number = 10;
+   against : number = 0;
+   numOfVotingLabel : number = 0;
 
-  ngOnInit() {
+  constructor(private router: Router) { }
 
-  }
+  ngOnInit() {}
+
+
+}
+
+
+var addProject=function()
+{
+   numOfVotingLabel = 1;
 
 }

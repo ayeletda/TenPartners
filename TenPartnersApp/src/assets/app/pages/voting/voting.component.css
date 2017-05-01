@@ -1,0 +1,83 @@
+
+header
+{
+    width:100%;
+    height: 30%;
+    text-align: center;
+    color: rebeccapurple;
+}
+
+.thePage
+{
+    padding: 0.5%;
+    background-color: #e6ccff;
+    height: 70%;
+}
+
+nav
+{
+    background-color: rebeccapurple;
+    width: 100%;
+    height: 20%;
+}
+
+.picture
+{
+    height: 16%;
+    width: 33.3%;
+	border: 2%;
+    border-color: white;
+    background-color: rebeccapurple;
+    border-style: solid;
+    float: left;
+}
+
+label
+{
+    width: 33.3%;
+    color: black;
+    float: left;
+        text-align: center;
+    padding: 0.5%;
+
+}
+
+#for
+{
+    background-color: lawngreen;
+}
+
+#avoidance
+{
+    background-color:yellow;
+}
+#against
+{
+    background-color:red;
+}
+
+.unavailablePic
+{
+    width: 25%;
+    height: 5%;
+    margin: 25%;
+    margin-left: 37.5%;
+}
+
+#upDiv
+{
+margin-top: 2%;
+height:18%;
+    padding: 2%;
+
+}
+
+#downDiv
+{
+margin-top: 2%;
+height:50%;
+border: 2%;
+border-color: rebeccapurple;
+background-color: white;
+padding: 2%;
+}
