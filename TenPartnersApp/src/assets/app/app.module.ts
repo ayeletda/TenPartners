@@ -11,7 +11,7 @@ import {appRoutes} from './routes';
 import { SettingsComponent } from './pages/settings/settings.component';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
-
+import { VotingComponent } from './pages/voting/voting.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { BoardComponent } from './pages/board/board.component';
     SettingsComponent,
     MyProjectsComponent,
     BoardComponent,
-    BoardComponent,
+    VotingComponent,
     
   ],
   imports: [
