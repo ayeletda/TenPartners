@@ -12,6 +12,7 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
+import { VotingProjectComponent } from './votingProject/votingProject.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { VotingComponent } from './pages/voting/voting.component';
     MyProjectsComponent,
     BoardComponent,
     VotingComponent,
+    VotingProjectComponent,
     
   ],
   imports: [
