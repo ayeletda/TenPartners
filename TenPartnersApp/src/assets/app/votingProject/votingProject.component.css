@@ -1,0 +1,44 @@
+
+main
+{
+    height: 16%;
+    width: 33.3%;
+	border: 2%;
+    border-color: white;
+    background-color: rebeccapurple;
+    border-style: solid;
+    float: left;
+}
+
+#unavailablePic
+{
+   
+   height: 100%;
+    width: 100%;
+    margin: 25%;
+    margin-left: 37.5%;
+}
+
+label
+{
+    width: 33.3%;
+    color: black;
+    float: left;
+        text-align: center;
+    padding: 0.5%;
+}
+
+#for
+{
+    background-color: lawngreen;
+}
+
+#avoidance
+{
+    background-color:yellow;
+}
+#against
+{
+    background-color:red;
+}
+

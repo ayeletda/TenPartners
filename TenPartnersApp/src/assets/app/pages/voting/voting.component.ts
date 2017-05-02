@@ -2,23 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-voating',
+  selector: 'app-voting',
   templateUrl: './voting.component.html',
   styleUrls: ['./voting.component.css']
 })
 
 export class VotingComponent implements OnInit 
 {
-   for : number = 0;
-   avoidance : number = 10;
-   against : number = 0;
-   numOfVotingLabel : number = 0;
-
   constructor(private router: Router) { }
 
   ngOnInit() {}
 
 
+<<<<<<< HEAD
 }
 
 
@@ -27,3 +23,6 @@ var addProject=function()
 //  numOfVotingLabel = 1;
 
 }
+=======
+}
+>>>>>>> 3955b6932ba034c81997b0291ea1cd9726b7a66b
