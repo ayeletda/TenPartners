@@ -2,21 +2,25 @@
 .bar{
     display: block;
     float: none;
-    font-family: 'comic sans ms';
+    font-family: "comic sans ms";
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
 
 }
+
 button{
     width: 42%;
     height: 42%;
-    padding: 2%;
-    margin: 2%;
+    padding: 4%;
+    margin: 4%;
     text-align: center;
-    min-height: 100px;
-    line-height: 100px;
-    background-color: #e2e2e2;
     float: left;
     border-radius: 10px 10px 10px 10px;
     display: table-cell;
+    color: white;
+    font-size: 300%;
+
 }
 
 .settings{
@@ -28,3 +32,36 @@ cursor: pointer;
 
 
 } 
+
+
+#board{
+
+    background-color: deepskyblue;
+    margin: 4%, 2%, 2%, 4%;
+    padding: 4%, 2%, 2%, 4%;
+
+}
+
+#voting{
+
+    background-color: deeppink;
+    margin: 4%, 4%, 2%, 2%;
+    padding: 4%, 4%, 2%, 2%;
+
+}
+
+#myProject{
+
+    background-color: limegreen;
+    margin: 2%, 2%, 4%, 4%;
+    padding: 2%, 2%, 4%, 4%;
+
+}
+
+#add{
+
+    background-color: darkblue;
+    margin: 2%, 4%, 4%, 2%;
+    padding: 2%, 4%, 4%, 2%;
+
+}

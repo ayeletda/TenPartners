@@ -24,6 +24,6 @@ export class VotingComponent implements OnInit
 
 var addProject=function()
 {
-   numOfVotingLabel = 1;
+//  numOfVotingLabel = 1;
 
 }
