@@ -14,7 +14,7 @@ export class VotingComponent implements OnInit
   ngOnInit() {}
 
 
-<<<<<<< HEAD
+
 }
 
 
@@ -23,6 +23,6 @@ var addProject=function()
 //  numOfVotingLabel = 1;
 
 }
-=======
-}
->>>>>>> 3955b6932ba034c81997b0291ea1cd9726b7a66b
+
+
+
