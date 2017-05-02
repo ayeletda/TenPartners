@@ -2,6 +2,8 @@
 .bar{
     display: block;
     float: none;
+    font-family: 'comic sans ms';
+
 }
 button{
     width: 42%;
