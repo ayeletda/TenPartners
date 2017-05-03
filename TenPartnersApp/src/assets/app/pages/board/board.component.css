@@ -34,7 +34,7 @@ footer, header, hgroup, menu, nav, section {
 header{
     height: 5%;
     width: 100%;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(197, 70, 212, 0.7);
 }
 
 header a img {

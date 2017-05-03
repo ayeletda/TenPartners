@@ -1,1 +1,62 @@
 /* You can add global styles to this file, and also import other style files */
+
+.slick-slider .slick-arrow {
+    position: absolute;
+    top: 50%;
+}
+
+.slick-slider .slick-arrow.slick-next {
+    text-indent: -9999px;
+    right: -30px;
+    border-radius: 40%;
+    top: 50%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    padding: 1%;
+    cursor: pointer;
+    color: transparent;
+    border-color:  #3498db;
+    outline: none;
+    background-color: transparent;
+}
+
+.slick-slider .slick-arrow.slick-prev {
+    text-indent: -9999px;
+    left: -30px;
+    border-radius: 40%;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;
+    padding:1%;
+    cursor: pointer;
+    color: transparent;
+    border-color:  #3498db;
+    outline: none;
+    background-color:transparent;
+}
+
+.slick-slider .slick-arrow.slick-next:before {
+    position: absolute;
+    text-indent: 0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    content: '❯';
+    color: #3498db;
+    border-radius: 60%;
+}
+
+.slick-slider .slick-arrow.slick-prev::before {
+    position: absolute;
+    text-indent: 0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    content: '❮';
+    color: #3498db;
+}
