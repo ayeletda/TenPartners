@@ -6,6 +6,7 @@ import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
 import { VotingProjectComponent } from './votingProject/votingProject.component';
 
+
 export const appRoutes: Routes=[
 {path:'', component: LoginComponent},
 {path:'home', component: HomeComponent},

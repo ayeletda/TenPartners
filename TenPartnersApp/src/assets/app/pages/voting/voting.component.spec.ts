@@ -28,3 +28,4 @@ describe('VotingComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
