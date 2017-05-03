@@ -8,9 +8,14 @@ import { Router } from '@angular/router';
 })
 export class BoardComponent implements OnInit {
 
-  constructor() { }
+    constructor(private router: Router) { }
 
   ngOnInit() {
+
+  }
+    clickOnHome(event){
+   
+    this.router.navigateByUrl('/'+event.currentTarget.id);
 
   }
 
