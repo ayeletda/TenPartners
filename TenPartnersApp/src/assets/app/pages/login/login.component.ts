@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
 
 
 clicked(username:HTMLInputElement, password:HTMLInputElement){
-  if(username.value=="advaav55@gmail.com"&&password.value=="1234"){
+  if((username.value=="1"&&password.value=="1")||(username.value=="2"&&password.value=="2")||
+  (username.value=="3"&&password.value=="3")){
     alert("Wellcom tenPartner")
   this.router.navigateByUrl('/home');
   }
