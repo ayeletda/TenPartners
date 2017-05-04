@@ -15,6 +15,27 @@ import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
 import { VotingProjectComponent } from './votingProject/votingProject.component';
 
+	
+	//imports for the firebase
+import { AngularFireModule } from 'angularfire2';
+
+//=====================================================
+
+//Initialize Firebase
+export const firebaseConfig = 
+{
+   apiKey: "AIzaSyBMzKXKKjDNxuOAU1v7o_hpSs1aZps-70I",
+    authDomain: "application-5baf2.firebaseapp.com",
+    databaseURL: "https://application-5baf2.firebaseio.com",
+    projectId: "application-5baf2",
+    storageBucket: "application-5baf2.appspot.com",
+    messagingSenderId: "253653996545"
+};
+
+//==================================================================
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +52,9 @@ import { VotingProjectComponent } from './votingProject/votingProject.component'
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireModule.initializeApp(firebaseConfig)
+
   ],
   providers: [],
   bootstrap: [AppComponent]

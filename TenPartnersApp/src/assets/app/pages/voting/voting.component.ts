@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AngularFire, AuthProviders, AuthMethods, FirebaseistObservable} from 'angularfire2'
 
 @Component({
   selector: 'app-voting',
