@@ -14,10 +14,10 @@ import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
 import { VotingProjectComponent } from './votingProject/votingProject.component';
-
 	
 	//imports for the firebase
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 //=====================================================
 
@@ -53,7 +53,9 @@ export const firebaseConfig =
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
