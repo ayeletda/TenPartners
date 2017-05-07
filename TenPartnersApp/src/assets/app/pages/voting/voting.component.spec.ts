@@ -5,6 +5,7 @@ import { DebugElement } from '@angular/core';
 import { VotingProjectComponent } from '../.././votingProject/votingProject.component';
 
 
+
 import { VotingComponent } from './voting.component';
 
 describe('VotingComponent', () => {

@@ -54,7 +54,6 @@ export const firebaseConfig =
     HttpModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig)
-
   ],
   providers: [],
   bootstrap: [AppComponent]
