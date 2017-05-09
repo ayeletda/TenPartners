@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+//import { AngularFire, AuthProviders, AuthMethods, FirebaseistObservable} from 'angularfire2';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @Component({
   selector: 'app-voting',
@@ -15,6 +17,8 @@ export class VotingComponent implements OnInit
 
 
 
+
+
 }
 
 
@@ -22,7 +26,7 @@ var addProject=function()
 {
 //  numOfVotingLabel = 1;
 
+
+
 }
-
-
 

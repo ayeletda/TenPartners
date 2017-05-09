@@ -1,6 +1,9 @@
 
+
 main
 {
+    font-family: "comic sans ms";
+    font-weight: bold;
     color:white;
     height: 100%;
     width: 33.3%;
@@ -20,6 +23,8 @@ main
 
 #unavailablePic
 {
+    text-align: center;
+    display: block;
     float:  center;
 }
 
