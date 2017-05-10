@@ -13,10 +13,20 @@ export class VotingProjectComponent implements OnInit
    avoidance : number = 10;
    against : number = 0;
    numOfVotingLabel : number = 0;
+   madeDesiciion: boolean = true;
 
   constructor(private router: Router) { }
 
   ngOnInit() {}
 
+  votUp() {
+    this.for++;
+    this.madeDesiciion = !this.madeDesiciion;
+  }
 
+  votDown(){
+    this.for--;
+    this.against++;
+    this.madeDesiciion = !this.madeDesiciion;
+  }
 }

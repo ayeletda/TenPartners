@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "tenpartners-3d1e8"
+    "default": "application-5baf2",
+    "application": "application-5baf2"
   }
 }
