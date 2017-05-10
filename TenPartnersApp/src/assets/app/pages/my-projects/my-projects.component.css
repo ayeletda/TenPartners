@@ -11,8 +11,16 @@ body {
 	background: url('http://www.up2me.co.il/images/51167478.png');
 }
 
-.project {
+.clear{
 	clear: both;
+}
+
+.Price{
+display: inline;
+}
+
+.project {
+
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: 1.5px solid #cccccc;
@@ -57,7 +65,8 @@ h3 {
 	background: none;
 	color: none;
 	cursor: pointer;
-	float: right;
+
+	display: inline;
 }
 
 #pencilButton1:hover, #pencilButton2:hover{
