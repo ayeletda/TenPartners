@@ -24,16 +24,15 @@ export class LoginComponent implements OnInit {
 clicked(username:HTMLInputElement, password:HTMLInputElement){
   this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
   then((user)=>{
-    console.log(user)
+    console.log(user);
+    alert("Wellcom tenPartner");
+    this.router.navigateByUrl('/home');
+
   })
   .catch((error)=>{
+        alert("Email or password incorrect");
 
   });
-  if((username.value=="1"&&password.value=="1")||(username.value=="2"&&password.value=="2")||
-  (username.value=="3"&&password.value=="3")){
-    alert("Wellcom tenPartner")
-  this.router.navigateByUrl('/home');
-  }
 
 password.value=null;
 username.value=null;
