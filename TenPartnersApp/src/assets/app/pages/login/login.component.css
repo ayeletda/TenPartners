@@ -8,11 +8,14 @@ font-style: bold;
 text-decoration: underline;
 padding-top: 10px;
 font-size: 10px;
+cursor: pointer;
+
 
 }
 
 
 .forget{
+    cursor: pointer;
     font-style: bold;
     text-align: center;
     text-decoration: underline;
@@ -37,4 +40,3 @@ img{
     margin-left: auto;
     margin-right: auto;
     }
-
