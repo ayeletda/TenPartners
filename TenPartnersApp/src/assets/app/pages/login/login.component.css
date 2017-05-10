@@ -9,8 +9,11 @@ text-decoration: underline;
 padding-top: 10px;
 font-size: 10px;
 cursor: pointer;
+}
 
+.login{
 
+    margin:10px;
 }
 
 
