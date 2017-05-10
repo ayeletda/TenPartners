@@ -5,6 +5,20 @@ margin-top: 10px;
 .about{
 text-align: center;
 font-style: bold;
+
+}
+
+.pass{
+    padding-top: 10px;
+}
+
+.forget{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 10px;
+}
+.services{
+    padding-top: 10px;
 }
 
 img{
