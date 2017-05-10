@@ -10,7 +10,6 @@ margin: 1%;
 
 main
 {
-width: 100%;
 height: 90%;
 float: left;
 display: block;
@@ -66,8 +65,7 @@ img
 
 button
 {
-    width: 42%;
-    height: 42%;
+   
     padding: 4%;
     margin: 4%;
     text-align: center;
@@ -75,7 +73,8 @@ button
     border-radius: 10px 10px 10px 10px;
     display: table-cell;
     color: white;
-    line-height: 250%;
+     width: 42%;
+    height: 42%;
 
 }
 
