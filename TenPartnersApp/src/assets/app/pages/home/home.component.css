@@ -1,27 +1,10 @@
-
-header
-{
-width: 100%;
-height: 10%;
-display: inline-block;
-margin: 1%;
-
-}
-
-main
-{
-height: 90%;
-float: left;
-display: block;
-
-
+header{
+    background-color: black;
 }
 
 
 #house
 {
-padding-left: auto;
-float: left;
 cursor: pointer;
 color: #cc0000;
 margin: 1px;
@@ -31,88 +14,15 @@ margin: 1px;
 
 #settings
 {
-padding-left: auto;
-float: left;
 cursor: pointer;
 font-size: 140%;
 margin: 1px;
 text-align: center;
-
+background-color: black;
+color: white;
 } 
 
-img
-{
-    width: 200px;
-    position: absolute;
-    margin: 1px;
-    margin-right: auto;
-    margin-left: auto;
-
-}
-
-.bar
-{
-    position: absolute;
-    display: block;
-    float: none;
-    font-family: "comic sans ms";
-    font-weight: bold;
-    height: 100%;
+button{
     width: 100%;
-    font-size: 200%;
-
-}
-
-button
-{
-   
-    padding: 4%;
-    margin: 4%;
-    text-align: center;
-    float: left;
-    border-radius: 10px 10px 10px 10px;
-    display: table-cell;
-    color: white;
-     width: 42%;
-    height: 42%;
-
-}
-
-
-
-
-#board
-{
-
-    background-color: deepskyblue;
-    margin: 4%, 2%, 2%, 4%;
-    padding: 4%, 2%, 2%, 4%;
-
-}
-
-#voting
-{
-
-    background-color: deeppink;
-    margin: 4%, 4%, 2%, 2%;
-    padding: 4%, 4%, 2%, 2%;
-
-}
-
-#myProjects
-{
-
-    background-color: limegreen;
-    margin: 2%, 2%, 4%, 4%;
-    padding: 2%, 2%, 4%, 4%;
-
-}
-
-#add
-{
-
-    background-color: darkblue;
-    margin: 2%, 4%, 4%, 2%;
-    padding: 2%, 4%, 4%, 2%;
-
+    height: 130px;
 }
