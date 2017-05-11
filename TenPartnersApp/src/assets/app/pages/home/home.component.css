@@ -1,5 +1,6 @@
 header{
     background-color: black;
+    margin-bottom: 10px;
 }
 
 
@@ -23,6 +24,7 @@ color: white;
 } 
 
 button{
-    width: 100%;
+    width: 95%;
     height: 130px;
+    margin: 7px;
 }
