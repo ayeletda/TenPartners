@@ -19,6 +19,8 @@ import { VotingProjectComponent } from './votingProject/votingProject.component'
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
 //=====================================================
 
 //Initialize Firebase
@@ -54,7 +56,8 @@ export const firebaseConfig =
     HttpModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   
   ],
   providers: [],
