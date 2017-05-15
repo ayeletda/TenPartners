@@ -1,31 +1,61 @@
 
+<div class="container">
+    <header class="jumbotron  text-center">
+        <h1>Voting In Progress</h1>
+    </header>
 
-<header>
-    <h1>Voting In Progress</h1>
-</header>
+    <div class = "thePage container">
 
-<div class = "thePage">
-    <nav>
-        <div class="picture" id="pic1">  
-            <app-votingProject></app-votingProject>  
+        <div class = "navbar navbar-default  ">
+             <div #scrollMeProj class = "vertical-menu-x" > <!----------------------------------- -->
+                <div class="picture" id="pic1">  
+                    <app-votingProject></app-votingProject>  
+                </div>
+                <div class="picture" id="pic2">
+                    <app-votingProject></app-votingProject>           
+                </div>
+                <div class="picture" id="pic3">
+                    <app-votingProject></app-votingProject> 
+                </div>
+                <!--<div class="picture" id="pic4">
+                    <app-votingProject></app-votingProject>           
+                </div>-->
+             </div>
         </div>
-        <div class="picture" id="pic2">
-             <app-votingProject></app-votingProject>           
-        </div>
-        <div class="picture" id="pic3">
-             <app-votingProject></app-votingProject> 
-        </div>
-    </nav>
 
-    <main>
-        <div id="upDiv">
-            <h2> No projects have been selected for discussion yet... </h2>
-        </div>
+        <main>
+            <div id="upDiv">
+                <h2> No projects have been selected for discussion yet... </h2>
+            </div>
 
-        <div id="downDiv">
-The chat will be here
+            <div id="downDiv">
+                <div class = "container downDiv" >
 
-         </div>
-    </main>
+                <!-- <div class = "text-center"> askjdnsakjlndasndnasn </div> -->
+                    <div #scrollMe class = "vertical-menu" >
+                        <div *ngFor = "let message of messages | async" > 
+                            <!--<div *ngIf = "needToPrint(message.timestamp | date: 'dd/MM/yy')">
+                                <p class = "date-stamp"> {{ message.timestamp | date: "MM/dd/yy" }} </p> 
+                            </div> -->
+                            <div class = "bubble" [class.bubble-alt] = "isMe(message.name)" [class.yellow] = "isMe(message.name)" [class.green] = "!isMe(message.email)">
+                                <p id = "msg-name"> {{ message.displayName }}</p>
+                                <p id = "msg-context"> {{ message.message }} </p>
+                                <div class = "author">
+                                    <span> {{ message.timestamp | date: "MM/dd/yy hh:mm a" }} </span>
+                                </div>
+                            </div>
+                         </div>
+                     </div>
+                    
+                <div class = "input-group">
+                    <span class = "input-group-btn"> 
+                    <button class = "btn btn-primary" type = "submit" (click) = "sendMessage()"> <i class = "fa fa-arrow-up"></i> שלח </button>
+                    </span>
+                    <input type = "text" class = "form-control" id = "msg-input" placeholder = "..כתוב את הודעתך כאן" (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">
+                </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
 </div>
-

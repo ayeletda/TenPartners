@@ -13,20 +13,36 @@ export class VotingProjectComponent implements OnInit
    avoidance : number = 10;
    against : number = 0;
    numOfVotingLabel : number = 0;
-   madeDesiciion: boolean = true;
+   votingFor: boolean = false;
+   votingFirstTime: boolean = true; // saves if it the first time that person voting (true) or not (false)
 
   constructor(private router: Router) { }
 
   ngOnInit() {}
 
-  votUp() {
+  votFor() 
+  {
     this.for++;
-    this.madeDesiciion = !this.madeDesiciion;
+
+    if(!this.votingFirstTime)
+      this.against--;
+    else
+      this.avoidance--;
+    
+    this.votingFirstTime = false;
+    this.votingFor = true;
   }
 
-  votDown(){
-    this.for--;
+  votAgainst()
+  {
     this.against++;
-    this.madeDesiciion = !this.madeDesiciion;
+
+    if(!this.votingFirstTime)
+      this.for--;
+    else
+      this.avoidance--;
+    
+    this.votingFirstTime = false;
+    this.votingFor = false;
   }
 }
