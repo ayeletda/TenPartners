@@ -1,17 +1,25 @@
 
-<div class = "login">
-  <img src="https://camo.githubusercontent.com/aa3e5981c6386ed94a17840118d033a991448ae5/68747470733a2f2f692e696d6775722e636f6d2f507a46567579612e706e67" claas = "logo" />
+<div class = "login" >
+  <div class = "logo">
+  <img src="https://camo.githubusercontent.com/aa3e5981c6386ed94a17840118d033a991448ae5/68747470733a2f2f692e696d6775722e636f6d2f507a46567579612e706e67"  class="img-responsive" alt="Cinque Terre"/>
+  </div>
+  <div class="input-group margin-bottom-sm">
+  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+  <input class="form-control" type="text" placeholder="Email address" #username>
+  </div>
+  <div class="input-group">
+  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+  <input class="form-control" type="password" placeholder="Password" #password>
+  </div>
 
-  <h2>Login</h2>
-            <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" #username required />
 
-
-            <label for="password">Password</label>
-            <input type="password" class="form-control" name="password" #password required />
-
-
-            <button [disabled]="loading" class="btn btn-primary" (click)="clicked(username,password)" >Login</button>
-            
+            <button [disabled]="loading" class="btn btn-primary btn-sm btn-block" (click)="clicked(username,password)" >Sign In</button>
+            <div class = "services">
+            or sing in using following services
+           <i class="fa fa-facebook" aria-hidden="true" fa-2x></i>
+           <i class="fa fa-google" aria-hidden="true" fa-2x></i>
+           <i class="fa fa-twitter" aria-hidden="true" fa-2x></i> 
+            </div>       
+            <div class = "forget"> I forget my password</div>     
             <div class = "about">About as</div>
 <div>

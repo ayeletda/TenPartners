@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
 clicked(username:HTMLInputElement, password:HTMLInputElement){
   this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
   then((user)=>{
-    console.log(user);
     alert("Wellcom tenPartner");
     this.router.navigateByUrl('/home');
 
