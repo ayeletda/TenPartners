@@ -3,8 +3,12 @@
     margin-bottom: 10px;
 }
 
+main{
+	margin-top: 50px;
+}
 
-#house
+
+#home
 {
 cursor: pointer;
 color: #cc0000;
@@ -27,7 +31,7 @@ right: 0px;
 button{
     width: 95%;
     height: 130px;
-    margin: 7px;
+    margin: 9px;
     border-radius: 12px;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 
