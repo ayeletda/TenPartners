@@ -2,8 +2,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-
 import { BoardComponent } from './board.component';
+import { ProjectForSelectComponent } from '../.././projectForSelect/projectForSelect.component'; // check if we needto import that
 
 describe('BoardComponent', () => {
   let component: BoardComponent;

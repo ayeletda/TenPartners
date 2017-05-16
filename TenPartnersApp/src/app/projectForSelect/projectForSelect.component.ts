@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-votingProject',
-  templateUrl: './votingProject.component.html',
-  styleUrls: ['./votingProject.component.css']
+  selector: 'app-projectForSelect',
+  templateUrl: './projectForSelect.component.html',
+  styleUrls: ['./projectForSelect.component.css']
 })
 
-export class VotingProjectComponent implements OnInit 
+export class ProjectForSelectComponent implements OnInit 
 {
    for : number = 0;
    avoidance : number = 10;

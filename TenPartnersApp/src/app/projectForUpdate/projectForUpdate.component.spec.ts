@@ -2,22 +2,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { ProjectForUpdateComponent } from './projectForUpdate.component';
 
-import { VotingProjectComponent } from './votingProject.component';
-
-describe('VotingProjectComponent', () => {
-  let component: VotingProjectComponent;
-  let fixture: ComponentFixture<VotingProjectComponent>;
+describe('ProjectForUpdateComponent', () => {
+  let component: ProjectForUpdateComponent;
+  let fixture: ComponentFixture<ProjectForUpdateComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ VotingProjectComponent ]
+      declarations: [ ProjectForUpdateComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(VotingProjectComponent);
+    fixture = TestBed.createComponent(ProjectForUpdateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,3 +1,6 @@
+
+//======================================  imports  ========================================
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -5,23 +8,27 @@ import { HttpModule } from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {appRoutes} from './routes';
  
-//imports for the pages
+// imports for pages
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
-import { VotingProjectComponent } from './votingProject/votingProject.component';
+
+// import for items in pages
 import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProjectForVoteComponent } from './projectForVote/projectForVote.component';
+import { ProjectForUpdateComponent } from './projectForUpdate/projectForUpdate.component';
+import { ProjectForSelectComponent } from './projectForSelect/projectForSelect.component';
 	
-	//imports for the firebase
+// imports for firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
-
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 
-//=====================================================
+//=============================================================================================
 
 //Initialize Firebase
 export const firebaseConfig = 
@@ -36,18 +43,22 @@ export const firebaseConfig =
 
 //==================================================================
 
-
-
 @NgModule({
-  declarations: [
-    AppComponent,
-    LoginComponent,
-    HomeComponent,
-    MyProjectsComponent,
-    BoardComponent,
-    VotingComponent,
-    VotingProjectComponent,
-    HeaderComponent
+  declarations:
+   [
+      AppComponent,
+      
+      LoginComponent,
+      HomeComponent,
+      MyProjectsComponent,
+      BoardComponent,
+      VotingComponent,
+      
+      HeaderComponent,
+      FooterComponent,
+      ProjectForVoteComponent,
+      ProjectForUpdateComponent,
+      ProjectForSelectComponent
   ],
 
   imports: [

@@ -2,21 +2,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
-import { HeaderComponent } from './header.component';
+import { ProjectForVoteComponent } from './projectForVote.component';
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent;
-  let fixture: ComponentFixture<HeaderComponent>;
+describe('ProjectForVoteComponent', () => {
+  let component: ProjectForVoteComponent;
+  let fixture: ComponentFixture<ProjectForVoteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+      declarations: [ ProjectForVoteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HeaderComponent);
+    fixture = TestBed.createComponent(ProjectForVoteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
