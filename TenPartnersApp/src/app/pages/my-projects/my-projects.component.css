@@ -5,9 +5,11 @@
 	clear: both;
 }
 
+
+
 body {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 25px;
+	font-size: 20px;
 	background: url('http://www.up2me.co.il/images/51167478.png');
 }
 
@@ -32,11 +34,23 @@ body {
 	display: inline-block;
 }
 
-.title {
-	float: left;
-	width: 35%;
-	height: 10%;
+body{
+	position: absolute;
+	display: block;
 }
+
+head{
+	display: block;
+	text-align: center;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-size: 30px;
+	margin: 10px;
+}
+.title {
+	display: block;
+	float: left;
+	height: 10%;
+	}
 
 h3 {
 	color: #353535;
@@ -45,7 +59,6 @@ h3 {
 }
 
 .managementOptions {
-	width: 35%;
 	height: 10%;
 	font-size: 100%;
 }
