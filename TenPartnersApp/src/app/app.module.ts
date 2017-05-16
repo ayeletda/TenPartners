@@ -13,6 +13,7 @@ import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
 import { VotingProjectComponent } from './votingProject/votingProject.component';
+import { HeaderComponent } from './header/header.component';
 	
 	//imports for the firebase
 import { AngularFireModule } from 'angularfire2';
@@ -45,7 +46,8 @@ export const firebaseConfig =
     MyProjectsComponent,
     BoardComponent,
     VotingComponent,
-    VotingProjectComponent
+    VotingProjectComponent,
+    HeaderComponent
   ],
 
   imports: [
