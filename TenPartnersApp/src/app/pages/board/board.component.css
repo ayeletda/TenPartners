@@ -14,9 +14,9 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, hgroup,
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video { /*header*/
     margin: 0;
     padding: 0;
     border: 0;
@@ -28,20 +28,20 @@ time, mark, audio, video {
 
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+footer, hgroup, menu, nav, section { /*header*/
     display: block;
 }
-header{
+/*header{
     height: 5%;
     width: 100%;
     background-color: rgba(197, 70, 212, 0.7);
-}
-header a {
+}*/
+ a { /*header*/
     cursor: pointer;
 
 }
 
-header a img {
+ a img { /*header*/
     border: 0;
     width: 33px;
     padding: 5px 5px 0;

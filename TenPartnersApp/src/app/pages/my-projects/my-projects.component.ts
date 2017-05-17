@@ -13,9 +13,4 @@ export class MyProjectsComponent implements OnInit
   constructor(private router: Router) { }
 
   ngOnInit() {}
-  
-  clickOnMyProjects(event)
-  {
-    this.router.navigateByUrl('/'+event.currentTarget.id);
-  }
 }

@@ -4,24 +4,29 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { ProjectForSelectComponent } from './projectForSelect.component';
 
-describe('ProjectForSelectComponent', () => {
+describe('ProjectForSelectComponent', () => 
+{
   let component: ProjectForSelectComponent;
   let fixture: ComponentFixture<ProjectForSelectComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async(() => 
+  {
+    TestBed.configureTestingModule(
+    {
       declarations: [ ProjectForSelectComponent ]
     })
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() => 
+  {
     fixture = TestBed.createComponent(ProjectForSelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () => 
+  {
     expect(component).toBeTruthy();
   });
 });
