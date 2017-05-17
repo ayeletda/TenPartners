@@ -1,12 +1,12 @@
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
-
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { ChangeDetectorRef } from "@angular/core";
 
-@Component({
+@Component(
+{
   selector: 'app-voting',
   templateUrl: './voting.component.html',
   styleUrls: ['./voting.component.css']
@@ -18,18 +18,16 @@ export class VotingComponent implements OnInit, AfterViewChecked
   {
     this.messages = this.af.list('messages');
     this.newMessage = '';
-   }
+  }
 
   ngOnInit() {}
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   savedDate: string = '';
-
-
-public newMessage: string;
+  public newMessage: string;
   public messages: FirebaseListObservable<any>;
-name: string = "Avia"; //////////////////////////////////////////////////////////////////////////////////////////////////
+  name: string = "Avia"; //////////////////////////////////////////////////////////////////////////////////////////////////
 
   // ==================================================
 
@@ -37,9 +35,9 @@ name: string = "Avia"; /////////////////////////////////////////////////////////
   {
     if (name == "Avia")
       return true;
-
-      return false;
+    return false;
   }
+  
   /*
   isMe(email) 
   {
@@ -76,16 +74,18 @@ name: string = "Avia"; /////////////////////////////////////////////////////////
   }
 
 
-ngAfterViewChecked() 
- {
+  ngAfterViewChecked() 
+  {
     // this.scrollToBottom();
   }
 
   scrollToBottom(): void 
   {
-    try {
+    try 
+    {
         this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } catch(err) { }
+    } 
+    catch(err) { }
   }
 
 }

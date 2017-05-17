@@ -3,26 +3,31 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { BoardComponent } from './board.component';
-import { ProjectForSelectComponent } from '../.././projectForSelect/projectForSelect.component'; // check if we needto import that
+import { ProjectForSelectComponent } from '../.././projectForSelect/projectForSelect.component';
 
-describe('BoardComponent', () => {
+describe('BoardComponent', () =>
+{
   let component: BoardComponent;
   let fixture: ComponentFixture<BoardComponent>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
+  beforeEach(async(() =>
+  {
+    TestBed.configureTestingModule(
+    {
       declarations: [ BoardComponent ]
     })
     .compileComponents();
   }));
 
-  beforeEach(() => {
+  beforeEach(() => 
+  {
     fixture = TestBed.createComponent(BoardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create', () => 
+  {
     expect(component).toBeTruthy();
   });
 });

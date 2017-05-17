@@ -1,115 +1,20 @@
-* {
-	padding: 0;
-	border: 0;
-	margin: 0;
-	clear: both;
-}
 
-
-
-body {
-	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 20px;
-	background: url('http://www.up2me.co.il/images/51167478.png');
-}
-
-.clear {
-	clear: both;
-}
-
-.project {
-	box-sizing: border-box;
-	border-radius: 5px;
-	border: 1.5px solid #cccccc;
-	box-shadow: 0 0 10px #e6e6e6;
-	background-color: #F5F5F5;
-	padding: 1% 1% 1% 1%;
-	margin-top: 1%;
-	margin-left: 0.5%;
-	margin-right: 0.5%;
-	height: 20%;
-}
-
-.title, .managementOptions, .cancelManagement {
-	display: inline-block;
-}
-
-body{
-	position: absolute;
-	display: block;
-}
-
-head{
+head
+{
 	display: block;
 	text-align: center;
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	font-size: 30px;
 	margin: 10px;
 }
-.title {
-	display: block;
-	float: left;
-	height: 10%;
-	}
 
-h3 {
-	color: #353535;
-	margin-left: 2%;
-	font-size: 30px;
-}
-
-.managementOptions {
-	height: 10%;
-	font-size: 100%;
-}
-
-.Price, .Date {
-	float: left;
-}
-
-#pencilButton1, #pencilButton2 {
-	background: none;
-	color: none;
-	cursor: pointer;
-	display: inline;
-}
-
-#pencilButton1:hover, #pencilButton2:hover{
-	background-color: #d3d3d3;
-	border-radius: 50%;
-}
-
-#pencilButton1:active, #pencilButton2:active {
-	box-shadow: 3px 3px 10px #888888;
-	transform: transleteY(4px);
-}
-
-.praceInput, .dateInput {
-	background: none;
-}
-
-.cancelManagement {
-	float: right;
-	height: 10%;
+body
+{
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-size: 20px;
+	background: url('http://www.up2me.co.il/images/51167478.png');
+	position: absolute;
+	display: block;
 }
 
-#cmdCancelManagement {
-	padding: 1.5%;
-	font-size: 100%;
-	color: #353535;
-	border-radius: 8%;
-	border: 1.5px solid #353535;
-	text-align: center;
-	cursor: pointer;
-}
 
-#cmdCancelManagement:hover {
-	background-color: #c0c0c0;
-}
-
-#cmdCancelManagement:active{
-	background-color: #d3d3d3;
-	box-shadow: 3px 3px 10px #888888;
-	transform: transleteY(4px);
-}
