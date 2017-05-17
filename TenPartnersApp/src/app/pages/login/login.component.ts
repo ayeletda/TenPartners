@@ -13,10 +13,14 @@ import * as firebase from 'firebase/app';
 
 export class LoginComponent implements OnInit 
 {
-  username:string = '';
-  password:string = '';
+  username:string;
+  password:string;
 
-  constructor(private router: Router, public anguarfireAuth:AngularFireAuth) { }
+  constructor(private router: Router, public anguarfireAuth:AngularFireAuth)
+  {
+    this.username='';
+    this.password='';
+  }
 
   ngOnInit() {}
 
@@ -36,6 +40,6 @@ export class LoginComponent implements OnInit
     password.value=null;
     username.value=null;
   }
-  
+
 }
 
