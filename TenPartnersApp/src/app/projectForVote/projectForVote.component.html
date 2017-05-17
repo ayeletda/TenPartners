@@ -1,5 +1,5 @@
-    <main>
-    
+<main>
+
     <div id="up">
         <i class="fa fa-clock-o fa-2x" id="clock" aria-hidden="true"></i>
         <div class = "row">
@@ -10,18 +10,14 @@
                 <i class = "fa fa-thumbs-o-down" id="unlike" aria-hidden="true" (click)="votAgainst()" *ngIf="votingFor || votingFirstTime" ></i>
             </div>
         </div>
-
     </div>
-
 
    <!-- <i class="fa fa-picture-o fa-5x" id="unavailablePic" aria-hidden="true"></i>-->
 
     <div id = "down">
-    
-    <label for="for" id="for"><i class=" fa fa-thumbs-o-up fa-lg" aria-hidden="true" ></i><p> {{for}} </p> </label>
-    <label for="avoidance" id="avoidance"><i class="fa fa-ban" aria-hidden="true"></i> <p>{{avoidance}}</p></label>
-    <label for="against" id="against" ><i class=" fa fa-thumbs-o-down fa-lg " aria-hidden="true"></i><p> {{against}} </p></label>  
-    
+        <label for="for" id="for"><i class=" fa fa-thumbs-o-up fa-lg" aria-hidden="true" ></i><p> {{for}} </p> </label>
+        <label for="avoidance" id="avoidance"><i class="fa fa-ban" aria-hidden="true"></i> <p>{{avoidance}}</p></label>
+        <label for="against" id="against" ><i class=" fa fa-thumbs-o-down fa-lg " aria-hidden="true"></i><p> {{against}} </p></label>     
     </div>
 
-    </main>
+</main>

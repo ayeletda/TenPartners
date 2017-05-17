@@ -1,0 +1,50 @@
+
+/*=========== main\top-side of project's square ==========*/
+
+main
+{
+    font-family: "comic sans ms";
+    font-weight: bold;
+    color:white;
+    height: 100%;
+    width: 33.3%;
+	border: 2%;
+    border-color: white;
+    background-color: rebeccapurple;
+    border-style: solid;
+    float: left;
+}
+
+.align-right
+{
+    text-align: right;
+    height: 90%;
+}
+
+#up
+{
+    height: 100px;
+    width: 100%;
+    padding:10%;
+}
+
+#unavailablePic, #projectName
+{
+    text-align: center;
+    display: block;
+    float:  center;
+}
+
+/*================ footer of project's square ==============*/
+
+#down
+{
+    height: 20%;
+    width: 100%;
+}
+
+#clock
+{
+ position: absolute;
+ text-align: center;   
+}

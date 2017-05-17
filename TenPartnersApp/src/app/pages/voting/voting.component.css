@@ -131,8 +131,7 @@ p
 
 input::placeholder
 {
-    text-align: right;
-
+    text-align: left;
 }
 
 #msg-name, #msg-context
