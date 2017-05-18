@@ -1,24 +1,27 @@
 
 .header{
     background-color: black;
+    height: 35px;
 }
 
-#home
-{
-cursor: pointer;
-color: #cc0000;
-margin: 1px;
-
-
-}
-
-#settings
+#return
 {
 cursor: pointer;
 color: white;
-margin-top: 7px;
-margin-right: 10px;
+margin: 1px;
+display: inline;
+position: absolute;
+margin: 5px;
+}
+
+#logout
+{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+cursor: pointer;
+color:gray;
 position: absolute;
 right: 0px;
+margin: 6px;
+text-align: center;
 
 } 
