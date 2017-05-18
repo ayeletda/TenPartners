@@ -17,4 +17,8 @@ body
 	display: block;
 }
 
+ app-footer{
+	 position: absolute;
+	 bottom: 0%;
+ }
 

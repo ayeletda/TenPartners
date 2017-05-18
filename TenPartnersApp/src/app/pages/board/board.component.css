@@ -206,3 +206,8 @@ body {
 .clear {
     clear: both;
 }
+
+ app-footer{
+	 position: absolute;
+	 bottom: 0%;
+ }

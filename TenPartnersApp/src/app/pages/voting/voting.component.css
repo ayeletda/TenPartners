@@ -322,3 +322,9 @@ input::placeholder
 .pink:after {
   border-bottom-color: #ffbee3;
 }
+
+
+ app-footer{
+	 position: absolute;
+	 bottom: 0%;
+ }
