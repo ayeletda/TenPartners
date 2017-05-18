@@ -3,6 +3,10 @@
   <div class = "logo">
   <img src="https://camo.githubusercontent.com/aa3e5981c6386ed94a17840118d033a991448ae5/68747470733a2f2f692e696d6775722e636f6d2f507a46567579612e706e67"  class="img-responsive" alt="Cinque Terre"/>
   </div>
+
+
+
+<main>
   <div class="input-group margin-bottom-sm">
   <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
   <input class="form-control" type="text" placeholder="Email address" #username>
@@ -13,13 +17,22 @@
   </div>
 
 
+
+
+
+
             <button [disabled]="loading" class="btn btn-primary btn-sm btn-block" (click)="clicked(username,password)" >Sign In</button>
-            <div class = "services">
-            or sign in using following services
-           <i class="fa fa-facebook" aria-hidden="true" fa-2x></i>
-           <i class="fa fa-google" aria-hidden="true" fa-2x></i>
-           <i class="fa fa-twitter" aria-hidden="true" fa-2x></i> 
-            </div>       
-            <div class = "forget"> I forget my password</div>     
+            <div class = "service">
+            <button [disabled]="loading" class="btn btn-primary btn-sm btn-block" (click)="clicked(username,password)" id = "face">Sign In with facebook   <i class="fa fa-facebook" aria-hidden="true" fa-2x></i>
+</button>
+            <button [disabled]="loading" class="btn  btn-primary btn-sm btn-block" (click)="clicked(username,password)" id = "twit" >Sign In with twitter    <i class="fa fa-twitter" aria-hidden="true" fa-2x></i> 
+</button>
+            <button [disabled]="loading" class="btn  btn-primary btn-sm btn-block" (click)="clicked(username,password)" id = "google" >Sign In< with google     <i class="fa fa-google" aria-hidden="true" fa-2x></i>
+ </button>
+
+  </div> <footer>     
+            <div class = "forget"> Forget password?</div>     
             <div class = "about">About as</div>
+</footer>
+</main>
 <div>
