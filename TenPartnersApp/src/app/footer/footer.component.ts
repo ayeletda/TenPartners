@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component(
 {
@@ -9,7 +11,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class FooterComponent implements OnInit 
 {
-  constructor() {}
+ constructor(private router: Router) { }
 
   ngOnInit() {}
+  
+  clicked(event){
+    console.log(event.currentTarget.id);
+    if(event.currentTarget.id=="add")
+      window.location.href='http://www.google.com/';
+
+   else this.router.navigateByUrl('/'+event.currentTarget.id);
+
+  }
+
 }
