@@ -9,6 +9,7 @@ header
     width:100%;
     height: 10%;
     color: rebeccapurple;
+    margin-top: 35px;
 }
 .navbar, .navbar-default
 {

@@ -8,6 +8,10 @@ head
 	margin: 10px;
 }
 
+header{
+	margin-top:35px;
+}
+
 body
 {
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
