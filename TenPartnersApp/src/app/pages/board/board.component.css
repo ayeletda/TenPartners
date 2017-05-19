@@ -132,6 +132,10 @@ body {
     background-color: transparent;
 }
 
+header{
+    margin-top: 35px;
+}
+
 .slick-slider .slick-arrow.slick-prev {
     text-indent: -9999px;
     left: -30px;
