@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
+import { SettingsComponent } from './settings/settings.component';
+
 
 // import for items in pages -------> check if we need that here ---> I DONT THINK SO..
 import { ProjectForVoteComponent } from './projectForVote/projectForVote.component';
@@ -25,4 +27,7 @@ export const appRoutes: Routes=
     {path:'myProjects', component: MyProjectsComponent},
     {path:'board', component: BoardComponent},
     {path:'voting', component: VotingComponent},
+    {path:'settings', component: SettingsComponent}
+
+
 ];

@@ -16,7 +16,13 @@ export class HeaderComponent implements OnInit
   
   logOut(){
     this.router.navigateByUrl('');
-
   }
+
+goHome(){
+    this.router.navigateByUrl('/home');
+  
+}
+
+
 
 }

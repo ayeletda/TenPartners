@@ -27,6 +27,7 @@ import { ProjectForSelectComponent } from './projectForSelect/projectForSelect.c
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { SettingsComponent } from './settings/settings.component';
 
 //=============================================================================================
 
@@ -58,7 +59,8 @@ export const firebaseConfig =
       FooterComponent,
       ProjectForVoteComponent,
       ProjectForUpdateComponent,
-      ProjectForSelectComponent
+      ProjectForSelectComponent,
+      SettingsComponent
   ],
 
   imports: [
