@@ -1,8 +1,6 @@
 .title{
     color: white;
     display: block;
-    position: absolute;
-    width: 100%;
     text-align: center;
     margin-top:6px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -39,6 +37,7 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 cursor: pointer;
 color:gray;
 position: absolute;
+display: block;
 right: 0px;
 margin: 6px;
 text-align: center;
