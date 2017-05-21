@@ -9,7 +9,7 @@
 	clear: both;
 }
 
-.project {
+main {
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: 1.5px solid #cccccc;
@@ -20,6 +20,7 @@
 	margin-left: 0.5%;
 	margin-right: 0.5%;
 	height: 20%;
+	width: 100%;
 }
 
 .title, .managementOptions, .cancelManagement {
@@ -27,10 +28,9 @@
 }
 
 .title {
-	display: block;
 	float: left;
 	height: 10%;
-	}
+}
 
 h3 {
 	color: #353535;
