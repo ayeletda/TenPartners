@@ -14,8 +14,8 @@ import { SettingsComponent } from './settings/settings.component';
 
 // import for items in pages -------> check if we need that here ---> I DONT THINK SO..
 import { ProjectForVoteComponent } from './projectForVote/projectForVote.component';
-import { ProjectForUpdateComponent } from './ProjectForUpdate/ProjectForUpdate.component';
-import { ProjectForSelectComponent } from './ProjectForSelect/ProjectForSelect.component';
+import { ProjectForUpdateComponent } from './projectForUpdate/projectForUpdate.component';
+import { ProjectForSelectComponent } from './projectForSelect/projectForSelect.component';
 
 
 //===============================  defined paths  ==================================

@@ -1,3 +1,12 @@
+.title{
+    color: white;
+    display: block;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    margin-top:6px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 .head{
     background-color: black;
@@ -18,9 +27,10 @@
 cursor: pointer;
 color: white;
 margin: 1px;
-display: inline;
+display: inline-block;
 position: absolute;
 margin: 5px;
+margin-right: 0;
 }
 
 #logout
@@ -29,8 +39,9 @@ font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 cursor: pointer;
 color:gray;
 position: absolute;
+display: block;
 right: 0px;
-margin: 6px;
 text-align: center;
+margin: 6px;
 
 } 

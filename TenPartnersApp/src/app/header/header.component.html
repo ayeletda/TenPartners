@@ -1,5 +1,8 @@
 <div class = "head">
 
 <i class="fa fa-reply-all fa-2x" aria-hidden="true" (click)="goHome()" id="return"></i>
-<div id = "logout" (click)=logOut()> Logout</div>
+<div class = "title">
+{{item}}
+</div>
+<div id = "logout" data-toggle="confirmation" data-placement="bottom" (click)=logOut()> Logout</div>
 </div>
