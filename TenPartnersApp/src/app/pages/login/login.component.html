@@ -21,17 +21,18 @@
 
 
 
-            <button [disabled]="loading" class="btn btn-primary btn-sm btn-block" (click)="clicked(username,password)" >Sign In</button>
+            <button  class="btn btn-basic btn-sm btn-block" (click)="clicked(username,password)" >Sign in</button>
             <div class = "service">
-            <button [disabled]="loading" class="btn btn-primary btn-sm btn-block" (click)="clicked(username,password)" id = "face">Sign In with facebook   <i class="fa fa-facebook" aria-hidden="true" fa-2x></i>
-</button>
-            <button [disabled]="loading" class="btn  btn-primary btn-sm btn-block" (click)="clicked(username,password)" id = "twit" >Sign In with twitter    <i class="fa fa-twitter" aria-hidden="true" fa-2x></i> 
-</button>
-            <button [disabled]="loading" class="btn  btn-primary btn-sm btn-block" (click)="clicked(username,password)" id = "google" >Sign In< with google     <i class="fa fa-google" aria-hidden="true" fa-2x></i>
+               <button  class="btn  btn-danger btn-sm btn-block" (click)="clicked(username,password)" id = "google" ><i class="fa fa-google" aria-hidden="true" fa-2x></i>Sign in with Google
  </button>
+            <button  class="btn btn-primary btn-sm btn-block" (click)="clicked(username,password)" id = "face"><i class="fa fa-facebook" aria-hidden="true" fa-2x> </i>Sign in with Facebook 
+</button>
+            <button  class="btn  btn-info btn-sm btn-block" (click)="clicked(username,password)" id = "twit" ><i class="fa fa-twitter" aria-hidden="true" fa-2x></i> Sign in with Twitter 
+</button>
+           
 
   </div> <footer>     
-            <div class = "forget"> Forget password?</div>     
+            <div class = "forgot"> Forgot password?</div>     
             <div class = "about">About as</div>
 </footer>
 </main>

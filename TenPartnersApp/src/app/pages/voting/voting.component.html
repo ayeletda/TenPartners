@@ -1,19 +1,17 @@
  
  <!--======================= constant header ==========================-->
- <app-header></app-header>  
+ <app-header [item]="'Voting In Progress'"></app-header>  
 
  <!--========================== the page ==============================-->
 
-<header class="text-center">
-    <h1>Voting In Progress</h1>
-</header>
-
-<div class=" ii "><!-- container -->
-
-    <div class = "thePage container">
-
-        <div class = "navbar navbar-default  ">
-             <div #scrollMeProj class = "vertical-menu-x" > <!----------------------------------- -->
+<!--/<div class="navbar"> container -->
+  <!--<div class = "thePage container">-->
+      <!--<div class = " voting-main">-->
+    <body>
+      <div class = "row">
+        <div class = "navbar-default navbar col-md-12 col-xs-12 col-lg-12 col-sm-12  ">
+            <div class = " col-centered">
+             <!--<div #scrollMeProj class = "vertical-menu-x" > <!============ -->
                 <div class="picture" id="pic1">  
                     <app-projectForVote></app-projectForVote> 
                 </div>
@@ -26,9 +24,12 @@
                 <!--<div class="picture" id="pic4">
                     <app-projectForVote></app-projectForVote>           
                 </div>-->
+             <!--</div>-->
              </div>
         </div>
-
+      </div>    
+      </body>
+<!--
         <main>
             <div id="upDiv">
                 <h4> No projects have been selected for discussion yet... </h4>
@@ -38,12 +39,12 @@
                 <div class = "container downDiv" >
 
                 <!-- <div class = "text-center"> askjdnsakjlndasndnasn </div> -->
-                    <div #scrollMe class = "vertical-menu" >
+                    <!--<div #scrollMe class = "vertical-menu" >
                         <div *ngFor = "let message of messages | async" > 
                             <!--<div *ngIf = "needToPrint(message.timestamp | date: 'dd/MM/yy')">
                                 <p class = "date-stamp"> {{ message.timestamp | date: "MM/dd/yy" }} </p> 
                             </div> -->
-                            <div class = "bubble" [class.bubble-alt] = "isMe(message.name)" [class.yellow] = "isMe(message.name)" [class.green] = "!isMe(message.email)">
+                            <!--<div class = "bubble" [class.bubble-alt] = "isMe(message.name)" [class.yellow] = "isMe(message.name)" [class.green] = "!isMe(message.email)">
                                 <p id = "msg-name"> {{ message.displayName }}</p>
                                 <p id = "msg-context"> {{ message.message }} </p>
                                 <div class = "author">
@@ -63,9 +64,9 @@
                 </div>
 
             </div>
-        </main>
-    </div>
-</div>
+        </main>-->
+    <!--</div>-->
+<!--</div>-->
 
 <!--======================= constant footer ==========================-->
 <app-footer></app-footer>

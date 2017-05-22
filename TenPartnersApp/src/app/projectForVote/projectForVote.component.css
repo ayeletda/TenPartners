@@ -9,8 +9,11 @@ main
     height: 100%;
     width: 33.3%;
 	border: 2%;
-    border-color: white;
-    background-color: rebeccapurple;
+    border-color:   #D6D6CC
+;
+    background-color:  #FFFFF5
+
+;
     border-style: solid;
     float: left;
 }
@@ -50,13 +53,15 @@ main
 
 #like
 {
-    color: lawngreen;
+    color:   #EDFFB8
+;
 
 }
 
 #unlike
 {
-    color: red;    
+    color:   #FFE6E6
+;    
 }
 
 /*================ footer of project's square ==============*/
@@ -80,16 +85,18 @@ label
 
 #for
 {
-    background-color: lawngreen;
+    background-color:  #EDFFB8;
 }
 
 #avoidance
 {
-    background-color:yellow;
+    background-color:   #FFFFCC
+
+;
 }
 
 #against
 {
-    background-color:red;
+    background-color:   #FFE6E6;
 }
 
