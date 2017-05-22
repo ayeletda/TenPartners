@@ -17,13 +17,13 @@ html
     border-radius: 40%;
     top: 50%;
     display: block;
-
+ border:none;
     height: 20px;
     margin-top: -10px;
     padding: 1%;
     cursor: pointer;
     color: transparent;
-    border-color:  #3498db;
+      background-color: #FFFFCC;
     outline: none;
     background-color: transparent;
 }
@@ -32,13 +32,14 @@ html
     text-indent: -9999px;
     left: -30px;
     border-radius: 40%;
+    border:none;
     display: block;
     height: 20px;
     margin-top: -10px;
     padding:1%;
     cursor: pointer;
     color: transparent;
-    border-color:  #3498db;
+      background-color: #FFFFCC;
     outline: none;
     background-color:transparent;
 }
@@ -51,7 +52,7 @@ html
     right:0;
     bottom:0;
     content: '❯';
-    color: #3498db;
+    color: gray;
     border-radius: 60%;
 }
 
@@ -63,5 +64,5 @@ html
     right:0;
     bottom:0;
     content: '❮';
-    color: #3498db;
+     color: gray;
 }
