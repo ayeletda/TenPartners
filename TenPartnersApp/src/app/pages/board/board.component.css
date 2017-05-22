@@ -7,7 +7,7 @@ body {
 
 #SuggestedProjects {
     width:75%;
-    margin: 0 10%;
+    margin: 0 12%;
     display: block;
     height: 100%;
 }
@@ -18,8 +18,8 @@ body {
 
 .descriptionP .forP1 {
     width: 100%;
-    height: 250px;
-    padding: 2% 0;
+    height: 180px;
+    padding: 2% 2%;
     overflow-y: auto;
 }
 
