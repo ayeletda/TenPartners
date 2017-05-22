@@ -17,10 +17,8 @@ export class FooterComponent implements OnInit
   
   clicked(event){
     console.log(event.currentTarget.id);
-    if(event.currentTarget.id=="add")
-      window.location.href='http://www.google.com/';
 
-   else this.router.navigateByUrl('/'+event.currentTarget.id);
+    this.router.navigateByUrl('/'+event.currentTarget.id);
 
   }
 

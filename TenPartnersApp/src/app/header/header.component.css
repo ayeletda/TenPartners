@@ -1,16 +1,15 @@
 .title{
     color: white;
-    display: block;
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    margin-top:6px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center; 
+    width: 100%;
+    font-size: 30px;
+    margin-right: 50px;
 }
 
 .head{
     background-color: black;
-    height: 35px;
+    height: 40px;
     width: 100%;
     position: fixed;
      top: 0;
@@ -18,30 +17,17 @@
      z-index: 10;
     margin: 0;
     padding: 0;
+    display: inline-flex;
     list-style-type: none;
     overflow: hidden;
-    display: block;}
+   }
 
-#return
+#settings
 {
 cursor: pointer;
 color: white;
-margin: 1px;
-display: inline-block;
-position: absolute;
+position: relative;
 margin: 5px;
-margin-right: 0;
 }
 
-#logout
-{
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-cursor: pointer;
-color:gray;
-position: absolute;
-display: block;
-right: 0px;
-text-align: center;
-margin: 6px;
 
-} 

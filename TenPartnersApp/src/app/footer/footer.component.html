@@ -1,10 +1,7 @@
 
 <div class = "footer">
     <div class="btn-group btn-group-justified">
-
-        <a id = "settings" (click)="clicked($event)" class="btn btn-default">
-            <i class="fa fa-cog fa-2x fa-fw" id = "set" ></i>Setting</a>
-
+        
         <a  id = "voting" (click)="clicked($event)" class="btn btn-default">
             <div id = "votInPro">
                 <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i>
@@ -17,10 +14,10 @@
         <a  id = "board" (click)="clicked($event)" class="btn btn-default">
             <i class="fa fa-list fa-2x" aria-hidden="true"  id="sub"></i>Submitted<br>projects</a>
 
-        <a  id = "masterDB" (click)="clicked($event)" class="btn btn-default">
+        <a  id = "masterDB" href="https://www.google.com/" class="btn btn-default">
             <i class="fa fa-database fa-2x" aria-hidden="true" id = "mDB"></i>Master<br>DB</a>
             
-        <a  (click)="clicked($event)" class="btn btn-default">
+        <a   id ="SubmitProject" (click)="clicked($event)" class="btn btn-default">
             <i class="fa fa-file-text-o fa-2x" aria-hidden="true" id = "pro"></i>Submit<br> Project</a>
 
     </div>
