@@ -1,12 +1,12 @@
-.btn-primary{
+.btn{
 margin-top: 10px;
 }
 
 .service{
-    margin-top: 30px;
+    margin-top:10%;
 }
+
 .about{
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 cursor: pointer;
 position: absolute;
 right: 0;
@@ -17,7 +17,7 @@ margin-right: 40px;
 }
 
 footer{
-    margin-top: 20px;
+    margin-top: 10%;
 }
 
 main{
@@ -32,7 +32,7 @@ margin-right: 30px;
 
 
 
-.forget{
+.forgot{
 text-decoration: underline;
 cursor: pointer;
 display: inline;
@@ -48,6 +48,9 @@ position: absolute;
 .logo{
 
     padding:10%;
+    padding-left: 6%;
+    margin-top:15%;
+    margin-bottom: 15%;
 }
 
 img{
@@ -57,6 +60,6 @@ img{
     margin-right: auto;
     }
 
-.face{
-    background-color:  #3b5998;
+i{
+    margin-right: 15px;
 }
