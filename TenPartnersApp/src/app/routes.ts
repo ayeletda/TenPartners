@@ -11,6 +11,8 @@ import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
 import { SettingsComponent } from './settings/settings.component';
 import { SubmitProjectComponent } from './pages/submit-project/submit-project.component';
+import { MasterDBComponent } from './pages/master-db/master-db.component';
+
 
 
 // import for items in pages -------> check if we need that here ---> I DONT THINK SO..
@@ -30,7 +32,8 @@ export const appRoutes: Routes=
     {path:'board', component: BoardComponent},
     {path:'voting', component: VotingComponent},
     {path:'settings', component: SettingsComponent},
-    {path:'SubmitProject', component: SubmitProjectComponent}
+    {path:'SubmitProject', component: SubmitProjectComponent},
+    {path:'masterDB', component: MasterDBComponent}
 
 
 

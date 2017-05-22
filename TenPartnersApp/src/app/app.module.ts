@@ -29,6 +29,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { SettingsComponent } from './settings/settings.component';
 import { SubmitProjectComponent } from './pages/submit-project/submit-project.component';
+import { MasterDBComponent } from './pages/master-db/master-db.component';
 
 //=============================================================================================
 
@@ -62,7 +63,8 @@ export const firebaseConfig =
       ProjectForUpdateComponent,
       ProjectForSelectComponent,
       SettingsComponent,
-      SubmitProjectComponent
+      SubmitProjectComponent,
+      MasterDBComponent
   ],
 
   imports: [
