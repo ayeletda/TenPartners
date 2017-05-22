@@ -1,35 +1,27 @@
 
 <div class = "footer">
-<div class="btn-group btn-group-justified">
-    <a id = "settings" (click)="clicked($event)" class="btn btn-default"><i class="fa fa-cog fa-2x fa-fw" id = "set" ></i>
-    Setting</a>
-    <a  id = "myProjects" (click)="clicked($event)" class="btn btn-default"><i class="fa fa-address-card fa-2x" aria-hidden="true" id = "myP"></i>
-My <br> Project</a>
-    <a  id = "voting" (click)="clicked($event)" class="btn btn-default">
+    <div class="btn-group btn-group-justified">
 
-<div id = "votInPro">
-<i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i>
+        <a id = "settings" (click)="clicked($event)" class="btn btn-default">
+            <i class="fa fa-cog fa-2x fa-fw" id = "set" ></i>Setting</a>
 
-<i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
-</div>
-Voting in<br> Progress
-    </a>
-    <a  id = "submittedProject" (click)="clicked($event)" class="btn btn-default">
+        <a  id = "voting" (click)="clicked($event)" class="btn btn-default">
+            <div id = "votInPro">
+                <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
+            </div>Voting in<br> Progress</a>
 
-<i class="fa fa-list fa-2x" aria-hidden="true"  id="sub"></i>
+        <a  id = "myProjects" (click)="clicked($event)" class="btn btn-default">
+            <i class="fa fa-address-card fa-2x" aria-hidden="true" id = "myP"></i>My<br>Project</a>
 
-      Submitted <br> project
-    </a>
-    <a  id = "masterDB" (click)="clicked($event)" class="btn btn-default">
-<i class="fa fa-database fa-2x" aria-hidden="true" id = "mDB"></i>
+        <a  id = "board" (click)="clicked($event)" class="btn btn-default">
+            <i class="fa fa-list fa-2x" aria-hidden="true"  id="sub"></i>Submitted<br>projects</a>
 
-      Master <br>  DB
-    </a>
-    <a  id = "board" (click)="clicked($event)" class="btn btn-default">
+        <a  id = "masterDB" (click)="clicked($event)" class="btn btn-default">
+            <i class="fa fa-database fa-2x" aria-hidden="true" id = "mDB"></i>Master<br>DB</a>
+            
+        <a  (click)="clicked($event)" class="btn btn-default">
+            <i class="fa fa-file-text-o fa-2x" aria-hidden="true" id = "pro"></i>Submit<br> Project</a>
 
-<i class="fa fa-file-text-o fa-2x" aria-hidden="true" id = "pro"></i>
-    Submit<br> Projects
-    </a>
-
-  </div>
+    </div>
 </div>
