@@ -8,8 +8,9 @@ head
 	margin: 10px;
 }
 
-header{
-	margin-top:35px;
+header
+{
+	margin-top: 35px;
 }
 
 body
@@ -19,5 +20,5 @@ body
 	/**background: url('http://www.up2me.co.il/images/51167478.png');**/
 	position: absolute;
 	display: block;
+	width :100%;
 }
- 
