@@ -5,45 +5,33 @@ main
 {
     font-family: "comic sans ms";
     font-weight: bold;
-    color:white;
+    color:gray;
     height: 100%;
-    width: 33.3%;
-	border: 2%;
-    border-color: white;
-    background-color: rebeccapurple;
+    width: 100%;
+    border-color:   #D6D6CC
+;
+    background-color:  #FFFFF5
+
+;
     border-style: solid;
-    float: left;
+
 }
 
-.align-right
-{
-    text-align: right;
-    height: 90%;
-}
+
 
 #up
 {
-    height: 100px;
+    height: 150px;
     width: 100%;
-    padding:10%;
-}
 
-#unavailablePic, #projectName
-{
-    text-align: center;
-    display: block;
-    float:  center;
-}
-
-/*================ footer of project's square ==============*/
-
-#down
-{
-    height: 20%;
-    width: 100%;
 }
 
 #clock
 {
- position: absolute;
+    float: left;
+}
+
+.row{
+margin-left:40%;
+
 }
