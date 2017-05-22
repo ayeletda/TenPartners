@@ -1,13 +1,3 @@
-* {
-	padding: 0;
-	border: 0;
-	margin: 0;
-	clear: both;
-}
-
-.clear {
-	clear: both;
-}
 
 main {
 	box-sizing: border-box;
@@ -20,75 +10,4 @@ main {
 	margin-left: 0.5%;
 	margin-right: 0.5%;
 	height: 20%;
-}
-
-.title, .managementOptions, .cancelManagement {
-	display: inline-block;
-}
-
-.title {
-	float: left;
-	height: 10%;
-}
-
-h3 {
-	color: #353535;
-	margin-left: 2%;
-	font-size: 30px;
-}
-
-.managementOptions {
-	height: 10%;
-	font-size: 100%;
-}
-
-.Price, .Date {
-	float: left;
-}
-
-#pencilButton1, #pencilButton2 {
-	background: none;
-	color: none;
-	cursor: pointer;
-	display: inline;
-}
-
-#pencilButton1:hover, #pencilButton2:hover{
-	background-color: #d3d3d3;
-	border-radius: 50%;
-}
-
-#pencilButton1:active, #pencilButton2:active {
-	box-shadow: 3px 3px 10px #888888;
-	transform: transleteY(4px);
-}
-
-.praceInput, .dateInput {
-	background: none;
-}
-
-.cancelManagement {
-	float: right;
-	height: 10%;
-	font-size: 20px;
-}
-
-#cmdCancelManagement {
-	padding: 1.5%;
-	font-size: 100%;
-	color: #353535;
-	border-radius: 8%;
-	border: 1.5px solid #353535;
-	text-align: center;
-	cursor: pointer;
-}
-
-#cmdCancelManagement:hover {
-	background-color: #c0c0c0;
-}
-
-#cmdCancelManagement:active{
-	background-color: #d3d3d3;
-	box-shadow: 3px 3px 10px #888888;
-	transform: transleteY(4px);
 }
