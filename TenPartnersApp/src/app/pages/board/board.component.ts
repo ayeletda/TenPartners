@@ -19,3 +19,4 @@ export class BoardComponent implements OnInit
     this.router.navigateByUrl('/'+event.currentTarget.id);
   }
 }
+ 

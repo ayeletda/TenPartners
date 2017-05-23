@@ -4,7 +4,7 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 import { BoardComponent } from './board.component';
 import { ProjectForSelectComponent } from '../.././projectForSelect/projectForSelect.component';
-
+ 
 describe('BoardComponent', () =>
 {
   let component: BoardComponent;
