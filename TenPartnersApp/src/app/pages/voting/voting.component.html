@@ -1,5 +1,4 @@
-
-
+ 
  <!--======================= constant header ==========================-->
  <app-header [item]="'Voting In Progress'"></app-header>  
 
@@ -7,7 +6,6 @@
 
     <body>
       <div class = " part1">
-        <div class = "navbar-default navbar col-md-12 col-xs-12 col-lg-12 col-sm-12  ">
             <!--<div class = " col-centered">-->
              <!--<div #scrollMeProj class = "vertical-menu-x" > <!============ -->
                 <div class="picture" id="pic1">  
@@ -24,20 +22,18 @@
                 </div>-->
              <!--</div>-->
              <!--</div>-->
-        </div>
-
+        <!--</div>-->
       </div>  
       
 
         <div class = " part2">
-            <div #scrollMe class = "vertical-menu2" >
-                <h4> No projects have been selected for discussion yet...............................................................djiojgiosjtiojsiotjiosjtiojsiotj......................................................................................................................................................................................... </h4>
+            <div #scrollMe class = "vertical-menu1" >
+                <h4> No projects have been selected for discussion yet... </h4>
             </div>
         </div>
-      <!-- tryyyyyyyyyyyyyyyyyyyyyyy -->
        
         <div class = " part3">
-            <div #scrollMe class = "vertical-menu" >
+            <div #scrollMe class = "vertical-menu2" >
                 <div *ngFor = "let message of messages | async" > 
                     <!--<div *ngIf = "needToPrint(message.date | date: 'dd/MM/yy')">
                         <p class = "date-stamp"> {{ message.date | date: "MM/dd/yy" }} </p> 
@@ -54,7 +50,7 @@
 
             <div class = "input-group">
                 <span class = "input-group-btn"> 
-                   <button class = "btn btn-primary" type = "submit" (click) = "sendMessage()">Send  <i class = "fa fa-arrow-up"></i></button>
+                   <button class = "btn btn-difult" type = "submit" (click) = "sendMessage()">Send  <i class = "fa fa-arrow-up"></i></button>
                 </span>
                 <input type = "text" class = "form-control" id = "msg-input" placeholder = "Write your message here.." (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">                                
             </div>
@@ -66,8 +62,10 @@
             <div id="upDiv">
                 <h4> No projects have been selected for discussion yet... </h4>
             </div>
+
             <div id="downDiv">
                 <div class = " downDiv" >
+
                 <!-- <div class = "text-center"> askjdnsakjlndasndnasn </div> -->
                     <!--<div #scrollMe class = "vertical-menu" >
                         <div *ngFor = "let message of messages | async" > 
@@ -92,6 +90,7 @@
                                 
                 </div>
                 </div>
+
             </div>
         </main>-->
     <!--</div>-->
