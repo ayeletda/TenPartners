@@ -17,4 +17,6 @@ export class ProjectForUpdateComponent implements OnInit
   {
     this.router.navigateByUrl('/'+event.currentTarget.id);
   }
+
+
 }

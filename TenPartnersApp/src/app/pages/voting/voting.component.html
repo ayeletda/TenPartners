@@ -1,15 +1,14 @@
- 
+
+
  <!--======================= constant header ==========================-->
  <app-header [item]="'Voting In Progress'"></app-header>  
 
  <!--========================== the page ==============================-->
 
-<!--/<div class="navbar"> container -->
-  <!--<div class = "thePage container">-->
-      <!--<div class = " voting-main">-->
     <body>
+      <div class = " part1">
         <div class = "navbar-default navbar col-md-12 col-xs-12 col-lg-12 col-sm-12  ">
-            <div class = " col-centered">
+            <!--<div class = " col-centered">-->
              <!--<div #scrollMeProj class = "vertical-menu-x" > <!============ -->
                 <div class="picture" id="pic1">  
                     <app-projectForVote></app-projectForVote> 
@@ -24,18 +23,51 @@
                     <app-projectForVote></app-projectForVote>           
                 </div>-->
              <!--</div>-->
-             </div>
+             <!--</div>-->
         </div>
-      </body>
+
+      </div>  
+      
+
+        <div class = " part2">
+            <div #scrollMe class = "vertical-menu2" >
+                <h4> No projects have been selected for discussion yet...............................................................djiojgiosjtiojsiotjiosjtiojsiotj......................................................................................................................................................................................... </h4>
+            </div>
+        </div>
+      <!-- tryyyyyyyyyyyyyyyyyyyyyyy -->
+       
+        <div class = " part3">
+            <div #scrollMe class = "vertical-menu" >
+                <div *ngFor = "let message of messages | async" > 
+                    <!--<div *ngIf = "needToPrint(message.date | date: 'dd/MM/yy')">
+                        <p class = "date-stamp"> {{ message.date | date: "MM/dd/yy" }} </p> 
+                    </div> -->
+                        <div class = "bubble" [class.bubble-alt] = "isMe(message.name)" [class.yellow] = "isMe(message.name)" [class.green] = "!isMe(message.email)">
+                            <p id = "msg-name"> {{ message.displayName }}</p>
+                             <p id = "msg-context"> {{ message.message }} </p>
+                            <div class = "author">
+                                <span> {{ message.timestamp | date: "MM/dd/yy hh:mm a" }} </span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+            <div class = "input-group">
+                <span class = "input-group-btn"> 
+                   <button class = "btn btn-primary" type = "submit" (click) = "sendMessage()">Send  <i class = "fa fa-arrow-up"></i></button>
+                </span>
+                <input type = "text" class = "form-control" id = "msg-input" placeholder = "Write your message here.." (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">                                
+            </div>
+        </div>
+    </body>
+
 <!--
         <main>
             <div id="upDiv">
                 <h4> No projects have been selected for discussion yet... </h4>
             </div>
-
             <div id="downDiv">
-                <div class = "container downDiv" >
-
+                <div class = " downDiv" >
                 <!-- <div class = "text-center"> askjdnsakjlndasndnasn </div> -->
                     <!--<div #scrollMe class = "vertical-menu" >
                         <div *ngFor = "let message of messages | async" > 
@@ -60,7 +92,6 @@
                                 
                 </div>
                 </div>
-
             </div>
         </main>-->
     <!--</div>-->
