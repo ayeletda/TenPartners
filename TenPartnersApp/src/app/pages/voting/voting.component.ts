@@ -16,7 +16,10 @@ export class VotingComponent implements OnInit, AfterViewChecked
 {
   constructor(private router: Router, public af: AngularFireDatabase) 
   {
-    this.messages = this.af.list('messages');
+   // this.m = this.af.database.ref('/messages');
+//console.log(this.m);
+        this.messages = this.af.list('messages');
+
     this.newMessage = '';
   }
 
@@ -26,6 +29,7 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
   savedDate: string = '';
   public newMessage: string;
+  public m ;
   public messages: FirebaseListObservable<any>;
   name: string = "Avia"; //////////////////////////////////////////////////////////////////////////////////////////////////
 
