@@ -10,12 +10,14 @@ button{
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	height: 100%;
 	margin: auto;
+	border:none;
+
 
 	}
 
 
 #set,#myP,#mDB,#votInPro,#pro,#sub{
-	color: black;
+	color: white;
 	display: block;
 	margin: auto;
 	margin-bottom: 5px;
@@ -24,7 +26,15 @@ button{
 
 a{
 	font-size: 10px;
-	
+}
 
 
+ .btn-group-justified{
+	border: none;
+ }
+
+.btn-default{
+	color:white;
+	background-color: black;
+	border:none;
 }
