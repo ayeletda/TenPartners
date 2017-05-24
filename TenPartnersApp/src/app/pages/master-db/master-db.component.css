@@ -1,7 +1,9 @@
 .MasterDB{
-    margin-top: 45px;
-    margin-bottom: 69px;
+    padding-top: 45px;
+    padding-bottom: 69px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #E5E7E9;
+    width: 100%
 }
 
 
@@ -22,7 +24,7 @@ summary{
     font-style: bold;
     font-size: 20px;
     width: 100%;
-	background-color: #F5F5F5;
+	background-color: white;
     border-radius: 5px;
     border: 1.5px solid #cccccc;
 	box-shadow: 0 0 10px #e6e6e6;
