@@ -13,10 +13,11 @@ export class BoardComponent implements OnInit
   constructor(private router: Router) { }
 
   ngOnInit() {}
-    
-  clickOnHome(event)
-  {
-    this.router.navigateByUrl('/'+event.currentTarget.id);
+
+  clicked(event){
+
+    this.router.navigateByUrl('/masterDB');
+
   }
 }
  
