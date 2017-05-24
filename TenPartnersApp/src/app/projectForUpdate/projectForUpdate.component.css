@@ -13,6 +13,10 @@ main {
 	width: 100%;
 }
 
+i{
+	font-size: 20px;
+}
+
 .btn-danger{
 	margin-top: 10px;
 	right: 10%;
