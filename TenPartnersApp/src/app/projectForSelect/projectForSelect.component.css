@@ -8,13 +8,8 @@ main
     color:gray;
     height: 100%;
     width: 100%;
-    border-color:   #D6D6CC
-;
-    background-color:  #FFFFF5
-
-;
-    border-style: solid;
-
+    background-color:  white;
+    border: solid #D6D6CC;
 }
 
 
