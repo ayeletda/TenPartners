@@ -1,5 +1,5 @@
 .title{
-    color: white;
+    color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center; 
     width: 100%;
@@ -8,7 +8,7 @@
 }
 
 .head{
-    background-color: black;
+    background-color: #F5F5F5;
     height: 40px;
     width: 100%;
     position: fixed;
@@ -20,12 +20,13 @@
     display: inline-flex;
     list-style-type: none;
     overflow: hidden;
+    border: width border-style color;
    }
 
 #settings
 {
 cursor: pointer;
-color: white;
+color: black;
 position: relative;
 margin: 5px;
 }
