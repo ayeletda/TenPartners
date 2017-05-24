@@ -327,6 +327,28 @@ input::placeholder
 
 /*====================================== fixing height ======================================== */
 
+@media only screen and (max-height: 1366px)
+{
+
+body{
+  
+}
+  .part1 .navbar .navbar-default
+  {
+    height: 0px;
+  }
+
+  .vertical-menu1
+  {
+    height:  170px;   
+  }
+
+   .vertical-menu2
+  {
+    height:  650px   
+  }
+}
+
 
  @media only screen and (max-height: 1024px)
 {

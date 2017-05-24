@@ -18,6 +18,10 @@ main
     float: left;
 }
 
+    p
+    {
+        margin: 2%;
+    }
 
 .align-right
 {
@@ -27,7 +31,6 @@ main
 
 #up
 {
-    height: 100px;
     width: 100%;
     padding:10%;
 }
@@ -43,12 +46,12 @@ main
 {
     float: left;
     margin: -10%;
+    color:black;
 }
 
 #like, #unlike
 {   
     cursor: pointer;
-    margin: 5%;
 }
 
 #like
@@ -134,4 +137,155 @@ label
   background-image: -o-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
   background-image: linear-gradient(to bottom, #C0FF97 15%, #7acd47 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7acd47', endColorstr='#ace44b');
+}
+
+
+
+
+/*====================================== fixing height ======================================== */
+
+
+ @media only screen and (min-height: 1366px)
+{
+
+     #up
+    {
+        height: 200px;
+    }
+    .lable
+    {
+        font-size: 50px;
+    }
+    p
+    {
+        font-size: 45px;
+    }
+    #like, #unlike
+    {
+        font-size: 35px;
+        margin-top: 7%;
+    }
+}
+
+
+
+ @media only screen and (min-height: 1024px)
+{
+
+     #up
+    {
+        height: 180px;
+    }
+    .lable
+    {
+        font-size: 35px;
+    }
+    p
+    {
+        font-size: 30px;
+    }
+    #like, #unlike
+    {
+        font-size: 35px;
+        margin-top: 7%;
+    }
+}
+
+@media only screen and (min-height: 1366px)
+{
+
+     #up
+    {
+        height: 200px;
+    }
+    .lable
+    {
+        font-size: 47px;
+    }
+    p
+    {
+        font-size: 42px;
+    }
+    #like, #unlike
+    {
+        font-size: 40px;
+        margin-top: 10%;
+    }
+}
+
+
+@media only screen and (max-height: 736px)
+{
+    #up
+    {
+             height: 100px;   
+    }
+}
+
+
+@media only screen and (max-height: 732px)
+{
+
+    #up
+    {
+                height: 100px;
+    }
+}
+
+
+@media only screen and (max-height: 667px )
+{
+ #up
+    {
+        height: 90px;
+    }
+    .lable
+    {
+        font-size: 20px;
+    }
+    p
+    {
+        font-size: 15px;
+    }
+}
+
+
+@media only screen and (max-height: 640px)
+{
+    #up
+    {
+        height: 90px;
+    }
+    .lable
+    {
+        font-size: 20px;
+    }
+    p
+    {
+        font-size: 15px;
+    }
+
+
+}
+
+@media only screen and (max-height: 568px)
+{
+  #up
+    {
+        height: 80px;
+    }
+    .lable
+    {
+        font-size: 17px;
+    }
+    p
+    {
+        font-size: 12px;
+    }
+    #like, #unlike
+    {
+        font-size: 17px;
+ 
+    }
+
 }
