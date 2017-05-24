@@ -1,8 +1,12 @@
-
+.btn-default{
+	border: none;
+}
 .footer{
    display: block;
 	 position: absolute;
   position: fixed;
+  	border: 1.5px solid #cccccc;
+
 	 bottom: 0%;
  
 }
