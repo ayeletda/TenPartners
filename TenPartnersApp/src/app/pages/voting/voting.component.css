@@ -97,14 +97,12 @@ p
     overflow-x:hidden;
     overflow-y: scroll;
 }
-/* ============================ CSS of vertical-menu-x ======================= */
+/* ====================== CSS of vertical-menu-x ======================= */
 
 .vertical-menu-x
 {
       overflow-x:scroll;
- 
       overflow-y: hidden;
-      
       width: 100%;
       max-width: 100%;
       height: 100%;
@@ -175,6 +173,12 @@ input::placeholder
   text-shadow: 0 1px 1px rgba(255,255,255,0.8);
   word-wrap: break-word;
 }
+.bubble /*check if not destroy anything??????????????????????? */
+{
+   padding: 0px 20px;
+   margin: 5px;
+}
+
 
 .bubble:before, .bubble:after 
 {
@@ -310,11 +314,6 @@ input::placeholder
 
 @media only screen and (max-height: 1366px)
 {
-  .part1 .navbar .navbar-default
-  {
-    height: 0px;
-  }
-
   .vertical-menu1
   {
     height:  170px;   
@@ -329,12 +328,6 @@ input::placeholder
 
  @media only screen and (max-height: 1024px)
 {
-
-  .part1 .navbar .navbar-default
-  {
-    height: 0px;
-  }
-
   .vertical-menu1
   {
     height:  150px;   
@@ -349,12 +342,6 @@ input::placeholder
 
 @media only screen and (max-height: 736px)
 {
-
-  .part1 .navbar .navbar-default
-  {
-    height: 40px;
-  }
-
   .vertical-menu1
   {
     height:  60px;   
@@ -362,19 +349,13 @@ input::placeholder
 
    .vertical-menu2
   {
-    height:  348px   
+    height:  360px   
   }
 }
 
 
 @media only screen and (max-height: 732px)
 {
-
-  .part1 .navbar .navbar-default
-  {
-    height: 40px;
-  }
-
   .vertical-menu1
   {
     height:  60px;   
@@ -382,19 +363,13 @@ input::placeholder
 
    .vertical-menu2
   {
-    height:  343px   
+    height:  356px   
   }
 }
 
 
-@media only screen and (max-height: 667px )
+@media only screen and (max-height: 667px)
 {
-
-  .part1 .navbar .navbar-default
-  {
-    height: 30px;
-  }
-
   .vertical-menu1
   {
     height:  70px;   
@@ -402,19 +377,13 @@ input::placeholder
 
    .vertical-menu2
   {
-    height:  270px   
+    height:  297px   
   }
 }
 
 
 @media only screen and (max-height: 640px)
 {
-
-  .part1 .navbar .navbar-default
-  {
-    height: 30px;
-  }
-
   .vertical-menu1
   {
     height:  54px;   
@@ -422,18 +391,13 @@ input::placeholder
 
    .vertical-menu2
   {
-    height:  260px   
+    height:  286px   
   }
 }
 
+
 @media only screen and (max-height: 568px)
 {
-
-  .part1 .navbar .navbar-default
-  {
-    height: 30px;
-  }
-
   .vertical-menu1
   {
     height:  50px;   
@@ -441,6 +405,6 @@ input::placeholder
 
    .vertical-menu2
   {
-    height:  197px   
+    height:  238px   
   }
 }
