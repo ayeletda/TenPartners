@@ -1,9 +1,14 @@
 .btn-default{
 	border: none;
 }
+
+.btn-default:active{
+	color: darkblue;
+}
+
 .footer{
    display: block;
-	 position: absolute;
+position: absolute;
   position: fixed;
   	border: 1.5px solid #cccccc;
 
@@ -20,7 +25,6 @@ button{
 
 
 #set,#myP,#mDB,#votInPro,#pro,#sub{
-	color: black;
 	display: block;
 	margin: auto;
 	margin-bottom: 5px;
