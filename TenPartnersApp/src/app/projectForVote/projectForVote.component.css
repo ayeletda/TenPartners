@@ -1,27 +1,24 @@
 
-/*=========== main\top-side of project's square ==========*/
+/* ============================ main\top-side of project's square ======================= */
 
 main
 {
     font-family: "comic sans ms";
     font-weight: bold;
-    color:white;
+    color: white;
     height: 100%;
     width: 33.3%;
 	border: 2%;
-    border-color:   #D6D6CC
-;
-    background-color:  #FFFFF5
-
-;
+    border-color: #D6D6CC;
+    background-color: #FFFFF5;
     border-style: solid;
     float: left;
 }
 
-    p
-    {
-        margin: 2%;
-    }
+p
+{
+    margin: 2%;
+}
 
 .align-right
 {
@@ -56,20 +53,14 @@ main
 
 #like
 {
-    color:   #7acd47
-;
-
+    color:   #7acd47;
 }
 
 #unlike
 {
-    color:     #e2675a
-
-
-;    
+    color: #e2675a;    
 }
-
-/*================ footer of project's square ==============*/
+/* ============================ footer of a project ======================= */
 
 #down
 {
@@ -87,25 +78,10 @@ label
     padding-top: 2%;
     margin: 0%;
 }
+/* ============================ colors for CSS of this component ======================= */
 
-/*#for
+.yellow 
 {
-    background-color:  #EDFFB8;
-}
-
-#avoidance
-{
-    background-color:   #FFFFCC
-
-;
-}
-
-#against
-{
-    background-color:   #FFE6E6;
-}*/
-
-.yellow {
   background: #fcf3c3;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #fcf3c3),color-stop(1, #f4e371));
   background-image: -webkit-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
@@ -117,7 +93,8 @@ label
 }
 
 /* red bubble */
-.red {
+.red 
+{
   background: #FFC8C8;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ea8378),color-stop(1, #e2675a));
   background-image: -webkit-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
@@ -128,7 +105,8 @@ label
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#e2675a', endColorstr='#ea8378');
 }
 
-.green {
+.green 
+{
   background: #C0FF97;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ace44b),color-stop(1, #7acd47));
   background-image: -webkit-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
@@ -140,10 +118,7 @@ label
 }
 
 
-
-
-/*====================================== fixing height ======================================== */
-
+/*=================================== fixing heights according to the screen's size ======================================== */
 
  @media only screen and (min-height: 1366px)
 {
@@ -152,14 +127,17 @@ label
     {
         height: 200px;
     }
-    .lable
+
+   .lable
     {
         font-size: 50px;
     }
+
     p
     {
         font-size: 45px;
     }
+
     #like, #unlike
     {
         font-size: 35px;
@@ -167,23 +145,23 @@ label
     }
 }
 
-
-
  @media only screen and (min-height: 1024px)
 {
-
      #up
     {
         height: 180px;
     }
+ 
     .lable
     {
         font-size: 35px;
     }
+ 
     p
     {
         font-size: 30px;
     }
+ 
     #like, #unlike
     {
         font-size: 35px;
@@ -193,19 +171,21 @@ label
 
 @media only screen and (min-height: 1366px)
 {
-
      #up
     {
         height: 200px;
     }
+    
     .lable
     {
         font-size: 47px;
     }
+    
     p
     {
         font-size: 42px;
     }
+    
     #like, #unlike
     {
         font-size: 40px;
@@ -218,31 +198,32 @@ label
 {
     #up
     {
-             height: 100px;   
+         height: 100px;   
     }
 }
 
 
 @media only screen and (max-height: 732px)
 {
-
     #up
     {
-                height: 100px;
+        height: 100px;
     }
 }
 
 
 @media only screen and (max-height: 667px )
 {
- #up
+    #up
     {
         height: 90px;
     }
+    
     .lable
     {
         font-size: 20px;
     }
+    
     p
     {
         font-size: 15px;
@@ -256,36 +237,37 @@ label
     {
         height: 90px;
     }
+    
     .lable
     {
         font-size: 20px;
     }
+    
     p
     {
         font-size: 15px;
     }
-
-
 }
 
 @media only screen and (max-height: 568px)
 {
-  #up
+    #up
     {
         height: 80px;
     }
+    
     .lable
     {
         font-size: 17px;
     }
+    
     p
     {
         font-size: 12px;
     }
+    
     #like, #unlike
     {
         font-size: 17px;
- 
     }
-
 }

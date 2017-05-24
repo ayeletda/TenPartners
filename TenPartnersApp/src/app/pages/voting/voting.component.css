@@ -14,6 +14,7 @@ body
   width: 100%;
   background-color: red
 }
+
 .navbar
 {
     width: 100%;
@@ -23,7 +24,6 @@ body
     border-color: transparent;  
 }
 
-
 .picture
 {
    margin: 0%;
@@ -32,27 +32,17 @@ body
 
 .part2
 {
-    background-color:      #E3E3E3
-
-
-
-;
+    background-color: #E3E3E3;
 }
 
-.part3
-{
-    height:70%; /****************************/
-}
 
-/*=========================================== for the chat ============================================*/
-
+/*========================================= CSS for the chat ============================================*/
 
 br 
 { 
     display: block; 
     line-height: 1.6em; 
 } 
-
 
 p 
 {
@@ -71,17 +61,16 @@ p
     width: 100%;
 }
 
-/**********************************************/
-
 .container
 {
   height: 50%;
   width: 100%;
 }
+/* ============================ CSS of vertical-menu-y ======================= */
 
 .vertical-menu1
 {
-  padding: 2%;
+    padding: 2%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 62.5%;
     line-height: 1;
@@ -89,14 +78,10 @@ p
     margin: 0 auto;
     max-width: 100%;
     width: 100%;
-   display: inline-block;
-   overflow-x:hidden;
-  overflow-y: scroll;
-    height: 10%; /***********************************************/
-
-
+    display: inline-block;
+    overflow-x:hidden;
+    overflow-y: scroll;
 }
-
 
 .vertical-menu2
 {
@@ -108,17 +93,12 @@ p
     margin: 0 auto;
     max-width: 100%;
     width: 100%;
-   display: inline-block;
-   overflow-x:hidden;
- 
-      overflow-y: scroll;
-      height: 237px; /***********************************************/
-
+    display: inline-block;
+    overflow-x:hidden;
+    overflow-y: scroll;
 }
+/* ============================ CSS of vertical-menu-x ======================= */
 
-
-
- /**************************************************/
 .vertical-menu-x
 {
       overflow-x:scroll;
@@ -129,8 +109,7 @@ p
       max-width: 100%;
       height: 100%;
 }
- /**************************************************/
-
+/* ============================ CSS of input ======================= */
 
 input::placeholder
 {
@@ -146,9 +125,7 @@ input::placeholder
 {
    font-weight: bold;
 }
-
-
-/**********************************************/
+/* ======================= CSS of scrollbar of the chat ======================= */
 
 ::-webkit-scrollbar 
 {
@@ -161,15 +138,11 @@ input::placeholder
   border-radius: 4px;
   background-color: rgba(0, 0, 0, .5);
 }
-
-
-/**********************************************/
-
+/* =============================== CSS of bubbles ======================= */
 
 /** ios1-ios6 bubbles **/
 .bubble 
 {
-
   box-sizing: border-box;
   float: left;
   width: auto;
@@ -228,7 +201,6 @@ input::placeholder
   left: -5px;
 }
 
-
 .bubble-alt 
 {
   float: right;
@@ -252,7 +224,8 @@ input::placeholder
 }
 
 /* green bubble */
-.green {
+.green 
+{
   background: #7acd47;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ace44b),color-stop(1, #7acd47));
   background-image: -webkit-linear-gradient(bottom, #ace44b 15%, #7acd47 100%);
@@ -262,12 +235,14 @@ input::placeholder
   background-image: linear-gradient(to bottom, #ace44b 15%, #7acd47 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7acd47', endColorstr='#ace44b');
 }
-.green:after {
+.green:after 
+{
   border-bottom-color: #ace44b;
 }
 
 /* white bubble */
-.white {
+.white 
+{
   background: #e5e5e5;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #e5e5e5),color-stop(1, #dbdbdb));
   background-image: -webkit-linear-gradient(bottom, #e5e5e5 15%, #dbdbdb 100%);
@@ -277,12 +252,14 @@ input::placeholder
   background-image: linear-gradient(to bottom, #e5e5e5 15%, #dbdbdb 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#dbdbdb', endColorstr='#e5e5e5');
 }
-.white:after {
+.white:after 
+{
   border-bottom-color: #e5e5e5;
 }
 
 /* yellow bubble */
-.yellow {
+.yellow 
+{
   background: #fcf3c3;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #fcf3c3),color-stop(1, #f4e371));
   background-image: -webkit-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
@@ -292,12 +269,14 @@ input::placeholder
   background-image: linear-gradient(to bottom, #fcf3c3 15%, #f4e371 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4e371', endColorstr='#fcf3c3');
 }
-.yellow:after {
+.yellow:after 
+{
   border-bottom-color: #fcf3c3;
 }
 
 /* red bubble */
-.red {
+.red
+{
   background: #ffbee3;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ea8378),color-stop(1, #e2675a));
   background-image: -webkit-linear-gradient(bottom, #ffbee3 15%, #e2675a 100%);
@@ -310,7 +289,8 @@ input::placeholder
 
 
 /* pink bubble */
-.pink {
+.pink 
+{
   background: #ffbee3;
   background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ffbee3),color-stop(1, #f8a5ce));
   background-image: -webkit-linear-gradient(bottom, #ffbee3 15%, #f8a5ce 100%);
@@ -320,19 +300,16 @@ input::placeholder
   background-image: linear-gradient(to bottom, #ffbee3 15%, #f8a5ce 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f8a5ce', endColorstr='#ffbee3');
 }
-.pink:after {
+.pink:after 
+{
   border-bottom-color: #ffbee3;
 }
 
 
-/*====================================== fixing height ======================================== */
+/*=================================== fixing heights according to the screen's size ======================================== */
 
 @media only screen and (max-height: 1366px)
 {
-
-body{
-  
-}
   .part1 .navbar .navbar-default
   {
     height: 0px;
