@@ -26,13 +26,8 @@ body {
     display: inline-block;
     overflow-x:hidden;
     overflow-y: scroll;
-
-
 }
-.vertical-menu1
-{
-    height:  300px;
-}
+
 
 
 
@@ -77,4 +72,72 @@ body {
 }
 
 
-  
+
+@media only screen and (max-height: 1366px)
+{
+    .vertical-menu1
+    {
+        height:  900px;
+    }
+
+}
+
+
+@media only screen and (max-height: 1024px)
+{
+    .vertical-menu1
+    {
+        height:  600px;
+    }
+
+}
+
+
+@media only screen and (max-height: 736px)
+{
+    .vertical-menu1
+    {
+        height:  400px;
+    }
+
+}
+
+
+@media only screen and (max-height: 732px)
+{
+    .vertical-menu1
+    {
+        height:  390px;
+    }
+
+}
+
+
+@media only screen and (max-height: 667px)
+{
+    .vertical-menu1
+    {
+        height:  330px;
+    }
+}
+
+
+@media only screen and (max-height: 640px)
+{
+    .vertical-menu1
+    {
+        height:  300px;
+    }
+
+}
+
+
+@media only screen and (max-height: 568px)
+{
+    .vertical-menu1
+    {
+        height:  240px;
+    }
+
+
+}
