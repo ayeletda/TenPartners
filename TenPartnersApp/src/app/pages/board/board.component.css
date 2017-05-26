@@ -13,6 +13,7 @@ body {
     height: 100%;
 
 }
+
 .vertical-menu1
 {
     padding: 2%;
@@ -22,6 +23,7 @@ body {
     color: #414141;
     margin: 0 auto;
     max-width: 100%;
+
     width: 100%;
     display: inline-block;
     overflow-x:hidden;
