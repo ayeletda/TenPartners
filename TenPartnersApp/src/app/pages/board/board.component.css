@@ -1,4 +1,91 @@
-body {
+
+#SuggestedProjects {
+    margin-top: 38px;
+}
+
+.project-description {
+    padding: 20px;
+    line-height: 1.3;
+    background-color: #908f8f;
+    color: #fff;
+    font-size: 18px;
+    text-align: left;
+    height: 66vh;
+    overflow-y: auto;
+}
+
+.selectProject {
+    text-align: center;
+    padding: 25px;
+}
+
+.selectProject button {
+    border: 0;
+    border-radius: 3px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #000000;
+    cursor: pointer;
+}
+/* You can add global styles to this file, and also import other style files */
+
+.slick-slider .slick-arrow {
+    background-color: #e3e3e3;
+    position: absolute;
+    top: 50%;
+}
+
+.slick-slider .slick-arrow.slick-next {
+    text-indent: -9999px;
+    right: -30px;
+    border-radius: 40%;
+    top: 50%;
+    display: block;
+    border:none;
+    height: 20px;
+    margin-top: -10px;
+    cursor: pointer;
+    color: transparent;
+    outline: none;
+    background-color: transparent;
+}
+
+.slick-slider .slick-arrow.slick-prev {
+    text-indent: -9999px;
+    left: -30px;
+    border:none;
+    display: block;
+    height: 20px;
+    margin-top: -10px;
+    cursor: pointer;
+    color: transparent;
+    outline: none;
+    background-color:transparent;
+}
+
+.slick-slider .slick-arrow.slick-next:before {
+    position: absolute;
+    text-indent: 0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    content: '❯';
+    color: gray;
+}
+
+.slick-slider .slick-arrow.slick-prev::before {
+    position: absolute;
+    text-indent: 0;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    content: '❮';
+    color: gray;
+}
+
+/*body {
     padding-top: 10%;
     height: 100%;
     width: 100%;
@@ -143,3 +230,4 @@ body {
 
 
 }
+*/

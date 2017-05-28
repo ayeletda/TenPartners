@@ -1,23 +1,31 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component(
-{
-  selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
-})
+    {
+        selector: 'app-board',
+        templateUrl: './board.component.html',
+        styleUrls: ['./board.component.css']
+    })
 
-export class BoardComponent implements OnInit
-{
-  constructor(private router: Router) { }
 
-  ngOnInit() {}
+export class BoardComponent implements OnInit {
+    constructor(private router: Router) {
+    }
 
-  clicked(event){
+    ngOnInit() {
+        (<any>$('#SuggestedProjects')).slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            arrows: false
+        });
+    }
 
-    this.router.navigateByUrl('/masterDB');
+    clicked(event) {
 
-  }
+        this.router.navigateByUrl('/masterDB');
+
+    }
 }
  
