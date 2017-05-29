@@ -61,9 +61,11 @@ md-sidenav-container{
     position: absolute;
 }
 
-
-
-
+.nav{
+  padding-bottom: 20px;
+  font-size: 20px;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
 
 /* The switch - the box around the slider */
 .switch {
@@ -84,7 +86,7 @@ md-sidenav-container{
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: green;
+  background-color: #ccc;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -102,11 +104,11 @@ md-sidenav-container{
 }
 
 input:checked + .slider {
-  background-color: red;
+  background-color: #2196F3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px red;
+  box-shadow: 0 0 1px #2196F3;
 }
 
 input:checked + .slider:before {
@@ -122,10 +124,4 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-}
-
-.nav{
-  padding-bottom: 20px;
-  font-size: 20px;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
 }
