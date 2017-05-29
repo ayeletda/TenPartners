@@ -31,6 +31,9 @@ import { SettingsComponent } from './settings/settings.component';
 import { SubmitProjectComponent } from './pages/submit-project/submit-project.component';
 import { MasterDBComponent } from './pages/master-db/master-db.component';
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
+import {ServiceService} from './service.service'
 //=============================================================================================
 
 //Initialize Firebase
@@ -74,10 +77,12 @@ export const firebaseConfig =
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    BrowserAnimationsModule,
+    MaterialModule
   
   ],
-  providers: [],
+  providers: [ServiceService],
   bootstrap: [AppComponent]
 })
 

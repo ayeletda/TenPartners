@@ -1,6 +1,15 @@
+
 <div class = "head">
-
-    <i class="fa fa-user-circle-o fa-2x" aria-hidden="true" (click)="goHome()" id="settings"></i>
-    <div class = "title">{{item}}</div>
-
+ <i class="fa fa-user-circle-o fa-2x" aria-hidden="true" (click)="sidenav.open()" id="settings"></i>
+<div class = "title">{{item}}</div>
 </div>
+
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    <h1>Jolly good!</h1>
+  </md-sidenav>
+
+</md-sidenav-container>
+
+

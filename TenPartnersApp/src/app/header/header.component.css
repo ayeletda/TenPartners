@@ -24,8 +24,6 @@
 }
 
 
-   
-
 #settings
 {
 cursor: pointer;
@@ -34,3 +32,25 @@ position: relative;
 margin: 5px;
 }
 
+
+.example-container {
+  width: 100%;
+  height: 300px;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+  background-color: pink;
+}
+
+md-sidenav-container{
+    background-color: transparent;
+    position: absolute;
+}

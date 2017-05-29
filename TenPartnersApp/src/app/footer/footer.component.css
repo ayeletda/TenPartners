@@ -6,6 +6,20 @@
 	color: darkblue;
 }
 
+.btn-default:after{
+	color: darkblue;
+}
+
+a:active{
+	color: darkblue;
+	
+}
+
+.afterClick{
+	color: darkblue;
+	
+}
+
 .footer{
    display: block;
 position: absolute;

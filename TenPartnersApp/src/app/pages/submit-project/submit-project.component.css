@@ -1,11 +1,16 @@
 .SubmitProject{
-    margin-top: 40px;
     padding-bottom: 60px;
     background-color:  #E5E7E9;
+    padding-top: 60px;
 }
 
 
 textarea {
     resize: none;
     
+}
+
+.aaa, .row, .container ,form
+{
+    position: static;
 }

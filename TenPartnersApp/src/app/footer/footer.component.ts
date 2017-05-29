@@ -11,13 +11,15 @@ import { Router } from '@angular/router';
 
 export class FooterComponent implements OnInit 
 {
+  private isClick:boolean;
+
  constructor(private router: Router) { }
 
   ngOnInit() {}
   
   clicked(event){
     console.log(event.currentTarget.id);
-
+    this.isClick = event.currentTarget.id;
     this.router.navigateByUrl('/'+event.currentTarget.id);
 
   }

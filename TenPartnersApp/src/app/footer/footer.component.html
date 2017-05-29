@@ -2,7 +2,7 @@
 <div class = "footer">
     <div class="btn-group btn-group-justified">
         
-        <a  id = "voting" (click)="clicked($event)" class="btn btn-default">
+        <a  id = "voting" (click)="clicked($event)" [class.afterClick] = "isClick == 'voting'" class="btn btn-default">
             <div id = "votInPro">
                 <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i>
                 <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>

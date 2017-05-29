@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import {ServiceService} from '../../service.service';
 
 @Component(
 {
@@ -13,32 +14,19 @@ import * as firebase from 'firebase/app';
 
 export class LoginComponent implements OnInit 
 {
-  username:string;
-  password:string;
 
-  constructor(private router: Router, public anguarfireAuth:AngularFireAuth)
+
+  constructor(private serviceService:ServiceService)
   {
-    this.username='';
-    this.password='';
+    
   }
 
   ngOnInit() {}
 
-  clicked(username:HTMLInputElement, password:HTMLInputElement)
+  login(username:HTMLInputElement, password:HTMLInputElement)
   {
-    this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
-    then((user)=>
-    {
-      alert("Wellcom tenPartner");
-      this.router.navigateByUrl('/home');
-    })
-    .catch((error)=>
-    {
-       alert("Email or password incorrect");
-    });
+    this.serviceService.login(username,password);
 
-    password.value=null;
-    username.value=null;
   }
 
 }
