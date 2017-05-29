@@ -10,11 +10,13 @@ main {
     border: solid #D6D6CC;
     font-size: 13px;
     float: left;
+    position: unset;
 }
 
 .up {
     height: 150px;
     width: 100%;
+    position: unset;
 
 }
 

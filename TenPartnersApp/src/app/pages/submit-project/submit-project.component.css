@@ -2,15 +2,14 @@
     padding-bottom: 60px;
     background-color:  #E5E7E9;
     padding-top: 60px;
+    height: 100%;
 }
 
 
-textarea {
-    resize: none;
-    
-}
 
-.aaa, .row, .container ,form
-{
-    position: static;
-}
+.col-lg-12{position: unset;}
+.col-md-12 {position: unset;}
+.col-sm-12 {position: unset;}
+.col-xs-12{position: unset;}
+.col-md-3{position: unset;}
+.col-md-9{position: unset;}

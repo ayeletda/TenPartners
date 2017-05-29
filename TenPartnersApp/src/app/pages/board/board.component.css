@@ -3,6 +3,10 @@
     margin-top: 38px;
 }
 
+
+
+app-projectForSelect{position: unset;}
+
 .project-description {
     padding: 20px;
     line-height: 1.3;

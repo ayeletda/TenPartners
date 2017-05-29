@@ -10,5 +10,10 @@
 }
 
 .continer{
-	position: relative;
+	position: unset;
+}
+
+
+.col-lg-12{
+position: unset;
 }
