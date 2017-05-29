@@ -10,7 +10,7 @@
     color: #fff;
     font-size: 18px;
     text-align: left;
-    height: 66vh;
+    height: 54vh;
     overflow-y: auto;
 }
 
@@ -20,12 +20,25 @@
 }
 
 .selectProject button {
+    /*
     border: 0;
     border-radius: 3px;
     font-weight: 600;
-    color: #ffffff;
+
     background-color: #000000;
     cursor: pointer;
+    */
+
+    background: #FFFFCC;
+    color: #908f8f;
+    display: block;
+    margin: 3% auto;
+    padding: 2%;
+    text-align: center;
+    width:50%;
+    border-width:3px ;
+    border-color: #FFE6E6;
+    font-size: 100%;
 }
 /* You can add global styles to this file, and also import other style files */
 
