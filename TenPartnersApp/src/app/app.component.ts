@@ -27,6 +27,7 @@ export class AppComponent
 
           else{
             this.isLoggedIn=true;
+            this.router.navigateByUrl('/home');
           }
         }
       )
