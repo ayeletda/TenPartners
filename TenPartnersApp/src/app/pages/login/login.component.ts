@@ -24,10 +24,18 @@ export class LoginComponent implements OnInit
   ngOnInit() {}
 
   login(username:HTMLInputElement, password:HTMLInputElement)
-  {
-    this.serviceService.login(username,password);
+  {this.serviceService.login(username,password);}
+  
+  fbLogin()
+  {this.serviceService.FBlogin();}
 
-  }
+  gogLogin()
+  {this.serviceService.GOGlogin();}
+
+  twitLogin()
+  {this.serviceService.TWITlogin();}
+
+
 
 }
 
