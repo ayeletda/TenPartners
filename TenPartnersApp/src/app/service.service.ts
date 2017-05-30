@@ -52,7 +52,8 @@ getlogin(){
   logout(){
  this.anguarfireAuth.authState.subscribe(() => this.router.navigate(['']));
     // The composed observable completes, so there's no need to unsubscribe.
-   this.anguarfireAuth.auth.signOut();}
+   this.anguarfireAuth.auth.signOut();
+}
 
 
 
