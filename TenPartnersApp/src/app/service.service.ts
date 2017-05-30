@@ -18,6 +18,7 @@ export class ServiceService {
   {
     this.username='';
     this.password='';
+    this.isLoggedIn=false;
   }
 
 
