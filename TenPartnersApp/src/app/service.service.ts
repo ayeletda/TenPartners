@@ -31,7 +31,7 @@ getlogin(){
 
   login(username:HTMLInputElement, password:HTMLInputElement){
 
-     this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
+    this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
     then((user)=>
     {
       alert("Wellcom tenPartner");
@@ -47,6 +47,13 @@ getlogin(){
     username.value=null;
 
   }
+
+
+  logout(){
+ this.anguarfireAuth.authState.subscribe(() => this.router.navigate(['']));
+    // The composed observable completes, so there's no need to unsubscribe.
+   this.anguarfireAuth.auth.signOut();}
+
 
 
 }

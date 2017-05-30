@@ -1,5 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import {ServiceService} from '../service.service';
+
+
 
 @Component
 ({
@@ -10,22 +13,16 @@ import { Router } from '@angular/router';
 
 export class HeaderComponent implements OnInit 
 {
-  constructor(private router: Router) { }
+  constructor(private router: Router,private serviceService:ServiceService) { }
 
   @Input()item;
 
   ngOnInit() {}
   
   logOut(){
-    console.log("home");
-
-    this.router.navigateByUrl('');
+    this.serviceService.logout();
   }
 
-goHome(){
-    this.router.navigateByUrl('/home');
-  
-}
 
 
 

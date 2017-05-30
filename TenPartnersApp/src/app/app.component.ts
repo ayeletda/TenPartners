@@ -22,7 +22,7 @@ export class AppComponent
           if(auth==null)
           {
             this.isLoggedIn=false;
-            this.router.navigate(['login']);
+            this.router.navigate(['']);
           }
 
           else{
