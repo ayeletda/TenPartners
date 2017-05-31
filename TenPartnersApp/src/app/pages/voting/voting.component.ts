@@ -14,6 +14,13 @@ import { ChangeDetectorRef } from "@angular/core";
 
 export class VotingComponent implements OnInit, AfterViewChecked
 {
+
+  savedDate: string = '';
+  public newMessage: string;
+  public m ;
+  public messages: FirebaseListObservable<any>;
+  name: string = "Avia"; //////////////////////////////////////////////////////////////////////////////////////////////////
+
   constructor(private router: Router, public af: AngularFireDatabase) 
   {
    // this.m = this.af.database.ref('/messages');
@@ -27,11 +34,6 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  savedDate: string = '';
-  public newMessage: string;
-  public m ;
-  public messages: FirebaseListObservable<any>;
-  name: string = "Avia"; //////////////////////////////////////////////////////////////////////////////////////////////////
 
   // ==================================================
 

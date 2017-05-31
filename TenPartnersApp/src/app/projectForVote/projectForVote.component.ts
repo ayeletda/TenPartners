@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+
 import { Router } from '@angular/router';
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { ChangeDetectorRef } from "@angular/core";
 
 @Component({
   selector: 'app-projectForVote',
@@ -7,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./projectForVote.component.css']
 })
 
-export class ProjectForVoteComponent implements OnInit 
+export class ProjectForVoteComponent implements OnInit , AfterViewChecked
 {
    for : number;
    avoidance : number;
@@ -15,8 +20,9 @@ export class ProjectForVoteComponent implements OnInit
    numOfVotingLabel : number;
    votingFor: boolean;
    votingFirstTime: boolean; // saves if it the first time that person voting (true) or not (false)
+  public projects: FirebaseListObservable<any>;
 
-  constructor(private router: Router)
+  constructor(private router: Router, public af: AngularFireDatabase)
   {
     this.for = 0;
     this.avoidance =  10;
@@ -24,10 +30,17 @@ export class ProjectForVoteComponent implements OnInit
     this.numOfVotingLabel = 0;
     this.votingFor = false;
     this.votingFirstTime = true;
-  }
+    this.projects=this.af.list('projects')  
+}
 
   ngOnInit() {}
 
+
+ ngAfterViewChecked() 
+  {
+    // this.scrollToBottom();
+  }
+  
   votFor() 
   {
     this.for++;
