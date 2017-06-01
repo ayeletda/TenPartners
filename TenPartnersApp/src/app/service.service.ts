@@ -85,6 +85,7 @@ getlogin()
     // The composed observable completes, so there's no need to unsubscribe.
    this.anguarfireAuth.auth.signOut();
    this.isLoggedIn=false;
+    this.title="home";
 }
 
 FBlogin(){
