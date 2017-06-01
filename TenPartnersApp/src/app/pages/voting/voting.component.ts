@@ -28,7 +28,6 @@ export class VotingComponent implements OnInit, AfterViewChecked
    // this.m = this.af.database.ref('/messages');
 //console.log(this.m);
         this.messages = this.af.list('messages');
-        this.email = 
     this.newMessage = '';
 
     this.name = this.service.getCurrentUser();
@@ -81,7 +80,8 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
   sendMessage()
   {
-    this.messages.push({message: this.newMessage, name: this.name, email: this.email, date: new Date().toLocaleString()});
+    if(this.newMessage!='')
+      this.messages.push({message: this.newMessage, name: this.name, email: this.email, date: new Date().toLocaleString()});
     this.newMessage = '';
   }
 
