@@ -1,8 +1,9 @@
+
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { ChangeDetectorRef } from "@angular/core";
 import { ServiceService } from '../../service.service';
 
@@ -15,23 +16,53 @@ import { ServiceService } from '../../service.service';
 
 export class VotingComponent implements OnInit, AfterViewChecked
 {
-
   savedDate: string = '';
   public newMessage: string;
   public m ;
   public messages: FirebaseListObservable<any>;
   name: string; //////////////////////////////////////////////////////////////////////////////////////////////////
   email: string;
+  user: FirebaseListObservable<any>;
+  projects: FirebaseListObservable<any>;
+  associatedCommunities: FirebaseListObservable<any>;
+  userId: string;
+  userCommunity: string;
+  currentProject: any = '';
+  currentProjectValues: any = '';
+  projectPath: any = '';
+  cost: number;
+  date: Date;
+  projectSelected:boolean;
 
   constructor(private service: ServiceService, private router: Router, public af: AngularFireDatabase) 
   {
-   // this.m = this.af.database.ref('/messages');
-//console.log(this.m);
-        this.messages = this.af.list('messages');
-    this.newMessage = '';
-
+   
     this.name = this.service.getCurrentUser();
     this.email = this.service.getCurrentEmail();
+
+    this.userId = this.service.getCurrentID();
+    this.user = this.af.list('users/' + this.userId); // the specific user
+   
+    this.user.subscribe((snapshots)=>{
+      snapshots.forEach(snapshot => {
+        if (snapshot.$key == 'associatedCommunity')
+          this.userCommunity = snapshot.$value;
+
+      });
+    })
+        this.projects = this.af.list('projects');
+
+    this.projects.subscribe((snapshots)=>{
+      snapshots.forEach(snapshot => {
+        // array.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
+        // array2.push(snapshot);
+        this.associatedCommunities = this.af.list('projects/' + snapshot.$key + '/associatedCommunities');
+        this.currentProjectValues = snapshot;
+
+      });
+    })
+    this.newMessage = '';
+    this.projectSelected = false;
 
   }
 
@@ -39,7 +70,22 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
+saveProjectPath(project)
+{
+ this.projectPath = 'projects/' + this.currentProjectValues.$key + '/associatedCommunities/' + project.$key;
+ return true;
+}
 
+loadProjectDetails(project)
+{
+  this.currentProject = project;
+ 
+  this.messages = this.af.list('projects/' + this.currentProjectValues.$key + '/associatedCommunities/' + project.$key + '/messages'); 
+  this.projectSelected = true;
+  this.cost=project.cost;
+  this.date=project.date;
+
+}
   // ==================================================
 
   isMe(email)
@@ -80,7 +126,9 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
   sendMessage()
   {
-    if(this.newMessage!='')
+    if(!this.projectSelected)
+      alert("You need to choose a project before leaving a message.")
+    else if(this.newMessage!='' )
       this.messages.push({message: this.newMessage, name: this.name, email: this.email, date: new Date().toLocaleString()});
     this.newMessage = '';
   }
@@ -101,4 +149,5 @@ export class VotingComponent implements OnInit, AfterViewChecked
   }
 
 }
+
 

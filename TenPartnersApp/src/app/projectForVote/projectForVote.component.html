@@ -1,23 +1,34 @@
 <main>
 
     <div id="up">
-        <i class="simbol fa fa-clock-o" id="clock" aria-hidden="true"></i>
+        <i class="simbol fa fa-clock-o" id="clock" aria-hidden="true">{{leftDay}}d</i>
         <div class = "row">
             <div class = "col-xs-12 col-md-12 col-lg-12 align-right">
-                <i class = "simbol fa fa-thumbs-o-up" id="like" aria-hidden="true" (click)="votFor()" *ngIf="!votingFor || votingFirstTime" ></i>
+                <i *ngIf = "!votingFor || votingFirstTime" class = "simbol fa fa-thumbs-o-up" id="like" aria-hidden="true" (click)="votFor()"  ></i>
+            </div>
+            <div class="projectName col-xs-12 col-md-12 col-lg-12"> 
+               <h4> {{projectName}} </h4>
             </div>
             <div class = "col-xs-12 col-md-12 col-lg-12 align-right">
-                <i class = "simbol fa fa-thumbs-o-down" id="unlike" aria-hidden="true" (click)="votAgainst()" *ngIf="votingFor || votingFirstTime" ></i>
+                <i  *ngIf="votingFor || votingFirstTime" class = "simbol fa fa-thumbs-o-down" id="unlike" aria-hidden="true" (click)="votAgainst()" ></i>
             </div>
         </div>
     </div>
 
    <!-- <i class="fa fa-picture-o fa-5x" id="unavailablePic" aria-hidden="true"></i>-->
-
+<div *ngFor = "let value of pointerToProjectInAF | async">
     <div id = "down">
-        <label class="green" for="for" id="for"><i class="lable fa fa-thumbs-o-up fa-lg" aria-hidden="true" ></i><p> {{for}} </p> </label>
-        <label class="yellow" for="avoidance" id="avoidance"><i class="lable fa fa-ban" aria-hidden="true"></i> <p>{{avoidance}}</p></label>
-        <label class="red" for="against" id="against" ><i class="lable fa fa-thumbs-o-down fa-lg " aria-hidden="true"></i><p> {{against}} </p></label>     
+            <div *ngIf = "value.$key == 'for'">
+            <label class="green" for="for" id="for"><i class="lable fa fa-thumbs-o-up fa-lg" aria-hidden="true" ></i><p #forVal> {{ value.$value }} </p> </label>
+            </div>
+
+            <div *ngIf = "value.$key == 'avoid'">
+            <label class="yellow" for="avoidance" id="avoidance"><i class="lable fa fa-ban" aria-hidden="true"></i> <p #avoidVal> {{ value.$value }} </p></label>
+            </div>
+            <div *ngIf = "value.$key == 'against'">
+            <label class="red" for="against" id="against" ><i class="lable fa fa-thumbs-o-down fa-lg " aria-hidden="true"></i><p #againstVal> {{ value.$value }} </p></label>
+            </div>
+        </div>     
     </div>
 
 </main>

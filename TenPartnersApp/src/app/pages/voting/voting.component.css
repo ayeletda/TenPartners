@@ -1,4 +1,3 @@
-
 body
 {
     margin-top: 35px;
@@ -10,7 +9,7 @@ body
 .part1, .col-centered
 {
   width: 100%;
-  background-color: red
+  background-color: red;
 }
 
 .navbar
@@ -407,3 +406,7 @@ input::placeholder
     height:  238px   
   }
 }
+
+
+
+
