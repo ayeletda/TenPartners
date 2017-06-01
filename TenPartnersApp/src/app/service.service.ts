@@ -11,8 +11,10 @@ import * as firebase from 'firebase/app';
 export class ServiceService {
   userName:string;
   userEmail:string;
+  userID:any;
  // password:String; I dont think we need that - check :)
   private isLoggedIn;
+
 
 
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth)
@@ -20,8 +22,10 @@ export class ServiceService {
     this.logout(); 
     this.userName ='';
     this.userEmail = '';
+    this.userID='';
   //  this.password=''; I dont think we need that - check :)
     this.isLoggedIn=false;
+    
   }
 
 
@@ -35,7 +39,10 @@ getCurrentEmail()
 {
   return this.userEmail;
 }
-
+getCurrentID()
+{
+  return this.userID;
+}
 getlogin()
 {
   return this.isLoggedIn;
@@ -51,6 +58,7 @@ getlogin()
       alert("Wellcom tenPartner");
       this.userName = username.value;
       this.userEmail = user.email;
+      this.userID = user.uid;
       this.isLoggedIn=true;
       this.router.navigateByUrl('/home');
       //  location.reload();  I dont think we need that - check :)
@@ -106,8 +114,9 @@ firebase.auth().signInWithPopup(provider).then((user)=>
 {
   alert("Wellcom tenPartner");
   this.isLoggedIn=true;
-    this.userName = user.user.displayName;
-    this.userEmail = user.user.email;
+  this.userName = user.user.displayName;
+  this.userEmail = user.user.email;
+  this.userID = user.user.uid;
   this.router.navigateByUrl('/home');
   
     //location.reload();      I dont think we need that - check :)
