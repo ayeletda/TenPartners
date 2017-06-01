@@ -17,7 +17,6 @@ export class ServiceService {
 
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth)
   {
-    this.logout();
     this.userName ='';
     this.userEmail = '';
   //  this.password=''; I dont think we need that - check :)
