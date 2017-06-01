@@ -31,7 +31,7 @@ export class ProjectForVoteComponent implements OnInit , AfterViewChecked
     this.votingFor = false;
     this.votingFirstTime = true;
     this.projects=this.af.list('projects')  
-}
+  }
 
   ngOnInit() {}
 
@@ -40,7 +40,7 @@ export class ProjectForVoteComponent implements OnInit , AfterViewChecked
   {
     // this.scrollToBottom();
   }
-  
+
   votFor() 
   {
     this.for++;

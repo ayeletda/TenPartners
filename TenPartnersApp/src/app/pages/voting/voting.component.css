@@ -1,12 +1,10 @@
 
 body
 {
-    height: 100%;
-    max-height: 100%;
-    width: 100%;
-    font-size: 20px;
     margin-top: 35px;
-    margin-bottom: 35px;
+    /*margin-bottom: 35px;*/
+    position: absolute;
+
 }
 
 .part1, .col-centered
@@ -349,8 +347,9 @@ input::placeholder
 
    .vertical-menu2
   {
-    height:  360px   
+    height:  379px   
   }
+
 }
 
 

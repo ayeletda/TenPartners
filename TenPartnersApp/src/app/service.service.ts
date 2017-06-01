@@ -9,25 +9,35 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class ServiceService {
-  username:String;
-  password:String;
+  userName:String;
+  userEmail:string;
+ // password:String; I dont think we need that - check :)
   private isLoggedIn;
 
 
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth)
   {
-    this.username='';
-    this.password='';
+    this.logout();
+    this.userName ='';
+    this.userEmail = '';
+  //  this.password=''; I dont think we need that - check :)
     this.isLoggedIn=false;
   }
 
 
 
-  getCurrentUser(){
-    return this.username;
-  }
+getCurrentUser()
+{
+  return this.userName;
+}
 
-getlogin(){
+getCurrentEmail()
+{
+  return this.userEmail;
+}
+
+getlogin()
+{
   return this.isLoggedIn;
 }
 
@@ -39,9 +49,11 @@ getlogin(){
     then((user)=>
     {
       alert("Wellcom tenPartner");
+      this.userName = username.value;
+      this.userEmail = user.email;
       this.isLoggedIn=true;
       this.router.navigateByUrl('/home');
-        location.reload();
+      //  location.reload();  I dont think we need that - check :)
       
       
     })
@@ -70,11 +82,15 @@ var provider = new firebase.auth.FacebookAuthProvider();
 firebase.auth().signInWithPopup(provider).then((user)=>
     {
       alert("Wellcom tenPartner");
+ 
       this.isLoggedIn=true;
       this.router.navigateByUrl('/home');
-        location.reload();
+       // location.reload(); I dont think we need that - check :)
         console.log(user);
       
+        // maybe is this, you need to check after loging with face will work
+        //   this.userName = user.user.displayName;
+        // this.userEmail = user.user.email;
       
     })
     .catch((error)=>
@@ -87,19 +103,22 @@ GOGlogin(){
 var provider = new firebase.auth.GoogleAuthProvider();
 
 firebase.auth().signInWithPopup(provider).then((user)=>
-    {
-      alert("Wellcom tenPartner");
-      this.isLoggedIn=true;
-      this.router.navigateByUrl('/home');
-        location.reload();      
-      
-    })
-    .catch((error)=>
-    {
-       alert("Email or password incorrect");
-    });
+{
+  alert("Wellcom tenPartner");
+  this.isLoggedIn=true;
+    this.userName = user.user.displayName;
+    this.userEmail = user.user.email;
+  this.router.navigateByUrl('/home');
+  
+    //location.reload();      I dont think we need that - check :)
+  
+})
+.catch((error)=>
+{
+    alert("Email or password incorrect");
+});
 
-    
+
 
 
   
