@@ -35,7 +35,7 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {this.service.setTitle("Voting In Progress");}
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 

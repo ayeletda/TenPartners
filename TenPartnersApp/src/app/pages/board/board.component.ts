@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {ServiceService} from '../../service.service';
+
 
 @Component(
     {
@@ -10,10 +12,14 @@ import {Router} from '@angular/router';
 
 
 export class BoardComponent implements OnInit {
-    constructor(private router: Router) {
+    constructor(private router: Router,private serviceService:ServiceService) {
     }
 
     ngOnInit() {
+
+
+        this.serviceService.setTitle("Suggested projects");
+
         (<any>$('#SuggestedProjects')).slick({
             infinite: true,
             slidesToShow: 3,

@@ -14,6 +14,7 @@ export class ServiceService {
   userID:any;
  // password:String; I dont think we need that - check :)
   private isLoggedIn;
+  private title;
 
 
 
@@ -27,6 +28,8 @@ export class ServiceService {
     this.isLoggedIn=false;
     
   }
+
+setTitle(Title:String){this.title=Title;}  
 
 
 

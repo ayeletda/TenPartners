@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceService} from '../../service.service';
+
+
 
 @Component({
   selector: 'app-master-db',
@@ -7,10 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MasterDBComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceService:ServiceService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {this.serviceService.setTitle("Master DB");}
 
 }
 

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {ServiceService} from '../../service.service';
+
 
 @Component(
 {
@@ -10,8 +12,8 @@ import { Router } from '@angular/router';
 
 export class MyProjectsComponent implements OnInit 
 {
-  constructor(private router: Router) { }
+  constructor(private router: Router,private serviceService:ServiceService) { }
 
-  ngOnInit() {}
+  ngOnInit() {this.serviceService.setTitle("My Projects");}
 }
   

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceService} from '../../service.service';
 
 @Component({
   selector: 'app-submit-project',
@@ -7,9 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubmitProjectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serviceService:ServiceService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {this.serviceService.setTitle("Submit Project");}
 
 }
