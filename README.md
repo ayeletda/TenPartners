@@ -67,8 +67,8 @@ Please visit our wiki for furthur project info:
 ### Iteration Pages
 - [Iteration 0 - ZFR](../../wiki/iter0-zfr)
 - [Iteration 1 - MVP](../../wiki/iter1-MVP)
-- [Iteration 2 - Feature X](../../wiki/iter2-FeatureX)
-- [Iteration 3 - Feature Y](../../wiki/iter3-FeatureY)
+- [Iteration 2 - Corrections](../../wiki/iter2-Corrections)
+- [Iteration 3 - Functionality](../../wiki/iter3-Functionality)
 - [Iteration 4 - Feature Z](../..//wiki/iter4-FeatureZ)
 
 
