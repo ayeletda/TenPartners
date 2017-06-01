@@ -9,7 +9,7 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class ServiceService {
-  userName:String;
+  userName:string;
   userEmail:string;
  // password:String; I dont think we need that - check :)
   private isLoggedIn;
@@ -17,6 +17,7 @@ export class ServiceService {
 
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth)
   {
+    this.logout(); 
     this.userName ='';
     this.userEmail = '';
   //  this.password=''; I dont think we need that - check :)
