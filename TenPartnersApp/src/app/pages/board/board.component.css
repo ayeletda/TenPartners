@@ -24,14 +24,6 @@ app-projectForSelect{position: unset;}
 }
 
 .selectProject button {
-    /*
-    border: 0;
-    border-radius: 3px;
-    font-weight: 600;
-
-    background-color: #000000;
-    cursor: pointer;
-    */
 
     background: #FFFFCC;///
     color: #908f8f;

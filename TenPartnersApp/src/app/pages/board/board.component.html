@@ -1,23 +1,21 @@
 <!--=========================== the page ==============================-->
 
+
 <div id="SuggestedProjects">
     <div *ngFor="let associate of associatedCommunities | async ">
-        <div *ngIf="associate.$key == userCommunity && associate.associatedUser != '' && saveProjectPath(associate)">
-            no projects suggested yet
-        </div>
         <div *ngIf="associate.$key == userCommunity && associate.associatedUser == '' && saveProjectPath(associate)">
             <app-projectForSelect [item]="projectPath" (click)="loadProjectDetails(associate)"></app-projectForSelect>
         </div>
-
+        <div *ngIf="associate.$key == userCommunity && associate.associatedUser != '' && saveProjectPath(associate)">
+            no projects suggested
+        </div>
     </div>
 
 </div>
 
+<div *ngIf="!projectSelected && currentProjectValues.associatedUser == ''">
+    <div class="descriptionP">
 
-<div class="descriptionP">
-
-
-    <div *ngIf="!projectSelected && currentProjectValues.associatedUser == ''">
         <div class="forP1">
             <div class="project-description">
 
@@ -27,11 +25,8 @@
         </div>
     </div>
 
-
-</div>
-<div *ngIf="!projectSelected && currentProjectValues.associatedUser == ''">
     <div class="selectProject">
-        <button type="button" (click)="updateAssociatedUser(associate)">Nominate</button>
+        <button type="button" (click)="updateAssociatedUser()">Nominate</button>
     </div>
 </div>
 

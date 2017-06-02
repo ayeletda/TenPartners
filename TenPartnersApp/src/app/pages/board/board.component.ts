@@ -45,8 +45,6 @@ export class BoardComponent implements OnInit {
 
         this.projects.subscribe((snapshots)=>{
             snapshots.forEach(snapshot => {
-                // array.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
-                // array2.push(snapshot);
                 this.associatedCommunities = this.af.list('projects/' + snapshot.$key + '/associatedCommunities');
                 this.currentProjectValues = snapshot;
 
@@ -77,15 +75,13 @@ export class BoardComponent implements OnInit {
     loadProjectDetails(project)
     {
         this.currentProject = project;
-        this.projectSelected = false;
     }
-    updateAssociatedUser(project){
-        this.projectSelected = true;
-        this.currentProject = project;
+    updateAssociatedUser(){
+
         this.currentProject.update({'associatedUser': this.currentProject.userID});
+       alert("1100");
+
     }
-
-
 }
 
 
