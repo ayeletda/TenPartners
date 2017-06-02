@@ -25,6 +25,110 @@ main {
     color: black;
 }
 
+.projectName {
+    margin-left: 40%;
+
+}
+
+@media only screen and (min-height: 1366px) {
+
+    .up {
+        height: 200px;
+    }
+
+}
+
+@media only screen and (min-height: 1024px) {
+    .up {
+        height: 180px;
+    }
+}
+
+@media only screen and (min-height: 1366px) {
+    .up {
+        height: 200px;
+    }
+
+}
+
+@media only screen and (max-height: 736px) {
+    .up {
+        height: 100px;
+    }
+}
+
+@media only screen and (max-height: 732px) {
+    .up {
+        height: 100px;
+    }
+}
+
+@media only screen and (max-height: 667px ) {
+    .up {
+        height: 90px;
+    }
+
+}
+
+@media only screen and (max-height: 640px) {
+    #up {
+        height: 90px;
+    }
+
+}
+
+@media only screen and (max-height: 568px) {
+    .up {
+        height: 80px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*=========== main\top-side of project's square ==========*/
+/*
+main {
+    font-family: "comic sans ms";
+    font-weight: bold;
+    color: gray;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    border: solid #D6D6CC;
+    font-size: 13px;
+    float: left;
+    position: unset;
+}
+
+.up {
+    height: 150px;
+    width: 100%;
+    position: unset;
+
+}
+
+#clock {
+    float: left;
+    color: black;
+}
+
 .r {
     margin-left: 40%;
 
@@ -83,3 +187,4 @@ main {
     }
 
 }
+*/
