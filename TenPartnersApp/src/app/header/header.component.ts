@@ -13,6 +13,9 @@ import {ServiceService} from '../service.service';
 
 export class HeaderComponent implements OnInit 
 {
+  
+  private _opened: boolean = false;
+
   constructor(private router: Router,private serviceService:ServiceService) { }
 
   @Input()item;
@@ -23,6 +26,10 @@ export class HeaderComponent implements OnInit
     this.serviceService.logout();
   }
 
+
+  private _toggleSidebar() {
+    this._opened = !this._opened;
+  }
 
 
 

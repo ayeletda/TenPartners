@@ -1,11 +1,43 @@
 
 <div class = "head">
- <i class="fa fa-user-circle-o fa-2x" aria-hidden="true" (click)="sidenav.open()" id="settings"></i>
+ <i class="fa fa-user-circle-o fa-2x" aria-hidden="true" (click)="_toggleSidebar()" id="settings"></i>
 <div class = "title">{{item}}</div>
 </div>
 
 
-<md-sidenav-container class="example-container">
+  <!-- Container for sidebar(s) + page content -->
+    <ng-sidebar-container>
+
+      <!-- A sidebar -->
+      <ng-sidebar [(opened)]="_opened">
+        <div class = "list">
+<div class = "nav logout">Logout  
+<a><span class="glyphicon glyphicon-log-out" (click)="logOut()"></span></a>
+</div>
+
+<div class = "nav notification">Notification
+<label class="switch">
+<input type="checkbox">
+<div class="slider round"></div>
+</label>
+
+</div>
+
+<div class = "nav changePass">Change password</div>
+
+<div class="nav mailNotification">Notification to the email
+<label class="switch">
+<input type="checkbox">
+<div class="slider round"></div>
+</label>
+</div>      
+</div>
+</ng-sidebar>
+
+    </ng-sidebar-container>
+    
+
+<!--<md-sidenav-container class="example-container">
   <md-sidenav #sidenav class="example-sidenav">
   
    <div class = "nav logout">Logout  
@@ -35,3 +67,4 @@
 </md-sidenav-container>
 
 
+-->
