@@ -24,19 +24,29 @@ export class VotingComponent implements OnInit, AfterViewChecked
   email: string;
   user: FirebaseListObservable<any>;
   projects: FirebaseListObservable<any>;
+  /*
   associatedCommunities: FirebaseListObservable<any>;
+  currentProjectValues: any = '';
+*/
+/////////////////
+  projectsAssociatedCommunities_Arr: any;
+  projectsValues_Arr: any;
+///////////////////
   userId: string;
   userCommunity: string;
   currentProject: any = '';
-  currentProjectValues: any = '';
   projectPath: any = '';
   cost: number;
   date: Date;
   projectSelected:boolean;
-
+description: string;
   constructor(private service: ServiceService, private router: Router, public af: AngularFireDatabase) 
   {
-   
+/////////////////
+this.projectsAssociatedCommunities_Arr=[];
+this.projectsValues_Arr=[];
+
+///////////////   
     this.name = this.service.getCurrentUser();
     this.email = this.service.getCurrentEmail();
 
@@ -50,15 +60,21 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
       });
     })
+    
         this.projects = this.af.list('projects');
 
     this.projects.subscribe((snapshots)=>{
+              this.projectsAssociatedCommunities_Arr = [];
+              this.projectsValues_Arr=[];
       snapshots.forEach(snapshot => {
-        // array.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
-        // array2.push(snapshot);
+   //////////// mybe in oninit
+        this.projectsAssociatedCommunities_Arr.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
+        this.projectsValues_Arr.push(snapshot);
+/////////////////
+/*
         this.associatedCommunities = this.af.list('projects/' + snapshot.$key + '/associatedCommunities');
         this.currentProjectValues = snapshot;
-
+*/
       });
     })
     this.newMessage = '';
@@ -66,24 +82,44 @@ export class VotingComponent implements OnInit, AfterViewChecked
 
   }
 
-  ngOnInit() {this.service.setTitle("Voting In Progress");}
+  ngOnInit()
+  {
+    this.service.setTitle("Voting In Progress");
+     
+     (<any>$("part1")).slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            arrows: false
+        });
+  }
 
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
+/*
 saveProjectPath(project)
 {
  this.projectPath = 'projects/' + this.currentProjectValues.$key + '/associatedCommunities/' + project.$key;
  return true;
+}*/
+
+saveProjectPath(project, i)
+{
+ this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
+ return true;
 }
 
-loadProjectDetails(project)
+loadProjectDetails(project,i)
 {
   this.currentProject = project;
  
-  this.messages = this.af.list('projects/' + this.currentProjectValues.$key + '/associatedCommunities/' + project.$key + '/messages'); 
+  //this.messages = this.af.list('projects/' + this.currentProjectValues.$key + '/associatedCommunities/' + project.$key + '/messages'); 
+    this.messages = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key + '/messages'); 
+
   this.projectSelected = true;
-  this.cost=project.cost;
-  this.date=project.date;
+  this.cost = project.cost;
+  this.date = project.date;
+  this.description = this.projectsValues_Arr[i].description; 
 
 }
   // ==================================================

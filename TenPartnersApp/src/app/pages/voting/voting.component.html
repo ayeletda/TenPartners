@@ -3,15 +3,17 @@
  <!--========================== the page ==============================-->
 
     <body>
-      <div class = " part1">
-          <div *ngFor = "let associate of associatedCommunities | async ">
-            <!--<div class = " col-centered">-->
-             <!--<div #scrollMeProj class = "vertical-menu-x" > -->
-                <div *ngIf = "associate.$key == userCommunity && associate.associatedUser != '' && saveProjectPath(associate)" class="picture" id="pic1">  
-                    <app-projectForVote [item] = "projectPath" (click) = "loadProjectDetails(associate)"></app-projectForVote> 
+      <div class = "part1">
+            <div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index" [attr.data-index]="i" ><!--- ////////////////// i++??-->
+                <div *ngFor = "let community of associatedCommunities | async ">
+                    <!--<div class = " col-centered">-->
+                    <!--<div #scrollMeProj class = "vertical-menu-x" > -->
+                        <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)" class="picture" id="pic1">  
+                            <app-projectForVote [item] = "projectPath" (click) = "loadProjectDetails(community,i)"></app-projectForVote> 
+                        </div>
+                    <!--</div>-->
                 </div>
-             <!--</div>-->
-          </div>
+            </div>
       </div>  
       
 
@@ -20,7 +22,7 @@
                 <div *ngIf = 'projectSelected'> 
                     <p> Date: {{date}} </p>
                     <p> Cost: {{cost}} </p>
-                    <p> Description: {{currentProjectValues.description}} </p>
+                    <p> Description: {{description}} </p>
                 </div>
                 <h4 *ngIf = '!projectSelected'> No projects have been selected for discussion yet... </h4>
                
