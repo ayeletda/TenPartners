@@ -141,8 +141,8 @@ input:checked + .slider:before {
 }
 .list{
   padding-top: 60px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
   height: 100%;
   background-color:#F8F9F9;
   opacity: 0.9;

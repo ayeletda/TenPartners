@@ -11,6 +11,12 @@
       <!-- A sidebar -->
       <ng-sidebar [(opened)]="_opened">
         <div class = "list">
+
+
+<button type="button" class="close" (click)="_toggleSidebar()" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+
 <div class = "nav logout">Logout  
 <a><span class="glyphicon glyphicon-log-out" (click)="logOut()"></span></a>
 </div>
@@ -36,35 +42,3 @@
 
     </ng-sidebar-container>
     
-
-<!--<md-sidenav-container class="example-container">
-  <md-sidenav #sidenav class="example-sidenav">
-  
-   <div class = "nav logout">Logout  
-     <a><span class="glyphicon glyphicon-log-out" (click)="logOut()"></span></a>
-  </div>
-  
-   <div class = "nav notification">Notification
-    <label class="switch">
-    <input type="checkbox">
-    <div class="slider round"></div>
-    </label>
-
-   </div>
-  
-  <div class = "nav changePass">Change password</div>
-  
-  <div class="nav mailNotification">Notification to the email
-  <label class="switch">
-  <input type="checkbox">
-  <div class="slider round"></div>
-  </label>
-
-  </div>
-
-  </md-sidenav>
-
-</md-sidenav-container>
-
-
--->
