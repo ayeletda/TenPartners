@@ -7,7 +7,9 @@
             <app-projectForSelect [item]="projectPath" (click)="loadProjectDetails(associate)"></app-projectForSelect>
         </div>
         <div *ngIf="associate.$key == userCommunity && associate.associatedUser != '' && saveProjectPath(associate)">
-            no projects suggested
+            <div id="withoutProjects">
+            no projects submitted in your community
+            </div>
         </div>
     </div>
 

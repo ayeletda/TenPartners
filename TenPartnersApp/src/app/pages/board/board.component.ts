@@ -77,9 +77,10 @@ export class BoardComponent implements OnInit {
         this.currentProject = project;
     }
     updateAssociatedUser(){
+        alert("1100");
 
         this.currentProject.update({'associatedUser': this.currentProject.userID});
-       alert("1100");
+
 
     }
 }

@@ -94,6 +94,13 @@ app-projectForSelect{position: unset;}
     color: gray;
 }
 
+#withoutProjects{
+    text-align: center;
+    padding:10px;
+    background-color: #E3E3E3;;
+
+}
+
 /*body {
     padding-top: 10%;
     height: 100%;
