@@ -16,6 +16,7 @@ import { ServiceService } from '../../service.service';
 
 export class VotingComponent implements OnInit, AfterViewChecked
 {
+  try: boolean = false;
   savedDate: string = '';
   public newMessage: string;
   public m ;
