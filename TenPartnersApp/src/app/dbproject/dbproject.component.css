@@ -25,7 +25,7 @@ position: unset;
 }
 
 
-summary{font-size: 25px; margin-bottom: 10px;}
+summary{font-size: 25px; margin-bottom: 10px; outline: 0;}
 
 p{font-size: 20px;}
 
