@@ -16,7 +16,6 @@ export class AppComponent
 
   constructor(private Service:ServiceService, private router:Router) 
   {
-    console.log(this.Service.anguarfireAuth);
       this.Service.anguarfireAuth.authState.subscribe(
         (auth) => {
           if(auth==null)

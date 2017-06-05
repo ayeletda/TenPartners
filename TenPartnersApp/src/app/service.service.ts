@@ -98,7 +98,6 @@ firebase.auth().signInWithPopup(provider).then((user)=>
       this.isLoggedIn=true;
       this.router.navigateByUrl('/home');
        // location.reload(); I dont think we need that - check :)
-        console.log(user);
       
         // maybe is this, you need to check after loging with face will work
         //   this.userName = user.user.displayName;
