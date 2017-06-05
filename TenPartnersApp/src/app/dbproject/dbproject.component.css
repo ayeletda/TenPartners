@@ -1,0 +1,15 @@
+
+main {
+	box-sizing: border-box;
+	border-radius: 5px;
+	border: 1.5px solid #cccccc;
+	box-shadow: 0 0 10px #e6e6e6;
+	background-color: #F5F5F5;
+	padding: 1% 1% 1% 1%;
+	margin-top: 1%;
+	margin-left: 0.5%;
+	margin-right: 0.5%;
+	height: 20%;
+	width: 100%;
+	font-size: 20px;
+}

@@ -32,7 +32,8 @@ import { SubmitProjectComponent } from './pages/submit-project/submit-project.co
 import { MasterDBComponent } from './pages/master-db/master-db.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ServiceService} from './service.service'
+import {ServiceService} from './service.service';
+import { DBprojectComponent } from './dbproject/dbproject.component'
 //=============================================================================================
 
 //Initialize Firebase
@@ -66,7 +67,8 @@ export const firebaseConfig =
       ProjectForSelectComponent,
       SettingsComponent,
       SubmitProjectComponent,
-      MasterDBComponent
+      MasterDBComponent,
+      DBprojectComponent
   ],
 
   imports: [
