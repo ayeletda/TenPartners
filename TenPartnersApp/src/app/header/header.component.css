@@ -36,33 +36,6 @@ margin: 5px;
 }
 
 
-.example-container {
-  width: 100%;
-  height: 100%;
-  opacity: 0.9;
-
-}
-
-.example-sidenav-content {
-  display: flex;
-  height: 100%;
-  width: 60%;
-  align-items: center;
-  justify-content: center;
-}
-
-.example-sidenav {
-  padding-top:50px;
-  padding-right:20px;
-  padding-left:20px;  
-  background-color: #F8F9F9;
-}
-
-md-sidenav-container{
-    background-color: transparent;
-    position: absolute;
-}
-
 .glyphicon-log-out{
   padding-left: 10px;
 }
@@ -133,12 +106,6 @@ input:checked + .slider:before {
   border-radius: 50%;
 }
 
-
-.example-container{
-  display: inline-flex;
-    overflow: hidden;
-    position: fixed;
-}
 .list{
   padding-top: 60px;
   padding-left: 15px;

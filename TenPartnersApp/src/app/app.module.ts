@@ -32,7 +32,6 @@ import { SubmitProjectComponent } from './pages/submit-project/submit-project.co
 import { MasterDBComponent } from './pages/master-db/master-db.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
 import {ServiceService} from './service.service'
 //=============================================================================================
 
@@ -79,7 +78,6 @@ export const firebaseConfig =
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    MaterialModule,
     SidebarModule.forRoot()    
   
   ],
