@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import {ServiceService} from '../service.service';
 
-
+//stam bdika
 
 @Component
 ({
