@@ -139,3 +139,34 @@ input:checked + .slider:before {
     overflow: hidden;
     position: fixed;
 }
+.list{
+  padding-top: 60px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100%;
+  background-color:#F8F9F9;
+  opacity: 0.9;
+
+}
+ng-sidebar{
+  opacity: 0.9;
+  
+}
+
+.close {
+  font-size: 29px;
+  font-weight: bold;
+  line-height: 18px;
+  color: #000000;
+  text-shadow: 0 1px 0 #ffffff;
+  opacity: 0.2;
+  filter: alpha(opacity=20);
+  text-decoration: none;
+}
+.close:hover {
+  color: #000000;
+  text-decoration: none;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+  cursor: pointer;
+}

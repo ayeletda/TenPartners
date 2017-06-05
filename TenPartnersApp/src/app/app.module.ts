@@ -1,6 +1,6 @@
 
 //======================================  imports  ========================================
-
+import { SidebarModule } from 'ng-sidebar';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -79,7 +79,8 @@ export const firebaseConfig =
     AngularFireAuthModule,
     AngularFireDatabaseModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    SidebarModule.forRoot()    
   
   ],
   providers: [ServiceService],
