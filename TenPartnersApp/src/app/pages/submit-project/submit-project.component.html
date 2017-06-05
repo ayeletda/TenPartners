@@ -8,7 +8,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="ProjectName" >Project's Name</label>
               <div class="col-md-9">
-                <input id="ProjectName" name="ProjectName" maxlength="40" type="text" placeholder="Please enter your project's name here" class="form-control">
+                <input id="ProjectName"  [(ngModel)] = "Name" name="ProjectName" maxlength="40" type="text" placeholder="Please enter your project's name here" class="form-control">
               </div>
             </div>
     
@@ -16,7 +16,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="Description">Description</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="Description" name="Description" placeholder="Please enter the project's description here" rows="6"></textarea>
+                <textarea [(ngModel)] = "Description" class="form-control" id="Description" name="Description" placeholder="Please enter the project's description here" rows="6"></textarea>
               </div>
             </div>
     
@@ -24,7 +24,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="Purpose">Purpose for the Jewish community</label>
               <div class="col-md-9">
-                <textarea class="form-control" id="Purpose" name="Purpose" placeholder="Please enter the project's purpose here" rows="6"></textarea>
+                <textarea [(ngModel)] = "Purpose" class="form-control" id="Purpose" name="Purpose" placeholder="Please enter the project's purpose here" rows="6"></textarea>
              
               </div>
             </div>
@@ -32,7 +32,7 @@
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg" (click) = "sendProject()">Submit</button>
               </div>
             </div>
           </fieldset>
