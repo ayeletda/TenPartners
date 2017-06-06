@@ -1,8 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
+import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
+import { ChangeDetectorRef } from "@angular/core";
+
 
 
 
@@ -15,10 +19,11 @@ export class ServiceService {
  // password:String; I dont think we need that - check :)
   private isLoggedIn;
   private title;
+  users: FirebaseListObservable<any>;
+  usersValues_Arr: any;
 
 
-
-  constructor(private router: Router, public anguarfireAuth:AngularFireAuth)
+  constructor(private router: Router, public anguarfireAuth:AngularFireAuth,public af: AngularFireDatabase)
   {
     this.logout(); 
     this.userName ='';
@@ -26,6 +31,15 @@ export class ServiceService {
     this.userID='';
   //  this.password=''; I dont think we need that - check :)
     this.isLoggedIn=false;
+
+     this.users = this.af.list('users');
+
+    this.users.subscribe((snapshots)=>{
+              this.usersValues_Arr=[];
+      snapshots.forEach(snapshot => {
+   //////////// mybe in oninit
+        this.usersValues_Arr.push(snapshot);});})
+    
     
   }
 
@@ -51,6 +65,14 @@ getlogin()
   return this.isLoggedIn;
 }
 
+pushUser()
+{
+
+    console.log(this.getlogin());
+
+    if(this.getlogin()==true)
+        this.users.push({Name: this.getCurrentUser() , Email: this.getCurrentEmail(),associatedCommunities: "NULL"});
+  }
 
 
   login(username:HTMLInputElement, password:HTMLInputElement){
@@ -63,6 +85,7 @@ getlogin()
       this.userEmail = user.email;
       this.userID = user.uid;
       this.isLoggedIn=true;
+      this.pushUser();
       this.router.navigateByUrl('/home');
       //  location.reload();  I dont think we need that - check :)
       
@@ -75,6 +98,7 @@ getlogin()
 
     password.value=null;
     username.value=null;
+
 
 
   }
@@ -92,22 +116,24 @@ FBlogin(){
 var provider = new firebase.auth.FacebookAuthProvider();
 
 firebase.auth().signInWithPopup(provider).then((user)=>
-    {
-      alert("Wellcom tenPartner");
- 
-      this.isLoggedIn=true;
-      this.router.navigateByUrl('/home');
-       // location.reload(); I dont think we need that - check :)
-      
-        // maybe is this, you need to check after loging with face will work
-        //   this.userName = user.user.displayName;
-        // this.userEmail = user.user.email;
-      
-    })
-    .catch((error)=>
-    {
-       alert("Email or password incorrect");
-    });}
+{
+  alert("Wellcom tenPartner");
+  this.isLoggedIn=true;
+  this.userName = user.user.displayName;
+  this.userEmail = user.user.email;
+  this.userID = user.user.uid;
+  this.router.navigateByUrl('/home');
+  this.pushUser();
+
+    //location.reload();      I dont think we need that - check :)
+  
+})
+.catch((error)=>
+{
+    alert("Email or password incorrect");
+});
+
+}
 
 
 GOGlogin(){
@@ -121,7 +147,8 @@ firebase.auth().signInWithPopup(provider).then((user)=>
   this.userEmail = user.user.email;
   this.userID = user.user.uid;
   this.router.navigateByUrl('/home');
-  
+  this.pushUser();
+
     //location.reload();      I dont think we need that - check :)
   
 })
@@ -129,7 +156,6 @@ firebase.auth().signInWithPopup(provider).then((user)=>
 {
     alert("Email or password incorrect");
 });
-
 
 
 
@@ -141,6 +167,13 @@ firebase.auth().signInWithPopup(provider).then((user)=>
 TWITlogin(){
 
 }
+
+
+
+
+
+
+
 
 
 
