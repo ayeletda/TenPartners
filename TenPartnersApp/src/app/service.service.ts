@@ -71,7 +71,7 @@ pushUser()
     console.log(this.getlogin());
 
     if(this.getlogin()==true)
-        this.users.push({Name: this.getCurrentUser() , Email: this.getCurrentEmail(),associatedCommunities: "NULL"});
+        this.users.push({Name: this.getCurrentUser() , Email: this.getCurrentEmail(),associatedCommunity: "NULL"});
   }
 
 
