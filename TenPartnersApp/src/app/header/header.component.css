@@ -1,5 +1,5 @@
 .title{
-    color: black;
+    color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center; 
     width: 100%;
@@ -8,7 +8,7 @@
 }
 
 .head{
-    background-color:#F8F9F9 ; 
+    background-color: darkblue ; 
     height: 40px;
     width: 100%;
     position: fixed;
@@ -30,7 +30,7 @@
 #settings
 {
 cursor: pointer;
-color: black;
+color: white;
 position: relative;
 margin: 5px;
 }
@@ -115,7 +115,7 @@ input:checked + .slider:before {
   opacity: 0.9;
 
 }
-ng-sidebar,ng-sidebar-container{
+ng-sidebar-container{
   opacity: 0.9;
   
 }
