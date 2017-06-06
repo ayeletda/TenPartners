@@ -49,7 +49,7 @@ export class SubmitProjectComponent implements OnInit {
         alert("something's missing");
 
     else {
-      this.projects.push({Name: this.Name, Description: this.Description,Purpose: this.Purpose});
+      this.projects.push({Name: this.Name, Description: this.Description,Purpose: this.Purpose,associatedCommunities: null});
       this.Name = '';
       this.Description="";
       this.Purpose="";
