@@ -1,6 +1,10 @@
 <div class="MasterDB">
 
-  <app-dbproject></app-dbproject>
+  <div *ngFor = "let project of projects | async" > 
+      <app-dbproject [item]="project"></app-dbproject>
+  </div>
+
+
 
 
 </div>
