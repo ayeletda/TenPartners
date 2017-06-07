@@ -28,6 +28,7 @@ margin-right: 30px;
 .login{
 
     margin:10px;
+    margin-bottom: 0px;
 }
 
 
@@ -47,10 +48,8 @@ position: absolute;
 
 .logo{
 
-    padding:10%;
-    padding-left: 6%;
-    margin-top:15%;
-    margin-bottom: 15%;
+    padding-top:20%;
+    padding-bottom:20%; 
 }
 
 img{
