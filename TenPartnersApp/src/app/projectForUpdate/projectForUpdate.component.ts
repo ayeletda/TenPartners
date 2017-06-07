@@ -12,7 +12,6 @@ import { ChangeDetectorRef, Input, Output} from "@angular/core";
   styleUrls: ['./projectForUpdate.component.css']
 })
 
-
 export class ProjectForUpdateComponent implements OnInit
 {
   @Input() item;
@@ -27,12 +26,16 @@ export class ProjectForUpdateComponent implements OnInit
   private pointerToProjectInAF: any;
   private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
 
+//===================================  constructor  ============================================
+
   constructor(private router: Router, public af: AngularFireDatabase)
   {
     this.projects = this.af.list('projects');
     this.updateDateFlag = false;
     this.updateCostFlag = false;
   }
+
+//====================================  ngOnInit()  ===============================================
 
   ngOnInit() 
   {
@@ -41,16 +44,20 @@ export class ProjectForUpdateComponent implements OnInit
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1]
   }
 
+//================================= clickOnMyProjects  =================================
+
    clickOnMyProjects(event)
   {
     this.router.navigateByUrl('/'+event.currentTarget.id);
   }
+
 //================================== remove project ====================================
 
   removeProject()
   {
     this.pointerToProjectObjectInAF.update({ 'associatedUser': ""});
   }
+
 //================================== updating date ====================================
   
   updateDate()
@@ -76,7 +83,8 @@ export class ProjectForUpdateComponent implements OnInit
         );
     }
   }
-//================================== updating cost ====================================
+  
+//================================= updating cost ====================================
   
   updateCost()
   {

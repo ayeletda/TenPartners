@@ -18,49 +18,46 @@ export class VotingComponent implements OnInit, AfterViewChecked
 {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  try: boolean = false;
-  savedDate: string = '';
-  public newMessage: string;
-  public m ;
-  public messages: FirebaseListObservable<any>;
-  name: string; //////////////////////////////////////////////////////////////////////////////////////////////////
-  email: string;
-  user: FirebaseListObservable<any>; // pointer to user
-  projects: FirebaseListObservable<any>;
-  /*
-  associatedCommunities: FirebaseListObservable<any>;
-  currentProjectValues: any = '';
-*/
-/////////////////
-  projectsAssociatedCommunities_Arr: any;
-  projectsValues_Arr: any;
-///////////////////
-  userId: string; // userId
-  userCommunity: string;
-  currentProject: any = '';
-  projectPath: any = '';
-  cost: number;
-  date: Date;
-  projectSelected:boolean;
-description: string;
-  constructor( private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
-  {
-/////////////////
-//this.projectsAssociatedCommunities_Arr=[];
-//this.projectsValues_Arr=[];//?????
+  // variables
+  private userId: string;
+  private userCommunity: string;
+  private name: string; 
+  private email: string;
+  
+  private currentProject: any;
+  private projectPath: any;
+  private projectSelected:boolean;
+  private cost: number;
+  private date: Date;
+  private description: string;
+  
+  private try: boolean = false;
 
-///////////////   
+  private savedDate: string;
+  private newMessage: string;
+  private messages: FirebaseListObservable<any>;
+
+  // pointers of object or list in firebase
+  private user: FirebaseListObservable<any>; // pointer to user
+  private projects: FirebaseListObservable<any>;
+  private  projectsAssociatedCommunities_Arr: any;
+  private  projectsValues_Arr: any;
+
+//======================================================  constructor  ============================================================
+
+  constructor (private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
+  {
+    this.userId = this.service.getCurrentID();
+    this.user = this.af.list('users/' + this.userId); // the specific user
     this.name = this.service.getCurrentUser();
     this.email = this.service.getCurrentEmail();
 
-    this.userId = this.service.getCurrentID();
-    this.user = this.af.list('users/' + this.userId); // the specific user
-   
-    this.user.subscribe((snapshots)=>{
-      snapshots.forEach(snapshot => {
+    this.user.subscribe((snapshots)=>
+    {
+      snapshots.forEach(snapshot => 
+      {
         if (snapshot.$key == 'associatedCommunity')
           this.userCommunity = snapshot.$value;
-
       });
     })
     
@@ -69,60 +66,60 @@ description: string;
     this.projects.subscribe((snapshots)=>
     {
       this.projectsAssociatedCommunities_Arr = [];
-      this.projectsValues_Arr=[];
+      this.projectsValues_Arr = [];
+      
       snapshots.forEach(snapshot => 
       {
         this.projectsAssociatedCommunities_Arr.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
         this.projectsValues_Arr.push(snapshot);
       });
     })
+
     this.newMessage = '';
+    this.savedDate='';
+    this.currentProject = '';
+    this.projectPath = '';
     this.projectSelected = false;
   }
+  
+//========================================================  ngOnInit  ============================================================
 
   ngOnInit()
   {
-    this.scrollToBottom();
-
+    this.scrollToBottom()
     this.service.setTitle("Voting In Progress");
      
-     (<any>$("part1")).slick({
+     (<any>$("part1")).slick(
+      {
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 3,
             arrows: false
-        });
+      });
   }
-
   
+//========================================================  saveProjectPath  =========================================================
 
-/*
-saveProjectPath(project)
-{
- this.projectPath = 'projects/' + this.currentProjectValues.$key + '/associatedCommunities/' + project.$key;
- return true;
-}*/
+  saveProjectPath(project, i)
+  {
+    this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
+    return true;
+  }
+  
+//======================================================  loadProjectDetails  =========================================================
 
-saveProjectPath(project, i)
-{
- this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
- return true;
-}
-
-loadProjectDetails(project,i)
-{
-  this.currentProject = project;
- 
-  //this.messages = this.af.list('projects/' + this.currentProjectValues.$key + '/associatedCommunities/' + project.$key + '/messages'); 
+  loadProjectDetails(project,i)
+  {
+    this.currentProject = project;  
     this.messages = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key + '/messages'); 
-
-  this.projectSelected = true;
-  this.cost = project.cost;
-  this.date = project.date;
-  this.description = this.projectsValues_Arr[i].description; 
-
-}
-  // ==================================================
+    this.projectSelected = true;
+    this.cost = project.cost;
+    this.date = project.date;
+    this.description = this.projectsValues_Arr[i].description; 
+  }
+  
+//======================================================  isMe(email)  =========================================================
+// helps to change the bubble's color
 
   isMe(email)
   {
@@ -131,19 +128,9 @@ loadProjectDetails(project,i)
     return false;
   }
   
-  /*
-  isMe(email) 
-  {
-    if (email == this.afService.email)
-      return true;
-    
-    return false;
-  }
-*/
-
-  // ==================================================
+//======================================================  needToPrint  =========================================================
   // If need to print the date ahead
-
+  
   needToPrint(date)
   {
     if (this.savedDate != date)
@@ -157,8 +144,7 @@ loadProjectDetails(project,i)
      return false;
   }
 
-
-// ==================================================
+//=====================================================  sendMessage  =========================================================
 
   sendMessage()
   {
@@ -166,14 +152,18 @@ loadProjectDetails(project,i)
       alert("You need to choose a project before leaving a message.")
     else if(this.newMessage!='' )
       this.messages.push({message: this.newMessage, name: this.name, email: this.email, date: new Date().toLocaleString()});
+    
     this.newMessage = '';
   }
 
+//=====================================================   ngAfterViewChecked  =========================================================
 
   ngAfterViewChecked() 
   {
      this.scrollToBottom();
   }
+
+//======================================================   scrollToBottom  =========================================================
 
   scrollToBottom(): void 
   {
@@ -181,7 +171,7 @@ loadProjectDetails(project,i)
     {
         this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     } 
-    catch(err) { }
+    catch(err) {}
   }
 
 }

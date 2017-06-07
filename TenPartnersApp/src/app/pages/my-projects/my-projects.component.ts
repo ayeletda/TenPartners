@@ -19,15 +19,18 @@ export class MyProjectsComponent implements OnInit
   // variabels
   userId: string;
   userCommunity: string;
+  
   currentProject: any;
   projectPath: any;
   thereIsProjects: boolean;
 
-  // pointers to object or list in firebase
+  // pointers of object or list in firebase
   user: FirebaseListObservable<any>;         // pointer to user's object
   projects: FirebaseListObservable<any>;
   projectsValues_Arr: any;
   projectsAssociatedCommunities_Arr: any;
+
+  //===============================================  contructor  ====================================================================
 
   constructor(private router: Router,private service:ServiceService, public af: AngularFireDatabase) 
   {
@@ -59,19 +62,24 @@ export class MyProjectsComponent implements OnInit
         this.projectsValues_Arr.push(snapshot);
       });
     })
-
   }
+
+  //=====================================================  ngOnInit  ================================================================
 
   ngOnInit() 
   {
     this.service.setTitle("My Projects");
   }
 
+  //=================================================== saveProjectPath  ============================================================
+
   saveProjectPath(project, i)
   {
     this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
     return true;
   }
+
+  //=============================================  updateThereIsProjectsFlag  ==============================================================
 
   updateThereIsProjectsFlag(bol)
   {

@@ -6,13 +6,15 @@ import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit, EventEmitte
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ChangeDetectorRef, Input, Output } from "@angular/core";
 
-@Component({
+@Component(
+{
   selector: 'app-projectForVote',
   templateUrl: './projectForVote.component.html',
   styleUrls: ['./projectForVote.component.css']
 })
 
-export class ProjectForVoteComponent implements OnInit, AfterViewChecked {
+export class ProjectForVoteComponent implements OnInit, AfterViewChecked
+{
   @Input() item;
   @ViewChild('forVal') private forVal: any;
   @ViewChild('avoidVal') private avoidVal: any;
@@ -49,7 +51,6 @@ export class ProjectForVoteComponent implements OnInit, AfterViewChecked {
 
       }
  
-    console.log(this.pointerToProjectInAF);//????????????????????
     if (this.projectUplodeDate) {
      var timeDiff = Math.abs(this.projectUplodeDate.getTime() - new Date().getTime());
      this.leftDay = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
