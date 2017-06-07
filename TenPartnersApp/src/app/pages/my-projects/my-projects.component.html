@@ -6,9 +6,10 @@
 	<div class = "continer">
 		<div class = "col-lg-12">
 			<div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index;  " [attr.data-index] = "i" >
-				<div *ngFor = "let community of associatedCommunities | async;">
+				<div *ngFor = "let community of associatedCommunities | async">
+					<!--<div *ngIf = 'updateThereIsProjectsFlag(false)'></div>--> <!--dont work if i have 1 project-->
 					<div *ngIf = "community.$key == userCommunity && community.associatedUser == userId && saveProjectPath(community,i)" class="picture" id="pic1">  
-						<div class = "project && updateThereIsProjectsFlag(true)">
+						<div class = "project" *ngIf = "community && updateThereIsProjectsFlag(true)">
 							<app-projectForUpdate
 								[item] = "projectPath">
 							</app-projectForUpdate> 
@@ -17,7 +18,7 @@
 				</div>
 				<!--<div *ngIf = "!thereIsProjects && i == projectsAssociatedCommunities_Arr.length-1">
 					You don't have any associated projects yet.
-				</div> -->
+				</div> --> <!--dont work if i have 1 project-->
 			</div>		
 		</div>
 	</div>

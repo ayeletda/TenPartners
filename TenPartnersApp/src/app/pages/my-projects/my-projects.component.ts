@@ -2,7 +2,7 @@
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
+import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit, Directive } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { ChangeDetectorRef } from "@angular/core";
 import { ServiceService } from '../../service.service';
@@ -73,9 +73,10 @@ export class MyProjectsComponent implements OnInit
     return true;
   }
 
-  updateThereIsProjectsFlag(bol)
+ updateThereIsProjectsFlag = (bol):boolean=>
   {
     this.thereIsProjects = bol;
+    return true;
   }
 }
   
