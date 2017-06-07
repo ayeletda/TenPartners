@@ -73,7 +73,7 @@ export class MyProjectsComponent implements OnInit
     return true;
   }
 
- updateThereIsProjectsFlag = (bol):boolean=>
+  updateThereIsProjectsFlag(bol)
   {
     this.thereIsProjects = bol;
     return true;
