@@ -49,7 +49,7 @@ export class ProjectForUpdateComponent implements OnInit
 
   removeProject()
   {
-    this.pointerToProjectObjectInAF.update({ 'associatedUser': "-1"});
+    this.pointerToProjectObjectInAF.update({ 'associatedUser': ""});
   }
 //================================== updating date ====================================
   
