@@ -3,14 +3,14 @@
     <div id="up">
         <i class="simbol fa fa-clock-o" id="clock" aria-hidden="true">{{leftDay}}d</i>
         <div class = "row">
-            <div *ngIf = "!votingFor || votingFirstTime" class = "col-xs-12 col-md-12 col-lg-12 align-right">
-                <i   class = "simbol fa fa-thumbs-o-up" id="like" aria-hidden="true" (click)="votFor()"  ></i>
+            <div *ngIf = "votingAgainst || votingFirstTime" class = "col-xs-12 col-md-12 col-lg-12 align-right">
+                <i   class = "simbol fa fa-thumbs-o-up" id="like" aria-hidden="true" (click)="vote(false)"  ></i>
             </div>
             <div class="projectName col-xs-12 col-md-12 col-lg-12"> 
                <h4> {{projectName}} </h4>
             </div>
             <div class = "col-xs-12 col-md-12 col-lg-12 align-right">
-                <i  *ngIf="votingFor || votingFirstTime" class = "simbol fa fa-thumbs-o-down" id="unlike" aria-hidden="true" (click)="votAgainst()" ></i>
+                <i *ngIf="votingFor || votingFirstTime" class = "simbol fa fa-thumbs-o-down" id="unlike" aria-hidden="true" (click)="vote(true)" ></i>
             </div>
         </div>
     </div>

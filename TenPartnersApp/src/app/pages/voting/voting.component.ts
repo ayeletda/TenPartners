@@ -16,6 +16,8 @@ import { ServiceService } from '../../service.service';
 
 export class VotingComponent implements OnInit, AfterViewChecked
 {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+
   try: boolean = false;
   savedDate: string = '';
   public newMessage: string;
@@ -23,7 +25,7 @@ export class VotingComponent implements OnInit, AfterViewChecked
   public messages: FirebaseListObservable<any>;
   name: string; //////////////////////////////////////////////////////////////////////////////////////////////////
   email: string;
-  user: FirebaseListObservable<any>;
+  user: FirebaseListObservable<any>; // pointer to user
   projects: FirebaseListObservable<any>;
   /*
   associatedCommunities: FirebaseListObservable<any>;
@@ -33,7 +35,7 @@ export class VotingComponent implements OnInit, AfterViewChecked
   projectsAssociatedCommunities_Arr: any;
   projectsValues_Arr: any;
 ///////////////////
-  userId: string;
+  userId: string; // userId
   userCommunity: string;
   currentProject: any = '';
   projectPath: any = '';
@@ -41,11 +43,11 @@ export class VotingComponent implements OnInit, AfterViewChecked
   date: Date;
   projectSelected:boolean;
 description: string;
-  constructor(private service: ServiceService, private router: Router, public af: AngularFireDatabase) 
+  constructor( private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
   {
 /////////////////
-this.projectsAssociatedCommunities_Arr=[];
-this.projectsValues_Arr=[];
+//this.projectsAssociatedCommunities_Arr=[];
+//this.projectsValues_Arr=[];//?????
 
 ///////////////   
     this.name = this.service.getCurrentUser();
@@ -62,29 +64,26 @@ this.projectsValues_Arr=[];
       });
     })
     
-        this.projects = this.af.list('projects');
+    this.projects = this.af.list('projects');
 
-    this.projects.subscribe((snapshots)=>{
-              this.projectsAssociatedCommunities_Arr = [];
-              this.projectsValues_Arr=[];
-      snapshots.forEach(snapshot => {
-   //////////// mybe in oninit
+    this.projects.subscribe((snapshots)=>
+    {
+      this.projectsAssociatedCommunities_Arr = [];
+      this.projectsValues_Arr=[];
+      snapshots.forEach(snapshot => 
+      {
         this.projectsAssociatedCommunities_Arr.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
         this.projectsValues_Arr.push(snapshot);
-/////////////////
-/*
-        this.associatedCommunities = this.af.list('projects/' + snapshot.$key + '/associatedCommunities');
-        this.currentProjectValues = snapshot;
-*/
       });
     })
     this.newMessage = '';
     this.projectSelected = false;
-
   }
 
   ngOnInit()
   {
+    this.scrollToBottom();
+
     this.service.setTitle("Voting In Progress");
      
      (<any>$("part1")).slick({
@@ -95,7 +94,7 @@ this.projectsValues_Arr=[];
         });
   }
 
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  
 
 /*
 saveProjectPath(project)
@@ -173,7 +172,7 @@ loadProjectDetails(project,i)
 
   ngAfterViewChecked() 
   {
-    // this.scrollToBottom();
+     this.scrollToBottom();
   }
 
   scrollToBottom(): void 

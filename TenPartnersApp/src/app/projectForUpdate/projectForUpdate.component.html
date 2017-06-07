@@ -1,14 +1,31 @@
 <main>
-		Project name:project 1 
-		<a class="btn btn-danger"  aria-label="Delete">
- 		<i class="fa fa-trash-o" aria-hidden="true"></i>
-		</a>
-		<br>
-		Budget: 100$ <i class="fa fa-pencil  fa-1x" aria-hidden="true"></i>
-		<br>
-		Date: 
-		<input type="date" id="exampleInput" name="input" placeholder="yyyy-MM-dd" required />
+	
+	{{projectName}} 
+	
+	<a class="btn btn-danger"  aria-label="Delete">
+		<i class="fa fa-trash-o" aria-hidden="true" (click) = "removeProject()"></i>
+	</a>
+
+	<div *ngFor = "let value of pointerToProjectInAF | async">
+
+		<div *ngIf = "value.$key == 'cost'">
+			<div *ngIf = "!updateCostFlag" class="row">
+				<br> Budget: {{ value.$value }}<i class="fa fa-pencil  fa-1x" aria-hidden="true" (click) = "updateCost()"></i>
+			</div>
+			<div *ngIf = "updateCostFlag" class="row">
+				<label> Budget: <input #newCostVal type="number" name="txtCost"><i class="fa fa-check  fa-1x" aria-hidden="true" (click) = "OKupdateCost(newCostVal.value, true)"></i><i class="fa fa-times" aria-hidden="true" (click) = "OKupdateCost(newCostVal.value, false)"></i></label>
+			</div>
+		</div>
+
+		<div *ngIf = "value.$key == 'date'" >
+			<div *ngIf ="!updateDateFlag" class="row">
+				<br> Date: {{ value.$value }}<i class="fa fa-pencil  fa-1x" aria-hidden="true" (click) = "updateDate()"></i>
+			</div>
+			<div *ngIf ="updateDateFlag" class="row">
+				<br><label> Date: <input #newDateVal type="date" name="txtDate" placeholder="yyyy-MM-dd" required><i class="fa fa-check  fa-1x" aria-hidden="true" (click) = "OKupdateDate(newDateVal.value, true)"></i><i class="fa fa-times" aria-hidden="true" (click) = "OKupdateDate(newDateVal.value, false)"></i></label>
+			</div>
+		</div>
+	
+	</div>
 		
-		
-		<i class="fa fa-pencil  fa-1x" aria-hidden="true"></i><br>
-	</main>
+</main>

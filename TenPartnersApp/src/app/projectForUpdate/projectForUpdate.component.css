@@ -1,5 +1,6 @@
 
-main {
+main 
+{
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: 1.5px solid #cccccc;
@@ -13,12 +14,13 @@ main {
 	width: 100%;
 }
 
-i{
+i
+{
 	font-size: 20px;
 }
 
-.btn-danger{
+.btn-danger
+{
 	margin-top: 10px;
 	position: unset;
-
 }
