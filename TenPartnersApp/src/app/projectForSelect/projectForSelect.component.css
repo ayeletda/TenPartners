@@ -1,190 +1,287 @@
-/*=========== main\top-side of project's square ==========*/
 
-main {
+/* ============================ main\top-side of project's square ======================= */
+
+main
+{
     font-family: "comic sans ms";
     font-weight: bold;
-    color: gray;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border: solid #D6D6CC;
-    font-size: 13px;
-    float: left;
-    position: unset;
-}
-
-.up {
-    height: 150px;
-    width: 100%;
-    position: unset;
-
-}
-
-#clock {
-    float: left;
     color: black;
+    height: 100%;
+    width: 33.3%;
+    border: 2%;
+    border-color: #D6D6CC;
+    background-color: #FFFFF5;
+    border-style: solid;
+    float: left;
 }
 
-.projectName {
-    margin-left: 40%;
-
+p
+{
+    margin: 2%;
 }
 
-@media only screen and (min-height: 1366px) {
+.align-right
+{
+    text-align: right;
+    height: 90%;
+}
 
-    .up {
+#up
+{
+    width: 100%;
+    padding:10%;
+}
+
+#unavailablePic, #projectName
+{
+    text-align: center;
+    display: block;
+    float:  center;
+}
+
+#clock
+{
+    float: left;
+    margin: -10%;
+    color:black;
+}
+
+#like, #unlike
+{
+    cursor: pointer;
+}
+
+#like, #unlike, .projectName
+{
+    margin: 5%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+#like
+{
+    color:   #7acd47;
+}
+
+#unlike
+{
+    color: #e2675a;
+}
+
+#transparentElement
+{
+    color: transparent;
+}
+/* ============================ footer of a project ======================= */
+
+#down
+{
+    height: 20%;
+    width: 100%;
+}
+
+label
+{
+    width: 33.3%;
+    color: black;
+    float: left;
+    text-align: center;
+    padding-top: 2%;
+    margin: 0%;
+}
+/* ============================ colors for CSS of this component ======================= */
+
+.yellow
+{
+    background: #fcf3c3;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #fcf3c3),color-stop(1, #f4e371));
+    background-image: -webkit-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: -moz-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: -ms-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: -o-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: linear-gradient(to bottom, #fcf3c3 15%, #f4e371 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4e371', endColorstr='#fcf3c3');
+}
+
+/* red bubble */
+.red
+{
+    background: #FFC8C8;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ea8378),color-stop(1, #e2675a));
+    background-image: -webkit-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: -moz-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: -ms-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: -o-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: linear-gradient(to bottom, #FFC8C8 15%, #e2675a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#e2675a', endColorstr='#ea8378');
+}
+
+.green
+{
+    background: #C0FF97;
+    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ace44b),color-stop(1, #7acd47));
+    background-image: -webkit-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: -moz-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: -ms-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: -o-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: linear-gradient(to bottom, #C0FF97 15%, #7acd47 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7acd47', endColorstr='#ace44b');
+}
+
+
+/*=================================== fixing heights according to the screen's size ======================================== */
+
+@media only screen and (min-height: 1366px)
+{
+
+    #up
+    {
         height: 200px;
     }
 
+    .lable
+    {
+        font-size: 50px;
+    }
+
+    p
+    {
+        font-size: 45px;
+    }
+
+    #like, #unlike
+    {
+        font-size: 35px;
+        margin-top: 7%;
+    }
 }
 
-@media only screen and (min-height: 1024px) {
-    .up {
+
+@media only screen and (min-height: 1024px)
+{
+    #up
+    {
         height: 180px;
     }
+
+    .lable
+    {
+        font-size: 35px;
+    }
+
+    p
+    {
+        font-size: 30px;
+    }
+
+    #like, #unlike
+    {
+        font-size: 35px;
+        margin-top: 7%;
+    }
 }
 
-@media only screen and (min-height: 1366px) {
-    .up {
+
+@media only screen and (min-height: 1366px)
+{
+    #up
+    {
         height: 200px;
     }
 
+    .lable
+    {
+        font-size: 47px;
+    }
+
+    p
+    {
+        font-size: 42px;
+    }
+
+    #like, #unlike
+    {
+        font-size: 40px;
+        margin-top: 10%;
+    }
 }
 
-@media only screen and (max-height: 736px) {
-    .up {
+
+@media only screen and (max-height: 736px)
+{
+    #up
+    {
         height: 100px;
     }
 }
 
-@media only screen and (max-height: 732px) {
-    .up {
+
+@media only screen and (max-height: 732px)
+{
+    #up
+    {
         height: 100px;
     }
 }
 
-@media only screen and (max-height: 667px ) {
-    .up {
+
+@media only screen and (max-height: 667px )
+{
+    #up
+    {
         height: 90px;
     }
 
+    .lable
+    {
+        font-size: 20px;
+    }
+
+    p
+    {
+        font-size: 15px;
+    }
 }
 
-@media only screen and (max-height: 640px) {
-    #up {
+
+@media only screen and (max-height: 640px)
+{
+    #up
+    {
         height: 90px;
     }
 
+    .lable
+    {
+        font-size: 20px;
+    }
+
+    p
+    {
+        font-size: 15px;
+    }
 }
 
-@media only screen and (max-height: 568px) {
-    .up {
+
+@media only screen and (max-height: 568px)
+{
+    #up
+    {
         height: 80px;
     }
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*=========== main\top-side of project's square ==========*/
-/*
-main {
-    font-family: "comic sans ms";
-    font-weight: bold;
-    color: gray;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    border: solid #D6D6CC;
-    font-size: 13px;
-    float: left;
-    position: unset;
-}
-
-.up {
-    height: 150px;
-    width: 100%;
-    position: unset;
-
-}
-
-#clock {
-    float: left;
-    color: black;
-}
-
-.r {
-    margin-left: 40%;
-
-}
-
-@media only screen and (min-height: 1366px) {
-
-    .up {
-        height: 200px;
+    .lable
+    {
+        font-size: 17px;
     }
 
-}
-
-@media only screen and (min-height: 1024px) {
-    .up {
-        height: 180px;
-    }
-}
-
-@media only screen and (min-height: 1366px) {
-    .up {
-        height: 200px;
+    p
+    {
+        font-size: 12px;
     }
 
-}
-
-@media only screen and (max-height: 736px) {
-    .up {
-        height: 100px;
+    #like, #unlike
+    {
+        font-size: 17px;
     }
 }
-
-@media only screen and (max-height: 732px) {
-    .up {
-        height: 100px;
-    }
-}
-
-@media only screen and (max-height: 667px ) {
-    .up {
-        height: 90px;
-    }
-
-}
-
-@media only screen and (max-height: 640px) {
-    #up {
-        height: 90px;
-    }
-
-}
-
-@media only screen and (max-height: 568px) {
-    .up {
-        height: 80px;
-    }
-
-}
-*/

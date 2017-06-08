@@ -1,68 +1,49 @@
-<!--=========================== the page ==============================-->
 
 
-<div id="SuggestedProjects">
-    <div *ngFor="let associate of associatedCommunities | async ">
-        <div *ngIf="associate.$key == userCommunity && associate.associatedUser == '' && saveProjectPath(associate)">
-            <app-projectForSelect [item]="projectPath" (click)="loadProjectDetails(associate)"></app-projectForSelect>
-        </div>
-        <div *ngIf="associate.$key == userCommunity && associate.associatedUser != '' && saveProjectPath(associate)">
-            <div id="withoutProjects">
-            no projects submitted in your community
+<!--========================== the page ==============================-->
+
+<body>
+<div class = "part1">
+    <div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index" [attr.data-index]="i" ><!--- ////////////////// i++??-->
+        <div *ngFor = "let community of associatedCommunities | async ">
+            <!--<div class = " col-centered">-->
+            <!--<div #scrollMeProj class = "vertical-menu-x" > -->
+            <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)" class="picture" id="pic1">
+                <app-projectForSelect
+                        [item] = "projectPath"
+                        (click) = "loadProjectDetails(community,i)"
+                        (voteChoose)='try = true'>
+                </app-projectForSelect>
             </div>
+            <!--</div>-->
         </div>
     </div>
-
 </div>
 
-<div *ngIf="!projectSelected && currentProjectValues.associatedUser == ''">
-    <div class="descriptionP">
-
-        <div class="forP1">
-            <div class="project-description">
-
-                <p> Description: {{currentProjectValues.description}} </p>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="selectProject">
-        <button type="button" (click)="updateAssociatedUser()">Nominate</button>
+<!--//No projects have been selected for discussion yet...-->
+<div class = " part2">
+    <div class = "vertical-menu1" >
+        <h5 *ngIf = 'projectSelected'>
+            <p> Date: {{date}} </p>
+            <p> Cost: {{cost}} </p>
+            <p> Purpose: {{purpose}} </p>
+            <p> Description: {{description}} </p>
+        </h5>
+        <h4 *ngIf = '!projectSelected'> Click on a project for viewing its details... </h4>
     </div>
 </div>
 
-
-<!--=========================== the page ==============================-->
-<!--
-<div id="SuggestedProjects">
-
-    <app-projectForSelect></app-projectForSelect>
-    <app-projectForSelect></app-projectForSelect>
-    <app-projectForSelect></app-projectForSelect>
-    <app-projectForSelect></app-projectForSelect>
-    <app-projectForSelect></app-projectForSelect>
-
+<div class = " part3">
+    <button id =chooseProject>Nominate</button>
 </div>
 
+</body>
 
-<div class="descriptionP">
-    <div class="forP1">
-        <div class="project-description">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci aut inventore ipsum iure minus porro,
-                quaerat quia totam vero voluptatibus. At, aut autem magni nesciunt nisi possimus quasi vero voluptas! Ab
-                accusamus accusantium architecto consectetur debitis dicta dignissimos esse fugit id nam nostrum
-                obcaecati quae quaerat quibusdam reprehenderit repudiandae, tempore voluptatem voluptatibus! Commodi
-                deserunt ipsa quas quisquam sequi temporibus ullam! Dignissimos dolore perferendis quis reiciendis!
-                Aliquam cum distinctio dolorem earum eligendi expedita explicabo facere illum libero maxime natus non,
-                pariatur porro, quisquam ratione repellendus reprehenderit repudiandae sit sunt suscipit totam vel
-                voluptatum! Atque cupiditate eius esse illo, libero maxime quod.
-            </p>
-        </div>
-    </div>
-    <div class="selectProject">
-        <button type="button">Nominate</button>
-    </div>
-</div>
--->
+
+
+
+
+
+
+
+
