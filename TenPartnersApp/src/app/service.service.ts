@@ -71,7 +71,7 @@ pushUser()
     console.log(this.getlogin());
 
     if(this.getlogin()==true)
-        this.users.push({Name: this.getCurrentUser() , Email: this.getCurrentEmail(),associatedCommunity: "NULL"});
+        this.users.update(this.userID ,{Name: this.getCurrentUser() , Email: this.getCurrentEmail(),associatedCommunity: "NULL"});
   }
 
 
@@ -146,6 +146,7 @@ firebase.auth().signInWithPopup(provider).then((user)=>
   this.userName = user.user.displayName;
   this.userEmail = user.user.email;
   this.userID = user.user.uid;
+  console.log(this.userID);
   this.router.navigateByUrl('/home');
   this.pushUser();
 

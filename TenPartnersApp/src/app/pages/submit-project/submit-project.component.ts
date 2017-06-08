@@ -15,7 +15,7 @@ import { ServiceService } from '../../service.service';
 })
 export class SubmitProjectComponent implements OnInit {
 
-  public Name:String;
+  public Name:string;
   public Description:String;
   public Purpose:String;
   projects: FirebaseListObservable<any>;
@@ -49,7 +49,7 @@ export class SubmitProjectComponent implements OnInit {
         alert("something's missing");
 
     else {
-      this.projects.push({name: this.Name, description: this.Description,purpose: this.Purpose,associatedCommunities: "NULL"});
+      this.projects.update(this.Name ,{name: this.Name, description: this.Description,purpose: this.Purpose,associatedCommunities: "NULL"});
       this.Name = '';
       this.Description="";
       this.Purpose="";
