@@ -51,6 +51,13 @@ p
     cursor: pointer;
 }
 
+#like, #unlike, .projectName
+{
+    margin: 5%;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
 #like
 {
     color:   #7acd47;
@@ -59,6 +66,11 @@ p
 #unlike
 {
     color: #e2675a;    
+}
+
+#transparentElement
+{
+    color: transparent;
 }
 /* ============================ footer of a project ======================= */
 

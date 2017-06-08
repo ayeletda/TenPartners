@@ -14,7 +14,7 @@ import { ServiceService } from '../../service.service';
   styleUrls: ['./voting.component.css']
 })
 
-export class VotingComponent implements OnInit, AfterViewChecked
+export class VotingComponent implements OnInit 
 {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
@@ -29,9 +29,11 @@ export class VotingComponent implements OnInit, AfterViewChecked
   private projectSelected:boolean;
   private cost: number;
   private date: Date;
+  private purpose: string;
   private description: string;
   
   private try: boolean = false;
+  private firstTimeOfScoller: boolean;
 
   private savedDate: string;
   private newMessage: string;
@@ -51,6 +53,7 @@ export class VotingComponent implements OnInit, AfterViewChecked
     this.user = this.af.list('users/' + this.userId); // the specific user
     this.name = this.service.getCurrentUser();
     this.email = this.service.getCurrentEmail();
+    this.firstTimeOfScoller = true;
 
     this.user.subscribe((snapshots)=>
     {
@@ -115,6 +118,7 @@ export class VotingComponent implements OnInit, AfterViewChecked
     this.projectSelected = true;
     this.cost = project.cost;
     this.date = project.date;
+    this.purpose = this.projectsValues_Arr[i].purpose;
     this.description = this.projectsValues_Arr[i].description; 
   }
   
@@ -156,24 +160,28 @@ export class VotingComponent implements OnInit, AfterViewChecked
     this.newMessage = '';
   }
 
-//=====================================================   ngAfterViewChecked  =========================================================
-
-  ngAfterViewChecked() 
-  {
-     this.scrollToBottom();
-  }
-
 //======================================================   scrollToBottom  =========================================================
 
   scrollToBottom(): void 
   {
-    try 
-    {
-        this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } 
-    catch(err) {}
+    // if(this.firstTimeOfScoller == true)
+    // {
+      try 
+      {
+          this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      } 
+      catch(err) {}
+      this.firstTimeOfScoller = false;
+    //  }
+        console.log("in scrollToBottom");
+
   }
 
+  trackByFn(index, item)
+  {
+    this.scrollToBottom();
+    console.log("in trackByFn");
+  }
 }
 
 
