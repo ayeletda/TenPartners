@@ -22,20 +22,19 @@ export class ProjectForVoteComponent implements OnInit
   @ViewChild('forVal') private forVal: any;
   @ViewChild('avoidVal') private avoidVal: any;
   @ViewChild('againstVal') private againstVal: any;
-
-  // flags
-  private votingFor: boolean;
-  private votingAgainst: boolean;
   
   // variables
   private projectName: string;
   private projectDate: Date;
   private projectUplodeDate: Date;
-  private leftDay: any;
-  private votingNumForChoosingProject: Number;  //determined according to customer
-  private maxVotingNum: Number;               //determined according to customer
+  private leftDays: number;
   private userId: any;
   private voteStatus: string;
+
+  //determined according to customer
+  private votingNumForChoosingProject: number; 
+  private maxVotingNum: number;         
+  private maxDaysForVoting: number;
 
   // pointers to object or list in firebase
   private pointerToProjectInAF: any;
@@ -50,8 +49,7 @@ export class ProjectForVoteComponent implements OnInit
     this.projects = this.af.list('projects');
     this.votingNumForChoosingProject = 7;
     this.maxVotingNum = 10;
-    this.votingFor = false;
-    this.votingAgainst = false;
+    this.maxDaysForVoting = 14;
     this.userId = this.service.getCurrentID();
   }
 
@@ -67,15 +65,36 @@ export class ProjectForVoteComponent implements OnInit
     this.userVotingStatus();
   }
 
-  leftDayFn(projectUplodeDate)
+  //====================================  userVotingStatu  ============================================
+
+  userVotingStatus()
   {
-    // console.log(projectUplodeDate);
-    // if (projectUplodeDate) 
-    // {
-    //   var timeDiff = Math.abs(projectUplodeDate.getTime() - new Date().getTime());
-    //   this.leftDay = Math.ceil(timeDiff / (1000 * 3600 * 24)); 
-    // }
-    // console.log(this.leftDay);
+    this.usersVotingList.subscribe(snapshots => 
+    {
+      snapshots.forEach(snapshot => {
+        if (snapshot.$key == this.userId)
+          this.voteStatus = snapshot.vote;
+      });
+    })
+  }
+
+  //===================================  updateLeftDays  =========================================
+
+  updateLeftDays(projectUplodeDate)
+  {
+    if (projectUplodeDate) 
+    {
+      let oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds    
+      let timeDiff = Math.abs(projectUplodeDate - new Date().getTime());
+      this.leftDays = this.maxDaysForVoting - (Math.ceil(timeDiff /oneDay)-1);
+
+      if(this.leftDays == 0)
+        this.removeProject("passed his voting time and therefore was deleted.");  
+     }
+
+    // Checking "leftDays" every half hour
+    setTimeout(() => {this.updateLeftDays(projectUplodeDate)},432000000);
+   
     return true;
   }
 
@@ -83,84 +102,72 @@ export class ProjectForVoteComponent implements OnInit
 
   votFor() 
   {
-    let lastStatus = this.voteStatus;
-
-    //updates "for"
-    let value = parseInt(this.forVal.nativeElement.innerText) + 1;
-    
-    this.pointerToProjectObjectInAF.update({ 'for': value }).then(() => 
-    {
-      this.usersVotingList.update(this.userId, { vote: "for"});
-    });
+    let newStatus = "for";
+    let forVal = parseInt(this.forVal.nativeElement.innerText) + 1;
+    let avoidVal = parseInt(this.avoidVal.nativeElement.innerText);
+    let againstVal = parseInt(this.againstVal.nativeElement.innerText);
     
     //if a project was selected
-    if(value == this.votingNumForChoosingProject)
-    {
-      //removes the project from the voting list
-      this.pointerToProjectObjectInAF.update({ 'associatedUser': '' });
-      
-      //message that a project was selected
-      let txt = 'The project "'+ this.projectName +'" was selected!';
-      alert(txt);
-    }
+    if(forVal == this.votingNumForChoosingProject)
+      this.removeProject(" was selected!");
 
     //updates "against" or "avoid"
-    if (lastStatus == "against") 
-    { 
-      value = parseInt(this.againstVal.nativeElement.innerText) - 1;
-      this.pointerToProjectObjectInAF.update({ 'against': value })
-    }
+    if ( this.voteStatus == "against") 
+      againstVal = againstVal - 1;
     else 
-    {
-      value = parseInt(this.avoidVal.nativeElement.innerText) - 1;
-      this.pointerToProjectObjectInAF.update({ 'avoid': value });
-    }
-}
+      avoidVal = avoidVal - 1;
+
+    //calling to a function that updating the voting's vars & voteStatus on firebase
+    this.updateVotingVarsAndVoteStatus(forVal, avoidVal, againstVal, newStatus);
+  }
 
   //===================================  votAgainst  =========================================
 
   votAgainst() 
-  {    
-    let lastStatus = this.voteStatus;
-    
-    // updates the "against" val
-    let value = parseInt(this.againstVal.nativeElement.innerText) + 1;
-    this.pointerToProjectObjectInAF.update({ 'against': value }).then(() =>{
-        this.usersVotingList.update(this.userId,{ vote: "against"});
-    } )
+  {
+    let newStatus = "against";
+    let againstVal = parseInt(this.againstVal.nativeElement.innerText) + 1;    
+    let forVal = parseInt(this.forVal.nativeElement.innerText);
+    let avoidVal = parseInt(this.avoidVal.nativeElement.innerText);
 
     //if a project was rejected by all of the team
-    if(value == this.maxVotingNum)
-    {
-      //removes the project from the voting list
-      this.pointerToProjectObjectInAF.update({ 'associatedUser': '' });
-      
-      //message that a project was rejected
-      let txt = 'The project "'+ this.projectName +'" was rejected by all of the team and therefore was deleted.';
-      alert(txt);
-    }
+    if(againstVal == this.maxVotingNum)
+      this.removeProject( " was rejected by all of the team and therefore was deleted." );
 
     // updates for or avoid
-    if (lastStatus == "for")
-    {
-      value = parseInt(this.forVal.nativeElement.innerText) - 1;
-      this.pointerToProjectObjectInAF.update({ 'for': value });
-    }
+    if ( this.voteStatus == "for")
+      forVal = forVal - 1;
     else
-    {
-      value = parseInt(this.avoidVal.nativeElement.innerText) - 1;
-      this.pointerToProjectObjectInAF.update({ 'avoid': value });
-    }
+      avoidVal = avoidVal- 1;
+
+    //calling to a function that updating the voting's vars & voteStatus on firebase
+    this.updateVotingVarsAndVoteStatus(forVal, avoidVal, againstVal, newStatus);
   }
 
-userVotingStatus()
-{
-  this.usersVotingList.subscribe(snapshots => 
+  //===========================  updateVotingVarsAndVoteStatus  =========================================
+  //updating the voting's vars & voteStatus on firebase
+  
+  updateVotingVarsAndVoteStatus(forVal, avoidVal, againstVal, newStatus)
   {
-    snapshots.forEach(snapshot => {
-      if (snapshot.$key == this.userId)
-        this.voteStatus = snapshot.vote;
-    });
-  })
-}
+    //updating voting's vars on firebase
+    this.pointerToProjectObjectInAF.update({ 'for': forVal });
+    this.pointerToProjectObjectInAF.update({ 'avoid': avoidVal });
+    this.pointerToProjectObjectInAF.update({ 'against': againstVal });
+
+    //updating voteStatus on firebase
+    this.usersVotingList.update(this.userId, { vote: newStatus});
+  }
+
+  //====================================  removeProject  =========================================
+
+  removeProject( deleteMessage )
+  {
+    //removes the project from the voting list
+    this.pointerToProjectObjectInAF.update({ 'associatedUser': '' });
+
+    //message that a project was rejected
+    let txt = 'The project "'+ this.projectName +'"' + deleteMessage;
+    alert(txt);
+  }
+
 }
