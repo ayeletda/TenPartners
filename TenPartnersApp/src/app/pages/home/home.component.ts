@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {ServiceService} from '../../service.service';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,15 +14,10 @@ export class HomeComponent implements OnInit {
     
   }
 
-  ngOnInit() {this.serviceService.setTitle("home");}
+  ngOnInit() {this.serviceService.setTitle("Home");}
   
-  clicked(event){
-    console.log(event.currentTarget.id);
-    if(event.currentTarget.id=="add")
-      window.location.href='http://www.google.com/';
-
-   else this.router.navigateByUrl('/'+event.currentTarget.id);
-
+  addingUser(){
+    this.router.navigateByUrl('/addUser');
   }
 
 

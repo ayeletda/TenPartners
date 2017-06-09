@@ -166,7 +166,28 @@ firebase.auth().signInWithPopup(provider).then((user)=>
 
 
 TWITlogin(){
+/*
+var provider = new firebase.auth.TwitterAuthProvider();
 
+firebase.auth().signInWithPopup(provider).then((user)=>
+{
+  alert("Wellcom tenPartner");
+  this.isLoggedIn=true;
+  this.userName = user.user.displayName;
+  this.userEmail = user.user.email;
+  this.userID = user.user.uid;
+  console.log(this.userID);
+  this.router.navigateByUrl('/home');
+  this.pushUser();
+
+    //location.reload();      I dont think we need that - check :)
+  
+})
+.catch((error)=>
+{
+    alert("Email or password incorrect");
+});
+*/
 }
 
 

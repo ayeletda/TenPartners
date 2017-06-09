@@ -15,6 +15,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
+import { AddUserComponent } from './pages/add-user/add-user.component'
 
 // import for items in pages
 import { HeaderComponent } from './header/header.component';
@@ -33,7 +34,7 @@ import { MasterDBComponent } from './pages/master-db/master-db.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServiceService} from './service.service';
-import { DBprojectComponent } from './dbproject/dbproject.component'
+import { DBprojectComponent } from './dbproject/dbproject.component';
 //=============================================================================================
 
 //Initialize Firebase
@@ -59,6 +60,7 @@ export const firebaseConfig =
       MyProjectsComponent,
       BoardComponent,
       VotingComponent,
+      AddUserComponent,
       
       HeaderComponent,
       FooterComponent,

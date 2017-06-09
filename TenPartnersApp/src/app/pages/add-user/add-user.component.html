@@ -1,0 +1,119 @@
+<div class="addUser">
+  <div class="container">
+	<div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <form class="form-horizontal" action="" method="post">
+          <fieldset> <br>   
+                <!-- Name input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="UserName" >User's Name</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="UserName"  [(ngModel)] = "Name" name="UserName" maxlength="20" type="text" placeholder="maximum 20 letters" class="form-control">
+              </div>
+            </div>
+                <!-- Community input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="Community" >Community</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="Community"  [(ngModel)] = "Name" name="Community" maxlength="20" type="text" placeholder="choose from list" class="form-control">
+              </div>
+            </div>
+                <!-- Permission input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="Permission" >Permission</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="Permission"  [(ngModel)] = "Name" name="Permission" maxlength="1" type="text" placeholder="Choose 1 for admin and 2 for ten member" class="form-control">
+              </div>
+            </div>
+                <!-- TenPartnersAccount input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="TenPartnersAccount" >TenPartners Account</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="TenPartnersAccount"  [(ngModel)] = "Name" name="TenPartnersAccount" maxlength="20" type="text" placeholder="username@community.com" class="form-control">
+              </div>
+            </div>
+                <!-- Password input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="Password" >Password</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="Password"  [(ngModel)] = "Name" name="Password" minlength="8" maxlength="12" type="text" placeholder="8-12 characters" class="form-control">
+              </div>
+            </div>
+
+            <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12" class="intoduction">For adding accounts, please fill in the following fields:</label>
+            <br>
+                <!-- GoogleAccount input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="GoogleAccount" >Google Account</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="GoogleAccount"  [(ngModel)] = "Name" name="GoogleAccount"  type="text" placeholder="For signing in with Google" class="form-control">
+              </div>
+            </div>
+                <!-- FacebookAccount input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="FacebookAccount" >Facebook Account</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="FacebookAccount"  [(ngModel)] = "Name" name="FacebookAccount" type="text" placeholder="For signing in with Facebook" class="form-control">
+              </div>
+            </div>
+                <!-- TwitterAccount input-->
+            <div class="form-group">
+              <label class="col-lg-3 col-md-3 col-sm-3 col-xs-3 control-label" for="TwitterAccount" >Twitter Account</label>
+              <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <input id="TwitterAccount"  [(ngModel)] = "Name" name="TwitterAccount" type="text" placeholder="For signing in with Twitter" class="form-control">
+              </div>
+            </div>
+
+                <!-- Form actions -->
+            <div class="form-group">
+              <div class="col-md-12 text-right">
+                <button type="add" class="btn btn-primary btn-lg" (click) = "sendUser()">add user</button>
+              </div>
+            </div>
+          </fieldset>
+          </form>
+      </div>
+	</div>
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--
+
+  <div *ngFor = "let project of projects | async" > 
+                    <!--<div *ngIf = "needToPrint(message.date | date: 'dd/MM/yy')">
+                        <p class = "date-stamp"> {{ message.date | date: "MM/dd/yy" }} </p> 
+                    </div>
+                        <div >
+                            <p id = "msg-name"> {{ project.date }}</p>
+                             <p id = "msg-context"> {{ project.description}} </p>
+                            <div class = "author">
+                            </div>
+                        </div>
+                </div>
+
+ -->
+
