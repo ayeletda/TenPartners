@@ -13,8 +13,27 @@ import { ServiceService } from '../../service.service';
 })
 export class AddUserComponent implements OnInit {
 
+  public UserName:string;
+  public TenPartnersAccount:String;
+  public Password:String;
+  public GoogleAccount:String;
+  public FacebookAccount:String;
+  public TwitterAccount:String;
+
+ // projects: FirebaseListObservable<any>;
+ // projectsValues_Arr: any;
+ // public messages: FirebaseListObservable<any>;
+
+
   constructor(private router: Router,private serviceService:ServiceService) {
-    
+    this.UserName="";
+    this.TenPartnersAccount="";
+    this.Password="";
+    this.GoogleAccount="";
+    this.FacebookAccount="";
+    this.TwitterAccount="";
+
+
   }
 
   ngOnInit() {

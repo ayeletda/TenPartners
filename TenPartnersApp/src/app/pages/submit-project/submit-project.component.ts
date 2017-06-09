@@ -6,8 +6,6 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} 
 import { ChangeDetectorRef } from "@angular/core";
 import { ServiceService } from '../../service.service';
 
-
-
 @Component({
   selector: 'app-submit-project',
   templateUrl: './submit-project.component.html',
