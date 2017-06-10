@@ -25,8 +25,17 @@ export class AppComponent
           }
 
           else{
-            this.isLoggedIn=true;
-            this.router.navigateByUrl('/home');
+
+                    this.isLoggedIn=true;
+            console.log(Service.getCurrentEmail());        
+            console.log(Service.getPermission());
+            if(Service.getPermission()=="2")
+                      this.router.navigateByUrl('/voting');
+                  
+
+            else if(Service.getPermission()=="1")
+                       this.router.navigateByUrl('/home');
+
           }
         }
       )

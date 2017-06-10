@@ -16,11 +16,13 @@ export class ServiceService {
   userName:string;
   userEmail:string;
   userID:any;
+  permission:string;
  // password:String; I dont think we need that - check :)
   private isLoggedIn;
   private title;
   users: FirebaseListObservable<any>;
   usersValues_Arr: any;
+  connectType:string;
 
 
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth,public af: AngularFireDatabase)
@@ -32,7 +34,7 @@ export class ServiceService {
   //  this.password=''; I dont think we need that - check :)
     this.isLoggedIn=false;
 
-     this.users = this.af.list('users');
+     this.users = this.af.list('/users',{ preserveSnapshot: true });
 
     this.users.subscribe((snapshots)=>{
               this.usersValues_Arr=[];
@@ -42,6 +44,40 @@ export class ServiceService {
     
     
   }
+
+
+checkIfUser(){
+
+
+this.users
+  .subscribe(snapshots => {
+    snapshots.forEach(snapshot => {
+      console.log(snapshot.val().mail);
+     var temp=snapshot.val().permission;      
+       
+       if(this.userEmail==snapshot.val().mail)
+          {
+            this.permission=temp;
+            return true;
+          }
+        
+
+
+
+
+
+    });
+  })
+
+
+
+
+return false;
+}
+
+getPermission(){
+  return this.permission;
+} 
 
 setTitle(Title:String){this.title=Title;}  
 
@@ -65,28 +101,19 @@ getlogin()
   return this.isLoggedIn;
 }
 
-pushUser()
-{
-
-    console.log(this.getlogin());
-
-    if(this.getlogin()==true)
-        this.users.update(this.userID ,{Name: this.getCurrentUser() , Email: this.getCurrentEmail(),associatedCommunity: "NULL"});
-  }
-
 
   login(username:HTMLInputElement, password:HTMLInputElement){
 
     this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
     then((user)=>
     {
-      alert("Wellcom tenPartner");
       this.userName = username.value;
       this.userEmail = user.email;
       this.userID = user.uid;
-      this.isLoggedIn=true;
-      this.pushUser();
-      this.router.navigateByUrl('/home');
+      this.connectType="mail";
+
+       if (this.checkIfUser()==true)
+           this.isLoggedIn=true;
       //  location.reload();  I dont think we need that - check :)
       
       
@@ -117,13 +144,14 @@ var provider = new firebase.auth.FacebookAuthProvider();
 
 firebase.auth().signInWithPopup(provider).then((user)=>
 {
-  alert("Wellcom tenPartner");
-  this.isLoggedIn=true;
+ // this.isLoggedIn=true;
   this.userName = user.user.displayName;
   this.userEmail = user.user.email;
   this.userID = user.user.uid;
-  this.router.navigateByUrl('/home');
-  this.pushUser();
+  this.connectType="facebook";
+
+   if (this.checkIfUser()==true)
+           this.isLoggedIn=true;
 
     //location.reload();      I dont think we need that - check :)
   
@@ -141,17 +169,18 @@ var provider = new firebase.auth.GoogleAuthProvider();
 
 firebase.auth().signInWithPopup(provider).then((user)=>
 {
-  alert("Wellcom tenPartner");
-  this.isLoggedIn=true;
-  this.userName = user.user.displayName;
-  this.userEmail = user.user.email;
-  this.userID = user.user.uid;
+    this.connectType="google";
+    this.userName = user.user.displayName;
+    this.userEmail = user.user.email;
+    this.userID = user.user.uid;
+
+   if (this.checkIfUser()==true)
+           this.isLoggedIn=true;
+//  this.isLoggedIn=true;
+ 
   console.log(this.userID);
-  this.router.navigateByUrl('/home');
-  this.pushUser();
 
     //location.reload();      I dont think we need that - check :)
-  
 })
 .catch((error)=>
 {
@@ -166,6 +195,9 @@ firebase.auth().signInWithPopup(provider).then((user)=>
 
 
 TWITlogin(){
+
+      this.connectType="twitter";
+
 /*
 var provider = new firebase.auth.TwitterAuthProvider();
 

@@ -14,18 +14,21 @@ import { ServiceService } from '../../service.service';
 export class AddUserComponent implements OnInit {
 
   public UserName:string;
-  public TenPartnersAccount:String;
+  public Community:string;
+  public TenPartnersAccount:string;
   public Password:String;
   public GoogleAccount:String;
   public FacebookAccount:String;
   public TwitterAccount:String;
+  public Permission:String;
+  users: FirebaseListObservable<any>;
 
  // projects: FirebaseListObservable<any>;
  // projectsValues_Arr: any;
  // public messages: FirebaseListObservable<any>;
 
 
-  constructor(private router: Router,private serviceService:ServiceService) {
+  constructor(private router: Router,private serviceService:ServiceService,public af: AngularFireDatabase) {
     this.UserName="";
     this.TenPartnersAccount="";
     this.Password="";
@@ -33,12 +36,41 @@ export class AddUserComponent implements OnInit {
     this.FacebookAccount="";
     this.TwitterAccount="";
 
+    this.users = this.af.list('users');
+    
+    
 
   }
 
   ngOnInit() {
     this.serviceService.setTitle("Add user");
   }
+
+
+  sendUser(){
+
+    if(this.UserName!="")
+    {
+    this.users.update(this.UserName ,{mail: this.TenPartnersAccount ,Password:this.Password,
+    facebook: this.FacebookAccount,google: this.GoogleAccount,twitter: this.TwitterAccount,associatedCommunity: this.Community ,permission: this.Permission});
+
+    alert("user save");
+    
+    this.UserName="";
+    this.Permission="";
+    this.TenPartnersAccount="";
+    this.Password="";
+    this.FacebookAccount="";
+    this.GoogleAccount="";
+    this.TwitterAccount="";
+    this.Community="";
+  }
+  
+  alert("something's missing");
+
+
+  }
+
 
   sendProject()
   {
