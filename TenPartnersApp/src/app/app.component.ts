@@ -25,8 +25,8 @@ export class AppComponent
           }
 
           else{
-
-                    this.isLoggedIn=true;
+            if(Service.getlogin()==true){
+            this.isLoggedIn=true;
             console.log(Service.getCurrentEmail());        
             console.log(Service.getPermission());
             if(Service.getPermission()=="2")
@@ -36,7 +36,7 @@ export class AppComponent
             else if(Service.getPermission()=="1")
                        this.router.navigateByUrl('/home');
 
-          }
+          }}
         }
       )
       this.isLoggedIn=Service.getlogin();

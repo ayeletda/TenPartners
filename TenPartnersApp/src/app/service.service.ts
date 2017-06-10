@@ -48,7 +48,7 @@ export class ServiceService {
 
 checkIfUser(){
 
-
+var status=false;
 this.users
   .subscribe(snapshots => {
     snapshots.forEach(snapshot => {
@@ -57,8 +57,10 @@ this.users
        
        if(this.userEmail==snapshot.val().mail)
           {
+            console.log("hereee");
             this.permission=temp;
-            return true;
+            status =true;
+            stop;
           }
         
 
@@ -67,12 +69,12 @@ this.users
 
 
     });
-  })
+  });
 
 
 
 
-return false;
+return status;
 }
 
 getPermission(){
@@ -176,6 +178,8 @@ firebase.auth().signInWithPopup(provider).then((user)=>
 
    if (this.checkIfUser()==true)
            this.isLoggedIn=true;
+
+  console.log(this.isLoggedIn);
 //  this.isLoggedIn=true;
  
   console.log(this.userID);
