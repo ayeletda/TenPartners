@@ -318,17 +318,17 @@ input::placeholder
     border-bottom-color: #ffbee3;
 }
 #chooseProject{
-    background-color: rgb(229, 231, 233); /* Green */
-    color: darkblue;
-    border-color: darkblue;
+    background-color: #00008b; /* Green */
+    color: white;
+    border-color: white;
     border-width: 2px;
-
-    padding: 15px 32px;
+border-radius: 2px;
+    padding: 6px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 6px 31px;
     cursor: pointer;
 }
 
@@ -405,6 +405,35 @@ input::placeholder
 
 }
 
+.details{
+    visibility: hidden;
+}
 
 
+.nominateAlert {
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    font-weight: bold;
+}
 
+.nominateAlert form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 10px;
+    text-align: center;
+   background-color: white;
+
+}
+#submitButton{
+    background-color: #00008b;
+    border-radius: 3px;
+    border-width: 2px;
+    color:white;
+    border-color: white;
+}

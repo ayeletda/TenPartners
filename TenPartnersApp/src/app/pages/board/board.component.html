@@ -8,7 +8,7 @@
         <div *ngFor = "let community of associatedCommunities | async ">
             <!--<div class = " col-centered">-->
             <!--<div #scrollMeProj class = "vertical-menu-x" > -->
-            <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)" class="picture" id="pic1">
+            <div *ngIf = "community.$key == userCommunity && community.associatedUser == '' && saveProjectPath(community,i)" class="picture" id="pic1">
                 <app-projectForSelect
                         [item] = "projectPath"
                         (click) = "loadProjectDetails(community,i)"
@@ -34,7 +34,21 @@
 </div>
 
 <div class = " part3">
-    <button id =chooseProject>Nominate</button>
+    <button id =chooseProject   (click) = "chooseProject(community,i)">Nominate </button>
+</div>
+
+<div *ngIf = 'nominateProject' class = "nominateAlert">
+
+    <form>
+        Date:<br>
+        <input type="date" name="date" >
+        <br>
+        Cost:<br>
+        <input type="number" name="cost" >
+        <br><br>
+        <input id="submitButton" type="submit" value="Submit"  (click) = "choosen(community,i)">
+    </form>
+
 </div>
 
 </body>
