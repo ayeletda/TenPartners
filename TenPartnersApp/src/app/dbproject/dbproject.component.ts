@@ -28,15 +28,14 @@ export class DBprojectComponent implements OnInit {
 
   Nominate()
   {
-   var ref = firebase.database().ref(this.path);
-    ref.once("value").then(function(snapshot) {
-   if(snapshot.hasChildren()==false||snapshot.child("3").hasChildren())
-    console.log(snapshot.child("3").hasChildren());
-  });
+  //  var ref = firebase.database().ref(this.path);
+  //   ref.once("value").then(function(snapshot) {
+  //  if(snapshot.hasChildren()==false||snapshot.child("3").hasChildren())
+  //   console.log(snapshot.child("3").hasChildren());
+  // });
 
       this.project = this.af.list(this.path+"/");
       this.project.update(this.serviceService.getCommunity(),{against:0,associatedUser:this.serviceService.getKey(),avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
-      console.log("Gffh");
 }
 
 }
