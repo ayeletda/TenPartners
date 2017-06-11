@@ -25,13 +25,20 @@ span{position: initial;}
 position: unset;
 }
 
-.InRight{ 
+.InRight{
+	float: none;
+	display: inline; 
 	right: 0;
-	margin-right: 0.5%;
 }
 .glyphicon-star{color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;}
 
 summary{font-size: 25px; padding-bottom: 10px; outline: 0;}
+
+input{display: inline;}
+
+button{display: inline;}
+
+.btn-grup{display: inline;}
 
 p{font-size: 20px;}
 

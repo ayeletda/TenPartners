@@ -15,6 +15,7 @@ export class DBprojectComponent implements OnInit {
   public Name:String;
   public Description:String;
   public Purpose:String;
+  public community:string;
   @Input()item;
   @Input()path;
   project: FirebaseListObservable<any>;
@@ -36,6 +37,12 @@ export class DBprojectComponent implements OnInit {
 
       this.project = this.af.list(this.path+"/");
       this.project.update(this.serviceService.getCommunity(),{against:0,associatedUser:this.serviceService.getKey(),avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
+}
+
+
+pushToBoard(){
+      this.project = this.af.list(this.path+"/");
+      this.project.update(this.community,{against:0,associatedUser:"",avoid:10 ,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
 }
 
 }
