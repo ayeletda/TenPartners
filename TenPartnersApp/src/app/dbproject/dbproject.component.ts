@@ -41,8 +41,10 @@ export class DBprojectComponent implements OnInit {
 
 
 pushToBoard(){
+      if(this.community!=""){
       this.project = this.af.list(this.path+"/");
       this.project.update(this.community,{against:0,associatedUser:"",avoid:10 ,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
+}
 }
 
 }

@@ -34,9 +34,7 @@ position: unset;
 
 summary{font-size: 25px; padding-bottom: 10px; outline: 0;}
 
-input{display: inline;}
-
-button{display: inline;}
+.comments{ margin: 15px;}
 
 .btn-grup{display: inline;}
 
@@ -47,6 +45,10 @@ p{font-size: 20px;}
 summary::-webkit-details-marker { display: none}
 
 summary:after {content: " ";}
+
+.col-lg-6{
+	position: unset;
+}
 
 .comment{display: inline;
 }

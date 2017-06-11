@@ -4,19 +4,23 @@
   <details ng-open="showDetails">
   <summary> Project's name: {{item.name}} </summary>
   <p> Description: {{item.description}}<br>
-      Purpose for the jewish communuty: {{item.purpose}}
+      Purpose for the jewish communuty: {{item.purpose}}<br>
+	<span class="glyphicon glyphicon-comment comments"></span> (0)
+
   </p>
 </details>
 <div class = "social">
-  <div class="comment">
-	 <span class="glyphicon glyphicon-comment"></span> (100)</div>
-  <div class="InRight">
    <button class="btn btn-primary btn-lg" *ngIf="serviceService.getPermission()=='2'" (click)="Nominate()" >Nominate</button>
   
-  <div class ="btn-grup" *ngIf="serviceService.getPermission()=='1'">
-  <button class="btn btn-primary btn-lg"  (click)="pushToBoard()">Push</button> 
-  <input [(ngModel)] ="community" type="text" class="form-control" placeholder="community">
-  </div>
+<div class="row"  *ngIf="serviceService.getPermission()=='1'">
+  <div class="col-lg-6">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" (click)="pushToBoard()" type="button">push to</button>
+      </span>
+      <input [(ngModel)] ="community" type="text" class="form-control" placeholder="community name">
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
   
   </div>
 </div>
