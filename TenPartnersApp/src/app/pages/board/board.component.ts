@@ -32,6 +32,8 @@ export class BoardComponent implements OnInit
     private purpose: string;
     private description: string;
 
+    private nominateProject: boolean;
+
     private try: boolean = false;
     private firstTimeOfScoller: boolean;
 
@@ -54,6 +56,7 @@ export class BoardComponent implements OnInit
         this.name = this.service.getCurrentUser();
         this.email = this.service.getCurrentEmail();
         this.firstTimeOfScoller = true;
+        this.nominateProject =false;
 
         this.user.subscribe((snapshots)=>
         {
@@ -121,9 +124,18 @@ export class BoardComponent implements OnInit
         this.purpose = this.projectsValues_Arr[i].purpose;
         this.description = this.projectsValues_Arr[i].description;
     }
-
+    chooseProject(project,i)
+    {
+       // this.projectsValues_Arr[i].associatedUser = this.userId;
+       // project.projectUplodeDate = Date.now();
+        this.nominateProject = true;
+    }
+    choosen(project,i)
+    {
+        this.nominateProject = false;
+    }
 //======================================================  isMe(email)  =========================================================
-// helps to change the bubble's color
+// helps to chanthis.usge the bubble's color
 
     isMe(email)
     {
