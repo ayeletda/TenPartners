@@ -53,7 +53,7 @@ export class AddUserComponent implements OnInit {
     {
     
     this.serviceService.registerUsers(this.TenPartnersAccount,this.Password);
-    this.users.push({name:this.UserName ,mail: this.TenPartnersAccount ,Password:this.Password,
+    this.users.push({name:this.UserName ,email: this.TenPartnersAccount ,password:this.Password,
     facebook: this.FacebookAccount,google: this.GoogleAccount,twitter: this.TwitterAccount,associatedCommunity: this.Community ,permission: this.Permission});
 
     alert("user save");

@@ -67,7 +67,7 @@ this.users
       console.log(snapshot.val().mail);
      var temp=snapshot.val();      
        
-       if(this.userEmail==temp.mail||this.userEmail==temp.google||this.userEmail==temp.facebook)
+       if(this.userEmail==temp.email||this.userEmail==temp.google||this.userEmail==temp.facebook)
           {
             console.log("hereee");
             this.permission=temp.permission;
