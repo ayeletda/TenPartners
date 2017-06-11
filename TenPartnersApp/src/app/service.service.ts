@@ -72,6 +72,7 @@ this.users
             console.log("hereee");
             this.permission=temp.permission;
             this.community=temp.associatedCommunity;
+            this.userName=temp.name;
             status =true;
             stop;
           }
