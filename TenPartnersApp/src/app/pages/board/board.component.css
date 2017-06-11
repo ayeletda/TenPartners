@@ -437,3 +437,6 @@ border-radius: 2px;
     color:white;
     border-color: white;
 }
+.close{
+    float :left;
+}
