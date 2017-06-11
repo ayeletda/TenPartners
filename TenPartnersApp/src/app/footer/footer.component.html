@@ -8,6 +8,10 @@
                 <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
             </div>Voting in<br> Progress</a>
 
+        <a  id = "addUser" *ngIf="serviceService.getPermission()=='1'" (click)="clicked($event)" [class.afterClick] = "isClick == 'addUser'" class="btn btn-default">
+            <i id = "addU" class="fa fa-user-plus fa-2x" aria-hidden="true"></i>
+                Add User
+        </a>
         <a  id = "myProjects" *ngIf="serviceService.getPermission()=='2'" (click)="clicked($event)" [class.afterClick] = "isClick == 'myProjects'" class="btn btn-default">
             <i class="fa fa-address-card fa-2x" aria-hidden="true" id = "myP"></i>My<br>Project</a>
 

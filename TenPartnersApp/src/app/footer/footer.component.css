@@ -38,7 +38,7 @@ button{
 	}
 
 
-#set,#myP,#mDB,#votInPro,#pro,#sub{
+#set,#myP,#mDB,#votInPro,#pro,#sub,#addU{
 	display: block;
 	margin: auto;
 	margin-bottom: 5px;
