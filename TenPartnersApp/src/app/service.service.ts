@@ -17,6 +17,7 @@ export class ServiceService {
   userEmail:string;
   userID:any;
   permission:string;
+  community:string;
  // password:String; I dont think we need that - check :)
   private isLoggedIn;
   private title;
@@ -70,6 +71,7 @@ this.users
           {
             console.log("hereee");
             this.permission=temp.permission;
+            this.community=temp.associatedCommunity;
             status =true;
             stop;
           }
@@ -94,7 +96,7 @@ public getPermission(){
 
 setTitle(Title:String){this.title=Title;}  
 
-
+public getCommunity(){return this.community;}
 
 getCurrentUser()
 {
