@@ -37,14 +37,24 @@ export class DBprojectComponent implements OnInit {
 
       this.project = this.af.list(this.path+"/");
       this.project.update(this.serviceService.getCommunity(),{against:0,associatedUser:this.serviceService.getKey(),avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
+       alert("project nominated");
 }
 
 
 pushToBoard(){
+
       if(this.community!=""){
       this.project = this.af.list(this.path+"/");
       this.project.update(this.community,{against:0,associatedUser:"",avoid:10 ,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
+      alert("project pushed")
+      this.community="";
+      }
+
+      else alert("community name is empty!")
 }
-}
+
+
+
+openComments(){console.log("comments");}
 
 }

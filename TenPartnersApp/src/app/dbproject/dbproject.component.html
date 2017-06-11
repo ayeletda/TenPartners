@@ -5,7 +5,7 @@
   <summary> Project's name: {{item.name}} </summary>
   <p> Description: {{item.description}}<br>
       Purpose for the jewish communuty: {{item.purpose}}<br>
-	<span class="glyphicon glyphicon-comment comments"></span> (0)
+	<span class="glyphicon glyphicon-comment comments" (click) = "openComments()"></span> (0)
 
   </p>
 </details>
@@ -15,12 +15,12 @@
 <div class="row"  *ngIf="serviceService.getPermission()=='1'">
   <div class="col-lg-6">
     <div class="input-group">
-      <span class="input-group-btn">
+     <span class="input-group-btn">
         <button class="btn btn-default" (click)="pushToBoard()" type="button">push to</button>
       </span>
       <input [(ngModel)] ="community" type="text" class="form-control" placeholder="community name">
     </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+  </div> <!--/.col-lg-6 -->
   
   </div>
 </div>
