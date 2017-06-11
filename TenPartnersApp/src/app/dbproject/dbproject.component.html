@@ -10,8 +10,8 @@
   </p>
 </details>
 <div class = "social">
-   <button class="btn btn-primary btn-lg" *ngIf="serviceService.getPermission()=='2'" (click)="Nominate()" >Nominate</button>
-  
+   <button class="btn btn-primary btn-lg center-block" *ngIf="serviceService.getPermission()=='2'" (click)="Nominate()" >Nominate</button>
+
 <div class="row"  *ngIf="serviceService.getPermission()=='1'">
   <div class="col-lg-6">
     <div class="input-group">
