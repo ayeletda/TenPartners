@@ -4,6 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit, EventEmitter } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ChangeDetectorRef, Input, Output } from "@angular/core";
+import {ServiceService} from '../service.service';
 
 @Component({
   selector: 'app-dbproject',
@@ -17,7 +18,7 @@ export class DBprojectComponent implements OnInit {
   @Input()item;
 
 
-  constructor(private router: Router, private af: AngularFireDatabase) { 
+  constructor(private router: Router, private af: AngularFireDatabase,private serviceService:ServiceService) { 
 
   }
 
