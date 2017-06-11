@@ -63,7 +63,7 @@ checkIfUser(){
 var status=false;
 this.users
   .subscribe(snapshots => {
-    snapshots.forEach(snapshot => {
+    snapshots.some(snapshot => {
       console.log(snapshot.val().mail);
      var temp=snapshot.val();      
        
@@ -74,7 +74,7 @@ this.users
             this.community=temp.associatedCommunity;
             this.userName=temp.name;
             status =true;
-            stop;
+            return status;
           }
         
 
