@@ -43,7 +43,7 @@ constructor(private serviceService:ServiceService, private router: Router, publi
 
  saveProjectPath(project)
   {
-    this.projectPath = 'projects/' + project.$key + '/associatedCommunities/' + project.$key;
+    this.projectPath = 'projects/' + project.$key + '/associatedCommunities';
     return this.projectPath;
   }
 

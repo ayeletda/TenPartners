@@ -15,7 +15,7 @@ import { ChangeDetectorRef } from "@angular/core";
 export class ServiceService {
   userName:string;
   userEmail:string;
-  userID:any;
+  userID:string;
   permission:string;
   community:string;
  // password:String; I dont think we need that - check :)
@@ -73,6 +73,8 @@ this.users
             this.permission=temp.permission;
             this.community=temp.associatedCommunity;
             this.userName=temp.name;
+            this.userID=snapshot.key;
+            console.log(this.userID);
             status =true;
             return status;
           }
@@ -90,6 +92,10 @@ this.users
 
 return status;
 }
+
+
+public getKey(){return this.userID;}
+
 
 public getPermission(){
   return this.permission;

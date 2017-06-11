@@ -10,7 +10,7 @@
 <div class = "social">
   <div class="comment">
 	 <span class="glyphicon glyphicon-comment"></span> (100)</div>
-   <button class="btn btn-primary btn-lg InRight" *ngIf="serviceService.getPermission()=='2'">Nominate</button>
+   <button class="btn btn-primary btn-lg InRight" *ngIf="serviceService.getPermission()=='2'" (click)="Nominate()" >Nominate</button>
     <button class="btn btn-primary btn-lg InRight" *ngIf="serviceService.getPermission()=='1'">Push</button> 
 </div>
 </main>
