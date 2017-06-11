@@ -12,13 +12,13 @@ import {ServiceService} from '../service.service';
 
 export class FooterComponent implements OnInit 
 {
-  private isClick:boolean;
+  private isClick:string;
 
  constructor(private router: Router,private serviceService:ServiceService) { }
 
   ngOnInit() {
-  // if (this.serviceService.getPermission()=='2')
-        
+    if (this.serviceService.getPermission()=='2')
+      this.isClick='voting';
   }
   
   clicked(event){

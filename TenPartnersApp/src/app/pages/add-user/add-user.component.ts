@@ -27,7 +27,6 @@ export class AddUserComponent implements OnInit {
  // projectsValues_Arr: any;
  // public messages: FirebaseListObservable<any>;
 
-
   constructor(private router: Router,private serviceService:ServiceService,public af: AngularFireDatabase) {
     this.UserName="";
     this.TenPartnersAccount="";
@@ -35,28 +34,28 @@ export class AddUserComponent implements OnInit {
     this.GoogleAccount="";
     this.FacebookAccount="";
     this.TwitterAccount="";
-
     this.users = this.af.list('users');
-    
-    
-
   }
 
   ngOnInit() {
     this.serviceService.setTitle("Add user");
   }
 
-
   sendUser(){
 
     if(this.UserName!=""&&this.TenPartnersAccount!=""&&this.Password!="")
     {
-    
-    this.serviceService.registerUsers(this.TenPartnersAccount,this.Password);
-    this.users.push({name:this.UserName ,email: this.TenPartnersAccount ,password:this.Password,
-    facebook: this.FacebookAccount,google: this.GoogleAccount,twitter: this.TwitterAccount,associatedCommunity: this.Community ,permission: this.Permission});
+//      if (this.checkUserName()==true)
+//        alert("this username already exist");
 
-    alert("user save");
+
+
+    this.serviceService.registerUsers(this.TenPartnersAccount,this.Password);
+    this.users.push({name:this.UserName, email: this.TenPartnersAccount, facebook: this.FacebookAccount,
+      google: this.GoogleAccount, twitter: this.TwitterAccount, associatedCommunity: this.Community,
+      permission: this.Permission});
+
+    alert("user is saved");
     
     this.UserName="";
     this.Permission="";
@@ -67,7 +66,28 @@ export class AddUserComponent implements OnInit {
     this.TwitterAccount="";
     this.Community="";
   }
-  
+
+/*
+  checkUserName(){
+  var status=false;
+  this.users.subscribe(snapshots => {
+    snapshots.some(snapshot => {
+      console.log(snapshot.val().mail);
+      var temp=snapshot.val();      
+      if(this.userEmail==temp.email||this.userEmail==temp.google||this.userEmail==temp.facebook)
+        {
+          console.log("hereee");
+          this.permission=temp.permission;
+          this.community=temp.associatedCommunity;
+          this.userName=temp.name;
+          status =true;
+          return status;
+        }
+      });
+    });
+    return status;
+  }
+*/  
   else alert("something's missing");
 
 
