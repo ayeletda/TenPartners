@@ -25,16 +25,23 @@ span{position: initial;}
 position: unset;
 }
 
+.InRight{ 
+	right: 0;
+	margin-right: 0.5%;
+}
 .glyphicon-star{color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;}
 
 summary{font-size: 25px; padding-bottom: 10px; outline: 0;}
 
 p{font-size: 20px;}
 
-.social{font-size: 20px;}
+.social{font-size: 20px; padding-left: 8px; padding-right: 0.5%;}
 
 summary::-webkit-details-marker { display: none}
 
 summary:after {content: " ";}
+
+.comment{display: inline;
+}
 
 .glyphicon-comment{color: #FFF2A8; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;}

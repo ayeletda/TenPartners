@@ -2,13 +2,16 @@
 <div class="col-lg-12">
 <main>
   <details ng-open="showDetails">
-  <summary> Project's name: {{item.name}}</summary>
+  <summary> Project's name: {{item.name}} </summary>
   <p> Description: {{item.description}}<br>
       Purpose for the jewish communuty: {{item.purpose}}
   </p>
 </details>
 <div class = "social">
-	 <span class="glyphicon glyphicon-comment"></span> (100)
+  <div class="comment">
+	 <span class="glyphicon glyphicon-comment"></span> (100)</div>
+   <button class="btn btn-primary btn-lg InRight" *ngIf="serviceService.getPermission()=='2'">Nominate</button>
+    <button class="btn btn-primary btn-lg InRight" *ngIf="serviceService.getPermission()=='1'">Push</button> 
 </div>
 </main>
 </div>
