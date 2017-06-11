@@ -23,6 +23,7 @@ export class DBprojectComponent implements OnInit {
 
   constructor(private router: Router, private af: AngularFireDatabase,private serviceService:ServiceService) 
   {
+    this.community="";
   }
 
   ngOnInit() {}
