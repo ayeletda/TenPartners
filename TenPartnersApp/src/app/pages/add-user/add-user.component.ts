@@ -16,7 +16,7 @@ export class AddUserComponent implements OnInit {
   public UserName:string;
   public Community:string;
   public TenPartnersAccount:string;
-  public Password:String;
+  public Password:string;
   public GoogleAccount:String;
   public FacebookAccount:String;
   public TwitterAccount:String;
