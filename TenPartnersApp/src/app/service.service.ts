@@ -88,7 +88,7 @@ this.users
 return status;
 }
 
-getPermission(){
+public getPermission(){
   return this.permission;
 } 
 

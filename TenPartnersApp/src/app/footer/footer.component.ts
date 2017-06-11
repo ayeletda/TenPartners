@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {ServiceService} from '../service.service';
 
 
 @Component(
@@ -13,7 +14,7 @@ export class FooterComponent implements OnInit
 {
   private isClick:boolean;
 
- constructor(private router: Router) { }
+ constructor(private router: Router,private serviceService:ServiceService) { }
 
   ngOnInit() {}
   
