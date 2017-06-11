@@ -16,14 +16,12 @@ export class DBprojectComponent implements OnInit {
   public Description:String;
   public Purpose:String;
   @Input()item;
+  @Input()path;
 
 
   constructor(private router: Router, private af: AngularFireDatabase,private serviceService:ServiceService) { 
-
   }
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }

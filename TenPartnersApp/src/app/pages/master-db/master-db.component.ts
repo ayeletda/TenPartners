@@ -18,14 +18,36 @@ export class MasterDBComponent implements OnInit {
 
 public projects: FirebaseListObservable<any>;
 public newProject: string;
+private projectPath: any;
+private  projectsValues_Arr: any;
+
 
 constructor(private serviceService:ServiceService, private router: Router, public af: AngularFireDatabase)
    {
   this.projects = this.af.list('projects'); //= select * from projects 
 
+ this.projects.subscribe((snapshots)=>
+    {
+      this.projectsValues_Arr = [];
+      
+      snapshots.forEach(snapshot => 
+      {
+        this.projectsValues_Arr.push(snapshot);
+      });
+    })
+
    }
 
   ngOnInit() {this.serviceService.setTitle("Master DB");}
+
+
+ saveProjectPath(project)
+  {
+    this.projectPath = 'projects/' + project.$key + '/associatedCommunities/' + project.$key;
+    return this.projectPath;
+  }
+
+
 
 }
 
