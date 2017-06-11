@@ -46,7 +46,8 @@ export class ServiceService {
   }
 
 
- registerUsers(email:string,password:string)
+ 
+ public registerUsers(email,password)
 {
 firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(function(error) {
