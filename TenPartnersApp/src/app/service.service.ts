@@ -64,12 +64,12 @@ this.users
   .subscribe(snapshots => {
     snapshots.forEach(snapshot => {
       console.log(snapshot.val().mail);
-     var temp=snapshot.val().permission;      
+     var temp=snapshot.val();      
        
-       if(this.userEmail==snapshot.val().mail)
+       if(this.userEmail==temp.mail||this.userEmail==temp.google||this.userEmail==temp.facebook)
           {
             console.log("hereee");
-            this.permission=temp;
+            this.permission=temp.permission;
             status =true;
             stop;
           }
