@@ -49,9 +49,11 @@ export class AddUserComponent implements OnInit {
 
   sendUser(){
 
-    if(this.UserName!="")
+    if(this.UserName!=""&&this.TenPartnersAccount!=""&&this.Password!="")
     {
-    this.users.update(this.UserName ,{mail: this.TenPartnersAccount ,Password:this.Password,
+    
+    this.serviceService.registerUsers(this.TenPartnersAccount,this.Password);
+    this.users.push({name:this.UserName ,mail: this.TenPartnersAccount ,Password:this.Password,
     facebook: this.FacebookAccount,google: this.GoogleAccount,twitter: this.TwitterAccount,associatedCommunity: this.Community ,permission: this.Permission});
 
     alert("user save");
@@ -66,7 +68,7 @@ export class AddUserComponent implements OnInit {
     this.Community="";
   }
   
-  alert("something's missing");
+  else alert("something's missing");
 
 
   }
