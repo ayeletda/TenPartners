@@ -16,7 +16,10 @@ export class FooterComponent implements OnInit
 
  constructor(private router: Router,private serviceService:ServiceService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  // if (this.serviceService.getPermission()=='2')
+        
+  }
   
   clicked(event){
     console.log(event.currentTarget.id);
