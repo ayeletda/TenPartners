@@ -38,8 +38,9 @@ export class DBprojectComponent implements OnInit {
                 .subscribe(snapshots => {
                   snapshots.some(snapshot => {
                   var temp=snapshot.key;      
-                console.log(temp);    
-       if(this.serviceService.getCommunity()==temp)
+                console.log(temp);  
+                console.log(this.serviceService.getCommunity());  
+       if(this.serviceService.getCommunity()==temp||this.community==temp)
           {
             status=true;
             return status;
@@ -63,6 +64,8 @@ export class DBprojectComponent implements OnInit {
       this.project = this.af.list(this.path+"/associatedCommunities/");
       this.project.update(this.serviceService.getCommunity(),{against:0,associatedUser:this.serviceService.getKey(),avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
        alert("project nominated");}
+
+       else  alert("project alredy exists");
 }
 
 
@@ -74,7 +77,10 @@ pushToBoard(){
       this.project.update(this.community,{against:0,associatedUser:"",avoid:10 ,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
       alert("project pushed")
       this.community="";
-       } }
+       } 
+      
+      else  alert("project alredy exists");
+    }
 
       else alert("community name is empty!")
 }
