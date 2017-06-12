@@ -12,6 +12,7 @@ main
 	margin-right: 0.5%;
 	height: 20%;
 	width: 100%;
+	/**font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;**/
 }
 
 i
@@ -23,4 +24,26 @@ i
 {
 	margin-top: 10px;
 	position: unset;
+}
+.row{
+	margin-left: 25px;
+}
+.btn-danger{
+	margin-right: 6px;
+}
+a{
+		margin-right: 6px;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #00008b;
+}
+input{
+
+	margin-right:6px;
+}
+
+.fa-trash-o{
+	color:red;
+	padding: 10px;
 }

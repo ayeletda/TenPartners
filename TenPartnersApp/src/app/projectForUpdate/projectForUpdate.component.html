@@ -2,8 +2,8 @@
 	
 	{{projectName}} 
 	
-	<a class="btn btn-danger"  aria-label="Delete">
-		<i class="fa fa-trash-o" aria-hidden="true" (click) = "removeProject()"></i>
+	<a  aria-label="Delete">
+		<i class="fa fa-trash-o pull-right" aria-hidden="true" (click) = "removeProject()"></i>
 	</a>
 
 	<div *ngFor = "let value of pointerToProjectInAF | async">
