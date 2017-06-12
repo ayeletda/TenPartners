@@ -30,6 +30,7 @@ export class ServiceService
   //flags
   private isLoggedIn;
 
+  private status: boolean;
 //====================================================  constructor  ============================================================
 
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth,public af: AngularFireDatabase)
@@ -41,7 +42,9 @@ export class ServiceService
     this.isLoggedIn=false;
 
     this.users = this.af.list('/users',{ preserveSnapshot: true });
-
+    this.status = false;
+    
+    this.checkIfUser();
     this.users.subscribe((snapshots)=>
     {
       this.usersValues_Arr=[];
@@ -71,7 +74,7 @@ export class ServiceService
 
   checkIfUser()
   {
-    let status = false;
+    this.status = false;
     this.users.subscribe(snapshots => 
     {
       snapshots.forEach(snapshot => 
@@ -85,13 +88,13 @@ export class ServiceService
             this.permission = temp.permission;
             this.community = temp.associatedCommunity;
             this.userName = temp.name;
-            status = true;
+            this.status = true;
             stop;
           }
       });
     });
 
-  return status;
+  // return status;
   }
 
 //===============================================  types of connection  ============================================================
@@ -120,7 +123,7 @@ export class ServiceService
       this.userID = user.uid;
       this.connectType = "mail";
 
-      if (this.checkIfUser() == true)
+      if (this.status == true)
         this.isLoggedIn = true;    
     })
     .catch((error)=>
@@ -146,7 +149,7 @@ export class ServiceService
       this.userID = user.user.uid;
       this.connectType = "facebook";
 
-      if (this.checkIfUser()==true)
+      if (this.status==true)
         this.isLoggedIn=true;    
     })
     .catch((error)=>
@@ -168,7 +171,7 @@ export class ServiceService
         this.userEmail = user.user.email;
         this.userID = user.user.uid;
 
-      if (this.checkIfUser()==true)
+      if (this.status==true)
               this.isLoggedIn=true;
 
       console.log(this.isLoggedIn);
