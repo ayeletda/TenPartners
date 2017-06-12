@@ -36,7 +36,7 @@ export class DBprojectComponent implements OnInit {
   //   console.log(snapshot.child("3").hasChildren());
   // });
 
-      this.project = this.af.list(this.path+"/");
+      this.project = this.af.list(this.path+"/associatedCommunities/");
       this.project.update(this.serviceService.getCommunity(),{against:0,associatedUser:this.serviceService.getKey(),avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
        alert("project nominated");
 }
@@ -45,7 +45,7 @@ export class DBprojectComponent implements OnInit {
 pushToBoard(){
 
       if(this.community!=""){
-      this.project = this.af.list(this.path+"/");
+      this.project = this.af.list(this.path+"/associatedCommunities/");
       this.project.update(this.community,{against:0,associatedUser:"",avoid:10 ,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
       alert("project pushed")
       this.community="";
