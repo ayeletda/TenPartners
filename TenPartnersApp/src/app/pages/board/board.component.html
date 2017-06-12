@@ -1,17 +1,18 @@
-
-
 <!--========================== the page ==============================-->
 
 <body>
-<div class = "part1">
-    <div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index" [attr.data-index]="i" ><!--- ////////////////// i++??-->
-        <div *ngFor = "let community of associatedCommunities | async ">
+<div class="part1">
+    <div *ngFor="let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index" [attr.data-index]="i">
+        <!--- ////////////////// i++??-->
+        <div *ngFor="let community of associatedCommunities | async ">
             <!--<div class = " col-centered">-->
             <!--<div #scrollMeProj class = "vertical-menu-x" > -->
-            <div *ngIf = "community.$key == userCommunity && community.associatedUser == '' && saveProjectPath(community,i)" class="picture" id="pic1">
+            <div *ngIf="community.$key == userCommunity && community.associatedUser == '' && saveProjectPath(community,i)"
+                 class="picture"
+                 id="pic1">
                 <app-projectForSelect
-                        [item] = "projectPath"
-                        (click) = "loadProjectDetails(community,i)"
+                        [item]="projectPath"
+                        (click)="loadProjectDetails(community,i)"
                         (voteChoose)='try = true'>
                 </app-projectForSelect>
             </div>
@@ -21,31 +22,31 @@
 </div>
 
 <!--//No projects have been selected for discussion yet...-->
-<div class = " part2">
-    <div class = "vertical-menu1" >
-        <h5 *ngIf = 'projectSelected'>
+<div class=" part2">
+    <div class="vertical-menu1">
+        <h5 *ngIf='projectSelected'>
             <p> Purpose: {{purpose}} </p>
             <p> Description: {{description}} </p>
         </h5>
-        <h4 *ngIf = '!projectSelected'> Click on a project for viewing its details... </h4>
+        <h4 *ngIf='!projectSelected'> Click on a project for viewing its details... </h4>
     </div>
 </div>
 
-<div class = " part3">
-    <button id =chooseProject   (click) = "chooseProject(community,i)">Nominate </button>
+<div class=" part3">
+    <button *ngIf="currentI > -1" id=chooseProject (click)="chooseProject()">Nominate</button>
 </div>
 
-<div *ngIf = 'showDetailsForm' class = "nominateAlert">
+<div *ngIf='showDetailsForm' class="nominateAlert">
 
     <form>
-        <div class = "close"   (click) = "close()" >X</div>
+        <div class="close" (click)="close()">X</div>
         Date:<br>
-        <input type="date" name="date"[(ngModel)] = "date"  >
+        <input type="date" name="date" [(ngModel)]="date">
         <br>
         Cost:<br>
-        <input type="number" name="cost" [(ngModel)] = "cost">
+        <input type="number" name="cost" [(ngModel)]="cost">
         <br><br>
-        <input id="submitButton" type="submit" value="Submit"  (click) = "choosen(community,i)">
+        <input id="submitButton" type="submit" value="Submit" (click)="choosen()">
     </form>
 
 </div>
