@@ -7,12 +7,11 @@ main
     font-weight: bold;
     color: black;
     height: 100%;
-    width: 33.3%;
+    width: 130px; /* =======>>>>>>>>>> HEREEEEEE */
 	border: 2%;
-    border-color: #D6D6CC;
+    border-color: #E3E3E3;
     background-color: #FFFFF5;
     border-style: solid;
-    float: left;
 }
 
 p

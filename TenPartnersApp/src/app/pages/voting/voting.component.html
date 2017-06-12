@@ -2,20 +2,17 @@
 
  <!--========================== the page ==============================-->
 
-    <body>
-      <div class = "part1">
-            <div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index" [attr.data-index]="i" ><!--- ////////////////// i++??-->
+    <div class = "body2">
+        <div class = "part1 vertical-menu-x" >
+            <div  class = "temp" *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
                 <div *ngFor = "let community of associatedCommunities | async ">
                     <!--<div class = " col-centered">-->
-                    <!--<div #scrollMeProj class = "vertical-menu-x" > -->
-                        <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)" class="project">  
-                            <app-projectForVote 
+                        <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)">  
+                            <app-projectForVote  class = "pull-left"
                                 [item] = "projectPath" 
-                                (click) = "loadProjectDetails(community,i)"
-                                (voteChoose)='try = true'>
+                                (click) = "loadProjectDetails(community,i)">
                             </app-projectForVote> 
-                        </div>
-                    <!--</div>-->
+                    </div>
                 </div>
             </div>
         </div>  
@@ -67,7 +64,7 @@
             </div>
         </div>
 
-    </body>
+    </div>
 
 
 

@@ -1,12 +1,11 @@
-body
+.body2
 {
     margin-top: 35px;
 }
 
-.part1, .col-centered
+.part1
 {
   width: 100%;
-  background-color: red;
 }
 
 .navbar
@@ -87,12 +86,21 @@ p
 
 .vertical-menu-x
 {
-    overflow-x:scroll;
+    overflow-x: auto;
     overflow-y: hidden;
-    width: 100%;
-    max-width: 100%;
-    height: 100%;
+    white-space: nowrap;
 }
+
+.temp
+{
+  display: inline-block;
+}
+
+/*::-webkit-scrollbar 
+{ 
+    display: none; 
+}*/
+
 /* ============================ CSS of input ======================= */
 
 input::placeholder
@@ -109,6 +117,18 @@ input::placeholder
 }
 
 ::-webkit-scrollbar-thumb 
+{
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, .5);
+}
+
+::-webkit-scrollbar:horizontal 
+{
+  -webkit-appearance: none;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb:horizontal
 {
   border-radius: 4px;
   background-color: rgba(0, 0, 0, .5);
