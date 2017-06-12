@@ -19,14 +19,38 @@ export class DBprojectComponent implements OnInit {
   @Input()item;
   @Input()path;
   project: FirebaseListObservable<any>;
+  public communitysPath:string;
 
 
   constructor(private router: Router, private af: AngularFireDatabase,private serviceService:ServiceService) 
   {
     this.community="";
+    this.communitysPath=this.path+"/associatedCommunities/";
   }
 
   ngOnInit() {}
+
+
+  checkIfExist(){
+               this.project = this.af.list(this.path+"/associatedCommunities/",{ preserveSnapshot: true });
+               var status=false;
+              this.project
+                .subscribe(snapshots => {
+                  snapshots.some(snapshot => {
+                  var temp=snapshot.key;      
+                console.log(temp);    
+       if(this.serviceService.getCommunity()==temp)
+          {
+            status=true;
+            return status;
+         }
+    });
+  });
+
+
+
+          return status;
+  }
 
   Nominate()
   {
@@ -35,21 +59,22 @@ export class DBprojectComponent implements OnInit {
   //  if(snapshot.hasChildren()==false||snapshot.child("3").hasChildren())
   //   console.log(snapshot.child("3").hasChildren());
   // });
-
+      if(this.checkIfExist()==false){
       this.project = this.af.list(this.path+"/associatedCommunities/");
       this.project.update(this.serviceService.getCommunity(),{against:0,associatedUser:this.serviceService.getKey(),avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
-       alert("project nominated");
+       alert("project nominated");}
 }
 
 
 pushToBoard(){
 
       if(this.community!=""){
+        if(this.checkIfExist()==false){  
       this.project = this.af.list(this.path+"/associatedCommunities/");
       this.project.update(this.community,{against:0,associatedUser:"",avoid:10 ,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
       alert("project pushed")
       this.community="";
-      }
+       } }
 
       else alert("community name is empty!")
 }
