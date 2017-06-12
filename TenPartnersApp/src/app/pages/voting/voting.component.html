@@ -8,7 +8,7 @@
                 <div *ngFor = "let community of associatedCommunities | async ">
                     <!--<div class = " col-centered">-->
                     <!--<div #scrollMeProj class = "vertical-menu-x" > -->
-                        <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)" class="picture" id="pic1">  
+                        <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)" class="project">  
                             <app-projectForVote 
                                 [item] = "projectPath" 
                                 (click) = "loadProjectDetails(community,i)"

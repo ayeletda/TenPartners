@@ -18,12 +18,13 @@ export class VotingComponent implements OnInit
 {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
-  // variables
+  //user details
   private userId: string;
   private userCommunity: string;
   private name: string; 
   private email: string;
   
+  //project details
   private currentProject: any;
   private projectPath: any;
   private projectSelected:boolean;
@@ -33,8 +34,9 @@ export class VotingComponent implements OnInit
   private description: string;
   
   private try: boolean = false;
-  private firstTimeOfScoller: boolean;
+  // private firstTimeOfScoller: boolean;
 
+  //message details
   private savedDate: string;
   private newMessage: string;
   private messages: FirebaseListObservable<any>;
@@ -53,7 +55,7 @@ export class VotingComponent implements OnInit
     this.user = this.af.list('users/' + this.userId); // the specific user
     this.name = this.service.getCurrentUser();
     this.email = this.service.getCurrentEmail();
-    this.firstTimeOfScoller = true;
+    // this.firstTimeOfScoller = true;
 
     this.user.subscribe((snapshots)=>
     {
@@ -79,7 +81,7 @@ export class VotingComponent implements OnInit
     })
 
     this.newMessage = '';
-    this.savedDate='';
+    this.savedDate='';      
     this.currentProject = '';
     this.projectPath = '';
     this.projectSelected = false;
@@ -94,10 +96,10 @@ export class VotingComponent implements OnInit
      
      (<any>$("part1")).slick(
       {
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            arrows: false
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        arrows: false
       });
   }
   
@@ -171,7 +173,7 @@ export class VotingComponent implements OnInit
           this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
       } 
       catch(err) {}
-      this.firstTimeOfScoller = false;
+      // this.firstTimeOfScoller = false;
     //  }
         console.log("in scrollToBottom");
 

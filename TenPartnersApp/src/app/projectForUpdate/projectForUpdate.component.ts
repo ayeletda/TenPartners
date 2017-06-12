@@ -73,7 +73,7 @@ export class ProjectForUpdateComponent implements OnInit
     }
     else if(dateVal == "")
     {
-      alert ("You sould enter a valid date")
+      alert ("You should enter a valid date")
     }
     else
     {
@@ -99,7 +99,7 @@ export class ProjectForUpdateComponent implements OnInit
     }
     else if(costVal == "")
     {
-      alert ("You sould enter a valid budget")
+      alert ("You should enter a valid budget")
     }
     else
     {
