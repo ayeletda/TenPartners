@@ -1,19 +1,20 @@
 
 /* ============================ main\top-side of project's square ======================= */
 
-main
+.main
 {
     font-family: "comic sans ms";
     font-weight: bold;
     color: black;
     height: 100%;
-    width: 33.3%;
+    width: 137px;
     border-width: 2px;
     border-color: #D6D6CC;
     background-color: #FFFFF5;
     border-style: solid;
-    float: left;
+
 }
+
 
 p
 {
@@ -28,7 +29,7 @@ p
 
 #up
 {
-    width: 100%;
+
     padding:10%;
 }
 
@@ -89,44 +90,12 @@ label
     padding-top: 2%;
     margin: 0%;
 }
+.stopper{
+    text-align: center;
+    font-size:20px;
+    margin-bottom: 6px;
+}
 /* ============================ colors for CSS of this component ======================= */
-
-.yellow
-{
-    background: #fcf3c3;
-    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #fcf3c3),color-stop(1, #f4e371));
-    background-image: -webkit-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-    background-image: -moz-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-    background-image: -ms-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-    background-image: -o-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-    background-image: linear-gradient(to bottom, #fcf3c3 15%, #f4e371 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4e371', endColorstr='#fcf3c3');
-}
-
-/* red bubble */
-.red
-{
-    background: #FFC8C8;
-    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ea8378),color-stop(1, #e2675a));
-    background-image: -webkit-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-    background-image: -moz-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-    background-image: -ms-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-    background-image: -o-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-    background-image: linear-gradient(to bottom, #FFC8C8 15%, #e2675a 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#e2675a', endColorstr='#ea8378');
-}
-
-.green
-{
-    background: #C0FF97;
-    background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ace44b),color-stop(1, #7acd47));
-    background-image: -webkit-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-    background-image: -moz-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-    background-image: -ms-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-    background-image: -o-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-    background-image: linear-gradient(to bottom, #C0FF97 15%, #7acd47 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7acd47', endColorstr='#ace44b');
-}
 
 
 /*=================================== fixing heights according to the screen's size ======================================== */

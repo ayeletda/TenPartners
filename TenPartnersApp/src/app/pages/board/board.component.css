@@ -1,24 +1,37 @@
-body {
+.body2
+{
     margin-top: 35px;
+    background-color: #E3E3E3;
+
 }
 
-.part1, .col-centered {
+.part1
+{
     width: 100%;
-    background-color: red;
 }
+.temp
+{
+  display: inline-block;
+}
+.vertical-menu-x
+{
 
-.navbar {
-    width: 100%;
-    margin: 0%;
-    display: block;
-    background-color: transparent;
-    border-color: transparent;
-}
+    overflow-x: auto;
+    overflow-y: hidden;
 
-.picture {
-    margin: 0%;
-    width: 100%;
+    white-space: nowrap;
 }
+::-webkit-scrollbar:horizontal
+ {
+   -webkit-appearance: none;
+   height: 4px;
+ }
+
+::-webkit-scrollbar-thumb:horizontal
+ {
+   border-radius: 4px;
+   background-color: rgba(0, 0, 0, .5);
+ }
 
 .part2 {
     background-color: #E3E3E3;

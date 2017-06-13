@@ -6,6 +6,8 @@ import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} f
 import {ChangeDetectorRef} from "@angular/core";
 import {ServiceService} from '../../service.service';
 
+
+
 @Component(
     {
         selector: 'app-board',
@@ -14,7 +16,10 @@ import {ServiceService} from '../../service.service';
     })
 
 export class BoardComponent implements OnInit {
+
     @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+
+
 
     // variables
     private userId: string;
@@ -33,18 +38,23 @@ export class BoardComponent implements OnInit {
 
     private showDetailsForm: boolean;
 
-    private try: boolean = false;
+
     private firstTimeOfScoller: boolean;
 
     private savedDate: string;
     private newMessage: string;
-    private messages: FirebaseListObservable<any>;
+    private projectUpdate: FirebaseListObservable<any>;
 
     // pointers of object or list in firebase
     private user: FirebaseListObservable<any>; // pointer to user
     private projects: FirebaseListObservable<any>;
     private projectsAssociatedCommunities_Arr: any;
     private projectsValues_Arr: any;
+    private needViewMore: boolean;
+
+    private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
+
+
 
 //======================================================  constructor  ============================================================
 
@@ -88,14 +98,10 @@ export class BoardComponent implements OnInit {
         this.scrollToBottom()
         this.service.setTitle("Submitted Projects");
 
-        (<any>$("part1")).slick(
-            {
-                infinite: true,
-                slidesToShow: 3,
-                slidesToScroll: 3,
-                arrows: false
-            });
+
+
     }
+
 
 //========================================================  saveProjectPath  =========================================================
 
@@ -109,12 +115,14 @@ export class BoardComponent implements OnInit {
     loadProjectDetails(project, i) {
         this.currentProject = project;
         this.currentI = i;
-        this.messages = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key + '/messages');
+        this.projectUpdate = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/'+ this.userCommunity);
         this.projectSelected = true;
         this.cost = project.cost;
         this.date = project.date;
         this.purpose = this.projectsValues_Arr[i].purpose;
         this.description = this.projectsValues_Arr[i].description;
+        this.needViewMore=false;
+
     }
 
     chooseProject() {
@@ -122,11 +130,16 @@ export class BoardComponent implements OnInit {
     }
 
     choosen() {
+      //  this.projectUpdate.update({ 'associatedUser': this.userId });
+        //this.projectUpdate.update({ 'date': this.date  });
+       // this.projectUpdate.update({ 'cost': this.cost  });
+       // this.projectUpdate.update({ 'uploudDate': new Date() });
 
-        this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].associatedUser = this.userId;
-        this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].date = this.date;
-        this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].cost = this.cost;
-        this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].uploudDate = new Date();
+        //this.projects.update(({ 'associatedUser': this.userId }));
+       // this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'associatedUser': this.userId });
+       // this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'date': this.date });
+        //this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'cost': this.cost });
+        //this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'uploudDate': new Date() });
         this.close();
     }
 
@@ -135,44 +148,6 @@ export class BoardComponent implements OnInit {
         this.currentI = -1;
     }
 
-//======================================================  isMe(email)  =========================================================
-// helps to chanthis.usge the bubble's color
-
-    isMe(email) {
-        if (email == this.email)
-            return true;
-        return false;
-    }
-
-//======================================================  needToPrint  =========================================================
-    // If need to print the date ahead
-
-    needToPrint(date) {
-        if (this.savedDate != date) {
-            this.savedDate = date;
-            //this.ref.detectChanges();
-
-            return true;
-        }
-        //this.ref.detectChanges();
-        return false;
-    }
-
-//=====================================================  sendMessage  =========================================================
-
-    sendMessage() {
-        if (!this.projectSelected)
-            alert("You need to choose a project before leaving a message.")
-        else if (this.newMessage != '')
-            this.messages.push({
-                message: this.newMessage,
-                name: this.name,
-                email: this.email,
-                date: new Date().toLocaleString()
-            });
-
-        this.newMessage = '';
-    }
 
 //======================================================   scrollToBottom  =========================================================
 
@@ -190,9 +165,9 @@ export class BoardComponent implements OnInit {
 
     }
 
-    trackByFn(index, item) {
-        this.scrollToBottom();
-        console.log("in trackByFn");
+    viewMore(bol)
+    {
+        this.needViewMore = bol;
     }
 }
 
