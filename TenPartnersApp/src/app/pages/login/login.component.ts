@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit
 {
 
 
-  constructor(private serviceService:ServiceService)
+  constructor(private serviceService:ServiceService, private router:Router)
   {
     
   }
@@ -24,17 +24,37 @@ export class LoginComponent implements OnInit
   ngOnInit() {}
 
   login(username:HTMLInputElement, password:HTMLInputElement)
-  {this.serviceService.login(username,password);}
+  {
+    this.serviceService.login(username,password).then(
+      x => { console.log('f');
+      }
+    )
+  }
   
   fbLogin()
-  {this.serviceService.FBlogin();}
+  {
+    this.serviceService.FBlogin().then(x => { this.afterLogin() });
+  }
 
   gogLogin()
-  {this.serviceService.GOGlogin();}
+  {
+    this.serviceService.GOGlogin().then(x => { this.afterLogin() });
+  }
 
   twitLogin()
-  {this.serviceService.TWITlogin();}
+  {
+    this.serviceService.TWITlogin();
+  }
 
+  private afterLogin() {
+    console.log("afterlogin");
+    if(this.serviceService.getPermission()=="2")
+                      this.router.navigateByUrl('/voting');
+                  
+
+            else if(this.serviceService.getPermission()=="1")
+                       this.router.navigateByUrl('/home');
+  }
 
 
 }

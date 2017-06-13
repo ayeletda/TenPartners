@@ -2,9 +2,20 @@
  <br>
   <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12" class="intoduction">Admin's pages:</label>
  <br>
-  <div class="col-md-12 text-left">
-    <button type="addingUser" class="btn btn-primary btn-lg" (click) = "addingUser()">add user</button>
+
+ <!-- add a community -->
+<div  *ngIf="serviceService.getPermission()=='1'">
+  <div class="col-lg-6">
+    <div class="input-group">
+     <span class="input-group-btn">
+        <button class="btn btn-default" (click)="addCommunity()" type="button">add community</button>
+      </span>
+      <input [(ngModel)] ="community" type="text" class="form-control" placeholder="Enter the community name here">
+    </div><!-- /input-group -->
+  </div> <!--/.col-lg-6 -->
+  
   </div>
+
 
 </div>
 

@@ -19,6 +19,7 @@ export class FooterComponent implements OnInit
   ngOnInit() {
     if (this.serviceService.getPermission()=='2')
       this.isClick='voting';
+    else  this.isClick='home';
   }
   
   clicked(event){

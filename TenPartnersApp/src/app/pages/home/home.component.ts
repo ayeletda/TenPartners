@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {ServiceService} from '../../service.service';
+import * as firebase from 'firebase/app';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
+import { ChangeDetectorRef } from "@angular/core";
+import { ServiceService } from '../../service.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +13,14 @@ import {ServiceService} from '../../service.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router,private serviceService:ServiceService) { 
+  
+  community: string;
+  communities: FirebaseListObservable<any>;
 
-    
+  constructor(private router: Router, private serviceService:ServiceService, public af: AngularFireDatabase) { 
+
+    this.communities = this.af.list('communities');
+    this.community = '';
   }
 
   ngOnInit() {this.serviceService.setTitle("Home");}
@@ -20,7 +29,15 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('/addUser');
   }
 
+  addCommunity(){
+    if (this.community!=''){
+      this.communities.push({name:this.community});
+      this.community='';
+      alert ('Community is added');
+    }
+    else alert ('Enter a community name');
 
+  }
 }
 
 /*

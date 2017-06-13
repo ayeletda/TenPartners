@@ -22,6 +22,7 @@ export class AddUserComponent implements OnInit {
   public TwitterAccount:String;
   public Permission:String;
   users: FirebaseListObservable<any>;
+  communities: FirebaseListObservable<any>;
 
  // projects: FirebaseListObservable<any>;
  // projectsValues_Arr: any;
@@ -29,12 +30,15 @@ export class AddUserComponent implements OnInit {
 
   constructor(private router: Router,private serviceService:ServiceService,public af: AngularFireDatabase) {
     this.UserName="";
+//    this.Community="";
     this.TenPartnersAccount="";
     this.Password="";
     this.GoogleAccount="";
     this.FacebookAccount="";
     this.TwitterAccount="";
     this.users = this.af.list('users');
+    this.communities = this.af.list('communities');
+    
   }
 
   ngOnInit() {
@@ -43,7 +47,7 @@ export class AddUserComponent implements OnInit {
 
   sendUser(){
 
-    if(this.UserName!=""&&this.TenPartnersAccount!=""&&this.Password!="")
+    if(this.UserName!="" && this.TenPartnersAccount!="" && this.Password!="" && this.Community!="Community")
     {
 //      if (this.checkUserName()==true)
 //        alert("this username already exist");
@@ -92,7 +96,6 @@ export class AddUserComponent implements OnInit {
 
 
   }
-
 
   sendProject()
   {

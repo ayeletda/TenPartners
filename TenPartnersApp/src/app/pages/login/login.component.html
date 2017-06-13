@@ -1,37 +1,33 @@
-
-  <div class = "logo">
-  <img src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/tenpartners.png?alt=media&token=e3bc89a8-ddcd-44c9-bed8-1bcf7ceb628d"  class="img-responsive" alt="Cinque Terre"/>
-  </div>
+<div class="logo">
+  <img src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/tenpartners.png?alt=media&token=e3bc89a8-ddcd-44c9-bed8-1bcf7ceb628d"
+    class="img-responsive" alt="Cinque Terre" />
+</div>
 
 
 
 <main>
   <div class="input-group margin-bottom-sm">
-  <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-  <input class="form-control" type="text" placeholder="Email address" #username>
+    <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
+    <input class="form-control" value="a@a.com" type="text" placeholder="Email address" #username>
   </div>
   <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-  <input class="form-control" type="password" placeholder="Password" #password>
+    <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
+    <input class="form-control" value="123ABC" type="password" placeholder="Password" #password>
   </div>
 
-
-
-
-
-
-            <button  class="btn btn-basic btn-sm btn-block" (click)="login(username,password)" >Sign in</button>
-            <div class = "service">
-               <button  class="btn  btn-danger btn-sm btn-block" (click)="gogLogin()" id = "google" ><i class="fa fa-google" aria-hidden="true" fa-2x></i>Sign in with Google
+  <button class="btn btn-basic btn-sm btn-block" (click)="login(username,password)">Sign in</button>
+  <div class="service">
+    <button class="btn  btn-danger btn-sm btn-block" (click)="gogLogin()" id="google"><i class="fa fa-google" aria-hidden="true" fa-2x></i>Sign in with Google
  </button>
-            <button  class="btn btn-primary btn-sm btn-block" (click)="fbLogin()" id = "face"><i class="fa fa-facebook" aria-hidden="true" fa-2x> </i>Sign in with Facebook 
+    <button class="btn btn-primary btn-sm btn-block" (click)="fbLogin()" id="face"><i class="fa fa-facebook" aria-hidden="true" fa-2x> </i>Sign in with Facebook 
 </button>
-            <button  class="btn  btn-info btn-sm btn-block" (click)="twitLogin()" id = "twit" ><i class="fa fa-twitter" aria-hidden="true" fa-2x></i> Sign in with Twitter 
+    <button class="btn  btn-info btn-sm btn-block" (click)="twitLogin()" id="twit"><i class="fa fa-twitter" aria-hidden="true" fa-2x></i> Sign in with Twitter 
 </button>
-           
 
-  </div> <footer>     
-            <div class = "forgot"> Forgot password?</div>     
-            <div class = "about">About as</div>
-</footer>
+
+  </div>
+  <footer>
+    <div class="forgot"> Forgot password?</div>
+    <div class="about">About as</div>
+  </footer>
 </main>
