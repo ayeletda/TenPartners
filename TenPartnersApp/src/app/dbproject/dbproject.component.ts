@@ -19,6 +19,7 @@ export class DBprojectComponent implements OnInit {
   @Input()item;
   @Input()path;
   project: FirebaseListObservable<any>;
+  communities: FirebaseListObservable<any>;
   public communitysPath:string;
 
 
@@ -26,6 +27,7 @@ export class DBprojectComponent implements OnInit {
   {
     this.community="";
     this.communitysPath=this.path+"/associatedCommunities/";
+    this.communities=this.af.list("/communities");
   }
 
   ngOnInit() {}
@@ -70,7 +72,7 @@ export class DBprojectComponent implements OnInit {
 
 
 pushToBoard(){
-
+console.log(this.community);
       if(this.community!=""){
         if(this.checkIfExist()==false){  
       this.project = this.af.list(this.path+"/associatedCommunities/");
