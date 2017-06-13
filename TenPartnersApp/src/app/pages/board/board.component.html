@@ -20,7 +20,7 @@
     <!--//No projects have been selected for discussion yet...-->
     <div class=" part2">
         <div class="vertical-menu1">
-            <div *ngIf='projectSelected'>
+            <div *ngIf='projectSelected' class="descriptionOfProject">
                 <p> Purpose: {{purpose}} </p>
                 <p> Description: {{description}} </p>
                 <p *ngIf = "!needViewMore" class = "clickText pull-right" (click) = "viewMore(true)">Click for viewing more details </p>
@@ -46,7 +46,7 @@
             Cost:<br>
             <input type="number" name="cost" [(ngModel)]="cost">
             <br><br>
-            <input id="submitButton" type="submit" value="Submit" (click)="choosen()">
+            <input id="submitButton" type="submit" value="Submit" (click)="updateDetails()">
         </form>
 
     </div>

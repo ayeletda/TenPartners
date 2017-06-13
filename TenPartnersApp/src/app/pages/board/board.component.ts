@@ -3,7 +3,7 @@ import * as firebase from 'firebase/app';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AfterViewChecked, ElementRef, ViewChild, Component, OnInit} from '@angular/core';
 import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
-import {ChangeDetectorRef} from "@angular/core";
+import {ChangeDetectorRef,Input} from "@angular/core";
 import {ServiceService} from '../../service.service';
 
 
@@ -18,7 +18,7 @@ import {ServiceService} from '../../service.service';
 export class BoardComponent implements OnInit {
 
     @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-
+    @Input()path;
 
 
     // variables
@@ -43,7 +43,7 @@ export class BoardComponent implements OnInit {
 
     private savedDate: string;
     private newMessage: string;
-    private projectUpdate: FirebaseListObservable<any>;
+    private projectUpdate: FirebaseObjectObservable<any>;
 
     // pointers of object or list in firebase
     private user: FirebaseListObservable<any>; // pointer to user
@@ -115,7 +115,8 @@ export class BoardComponent implements OnInit {
     loadProjectDetails(project, i) {
         this.currentProject = project;
         this.currentI = i;
-        this.projectUpdate = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/'+ this.userCommunity);
+        let projectPathH = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/'+project.$key;
+      this.projectUpdate = this.af.object(projectPathH,{preserveSnapshot:true});
         this.projectSelected = true;
         this.cost = project.cost;
         this.date = project.date;
@@ -132,17 +133,14 @@ export class BoardComponent implements OnInit {
         this.showDetailsForm = true;
     }
 
-    choosen() {
-      //  this.projectUpdate.update({ 'associatedUser': this.userId });
-        //this.projectUpdate.update({ 'date': this.date  });
-       // this.projectUpdate.update({ 'cost': this.cost  });
-       // this.projectUpdate.update({ 'uploudDate': new Date() });
+    updateDetails() {
 
-        //this.projects.update(({ 'associatedUser': this.userId }));
-       // this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'associatedUser': this.userId });
-       // this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'date': this.date });
-        //this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'cost': this.cost });
-        //this.projectsValues_Arr[this.currentI].associatedCommunities[this.userCommunity].update({ 'uploudDate': new Date() });
+       this.projectUpdate.update({'associatedUser':this.userId}) ;
+        this.projectUpdate.update({ 'date': this.date  });
+        this.projectUpdate.update({ 'cost': this.cost  });
+        this.projectUpdate.update({ 'uploudDate': new Date() });
+
+
         this.close();
     }
 
