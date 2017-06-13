@@ -38,14 +38,11 @@ a {
 
 input {
 	margin-right: 6px;
-}
-
-.budgetInput {
 	max-inline-size: 200px;
 }
 
 .dateInput {
-	max-inline-size: 1000px;
+	margin-left: 26px;
 }
 
 .fa-trash-o {
