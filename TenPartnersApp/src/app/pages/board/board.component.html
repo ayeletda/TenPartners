@@ -23,12 +23,7 @@
             <div *ngIf='projectSelected' class="descriptionOfProject">
                 <p> Purpose: {{purpose}} </p>
                 <p> Description: {{description}} </p>
-                <p *ngIf = "!needViewMore" class = "clickText pull-right" (click) = "viewMore(true)">Click for viewing more details </p>
-                <p *ngIf = "needViewMore" class = "details" id="part2part3size"> Description: {{description}} <br>
-                </p>
             </div>
-            <p *ngIf = "needViewMore" class = "clickText pull-right" (click) = "viewMore(false)">Click for viewing less details </p>
-            <h4 *ngIf='!projectSelected'> Click on a project for viewing its details... </h4>
         </div>
     </div>
 
