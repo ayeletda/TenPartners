@@ -140,6 +140,7 @@ export class BoardComponent implements OnInit {
         this.projectUpdate.update({ 'cost': this.cost  });
         this.projectUpdate.update({ 'uploudDate': new Date() });
 
+
         this.close();
     }
 
