@@ -125,6 +125,8 @@ export class BoardComponent implements OnInit {
 
     }
 
+
+
     chooseProject() {
         this.showDetailsForm = true;
     }
