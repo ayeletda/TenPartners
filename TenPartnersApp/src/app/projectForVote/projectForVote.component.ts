@@ -46,6 +46,17 @@ export class ProjectForVoteComponent implements OnInit
 
   constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
+    //initializes variables with deafult values
+    this.projectName = '';
+    this.projectDate = null;
+    this.projectUplodeDate = null;
+    this.leftDays = -1;
+    this.voteStatus = '';
+    this.pointerToProjectInAF = null;
+    this.pointerToProjectObjectInAF = null;
+    this.usersVotingList = null;
+
+    //initializes variables with corrent values
     this.projects = this.af.list('projects');
     this.votingNumForChoosingProject = 7;
     this.maxVotingNum = 10;
@@ -62,12 +73,12 @@ export class ProjectForVoteComponent implements OnInit
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1];
     this.usersVotingList = this.af.list(this.item + "/votingList");
 
-    this.userVotingStatus();
+    this.setUserVotingStatus();
   }
 
   //====================================  userVotingStatu  ============================================
 
-  userVotingStatus()
+  setUserVotingStatus()
   {
     this.usersVotingList.subscribe(snapshots => 
     {

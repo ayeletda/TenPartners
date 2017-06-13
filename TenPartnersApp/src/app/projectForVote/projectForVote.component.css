@@ -14,7 +14,6 @@ main
     border-style: solid;
 }
 
-
 p
 {
     margin: 2%;
@@ -60,7 +59,7 @@ p
 
 #like
 {
-    color:   #7acd47;
+    color: #7acd47;
 }
 
 #unlike
