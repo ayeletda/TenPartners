@@ -63,8 +63,13 @@ export class DBprojectComponent implements OnInit {
   //   console.log(snapshot.child("3").hasChildren());
   // });
       if(this.checkIfExist()==false){
+
+let cost = prompt("Please enter the project cost", "100$");
+let date =prompt("Please enter the project date", "dd/mm/yyyy");
+
+
       this.project = this.af.list(this.path+"/associatedCommunities/");
-      this.project.update(this.serviceService.getCommunity()+"",{against:0,associatedUser:this.serviceService.getKey()+"",avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
+      this.project.update(this.serviceService.getCommunity()+"",{against:0,associatedUser:this.serviceService.getKey()+"",avoid: 10,cost: cost,date: date,for:0,uploudDate:"NULL"});
        alert("The project is nominated");}
 
        else  alert("This project already exists in your community");
