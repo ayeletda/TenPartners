@@ -8,27 +8,27 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="ProjectName" >Project's Name</label>
               <div class="col-md-9">
-                <input id="ProjectName"  [(ngModel)] = "Name" name="ProjectName" maxlength="10" type="text" placeholder="maximum 10 letters" class="form-control">
+                <input [(ngModel)] = "Name" class="form-control" id="ProjectName" name="ProjectName" maxlength="10" type="text" placeholder="maximum 10 characters">
               </div>
             </div>
     
-            <!-- Email input-->
-            <div class="form-group">
-              <label class="col-md-3 control-label" for="Description">Description</label>
-              <div class="col-md-9">
-                <textarea [(ngModel)] = "Description" class="form-control" id="Description" name="Description" placeholder="Please enter the project's description here" rows="6"></textarea>
-              </div>
-            </div>
-    
-            <!-- Message body -->
+            <!-- Purpose body -->
             <div class="form-group">
               <label class="col-md-3 control-label" for="Purpose">Purpose for the Jewish community</label>
               <div class="col-md-9">
-                <textarea [(ngModel)] = "Purpose" class="form-control" id="Purpose" name="Purpose" placeholder="Please enter the project's purpose here" rows="6"></textarea>
+                <input [(ngModel)] = "Purpose" class="form-control" id="Purpose" name="Purpose" maxlength="32" placeholder="maximum 32 characters">
              
               </div>
             </div>
     
+            <!-- Description input-->
+            <div class="form-group">
+              <label class="col-md-3 control-label" for="Description">Description</label>
+              <div class="col-md-9">
+                <textarea [(ngModel)] = "Description" class="form-control" id="Description" name="Description" placeholder="Please enter the project's description here" rows=15></textarea>
+              </div>
+            </div>
+
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">

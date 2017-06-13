@@ -1,22 +1,17 @@
 <div class="home">
- <br>
+  <br>
   <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12" class="intoduction">Admin's pages:</label>
- <br>
-
- <!-- add a community -->
-<div  *ngIf="serviceService.getPermission()=='1'">
-  <div class="col-lg-6">
-    <div class="input-group">
+  <br>
+  <!-- add a community -->
+<div class="col-lg-6">
+   <div class="input-group">
      <span class="input-group-btn">
-        <button class="btn btn-default" (click)="addCommunity()" type="button">add community</button>
-      </span>
-      <input [(ngModel)] ="community" type="text" class="form-control" placeholder="Enter the community name here">
-    </div><!-- /input-group -->
-  </div> <!--/.col-lg-6 -->
-  
-  </div>
-
-
+       <button class="btn btn-default" (click)="addCommunity()" type="button">add community</button>
+     </span>
+     <input [(ngModel)]="community" type="text" class="form-control" placeholder="Enter the community name here">
+   </div>
+    <!-- /input-group -->
+ </div>
 </div>
 
 
@@ -41,7 +36,7 @@
 
 
 
- <!--
+<!--
 
   <div *ngFor = "let project of projects | async" > 
                     <!--<div *ngIf = "needToPrint(message.date | date: 'dd/MM/yy')">
@@ -56,4 +51,3 @@
                 </div>
 
  -->
-
