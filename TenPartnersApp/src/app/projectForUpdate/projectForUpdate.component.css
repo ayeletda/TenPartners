@@ -37,13 +37,20 @@ a {
 }
 
 input {
-	max-inline-size: 120px;
 	margin-right: 6px;
+}
+
+.budgetInput {
+	max-inline-size: 200px;
+}
+
+.dateInput {
+	max-inline-size: 1000px;
 }
 
 .fa-trash-o {
 	color: red;
 	font-size: 25px;
-	padding-top: 33px;
-	padding-right: 33px;
+	padding-top: 3px;
+	padding-right: 3px;
 }

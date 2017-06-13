@@ -13,7 +13,7 @@
 				 Budget: {{ value.$value }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateCost()"></i>
 			</div>
 			<div *ngIf = "updateCostFlag" class="row">
-				<label> Budget: <input #newCostVal type = "number" name = "txtCost"><i class = "fa fa-check  fa-1x" aria-hidden="true" (click) = "OKupdateCost(newCostVal.value, true)"></i><i class = "fa fa-times" aria-hidden="true" (click) = "OKupdateCost(newCostVal.value, false)"></i></label>
+				<label> Budget: <input #newCostVal class = "budgetInput" type = "number" name = "txtCost"><i class = "fa fa-check  fa-1x" aria-hidden="true" (click) = "OKupdateCost(newCostVal.value, true)"></i><i class = "fa fa-times" aria-hidden="true" (click) = "OKupdateCost(newCostVal.value, false)"></i></label>
 			</div>
 		</div>
 
@@ -22,7 +22,7 @@
 				Date: {{ value.$value }}<i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateDate()"></i>
 			</div>
 			<div *ngIf = "updateDateFlag" class = "row">
-				<label> Date: <input #newDateVal type = "date" name = "txtDate" placeholder = "yyyy-MM-dd" required><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, true)"></i><i class="fa fa-times" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, false)"></i></label>
+				<label> Date: <input #newDateVal class = "dateInput" type = "date" name = "txtDate" placeholder = "yyyy-MM-dd" required><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, true)"></i><i class="fa fa-times" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, false)"></i></label>
 			</div>
 		</div>
 	
