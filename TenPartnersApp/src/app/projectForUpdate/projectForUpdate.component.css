@@ -19,10 +19,6 @@ i {
 	padding-left: 10px;
 }
 
-.fa-trash-o {
-	font-size: 25px;
-}
-
 .row {
 	margin-left: 25px;
 	padding: 3px;
@@ -41,11 +37,13 @@ a {
 }
 
 input {
+	max-inline-size: 120px;
 	margin-right: 6px;
 }
 
 .fa-trash-o {
 	color: red;
+	font-size: 25px;
 	padding-top: 33px;
 	padding-right: 33px;
 }
