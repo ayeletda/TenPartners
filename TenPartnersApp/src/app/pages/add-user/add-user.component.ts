@@ -54,10 +54,11 @@ export class AddUserComponent implements OnInit {
 
 
       this.serviceService.registerUsers(this.TenPartnersAccount, this.Password);
+      this.users = this.af.list('users');
       this.users.push({
-        name: this.UserName, email: this.TenPartnersAccount, facebook: this.FacebookAccount,
-        google: this.GoogleAccount, twitter: this.TwitterAccount, associatedCommunity: this.Community,
-        permission: this.Permission
+        name: this.UserName+"", email: this.TenPartnersAccount+"", facebook: this.FacebookAccount+"",
+        google: this.GoogleAccount+"", twitter: this.TwitterAccount+"", associatedCommunity: this.Community+"",
+        permission: this.Permission+""
       });
 
       alert("user is saved");
