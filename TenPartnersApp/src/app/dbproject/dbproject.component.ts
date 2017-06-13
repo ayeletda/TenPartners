@@ -64,7 +64,7 @@ export class DBprojectComponent implements OnInit {
   // });
       if(this.checkIfExist()==false){
       this.project = this.af.list(this.path+"/associatedCommunities/");
-      this.project.update(this.serviceService.getCommunity(),{against:0,associatedUser:this.serviceService.getKey(),avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
+      this.project.update(this.serviceService.getCommunity()+"",{against:0,associatedUser:this.serviceService.getKey()+"",avoid: 10,cost:"NULL",date: "NULL",for:0,uploudDate:"NULL"});
        alert("The project is nominated");}
 
        else  alert("This project already exists in your community");
