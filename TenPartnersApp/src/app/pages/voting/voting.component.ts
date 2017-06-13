@@ -33,9 +33,6 @@ export class VotingComponent implements OnInit
   private purpose: string;
   private description: string;
   
-  private try: boolean = false;
-  // private firstTimeOfScoller: boolean;
-
   //message details
   private savedDate: string;
   private newMessage: string;
@@ -46,6 +43,9 @@ export class VotingComponent implements OnInit
   private projects: FirebaseListObservable<any>;
   private  projectsAssociatedCommunities_Arr: any;
   private  projectsValues_Arr: any;
+
+  //flags
+  private needViewMore: boolean;
 
 //======================================================  constructor  ============================================================
 
@@ -122,8 +122,16 @@ export class VotingComponent implements OnInit
     this.date = project.date;
     this.purpose = this.projectsValues_Arr[i].purpose;
     this.description = this.projectsValues_Arr[i].description; 
+    
+    this.needViewMore=false;
   }
   
+  //=========================================================  viewMore  ============================================================
+
+  viewMore(bol)
+  {
+    this.needViewMore = bol;
+  }
 //======================================================  isMe(email)  =========================================================
 // helps to change the bubble's color
 

@@ -1,6 +1,5 @@
 
-main 
-{
+main {
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: 1.5px solid #cccccc;
@@ -12,15 +11,41 @@ main
 	margin-right: 0.5%;
 	height: 20%;
 	width: 100%;
+	/**font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;**/
 }
 
-i
-{
+i {
 	font-size: 20px;
+	padding-left: 10px;
 }
 
-.btn-danger
-{
+.fa-trash-o {
+	font-size: 25px;
+}
+
+.row {
+	margin-left: 25px;
+	padding: 3px;
+}
+
+a {
+	margin-right: 6px;
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #00008b;
+	margin-right: 6px;
 	margin-top: 10px;
 	position: unset;
+}
+
+input {
+	margin-right: 6px;
+}
+
+.fa-trash-o {
+	color: red;
+	padding-top: 33px;
+	padding-right: 33px;
 }
