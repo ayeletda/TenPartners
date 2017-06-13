@@ -55,6 +55,8 @@ export class ProjectForUpdateComponent implements OnInit
 
   removeProject()
   {
+    let meessage = "Are you sure you want to delete " +this.projectName+" project?";
+    if(confirm(meessage))
     this.pointerToProjectObjectInAF.update({ 'associatedUser': ""});
   }
 

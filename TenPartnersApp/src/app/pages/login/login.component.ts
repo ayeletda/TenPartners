@@ -25,20 +25,17 @@ export class LoginComponent implements OnInit
 
   login(username:HTMLInputElement, password:HTMLInputElement)
   {
-    this.serviceService.login(username,password).then(
-      x => { console.log('f');
-      }
-    )
+    this.serviceService.login(username,password);
   }
   
   fbLogin()
   {
-    this.serviceService.FBlogin().then(x => { this.afterLogin() });
+    this.serviceService.FBlogin();
   }
 
   gogLogin()
   {
-    this.serviceService.GOGlogin().then(x => { this.afterLogin() });
+    this.serviceService.GOGlogin();
   }
 
   twitLogin()

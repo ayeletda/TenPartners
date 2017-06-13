@@ -18,7 +18,10 @@
      <span class="input-group-btn">
         <button class="btn btn-default" (click)="pushToBoard()" type="button">push to</button>
       </span>
-      <input [(ngModel)] ="community" type="text" class="form-control" placeholder="Enter the community name here">
+      <select  [(ngModel)]= "community" class="form-control">
+      <option value="">Community</option>
+      <option value = {{community.name}}  *ngFor = "let community of communities | async"> {{ community.name }} </option>
+     </select>            
     </div><!-- /input-group -->
   </div> <!--/.col-lg-6 -->
   
