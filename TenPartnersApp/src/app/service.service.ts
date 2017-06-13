@@ -4,209 +4,256 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
+import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { ChangeDetectorRef } from "@angular/core";
 
+
+
+
+
 @Injectable()
-
 export class ServiceService {
-  //user details
-  private userName: string;
-  private userID: any;
-  private permission: string;
-  private community: string;
-
-  //user account
-  private userEmail: string;
-  private connectType: string;
-
-  private title;
-
-  // pointers to object or list in firebase
-  private users: FirebaseListObservable<any>;
-  private usersValues_Arr: any;
-
-  //flags
+  userName:string;
+  userEmail:string;
+  userID:string;
+  permission:string;
+  community:string;
+ // password:String; I dont think we need that - check :)
   private isLoggedIn;
+  private title;
+  users: FirebaseListObservable<any>;
+  usersValues_Arr: any;
+  connectType:string;
 
-  private status: boolean;
-  //====================================================  constructor  ============================================================
 
-  constructor(private router: Router, public anguarfireAuth: AngularFireAuth, public af: AngularFireDatabase) {
-    this.logout();
-    this.userName = '';
-    this.userID = '';
+  constructor(private router: Router, public anguarfireAuth:AngularFireAuth,public af: AngularFireDatabase)
+  {
+    this.logout(); 
+    this.userName ='';
     this.userEmail = '';
-    this.isLoggedIn = false;
-    this.users = this.af.list('/users', { preserveSnapshot: true });
-    this.status = false;
+    this.userID='';
+  //  this.password=''; I dont think we need that - check :)
+    this.isLoggedIn=false;
 
-    this.checkIfUser();
-    this.users.subscribe((snapshots) => {
-      this.usersValues_Arr = [];
+     this.users = this.af.list('/users',{ preserveSnapshot: true });
+
+    this.users.subscribe((snapshots)=>{
+              this.usersValues_Arr=[];
       snapshots.forEach(snapshot => {
-        /////// mybe in oninit
-        this.usersValues_Arr.push(snapshot);
-      });
-    })
+   //////////// mybe in oninit
+        this.usersValues_Arr.push(snapshot);});})
+    
+    
   }
 
-  //====================================================  registerUsers  ============================================================
 
-  public registerUsers(email, password) {
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .catch(function (error) {
-        // Handle Errors here.
-        let errorMessage = error.message;
-        console.log(error);
-      }
-      );
-  }
+ 
+ public registerUsers(email,password)
+{
+firebase.auth().createUserWithEmailAndPassword(email, password)
+    .catch(function(error) {
+  // Handle Errors here.
+  var errorMessage = error.message;
+  console.log(error);
+});  }
 
-  //====================================================    checkIfUser  ============================================================
 
-  checkIfUser() {
-    this.status = false;
-    this.users.subscribe(snapshots => {
-      snapshots.forEach(snapshot => {
-        console.log(snapshot.val().mail);
-        let temp = snapshot.val();
+checkIfUser(){
 
-        if (this.userEmail == temp.mail || this.userEmail == temp.google || this.userEmail == temp.facebook) {
-          console.log("hereee");
-          this.permission = temp.permission;
-          this.community = temp.associatedCommunity;
-          this.userName = temp.name;
-          this.status = true;
-          stop;
-        }
-      });
+var status=false;
+this.users
+  .subscribe(snapshots => {
+    snapshots.some(snapshot => {
+      console.log(snapshot.val().mail);
+      console.log(this.userEmail);
+     var temp=snapshot.val();      
+       console.log(this.userEmail==snapshot.val().email)
+       if(this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email)
+          {
+            console.log("hereee");
+            this.permission=temp.permission;
+            this.community=temp.associatedCommunity;
+            this.userName=temp.name;
+            this.userID=snapshot.key;
+            console.log(this.userID);
+            status =true;
+            return status;
+          }
+        
+
+
+
+
+
     });
-
-    // return status;
-  }
-
-  //===============================================  types of connection  ============================================================
-
-  //----------------------- logout -----------------------------
-
-  logout() {
-    // this.anguarfireAuth.authState.subscribe(() => this.router.navigate(['']));
-    // The composed observable completes, so there's no need to unsubscribe.
-    this.anguarfireAuth.auth.signOut();
-    this.isLoggedIn = false;
-    this.title = "home";
-  }
+  });
 
 
-  //-------------------- facebook login ------------------------
 
-  login(username: HTMLInputElement, password: HTMLInputElement): firebase.Promise<any> {
-    return this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
-      then((user) => {
-        this.userName = username.value;
-        this.userEmail = user.email;
-        this.userID = user.uid;
-        this.connectType = "mail";
 
-        if (this.status == true)
-          this.isLoggedIn = true;
-      })
-      .catch((error) => {
-        alert("Email or password incorrect");
-      });
+return status;
+}
 
-    //password.value = null;
-    //username.value = null;
-  }
 
-  //-------------------- facebook login ------------------------
+public getKey(){return this.userID;}
 
-  FBlogin(): firebase.Promise<any> {
-    let provider = new firebase.auth.FacebookAuthProvider();
 
-    return firebase.auth().signInWithPopup(provider).then((user) => {
-      // this.isLoggedIn=true;
-      this.userName = user.user.displayName;
-      this.userEmail = user.user.email;
-      this.userID = user.user.uid;
-      this.connectType = "facebook";
+public getPermission(){
+  return this.permission;
+} 
 
-      if (this.status == true)
-        this.isLoggedIn = true;
+setTitle(Title:String){this.title=Title;}  
 
-      console.log(this.isLoggedIn);
-      //  this.isLoggedIn=true;
+public getCommunity(){return this.community;}
 
-      console.log(this.userID);
-    })
-      .catch((error) => {
-        alert("Email or password incorrect");
-      });
-  }
+getCurrentUser()
+{
+  return this.userName;
+}
 
-  //-------------------- google login ------------------------
+getCurrentEmail()
+{
+  return this.userEmail;
+}
+getCurrentID()
+{
+  return this.userID;
+}
+getlogin()
+{
+  return this.isLoggedIn;
+}
 
-  GOGlogin(): firebase.Promise<any> {
-    let provider = new firebase.auth.GoogleAuthProvider();
 
-    return firebase.auth().signInWithPopup(provider).then((user) => {
-      this.connectType = "google";
-      this.userName = user.user.displayName;
-      this.userEmail = user.user.email;
-      this.userID = user.user.uid;
+  login(username:HTMLInputElement, password:HTMLInputElement){
 
-      if (this.status == true)
-        this.isLoggedIn = true;
-
-      console.log(this.isLoggedIn);
-      //  this.isLoggedIn=true;
-
-      console.log(this.userID);
-    })
-      .catch((error) => {
-        alert("Email or password incorrect");
-      });
-  }
-
-  //-------------------- twitter login ------------------------
-
-  TWITlogin() {
-    this.connectType = "twitter";
-
-    /*
-    let provider = new firebase.auth.TwitterAuthProvider();
-
-    firebase.auth().signInWithPopup(provider).then((user)=>
+    this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
+    then((user)=>
     {
-      alert("Wellcom tenPartner");
-      this.isLoggedIn=true;
-      this.userName = user.user.displayName;
-      this.userEmail = user.user.email;
-      this.userID = user.user.uid;
-      console.log(this.userID);
-      this.router.navigateByUrl('/home');
-      this.pushUser();
+      this.userName = username.value;
+      this.userEmail = user.email;
+      this.userID = user.uid;
+      this.connectType="mail";
 
-        //location.reload();      I dont think we need that - check :)
+       if (this.checkIfUser()==true)
+           this.isLoggedIn=true;
+      //  location.reload();  I dont think we need that - check :)
+      
       
     })
     .catch((error)=>
     {
-        alert("Email or password incorrect");
+       alert("Email or password incorrect");
     });
-    */
+
+    password.value=null;
+    username.value=null;
+
+
+
   }
 
-  //===============================================  getters & setters  ============================================================
 
-  setTitle(Title: String) { this.title = Title; }
-  getKey() { return this.userID; }
-  getCommunity() { return this.community; }
-  getPermission() { return this.permission; }
-  getCurrentUser() { return this.userName; }
-  getCurrentEmail() { return this.userEmail; }
-  getCurrentID() { return this.userID; }
-  getlogin() { return this.isLoggedIn; }
+  logout(){
+// this.anguarfireAuth.authState.subscribe(() => this.router.navigate(['']));
+    // The composed observable completes, so there's no need to unsubscribe.
+   this.anguarfireAuth.auth.signOut();
+   this.isLoggedIn=false;
+    this.title="home";
+}
+
+FBlogin(){
+var provider = new firebase.auth.FacebookAuthProvider();
+
+firebase.auth().signInWithPopup(provider).then((user)=>
+{
+ // this.isLoggedIn=true;
+  this.userName = user.user.displayName;
+  this.userEmail = user.user.email;
+  this.userID = user.user.uid;
+  this.connectType="facebook";
+
+   if (this.checkIfUser()==true)
+           this.isLoggedIn=true;
+
+    //location.reload();      I dont think we need that - check :)
+  
+})
+.catch((error)=>
+{
+    alert("Email or password incorrect");
+});
+
+}
+
+
+GOGlogin(){
+var provider = new firebase.auth.GoogleAuthProvider();
+
+firebase.auth().signInWithPopup(provider).then((user)=>
+{
+    this.connectType="google";
+    this.userName = user.user.displayName;
+    this.userEmail = user.user.email;
+    this.userID = user.user.uid;
+
+   if (this.checkIfUser()==true)
+           this.isLoggedIn=true;
+
+  console.log(this.isLoggedIn);
+//  this.isLoggedIn=true;
+ 
+  console.log(this.userID);
+
+    //location.reload();      I dont think we need that - check :)
+})
+.catch((error)=>
+{
+    alert("Email or password incorrect");
+});
+
+
+
+  
+}
+
+
+
+TWITlogin(){
+
+      this.connectType="twitter";
+
+/*
+var provider = new firebase.auth.TwitterAuthProvider();
+
+firebase.auth().signInWithPopup(provider).then((user)=>
+{
+  alert("Wellcom tenPartner");
+  this.isLoggedIn=true;
+  this.userName = user.user.displayName;
+  this.userEmail = user.user.email;
+  this.userID = user.user.uid;
+  console.log(this.userID);
+  this.router.navigateByUrl('/home');
+  this.pushUser();
+
+    //location.reload();      I dont think we need that - check :)
+  
+})
+.catch((error)=>
+{
+    alert("Email or password incorrect");
+});
+*/
+}
+
+
+
+
+
+
+
+
+
 
 }
