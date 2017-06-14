@@ -101,7 +101,7 @@ export class ProjectForUpdateComponent implements OnInit
     {
       this.updateCostFlag = false;
     }
-    else if(costVal == "")
+    else if(costVal == "" || costVal < 0)
     {
       alert ("You should enter a valid budget")
     }
