@@ -46,8 +46,8 @@ constructor(private serviceService:ServiceService, private router: Router, publi
    }
 
    searchProject(){
-     console.log(this.search);
       this.search=this.projectName;
+      this.first=true;
    }
 
    change()
