@@ -71,6 +71,13 @@ p
 {
     color: transparent;
 }
+
+#txtAssigned
+{
+    margin-bottom: 0%;
+    float: left;
+    margin-left: 4%;
+}
 /* ============================ footer of a project ======================= */
 
 #down

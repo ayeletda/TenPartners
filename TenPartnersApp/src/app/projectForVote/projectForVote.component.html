@@ -11,9 +11,10 @@
             <div class="projectName">
                 <h4> {{projectName}} </h4>
             </div>
-            <div class=" align-right">
-                <i *ngIf="voteStatus!='against'" class="simbol fa fa-thumbs-o-down" id="unlike" aria-hidden="true" (click)="votAgainst()"></i>
-                <i *ngIf="voteStatus=='against'" class=" simbol fa fa-thumbs-o-down" id="transparentElement" aria-hidden="true"></i>
+            <div>
+                <i *ngIf="voteStatus!='against' && !isAccuciatedUser" class="simbol fa fa-thumbs-o-down  align-right" id="unlike" aria-hidden="true" (click)="votAgainst()"></i>
+                <i *ngIf="voteStatus=='against'" class="simbol fa fa-thumbs-o-down  align-right" id="transparentElement" aria-hidden="true"></i>
+                <h5 *ngIf="isAccuciatedUser" id="txtAssigned"> You are assigned </h5>
             </div>
         </div>
     </div>
