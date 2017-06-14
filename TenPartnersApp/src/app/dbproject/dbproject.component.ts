@@ -106,7 +106,7 @@ let date =prompt("Please enter the project date", "dd/mm/yyyy");
 
 
       this.project = this.af.list(this.path+"/associatedCommunities/");
-      this.project.update(this.serviceService.getCommunity()+"",{against:0,associatedUser:this.serviceService.getKey()+"",avoid: 10,cost: cost,date: date,for:0,uploudDate:"NULL"});
+      this.project.update(this.serviceService.getCommunity()+"",{against:0,associatedUser:this.serviceService.getKey()+"",avoid: 9,cost: cost,date: date,for:1,uploudDate: new Date().getTime()+""});
        alert("The project is nominated");}
 
        else  alert("This project already exists in your community");
