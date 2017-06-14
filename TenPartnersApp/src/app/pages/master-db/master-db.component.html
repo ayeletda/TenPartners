@@ -11,7 +11,7 @@
 
 
   <div *ngFor="let project of projects | async">
-    <app-dbproject *ngIf = "search==''||project.name == search" [item]="project" [path]="saveProjectPath(project)" [first]="first" (click)="change()"></app-dbproject>
+    <app-dbproject *ngIf = "projectName==''||search==''||project.name == search" [item]="project" [path]="saveProjectPath(project)" [first]="first" (click)="change()"></app-dbproject>
   </div>
 
 
