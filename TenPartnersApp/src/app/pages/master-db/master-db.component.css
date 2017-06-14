@@ -7,14 +7,25 @@
 
 }
 
+.d4
+{
+  overflow: auto;
+  max-height: 100%;
+}
+.d5 {
+    min-width: 0px;
+    max-height: 78vh;
+}
 
 .input-group{
     margin-left: 0.5%;
 	margin-right: 0.5%;
+    position: unset;
 }
 
+.input{position: unset;}
 
-.col-md-12{position: unset;}
+.col-md-12, .form-control, .input-lg{position: unset;}
 
 .title{
     font-size: 30px;
