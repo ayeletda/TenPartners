@@ -31,25 +31,29 @@ export class HomeComponent implements OnInit {
     if (this.community == '')
       alert('Enter a community name');
     else if (!this.doesCommunityExist()) {
-        this.communities.push({ name: this.community });
-        this.community = '';
-        alert('Community is added');
-      }
-    }
+      this.communities.push({ name: this.community });
+      this.community = '';
+      alert('Community is added');
+    }else if (this.doesCommunityExist()) {
+      this.community = '';
+      alert('This community already exists');
+      return;
+    } 
+  }
 
-doesCommunityExist() {
-  this.communities.subscribe((snapshots) => {
-    snapshots.forEach(snapshot => {
-      if (snapshot.name == this.community) {
-        alert('This community alredy exists');
-        this.community = '';
-        return true;
-      }
-    });
-  })
+  doesCommunityExist() {
+    this.communities.subscribe((snapshots) => {
+      snapshots.forEach(snapshot => {
+        if (this.serviceService.getCommunity() == snapshot.name || snapshot.name == this.community) {
+          //        alert('This community already exists');
+          //        this.community = '';
+          return true;
+        }
+      });
+    })
+    return false;
 
-
-}
+  }
 
 
 
