@@ -135,11 +135,16 @@ openComments(){console.log("comments");}
 
 
 
-removeComment()
+removeComment(commentkey:string)
   {
+    console.log(commentkey);
     let meessage = "Are you sure you want to delete the comment?";
     if(confirm(meessage))
-    console.log("hfgh");
+    {
+      const itemObservable = this.af.object(this.path+"/comments/"+commentkey);
+      itemObservable.remove();
+    }
+
   }
 
 }
