@@ -41,6 +41,9 @@ export class ProjectForVoteComponent implements OnInit
   private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
   private projects: FirebaseListObservable<any>;
   private usersVotingList: FirebaseListObservable<any>;
+  
+  //flags
+  private isAccuciatedUser: boolean;
 
   //===================================  constructor  ============================================
 
@@ -62,6 +65,7 @@ export class ProjectForVoteComponent implements OnInit
     this.maxVotingNum = 10;
     this.maxDaysForVoting = 14;
     this.userId = this.service.getCurrentID();
+    
   }
 
   //====================================  ngOnInit  ============================================
@@ -72,6 +76,18 @@ export class ProjectForVoteComponent implements OnInit
     this.pointerToProjectObjectInAF = this.af.object(this.item, { preserveSnapshot: true });
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1];
     this.usersVotingList = this.af.list(this.item + "/votingList");
+
+    let accociatedUser ='';
+    this.pointerToProjectInAF.subscribe(snapshots => 
+    {
+      snapshots.forEach(snapshot => 
+      {
+        if (snapshot.$key == 'associatedUser')
+          accociatedUser = snapshot.$value;
+      });
+    })
+
+    this.isAccuciatedUser = this.userId == accociatedUser ? true : false;
 
     this.setUserVotingStatus();
   }

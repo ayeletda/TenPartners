@@ -1,4 +1,3 @@
-
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -116,7 +115,7 @@ export class VotingComponent implements OnInit
   loadProjectDetails(project,i)
   {
     this.currentProject = project;  
-    this.messages = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key + '/messages'); 
+    this.messages = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key + '/messages');
     this.projectSelected = true;
     this.cost = project.cost;
     this.date = project.date;
@@ -165,7 +164,7 @@ export class VotingComponent implements OnInit
     if(!this.projectSelected)
       alert("You need to choose a project before leaving a message.")
     else if(this.newMessage!='' )
-      this.messages.push({message: this.newMessage, name: this.name, email: this.email, date: new Date().toLocaleString()});
+      this.messages.push({message: this.newMessage, name: this.name, email: this.email, date: new Date().getTime()});
     
     this.newMessage = '';
   }
