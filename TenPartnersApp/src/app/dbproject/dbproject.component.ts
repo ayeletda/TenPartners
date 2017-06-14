@@ -21,17 +21,54 @@ export class DBprojectComponent implements OnInit {
   project: FirebaseListObservable<any>;
   communities: FirebaseListObservable<any>;
   public communitysPath:string;
-
+  public view:boolean;
+  public more:boolean;
+  public newComment:string;
+  public comments:FirebaseListObservable<any>;
+  public myKey:string;
 
   constructor(private router: Router, private af: AngularFireDatabase,private serviceService:ServiceService) 
   {
     this.community="";
     this.communitysPath=this.path+"/associatedCommunities/";
     this.communities=this.af.list("/communities");
+    this.view=false;
+    this.more=false;
+    this.newComment="";
+    console.log("constractor path"+this.path);
   }
 
-  ngOnInit() {}
+  ngOnInit() { 
+    this.comments=this.af.list(this.path+"/comments",{
+      query: {
+        orderByChild: 'nombre'
+      }
+    }); 
+    console.log("oninit path"+this.path);
+    this.myKey = this.serviceService.getKey();
+    console.log(this.myKey);
+  
+}
 
+  addComment(){
+    console.log(this.path+"/comments/");
+      if(this.newComment!=""){
+      this.comments=this.af.list(this.path+"/comments/");
+      let key = this.serviceService.getKey();
+      let name = this.serviceService.getCurrentUser();
+      let date = new Date().toLocaleString();
+      let community =  this.serviceService.getCommunity();
+      this.comments.push({authorKey: key+"",comment:this.newComment+"",authorName: name+"",date:date+"",community: community+""});
+      this.newComment="";
+   }
+    
+  }
+
+  viewComments(){
+      this.view=!this.view;
+  }
+
+    viewMore(){this.more=!this.more;}
 
   checkIfExist(){
                this.project = this.af.list(this.path+"/associatedCommunities/",{ preserveSnapshot: true });
@@ -95,5 +132,14 @@ console.log(this.community);
 
 
 openComments(){console.log("comments");}
+
+
+
+removeComment()
+  {
+    let meessage = "Are you sure you want to delete the comment?";
+    if(confirm(meessage))
+    console.log("hfgh");
+  }
 
 }

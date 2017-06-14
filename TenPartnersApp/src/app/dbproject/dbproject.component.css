@@ -13,6 +13,20 @@ main {
 	width: 100%;
 }
 
+
+
+.d4
+{
+  position: relative;
+  overflow: auto;
+  max-height: 200px;
+}
+.d5 {
+	min-height: 0px;
+    height:50px;
+}
+
+
 span{position: initial;}
 
 .continer{
@@ -42,13 +56,13 @@ position: unset;
 }
 .glyphicon-star{color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;}
 
-summary{font-size: 25px; padding-bottom: 10px; outline: 0;}
+summary,.title{font-size: 25px; padding-bottom: 10px; outline: 0;}
 
 .comments{ margin: 15px; margin-right: 5px;}
 
 .btn-grup{display: inline;}
 
-p{font-size: 20px;}
+p,.more{font-size: 20px;}
 
 .social{font-size: 20px; padding-left: 8px; padding-right: 0.5%;}
 
