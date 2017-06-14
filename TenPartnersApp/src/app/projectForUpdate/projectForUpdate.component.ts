@@ -25,6 +25,7 @@ export class ProjectForUpdateComponent implements OnInit
   private projects: FirebaseListObservable<any>;
   private pointerToProjectInAF: any;
   private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
+  private card:boolean;
 
 //===================================  constructor  ============================================
 
@@ -33,6 +34,7 @@ export class ProjectForUpdateComponent implements OnInit
     this.projects = this.af.list('projects');
     this.updateDateFlag = false;
     this.updateCostFlag = false;
+    this.card=true;
     
   }
 
