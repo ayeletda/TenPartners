@@ -51,7 +51,7 @@ export class BoardComponent implements OnInit {
     private projectsAssociatedCommunities_Arr: any;
     private projectsValues_Arr: any;
     private needViewMore: boolean;
-
+  private usersVotingList: FirebaseListObservable<any>;
     private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
 
 
@@ -97,8 +97,7 @@ export class BoardComponent implements OnInit {
     ngOnInit() {
         this.scrollToBottom()
         this.service.setTitle("Submitted Projects");
-
-
+    
 
     }
 
@@ -112,11 +111,12 @@ export class BoardComponent implements OnInit {
 
 //======================================================  loadProjectDetails  =========================================================
 
-    loadProjectDetails(project, i) {
+    loadProjectDetails(project, i) 
+    {
         this.currentProject = project;
         this.currentI = i;
         let projectPathH = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/'+project.$key;
-      this.projectUpdate = this.af.object(projectPathH,{preserveSnapshot:true});
+        this.projectUpdate = this.af.object(projectPathH,{preserveSnapshot:true});
         this.projectSelected = true;
         this.cost = project.cost;
         this.date = project.date;
@@ -124,22 +124,27 @@ export class BoardComponent implements OnInit {
         this.description = this.projectsValues_Arr[i].description;
         this.needViewMore=false;
 
+        this.usersVotingList = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/'+project.$key + "/votingList");
     }
 
-
-
-
-    chooseProject() {
+    chooseProject()
+    {
         this.showDetailsForm = true;
     }
 
-    updateDetails() {
+    updateDetails() 
+    {
+        //updating project's details
+        this.projectUpdate.update({'associatedUser': this.userId });
+        this.projectUpdate.update({ 'uploudDate': new Date().getTime() });
+        this.projectUpdate.update({ 'date': this.date });
+        this.projectUpdate.update({ 'cost': this.cost });
+        this.projectUpdate.update({ 'for': '1' });
+        this.projectUpdate.update({ 'avoid': '9' });
+        this.projectUpdate.update({ 'against': '0' });
 
-       this.projectUpdate.update({'associatedUser':this.userId}) ;
-        this.projectUpdate.update({ 'date': this.date  });
-        this.projectUpdate.update({ 'cost': this.cost  });
-        this.projectUpdate.update({ 'uploudDate': new Date() });
-
+        //updating voteStatus
+        this.usersVotingList.update(this.userId, { vote: "for"});
 
         this.close();
     }
