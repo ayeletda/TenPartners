@@ -34,7 +34,6 @@ export class ProjectForUpdateComponent implements OnInit
     this.projects = this.af.list('projects');
     this.updateDateFlag = false;
     this.updateCostFlag = false;
-    this.card=true;
     
   }
 
