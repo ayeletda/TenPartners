@@ -1,7 +1,17 @@
 <div class="MasterDB">
 
-  <div *ngFor = "let project of projects | async" > 
-      <app-dbproject [item]="project" [path] = "saveProjectPath(project)" [first]="first" (click)="change()"></app-dbproject>
+  <div class="input-group">
+    <input type="text" class="form-control input-lg" placeholder="project name" [(ngModel)] = "projectName" />
+    <span class="input-group-btn">
+                        <button class="btn btn-defult btn-lg" type="button" (click)="searchProject()">
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+  </div>
+
+
+  <div *ngFor="let project of projects | async">
+    <app-dbproject *ngIf = "search==''||project.name == search" [item]="project" [path]="saveProjectPath(project)" [first]="first" (click)="change()"></app-dbproject>
   </div>
 
 

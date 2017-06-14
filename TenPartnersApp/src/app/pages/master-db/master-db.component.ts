@@ -21,11 +21,15 @@ public newProject: string;
 private projectPath: any;
 private  projectsValues_Arr: any;
 private first:boolean;
+private projectName:string;
+private search:string;
 
 
 constructor(private serviceService:ServiceService, private router: Router, public af: AngularFireDatabase)
    {
   this.projects = this.af.list('projects'); //= select * from projects 
+  this.search = '';
+  this.projectName="";
 
  this.projects.subscribe((snapshots)=>
     {
@@ -41,6 +45,10 @@ constructor(private serviceService:ServiceService, private router: Router, publi
 
    }
 
+   searchProject(){
+     console.log(this.search);
+      this.search=this.projectName;
+   }
 
    change()
    {

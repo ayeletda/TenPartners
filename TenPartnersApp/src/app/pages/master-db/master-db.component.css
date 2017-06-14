@@ -8,6 +8,14 @@
 }
 
 
+.input-group{
+    margin-left: 0.5%;
+	margin-right: 0.5%;
+}
+
+
+.col-md-12{position: unset;}
+
 .title{
     font-size: 30px;
 }
