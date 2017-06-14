@@ -20,6 +20,7 @@ public projects: FirebaseListObservable<any>;
 public newProject: string;
 private projectPath: any;
 private  projectsValues_Arr: any;
+private first:boolean;
 
 
 constructor(private serviceService:ServiceService, private router: Router, public af: AngularFireDatabase)
@@ -36,6 +37,15 @@ constructor(private serviceService:ServiceService, private router: Router, publi
       });
     })
 
+    this.first=true;
+
+   }
+
+
+   change()
+   {
+     if(this.first)
+           this.first=false;
    }
 
   ngOnInit() {this.serviceService.setTitle("Master DB");}

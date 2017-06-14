@@ -18,6 +18,8 @@ export class DBprojectComponent implements OnInit {
   public community:string;
   @Input()item;
   @Input()path;
+  @Input()first;
+  
   project: FirebaseListObservable<any>;
   communities: FirebaseListObservable<any>;
   public communitysPath:string;
@@ -35,7 +37,6 @@ export class DBprojectComponent implements OnInit {
     this.view=false;
     this.more=false;
     this.newComment="";
-    console.log("constractor path"+this.path);
   }
 
   ngOnInit() { 
@@ -44,14 +45,21 @@ export class DBprojectComponent implements OnInit {
         orderByChild: 'nombre'
       }
     }); 
-    console.log("oninit path"+this.path);
     this.myKey = this.serviceService.getKey();
-    console.log(this.myKey);
+
+    if(this.first){
+    this.view=false;
+    this.more=false;
+  }
+  
+  else{
+    this.view=true;
+    this.more=true;
+  }
   
 }
 
   addComment(){
-    console.log(this.path+"/comments/");
       if(this.newComment!=""){
       this.comments=this.af.list(this.path+"/comments/");
       let key = this.serviceService.getKey();
@@ -77,8 +85,7 @@ export class DBprojectComponent implements OnInit {
                 .subscribe(snapshots => {
                   snapshots.some(snapshot => {
                   var temp=snapshot.key;      
-                console.log(temp);  
-                console.log(this.serviceService.getCommunity());  
+                 
        if(this.serviceService.getCommunity()==temp||this.community==temp)
           {
             status=true;
@@ -94,11 +101,6 @@ export class DBprojectComponent implements OnInit {
 
   Nominate()
   {
-  //  var ref = firebase.database().ref(this.path);
-  //   ref.once("value").then(function(snapshot) {
-  //  if(snapshot.hasChildren()==false||snapshot.child("3").hasChildren())
-  //   console.log(snapshot.child("3").hasChildren());
-  // });
       if(this.checkIfExist()==false){
 
 let cost = prompt("Please enter the project cost", "100$");
@@ -114,7 +116,6 @@ let date =prompt("Please enter the project date", "dd/mm/yyyy");
 
 
 pushToBoard(){
-console.log(this.community);
       if(this.community!=""){
         if(this.checkIfExist()==false){  
       this.project = this.af.list(this.path+"/associatedCommunities/");
@@ -131,13 +132,11 @@ console.log(this.community);
 
 
 
-openComments(){console.log("comments");}
 
 
 
 removeComment(commentkey:string)
   {
-    console.log(commentkey);
     let meessage = "Are you sure you want to delete the comment?";
     if(confirm(meessage))
     {

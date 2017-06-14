@@ -1,7 +1,7 @@
 <div class="MasterDB">
 
   <div *ngFor = "let project of projects | async" > 
-      <app-dbproject [item]="project" [path] = "saveProjectPath(project)"></app-dbproject>
+      <app-dbproject [item]="project" [path] = "saveProjectPath(project)" [first]="first" (click)="change()"></app-dbproject>
   </div>
 
 
