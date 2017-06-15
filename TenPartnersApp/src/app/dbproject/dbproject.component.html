@@ -21,7 +21,7 @@
           <div *ngIf="view">
             <div class="d4">
               <div class="d5">
-                <div *ngFor="let comment of comments | async">
+                <div *ngFor="let comment of comments | async; trackByFn">
                   <a aria-label="Delete" *ngIf = "comment.authorKey == myKey" (click) = "removeComment(comment.$key)">
 	              	<i class = "fa fa-trash-o pull-right" aria-hidden = "true"></i>
                 	</a>

@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private router: Router, private serviceService: ServiceService, public af: AngularFireDatabase) {
 
-    this.communities = this.af.list('communities');
+    this.communities = this.af.list('communities',{ preserveSnapshot: true });
     this.community = '';
   }
 
@@ -28,30 +28,32 @@ export class HomeComponent implements OnInit {
   }
 
   addCommunity() {
-    if (this.community == '')
+    if (this.community == '') {
       alert('Enter a community name');
-    else if (!this.doesCommunityExist()) {
-      this.communities.push({ name: this.community });
-      this.community = '';
-      alert('Community is added');
-    }else if (this.doesCommunityExist()) {
-      this.community = '';
-      alert('This community already exists');
       return;
-    } 
+    } else if (!this.doesCommunityExist()) {
+      this.communities.push({ name: this.community });
+      alert('Community is added');
+    } else {
+      alert('This community already exists');
+    }
+          this.community = '';
+
   }
 
   doesCommunityExist() {
+    let status = false;
     this.communities.subscribe((snapshots) => {
-      snapshots.forEach(snapshot => {
-        if (this.serviceService.getCommunity() == snapshot.name || snapshot.name == this.community) {
+      snapshots.some(snapshot => {        
+        if (snapshot.val().name == this.community) {
           //        alert('This community already exists');
           //        this.community = '';
+          status=true;
           return true;
         }
       });
     })
-    return false;
+    return status;
 
   }
 
