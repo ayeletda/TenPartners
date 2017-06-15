@@ -43,16 +43,18 @@ export class HomeComponent implements OnInit {
 
   doesCommunityExist() {
     let status = false;
-    this.communities.subscribe((snapshots) => {
+    let temp = this.communities.subscribe((snapshots) => {
       snapshots.some(snapshot => {        
         if (snapshot.val().name == this.community) {
           //        alert('This community already exists');
           //        this.community = '';
           status=true;
-          return true;
         }
       });
-    })
+    });
+
+    this.serviceService.allSubscribe.push(temp);
+
     return status;
 
   }
