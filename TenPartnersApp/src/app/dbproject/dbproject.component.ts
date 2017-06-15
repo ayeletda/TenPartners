@@ -72,7 +72,11 @@ export class DBprojectComponent implements OnInit {
 
   }
 
-  viewMore() { this.more = !this.more; }
+  viewMore() 
+  { this.more = !this.more; 
+    if(this.view==true)
+        this.view=false;
+       }
 
   checkIfExist() {
     this.project = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
