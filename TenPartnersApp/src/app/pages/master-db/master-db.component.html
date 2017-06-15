@@ -11,8 +11,8 @@
 
 <div class="d4">
 <div class="d5">
-  <div *ngFor="let project of projects | async">
-    <app-dbproject *ngIf = "(project.name).search(projectName)!=-1" [item]="project" [path]="saveProjectPath(project)" [first]="first" (click)="change()"></app-dbproject>
+  <div *ngFor="let project of projectsValues_Arr">
+    <app-dbproject  (sendComment)="commentOpen()" *ngIf = "(project.name).search(projectName)!=-1" [item]="project" [path]="saveProjectPath(project)" [first]="first"></app-dbproject>
   </div>
 </div>
 </div>

@@ -5,7 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { ChangeDetectorRef } from "@angular/core";
-
+import 'rxjs/Rx';
 
 
 
@@ -16,7 +16,7 @@ import { ChangeDetectorRef } from "@angular/core";
 })
 export class MasterDBComponent implements OnInit {
 
-public projects: FirebaseListObservable<any>;
+public projects;
 public newProject: string;
 private projectPath: any;
 private  projectsValues_Arr: any;
@@ -27,7 +27,7 @@ private search:string;
 
 constructor(private serviceService:ServiceService, private router: Router, public af: AngularFireDatabase)
    {
-  this.projects = this.af.list('projects'); //= select * from projects 
+  this.projects = this.af.list('projects').take(1); //= select * from projects 
   this.search = '';
   this.projectName="";
 
@@ -41,22 +41,27 @@ constructor(private serviceService:ServiceService, private router: Router, publi
       });
     })
 
-    this.first=true;
+    this.first=false;
 
    }
 
    searchProject(){
       this.search=this.projectName;
-      this.first=true;
+      this.first=false;
    }
 
-   change()
-   {
-     if(this.first)
-           this.first=false;
-   }
+  //  change()
+  //  {
+  //    if(this.first)
+  //          this.first=false;
+  //  }
 
   ngOnInit() {this.serviceService.setTitle("Master DB");}
+
+
+commentOpen(){
+  this.first=true;
+}
 
 
  saveProjectPath(project)

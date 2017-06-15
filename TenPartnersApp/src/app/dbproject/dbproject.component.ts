@@ -12,6 +12,8 @@ import { ServiceService } from '../service.service';
   styleUrls: ['./dbproject.component.css']
 })
 export class DBprojectComponent implements OnInit {
+  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  @Output() sendComment: EventEmitter<any> = new EventEmitter(); 
   public Name: String;
   public Description: String;
   public Purpose: String;
@@ -33,8 +35,6 @@ export class DBprojectComponent implements OnInit {
     this.community = "";
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communities = this.af.list("/communities");
-    this.view = false;
-    this.more = false;
     this.newComment = "";
   }
 
@@ -45,6 +45,9 @@ export class DBprojectComponent implements OnInit {
       }
     });
     this.myKey = this.serviceService.getKey();
+    console.log("hhhhhh");
+    this.view = this.first;
+    this.more = this.first;
 
   }
 
@@ -55,14 +58,18 @@ export class DBprojectComponent implements OnInit {
       let name = this.serviceService.getCurrentUser();
       let date = new Date().toLocaleString();
       let community = this.serviceService.getCommunity();
-      this.comments.push({ authorKey: key + "", comment: this.newComment + "", authorName: name + "", date: date + "", community: community + "" });
+      this.comments.push({ authorKey: key + "", comment: this.newComment + "", authorName: name + "", date: date + "", community: community + "" }).then(()=> this.scrollToBottom() );
+      this.sendComment.emit();
       this.newComment = "";
     }
 
   }
 
   viewComments() {
+    console.log()
     this.view = !this.view;
+    console.log(this.view);
+
   }
 
   viewMore() { this.more = !this.more; }
@@ -128,8 +135,26 @@ export class DBprojectComponent implements OnInit {
     if (confirm(meessage)) {
       const itemObservable = this.af.object(this.path + "/comments/" + commentkey);
       itemObservable.remove();
+      this.sendComment.emit();
     }
 
   }
+
+
+ scrollToBottom(): void 
+  {
+    // if(this.firstTimeOfScoller == true)
+    // {
+      try 
+      {
+          this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+      } 
+      catch(err) {}
+      // this.firstTimeOfScoller = false;
+    //  }
+        console.log("in scrollToBottom");
+
+  }
+
 
 }

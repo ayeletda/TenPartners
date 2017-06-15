@@ -18,10 +18,10 @@
           <div (click)="viewComments()"> comments
           <span class="glyphicon glyphicon-comment"></span> ({{ (comments | async)?.length }})</div>
 
-          <div *ngIf="view">
-            <div class="d4">
+          <div *ngIf="view" class = "w3-animate-opacity">
+            <div #scrollMe class="d4">
               <div class="d5">
-                <div *ngFor="let comment of comments | async; trackByFn">
+                <div *ngFor="let comment of comments | async">
                   <a aria-label="Delete" *ngIf = "comment.authorKey == myKey" (click) = "removeComment(comment.$key)">
 	              	<i class = "fa fa-trash-o pull-right" aria-hidden = "true"></i>
                 	</a>
