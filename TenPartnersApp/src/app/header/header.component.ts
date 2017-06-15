@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit
 
   ngOnInit() {}
   
-  logOut(){
+  private logOut(){
     this.serviceService.logout();
   }
 
