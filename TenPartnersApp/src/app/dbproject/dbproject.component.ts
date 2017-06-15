@@ -15,25 +15,26 @@ export class DBprojectComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   @Output() sendComment: EventEmitter<any> = new EventEmitter(); 
   @Output() close: EventEmitter<any> = new EventEmitter(); 
-  public Name: String;
-  public Description: String;
-  public Purpose: String;
-  public community: string;
+  private Name: String;
+  private Description: String;
+  private Purpose: String;
+  private community: string;
   @Input() item;
   @Input() path;
   @Input() first;
 
   project: FirebaseListObservable<any>;
   communities: FirebaseListObservable<any>;
-  public communitysPath: string;
-  public view: boolean;
-  public more: boolean;
-  public newComment: string;
-  public comments: FirebaseListObservable<any>;
+  private communitysPath: string;
+  private view: boolean;
+  private more: boolean;
+  private newComment: string;
+  private comments: FirebaseListObservable<any>;
   private usersVotingList: FirebaseListObservable<any>;
-  public myKey: string;
+  private myKey: string;
 
-  constructor(private router: Router, private af: AngularFireDatabase, private serviceService: ServiceService) {
+  constructor(private router: Router, private af: AngularFireDatabase, private serviceService: ServiceService) 
+  {
     this.community = "";
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communities = this.af.list("/communities");
@@ -47,13 +48,12 @@ export class DBprojectComponent implements OnInit {
       }
     });
     this.myKey = this.serviceService.getKey();
-    console.log("hhhhhh");
     this.view = this.first;
     this.more = this.first;
 
   }
 
-  addComment() {
+  private addComment() {
     if (this.newComment != "") {
       this.comments = this.af.list(this.path + "/comments/");
       let key = this.serviceService.getKey();
@@ -67,14 +67,12 @@ export class DBprojectComponent implements OnInit {
 
   }
 
-  viewComments() {
-    console.log()
+ private viewComments() {
     this.view = !this.view;
-    console.log(this.view);
 
   }
 
-  viewMore() 
+  private viewMore() 
   { this.more = !this.more; 
     if(this.view==true)
        { this.view=false;
@@ -84,27 +82,27 @@ export class DBprojectComponent implements OnInit {
     
   }
 
-  checkIfExist() {
+  private checkIfExist() {
     this.project = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
-    var status = false;
-    this.project
+    let status = false;
+    let temp = this.project
       .subscribe(snapshots => {
         snapshots.some(snapshot => {
-          var temp = snapshot.key;
+          let temp1 = snapshot.key;
 
-          if (this.serviceService.getCommunity() == temp || this.community == temp) {
+          if (this.serviceService.getCommunity() == temp1 || this.community == temp1) {
             status = true;
-            return status;
           }
         });
       });
 
 
-
+    this.serviceService.allSubscribe.push(temp);
+  
     return status;
   }
 
-  Nominate() {
+ private Nominate() {
     if (this.checkIfExist() == false) {
 
       let cost = prompt("Please enter the project cost", "100$");
@@ -124,7 +122,7 @@ export class DBprojectComponent implements OnInit {
   }
 
 
-  pushToBoard() {
+ private pushToBoard() {
     if (this.community != "") {
       if (this.checkIfExist() == false) {
         this.project = this.af.list(this.path + "/associatedCommunities/");
@@ -144,7 +142,7 @@ export class DBprojectComponent implements OnInit {
 
 
 
-  removeComment(commentkey: string) {
+  private removeComment(commentkey: string) {
     let meessage = "Are you sure you want to delete the comment?";
     if (confirm(meessage)) {
       const itemObservable = this.af.object(this.path + "/comments/" + commentkey);
@@ -166,8 +164,6 @@ export class DBprojectComponent implements OnInit {
       catch(err) {}
       // this.firstTimeOfScoller = false;
     //  }
-        console.log("in scrollToBottom");
-
   }
 
 
