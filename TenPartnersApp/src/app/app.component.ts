@@ -27,8 +27,7 @@ export class AppComponent
           else{
             if(Service.getlogin()==true){
             this.isLoggedIn=true;
-            console.log(Service.getCurrentEmail());        
-            console.log(Service.getPermission());
+            
             if(Service.getPermission()=="2")
                       this.router.navigateByUrl('/voting');
                   
