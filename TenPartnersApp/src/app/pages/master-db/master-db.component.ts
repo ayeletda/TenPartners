@@ -65,7 +65,6 @@ constructor(private serviceService:ServiceService, private router: Router, publi
 
 commentOpen(key:string)
 {
-  console.log("hello");
   this.currentProjecOpentKey=key;
 }
 
