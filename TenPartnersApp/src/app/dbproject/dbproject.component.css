@@ -49,13 +49,24 @@ span{position: initial;}
 position: unset;
 }
 
+.commmm{
+	display:inline;
+}
+
+.glyphicon-heart{
+	display: inline-block;
+	position: relative;
+	color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+	margin-right:5px; 
+}
 .title{font-size: 25px; padding-bottom: 10px; outline: 0;}
 
 .comments{ margin: 15px; margin-right: 5px;}
 
 .btn-grup{display: inline;}
 
-.more{font-size: 20px;}
+.more{font-size: 20px;
+width: 100%;}
 
 .social{font-size: 20px; padding-left: 8px; padding-right: 0.5%;}
 
