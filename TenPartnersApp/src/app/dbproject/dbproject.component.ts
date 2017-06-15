@@ -14,6 +14,7 @@ import { ServiceService } from '../service.service';
 export class DBprojectComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
   @Output() sendComment: EventEmitter<any> = new EventEmitter(); 
+  @Output() close: EventEmitter<any> = new EventEmitter(); 
   public Name: String;
   public Description: String;
   public Purpose: String;
@@ -75,8 +76,12 @@ export class DBprojectComponent implements OnInit {
   viewMore() 
   { this.more = !this.more; 
     if(this.view==true)
-        this.view=false;
+       { this.view=false;
+         this.close.emit();
        }
+
+    
+  }
 
   checkIfExist() {
     this.project = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });

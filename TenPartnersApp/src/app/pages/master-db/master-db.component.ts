@@ -69,7 +69,9 @@ commentOpen(key:string)
 firstC(key:string)
 {
   if(key == this.currentProjecOpentKey)
-      return true;
+      {
+        return true;
+      }
 
 else false;
 }
