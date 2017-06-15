@@ -32,7 +32,7 @@ constructor(private serviceService:ServiceService, private router: Router, publi
   this.search = '';
   this.projectName="";
 
- this.projects.subscribe((snapshots)=>
+ let temp = this.projects.subscribe((snapshots)=>
     {
       this.projectsValues_Arr = [];
       
@@ -43,6 +43,9 @@ constructor(private serviceService:ServiceService, private router: Router, publi
     })
 
     this.first=false;
+
+    this.serviceService.allSubscribe.push(temp);
+
 
    }
 
