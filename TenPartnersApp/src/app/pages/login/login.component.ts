@@ -23,28 +23,27 @@ export class LoginComponent implements OnInit
 
   ngOnInit() {}
 
-  login(username:HTMLInputElement, password:HTMLInputElement)
+  private login(username:HTMLInputElement, password:HTMLInputElement)
   {
     this.serviceService.login(username,password);
   }
   
-  fbLogin()
+  private fbLogin()
   {
     this.serviceService.FBlogin();
   }
 
-  gogLogin()
+  private gogLogin()
   {
     this.serviceService.GOGlogin();
   }
 
-  twitLogin()
+  private twitLogin()
   {
     this.serviceService.TWITlogin();
   }
 
   private afterLogin() {
-    console.log("afterlogin");
     if(this.serviceService.getPermission()=="2")
                       this.router.navigateByUrl('/voting');
                   
