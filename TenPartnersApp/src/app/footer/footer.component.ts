@@ -22,7 +22,7 @@ export class FooterComponent implements OnInit
     else  this.isClick='home';
   }
   
-  clicked(event){
+  private clicked(event){
     console.log(event.currentTarget.id);
     this.isClick = event.currentTarget.id;
     this.router.navigateByUrl('/'+event.currentTarget.id);
