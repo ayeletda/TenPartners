@@ -8,7 +8,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { MyProjectsComponent } from './pages/my-projects/my-projects.component';
 import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
-import { SettingsComponent } from './settings/settings.component';
 import { SubmitProjectComponent } from './pages/submit-project/submit-project.component';
 import { MasterDBComponent } from './pages/master-db/master-db.component';
 
