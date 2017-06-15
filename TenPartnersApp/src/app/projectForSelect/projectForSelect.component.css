@@ -93,7 +93,10 @@ label
 .stopper{
     text-align: center;
     font-size:20px;
-    margin-bottom: 6px;
+    background-color: #b1b1b1;
+    padding-bottom: 8%;
+    padding-top: 8%;
+
 }
 /* ============================ colors for CSS of this component ======================= */
 
@@ -210,6 +213,8 @@ label
     {
         font-size: 15px;
     }
+
+
 }
 
 
