@@ -142,11 +142,14 @@ export class ProjectForSelectComponent implements OnInit {
   }
 
   userVotingStatus() {
-    this.usersVotingList.subscribe(snapshots => {
+    let temp = this.usersVotingList.subscribe(snapshots => {
       snapshots.forEach(snapshot => {
         if (snapshot.$key == this.userId)
           this.voteStatus = snapshot.vote;
       });
-    })
+    });
+
+        this.service.allSubscribe.push(temp);
+
   }
 }
