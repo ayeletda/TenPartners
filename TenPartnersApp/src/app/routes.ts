@@ -33,7 +33,6 @@ export const appRoutes: Routes=
     {path:'myProjects', component: MyProjectsComponent},
     {path:'board', component: BoardComponent},
     {path:'voting', component: VotingComponent},
-    {path:'settings', component: SettingsComponent},
     {path:'SubmitProject', component: SubmitProjectComponent},
     {path:'masterDB', component: MasterDBComponent},
     {path:'addUser', component: AddUserComponent}
