@@ -13,7 +13,10 @@ main {
 	width: 100%;
 }
 
-
+.from{
+	font-size: 17px;
+	display: inline;
+}
 
 .d4
 {
@@ -34,8 +37,6 @@ span{position: initial;}
 
 .center-block{margin-top: 10px;margin-bottom: 10px;}
 
-.yello{color:yellow;}
-
 .col-lg-6,.btn,.btn-default,.form-control{
 	position: unset;
 }
@@ -48,26 +49,15 @@ span{position: initial;}
 position: unset;
 }
 
-.InRight{
-	float: none;
-	display: inline; 
-	right: 0;
-}
-.glyphicon-star{color:white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;}
-
-summary,.title{font-size: 25px; padding-bottom: 10px; outline: 0;}
+.title{font-size: 25px; padding-bottom: 10px; outline: 0;}
 
 .comments{ margin: 15px; margin-right: 5px;}
 
 .btn-grup{display: inline;}
 
-p,.more{font-size: 20px;}
+.more{font-size: 20px;}
 
 .social{font-size: 20px; padding-left: 8px; padding-right: 0.5%;}
-
-summary::-webkit-details-marker { display: none}
-
-summary:after {content: " ";}
 
 .comment{display: inline;
 }

@@ -16,16 +16,18 @@
         <div class="more" *ngIf="more">
           Description: {{item.description}}<br> Purpose for the jewish communuty: {{item.purpose}}<br><br>
           <div (click)="viewComments()"> comments
-          <span class="glyphicon glyphicon-comment"></span> ({{ (comments | async)?.length }})</div>
+            <span class="glyphicon glyphicon-comment"></span> ({{ (comments | async)?.length }})</div>
 
-          <div *ngIf="view" class = "w3-animate-opacity">
+          <div *ngIf="view" class="w3-animate-opacity">
             <div #scrollMe class="d4">
               <div class="d5">
                 <div *ngFor="let comment of comments | async">
-                  <a aria-label="Delete" *ngIf = "comment.authorKey == myKey" (click) = "removeComment(comment.$key)">
+                  <a aria-label="Delete" *ngIf="comment.authorKey == myKey" (click)="removeComment(comment.$key)">
 	              	<i class = "fa fa-trash-o pull-right" aria-hidden = "true"></i>
                 	</a>
-                  <hr>{{ comment.authorName }} from {{ comment.community }} <br> {{ comment.comment }}<br> {{ comment.date }}
+                  <hr> {{ comment.authorName }}
+                  <div class="from">
+                    from {{ comment.community }} </div> <br> {{ comment.comment }}<br> <div class="from">{{ comment.date }}</div>
                 </div>
               </div>
             </div>
