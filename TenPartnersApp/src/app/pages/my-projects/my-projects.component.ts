@@ -40,18 +40,21 @@ export class MyProjectsComponent implements OnInit
     this.projectPath = '';
     this.thereIsProjects = false;
     
-    this.user.subscribe((snapshots)=>
+    let temp = this.user.subscribe((snapshots)=>
     {
       snapshots.forEach(snapshot =>
       {
         if (snapshot.$key == 'associatedCommunity')
           this.userCommunity = snapshot.$value;
       });
-    })
+    });
+
+    this.service.allSubscribe.push(temp);
+
 
     this.projects = this.af.list('projects');
 
-    this.projects.subscribe((snapshots)=>
+    let temp2 = this.projects.subscribe((snapshots)=>
     {
       this.projectsAssociatedCommunities_Arr = [];
       this.projectsValues_Arr = [];
@@ -61,7 +64,10 @@ export class MyProjectsComponent implements OnInit
         this.projectsAssociatedCommunities_Arr.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
         this.projectsValues_Arr.push(snapshot);
       });
-    })
+    });
+
+        this.service.allSubscribe.push(temp2);
+
   }
 
   //=====================================================  ngOnInit  ================================================================
