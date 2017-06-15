@@ -1,73 +1,68 @@
 
-
- <!--========================== the page ==============================-->
-
-    <div class = "body2">
-        <div class = "part1 vertical-menu-x" >
-            <div  class = "temp" *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
-                <div *ngFor = "let community of associatedCommunities | async ">
-                    <!--<div class = " col-centered">-->
-                        <div *ngIf = "community.$key == user2.community && community.associatedUser != '' && saveProjectPath(community,i)">  
-                            <app-projectForVote  class = "pull-left"
-                                [item] = "projectPath" 
-                                (click) = "loadProjectDetails(community,i)">
-                            </app-projectForVote> 
-                    </div>
+<div class = "body2">
+    
+    <!--=================================== the projects for voting =============================================== -->
+    <div class = "part1 vertical-menu-x" >
+        <div  class = "temp" *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
+            <div *ngFor = "let community of associatedCommunities | async ">
+                <div *ngIf = "community.$key == user.community && community.associatedUser != '' && saveProjectPath(community,i)">  
+                    <app-projectForVote  class = "pull-left"
+                        [item] = "projectPath" 
+                        (click) = "loadProjectDetails(community,i)">
+                    </app-projectForVote> 
                 </div>
             </div>
-        </div>  
-      
-<!--//No projects have been selected for discussion yet...-->
-        <div class = " part2">
-            <div class = "vertical-menu1" > 
-                <div *ngIf = 'projectSelected'>  
-                    <p class = "details"> Date: {{date}} </p>
-                    <p class = "details"> Cost: {{cost}} </p>
-                    <p class = "details"> Purpose: {{purpose}} </p>
-                    <p *ngIf = "!needViewMore" class = "clickText pull-right" (click) = "viewMore(true)">Click for viewing more details </p>
-                    <p *ngIf = "needViewMore" class = "details" id="part2part3size"> Description: {{description}} <br>
-                    </p> 
-                </div>
-            </div>
-            <p *ngIf = "needViewMore" class = "clickText pull-right" (click) = "viewMore(false)">Click for viewing less details </p>
-
-            <h4 *ngIf = '!projectSelected'> Click on a project for viewing its details... </h4>
-            
         </div>
-       
-        <div *ngIf = "!needViewMore && projectSelected" class = " part3">
-            <div #scrollMe class = "vertical-menu2" >
-                <div *ngIf="(messages | async)?.length == 0"> 
-                   <h4> No messages have been written about this project yet.</h4>
-                 </div>
-                    <div *ngFor = "let message of messages | async; trackByFn" >
-           
-                        <!-- the dates between the bubbles -->
-                        <!--<div *ngIf = "needToPrint(message.date | date: 'dd/MM/yy')">
-                            <p class = "date-stamp"> {{ message.date | date: "MM/dd/yy" }} </p> 
-                        </div> -->
-                        
-                        <!-- the bubble's text -->
-                        <div class = "bubble" [class.bubble-alt] = "isMe(message.email)" [class.yellow] = "isMe(message.email)" [class.green] = "!isMe(message.email)">
-                            <p id = "msg-name"> {{ message.name }}</p>
-                            <p id = "msg-context"> {{ message.message }} </p>
-                            <div class = "author">
-                                <span id="msg-time"> {{ message.date | date: "MM/dd/yy hh:mm a" }} </span>
-                            </div>
-                        </div>
-
-                    </div>
-            </div>
-
-            <div class = "input-group">
-                <span class = "input-group-btn"> 
-                   <button class = "input btn btn-difult" type = "submit" (click) = "sendMessage()">Send  <i class = "input fa fa-arrow-up"></i></button>
-                </span>
-                <input type = "text" class = "input form-control" id = "msg-input" placeholder = "Write your message here.." (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">                                
+    </div>  
+    
+    <!--//No projects have been selected for discussion yet...-->
+    
+    <!--======================== details of project that someone clicked on it ===================================== -->
+    <div class = " part2">
+        <div class = "vertical-menu1" > 
+            <div *ngIf = 'isProjectSelected'>  
+                <p class = "details"> Date: {{date}} </p>
+                <p class = "details"> Cost: {{cost}} </p>
+                <p class = "details"> Purpose: {{purpose}} </p>
+                <p *ngIf = "!isNeedViewMore" class = "clickText pull-right" (click) = "viewMore(true)">Click for viewing more details </p>
+                <p *ngIf = "isNeedViewMore" class = "details" id = "part2part3size"> Description: {{description}} <br>
+                </p> 
             </div>
         </div>
-       
+        <p *ngIf = "isNeedViewMore" class = "clickText pull-right" (click) = "viewMore(false)">Click for viewing less details </p>
+
+        <h4 *ngIf = '!isProjectSelected'> Click on a project for viewing its details... </h4>
     </div>
+    
+    <!--============================================ chat =========================================================== -->
+    <div *ngIf = "!isNeedViewMore && isProjectSelected" class = " part3">
+       
+        <div #scrollMe class = "vertical-menu2" >
+            <div *ngIf="(messagesFBList | async)?.length == 0"> 
+                <h4> No messages have been written about this project yet.</h4>
+            </div>
+            <div *ngFor = "let message of messagesFBList | async; trackByFn" >
+                 <!-- the bubble's text -->
+                <div class = "bubble" [class.bubble-alt] = "isMe(message.email)" [class.yellow] = "isMe(message.email)" [class.green] = "!isMe(message.email)">
+                    <p id = "msg-name"> {{ message.name }}</p>
+                    <p id = "msg-context"> {{ message.message }} </p>
+                    <div class = "author">
+                        <span id="msg-time"> {{ message.date | date: "MM/dd/yy hh:mm a" }} </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- the sending message's part -->
+        <div class = "input-group">
+            <span class = "input-group-btn"> 
+                <button class = "input btn btn-difult" type = "submit" (click) = "sendMessage()">Send  <i class = "input fa fa-arrow-up"></i></button>
+            </span>
+            <input type = "text" class = "input form-control" id = "msg-input" placeholder = "Write your message here.." (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">                                
+        </div>
+    </div>
+    
+</div>
 
 
 
