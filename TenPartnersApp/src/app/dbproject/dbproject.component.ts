@@ -30,6 +30,7 @@ export class DBprojectComponent implements OnInit {
   public more: boolean;
   public newComment: string;
   public comments: FirebaseListObservable<any>;
+  private usersVotingList: FirebaseListObservable<any>;
   public myKey: string;
 
   constructor(private router: Router, private af: AngularFireDatabase, private serviceService: ServiceService) {
@@ -112,6 +113,10 @@ export class DBprojectComponent implements OnInit {
 
       this.project = this.af.list(this.path + "/associatedCommunities/");
       this.project.update(this.serviceService.getCommunity() + "", { against: 0, associatedUser: this.serviceService.getKey() + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
+      
+      this.usersVotingList = this.af.list(this.path + "/associatedCommunities/"+this.item.$key + "/votingList");
+      this.usersVotingList.update(this.serviceService.getKey() + "",{vote:"for"});
+
       alert("The project is nominated");
     }
 
