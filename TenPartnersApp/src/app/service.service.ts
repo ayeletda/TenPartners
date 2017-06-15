@@ -24,10 +24,11 @@ export class ServiceService {
   users: FirebaseListObservable<any>;
   usersValues_Arr: any;
   connectType:string;
-
+  public allSubscribe: any;
 
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth,public af: AngularFireDatabase)
   {
+    this.allSubscribe=[];
     this.logout(); 
     this.userName ='';
     this.userEmail = '';
@@ -37,13 +38,13 @@ export class ServiceService {
 
      this.users = this.af.list('/users',{ preserveSnapshot: true });
 
-    this.users.subscribe((snapshots)=>{
+    let temp = this.users.subscribe((snapshots)=>{
               this.usersValues_Arr=[];
       snapshots.forEach(snapshot => {
    //////////// mybe in oninit
-        this.usersValues_Arr.push(snapshot);});})
+        this.usersValues_Arr.push(snapshot);});});
     
-    
+    this.allSubscribe.push(temp);
   }
 
 
@@ -54,28 +55,23 @@ firebase.auth().createUserWithEmailAndPassword(email, password)
     .catch(function(error) {
   // Handle Errors here.
   var errorMessage = error.message;
-  console.log(error);
 });  }
 
 
 checkIfUser(){
 
 var status=false;
-this.users
+let temp1 = this.users
   .subscribe(snapshots => {
     snapshots.some(snapshot => {
-      console.log(snapshot.val().mail);
-      console.log(this.userEmail);
+      
      var temp=snapshot.val();      
-       console.log(this.userEmail==snapshot.val().email)
        if(this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email)
           {
-            console.log("hereee");
             this.permission=temp.permission;
             this.community=temp.associatedCommunity;
             this.userName=temp.name;
             this.userID=snapshot.key;
-            console.log(this.userID);
             status =true;
             return status;
           }
@@ -89,7 +85,7 @@ this.users
   });
 
 
-
+this.allSubscribe.push(temp1);
 
 return status;
 }
@@ -200,10 +196,8 @@ firebase.auth().signInWithPopup(provider).then((user)=>
    if (this.checkIfUser()==true)
            this.isLoggedIn=true;
 
-  console.log(this.isLoggedIn);
 //  this.isLoggedIn=true;
  
-  console.log(this.userID);
 
     //location.reload();      I dont think we need that - check :)
 })

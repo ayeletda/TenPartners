@@ -16,7 +16,7 @@ export class AppComponent
 
   constructor(private Service:ServiceService, private router:Router) 
   {
-      this.Service.anguarfireAuth.authState.subscribe(
+      let temp = this.Service.anguarfireAuth.authState.subscribe(
         (auth) => {
           if(auth==null)
           {
@@ -38,8 +38,9 @@ export class AppComponent
 
           }}
         }
-      )
-      this.isLoggedIn=Service.getlogin();
+      );
+      this.isLoggedIn=this.Service.getlogin();
+      this.Service.allSubscribe.push(temp);
    }
 
 
