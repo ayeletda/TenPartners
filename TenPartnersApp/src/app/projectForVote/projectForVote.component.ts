@@ -78,14 +78,16 @@ export class ProjectForVoteComponent implements OnInit
     this.usersVotingList = this.af.list(this.item + "/votingList");
 
     let accociatedUser ='';
-    this.pointerToProjectInAF.subscribe(snapshots => 
+    let temp = this.pointerToProjectInAF.subscribe(snapshots => 
     {
       snapshots.forEach(snapshot => 
       {
         if (snapshot.$key == 'associatedUser')
           accociatedUser = snapshot.$value;
       });
-    })
+    });
+
+    this.service.allSubscribe.push(temp);
 
     this.isAccuciatedUser = this.userId == accociatedUser ? true : false;
 
@@ -96,13 +98,16 @@ export class ProjectForVoteComponent implements OnInit
 
   setUserVotingStatus()
   {
-    this.usersVotingList.subscribe(snapshots => 
+   let temp= this.usersVotingList.subscribe(snapshots => 
     {
       snapshots.forEach(snapshot => {
         if (snapshot.$key == this.userId)
           this.voteStatus = snapshot.vote;
       });
-    })
+    });
+
+        this.service.allSubscribe.push(temp);
+
   }
 
   //===================================  updateLeftDays  =========================================
