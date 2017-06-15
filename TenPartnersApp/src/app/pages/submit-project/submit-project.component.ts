@@ -29,11 +29,14 @@ export class SubmitProjectComponent implements OnInit {
 
      this.projects = this.af.list('projects');
 
-    this.projects.subscribe((snapshots)=>{
+    let temp = this.projects.subscribe((snapshots)=>{
               this.projectsValues_Arr=[];
       snapshots.forEach(snapshot => {
    //////////// mybe in oninit
-        this.projectsValues_Arr.push(snapshot);});})
+        this.projectsValues_Arr.push(snapshot);});});
+
+         this.service.allSubscribe.push(temp);
+   
 
   }
 
@@ -41,7 +44,6 @@ export class SubmitProjectComponent implements OnInit {
 
   sendProject()
   {
-    console.log("hrhr "+ this.Name + this.Description+this.Purpose);
 
     if(this.Name==""||this.Description==""||this.Purpose=="")
         alert("something's missing");
