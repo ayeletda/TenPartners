@@ -23,6 +23,7 @@ private  projectsValues_Arr: any;
 private first:boolean;
 private projectName:string;
 private search:string;
+private currentProjecOpentKey:string;
 
 
 constructor(private serviceService:ServiceService, private router: Router, public af: AngularFireDatabase)
@@ -59,8 +60,18 @@ constructor(private serviceService:ServiceService, private router: Router, publi
   ngOnInit() {this.serviceService.setTitle("Master DB");}
 
 
-commentOpen(){
-  this.first=true;
+commentOpen(key:string)
+{
+  console.log("hello");
+  this.currentProjecOpentKey=key;
+}
+
+firstC(key:string)
+{
+  if(key == this.currentProjecOpentKey)
+      return true;
+
+else false;
 }
 
 

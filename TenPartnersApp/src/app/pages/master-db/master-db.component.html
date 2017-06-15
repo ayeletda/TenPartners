@@ -12,7 +12,7 @@
 <div class="d4">
 <div class="d5">
   <div *ngFor="let project of projectsValues_Arr">
-    <app-dbproject  (sendComment)="commentOpen()" *ngIf = "(project.name).search(projectName)!=-1" [item]="project" [path]="saveProjectPath(project)" [first]="first"></app-dbproject>
+    <app-dbproject  (sendComment)="commentOpen(project.$key)" *ngIf = "(project.name).search(projectName)!=-1" [item]="project" [path]="saveProjectPath(project)" [first]="firstC(project.$key)"></app-dbproject>
   </div>
 </div>
 </div>

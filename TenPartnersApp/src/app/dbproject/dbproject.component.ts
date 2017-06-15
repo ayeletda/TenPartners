@@ -59,7 +59,7 @@ export class DBprojectComponent implements OnInit {
       let date = new Date().toLocaleString();
       let community = this.serviceService.getCommunity();
       this.comments.push({ authorKey: key + "", comment: this.newComment + "", authorName: name + "", date: date + "", community: community + "" }).then(()=> this.scrollToBottom() );
-      this.sendComment.emit();
+      this.sendComment.emit(this.item.$key);
       this.newComment = "";
     }
 
@@ -139,7 +139,7 @@ export class DBprojectComponent implements OnInit {
     if (confirm(meessage)) {
       const itemObservable = this.af.object(this.path + "/comments/" + commentkey);
       itemObservable.remove();
-      this.sendComment.emit();
+      this.sendComment.emit(this.item.$key);
     }
 
   }
