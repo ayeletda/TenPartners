@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class AppComponent 
 {
   private isLoggedIn:boolean;
+  user = {userID: null, permission: null, community: null, userName: null, email: null };
 
   constructor(private Service:ServiceService, private router:Router) 
   {
@@ -24,28 +25,60 @@ export class AppComponent
             this.router.navigate(['']);
           }
 
-          else{
-            if(Service.getlogin()==true){
-            this.isLoggedIn=true;
+          else
+          {
+
+            this.user.userID = auth.uid;
+            this.user.email = auth.email;
+
+            this.getDetails();
+
+          //   if(Service.getlogin()==true)
+          //   {
+          //   this.isLoggedIn=true;
             
-            if(Service.getPermission()=="2")
-                      this.router.navigateByUrl('/voting');
+          //   if(Service.getPermission()=="2")
+          //             this.router.navigateByUrl('/voting');
                   
 
-            else if(Service.getPermission()=="1")
-                       this.router.navigateByUrl('/home');
+          //   else if(Service.getPermission()=="1")
+          //              this.router.navigateByUrl('/home');
 
-          }}
-        }
-      );
-      this.isLoggedIn=this.Service.getlogin();
-      this.Service.allSubscribe.push(temp);
+          // }
+          }
+        });
+      //this.isLoggedIn=this.Service.getlogin();
+      //this.Service.allSubscribe.push(temp);
    }
 
 
+getDetails()
+{
+       let users = this.Service.af.list('/users',{ preserveSnapshot: true });
 
+let temp1 = users
+  .subscribe(snapshots => {
+    snapshots.forEach(snapshot => {
+      
+     var temp=snapshot.val();      
+       if(this.user.email==snapshot.val().email||this.user.email==snapshot.val().email||this.user.email==snapshot.val().email)
+          {
+            this.user.permission =temp.permission;
+            this.user.community=temp.associatedCommunity;
+            this.user.userName=temp.name;
 
+            this.isLoggedIn = true;
 
+            if(this.user.permission=="2")
+                      this.router.navigateByUrl('/voting');
+                  
+            else if(this.user.permission=="1")
+                       this.router.navigateByUrl('/home');
+          }
+    });
+  });
+      this.Service.allSubscribe.push(temp1);
 
 }
 
+}

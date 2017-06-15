@@ -7,10 +7,6 @@ import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@ang
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { ChangeDetectorRef } from "@angular/core";
 
-
-
-
-
 @Injectable()
 export class ServiceService {
   userName:string;
@@ -26,6 +22,8 @@ export class ServiceService {
   connectType:string;
   public allSubscribe: any;
 
+  user = {userID: null, permission: null, community: null, userName: null, email: null };
+
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth,public af: AngularFireDatabase)
   {
     this.allSubscribe=[];
@@ -38,13 +36,7 @@ export class ServiceService {
 
      this.users = this.af.list('/users',{ preserveSnapshot: true });
 
-    let temp = this.users.subscribe((snapshots)=>{
-              this.usersValues_Arr=[];
-      snapshots.forEach(snapshot => {
-   //////////// mybe in oninit
-        this.usersValues_Arr.push(snapshot);});});
-    
-    this.allSubscribe.push(temp);
+
   }
 
 
@@ -58,7 +50,37 @@ firebase.auth().createUserWithEmailAndPassword(email, password)
 });  }
 
 
-checkIfUser(){
+
+
+/********************************************************** */
+
+getDetails(user)
+{
+  let temp1 = this.users.subscribe(snapshots => {
+    snapshots.some(snapshot => {
+      
+     var temp=snapshot.val();      
+       if(this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email)
+          {
+           user.permission =temp.permission;
+            user.community=temp.associatedCommunity;
+            user.userName=temp.name;
+            user.email = temp.email;
+            user.userID=snapshot.key;
+          }
+    });
+  });
+
+  this.allSubscribe.push(temp1);
+}
+
+
+
+
+/************************************************************** */
+
+checkIfUser()
+{
 
 var status=false;
 let temp1 = this.users
@@ -72,7 +94,7 @@ let temp1 = this.users
             this.community=temp.associatedCommunity;
             this.userName=temp.name;
             this.userID=snapshot.key;
-            status =true;
+            status = true;
             return status;
           }
         
@@ -121,8 +143,8 @@ getlogin()
 }
 
 
-  login(username:HTMLInputElement, password:HTMLInputElement){
-
+  login(username:HTMLInputElement, password:HTMLInputElement)
+  {
     this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).
     then((user)=>
     {
@@ -131,9 +153,34 @@ getlogin()
       this.userID = user.uid;
       this.connectType="mail";
 
-       if (this.checkIfUser()==true)
-           this.isLoggedIn=true;
-      //  location.reload();  I dont think we need that - check :)
+    let temp = this.users.subscribe((snapshots)=>{
+              this.usersValues_Arr=[];
+      snapshots.forEach(snapshot => {
+   //////////// mybe in oninit
+        this.usersValues_Arr.push(snapshot);});});
+    
+    this.allSubscribe.push(temp);
+
+let status;
+      let temp1 = this.users
+  .subscribe(snapshots => {
+    snapshots.some(snapshot => {
+      
+     var temp=snapshot.val();      
+       if(this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email)
+          {
+            this.permission=temp.permission;
+            this.community=temp.associatedCommunity;
+            this.userName=temp.name;
+            this.userID=snapshot.key;
+            this.isLoggedIn=true;
+            //this.afterLogin();
+          }
+    });
+  });
+
+      //  if (this.checkIfUser()==true)
+      //      this.isLoggedIn=true;
       
       
     })
@@ -149,10 +196,20 @@ getlogin()
 
   }
 
+  // private afterLogin() {
+  //   if(this.permission=="2")
+  //                     this.router.navigateByUrl('/voting');
+                  
+
+  //           else if(this.permission=="1")
+
+  //                      this.router.navigateByUrl('/home');
+  // }
 
   logout(){
 // this.anguarfireAuth.authState.subscribe(() => this.router.navigate(['']));
     // The composed observable completes, so there's no need to unsubscribe.
+    this.allSubscribe.forEach((item) => item.unsubscribe);
    this.anguarfireAuth.auth.signOut();
    this.isLoggedIn=false;
     this.title="home";

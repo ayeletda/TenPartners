@@ -38,52 +38,53 @@ export class VotingComponent implements OnInit
   private messages: FirebaseListObservable<any>;
 
   // pointers of object or list in firebase
-  private user: FirebaseListObservable<any>; // pointer to user
+  // private user: FirebaseListObservable<any>; // pointer to user
   private projects: FirebaseListObservable<any>;
   private  projectsAssociatedCommunities_Arr: any;
   private  projectsValues_Arr: any;
 
   //flags
   private needViewMore: boolean;
+  private user2 = {userID: null, permission: null, community: null, userName: null, email: null };
 
 //======================================================  constructor  ============================================================
 
   constructor (private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
   {
-    this.userId = this.service.getCurrentID();
-    this.user = this.af.list('users/' + this.userId); // the specific user
-    this.name = this.service.getCurrentUser();
-    this.email = this.service.getCurrentEmail();
+    // this.userId = this.service.getCurrentID();
+    // this.user = this.af.list('users/' + this.userId); // the specific user
+    // this.name = this.service.getCurrentUser();
+    // this.email = this.service.getCurrentEmail();
     // this.firstTimeOfScoller = true;
 
-    let temp1 = this.user.subscribe((snapshots)=>
-    {
-      snapshots.forEach(snapshot => 
-      {
-        if (snapshot.$key == 'associatedCommunity')
-          this.userCommunity = snapshot.$value;
-      });
-    });
+    // let temp1 = this.user.subscribe((snapshots)=>
+    // {
+    //   snapshots.forEach(snapshot => 
+    //   {
+    //     if (snapshot.$key == 'associatedCommunity')
+    //       this.userCommunity = snapshot.$value;
+    //   });
+    // });
 
-  this.service.allSubscribe.push(temp1);
+  // this.service.allSubscribe.push(temp1);
 
-    
+    this.service.getDetails(this.user2);
+
     this.projects = this.af.list('projects');
 
-   let temp2= this.projects.subscribe((snapshots)=>
-    {
-      this.projectsAssociatedCommunities_Arr = [];
-      this.projectsValues_Arr = [];
-      
-      snapshots.forEach(snapshot => 
+    let temp2 = this.projects.subscribe((snapshots) =>
       {
-        this.projectsAssociatedCommunities_Arr.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
-        this.projectsValues_Arr.push(snapshot);
+        this.projectsAssociatedCommunities_Arr = [];
+        this.projectsValues_Arr = [];
+        
+        snapshots.forEach(snapshot => 
+        {
+          this.projectsAssociatedCommunities_Arr.push(this.af.list('projects/' + snapshot.$key + '/associatedCommunities'));
+          this.projectsValues_Arr.push(snapshot);
+        });
       });
-    });
 
     this.service.allSubscribe.push(temp2);
-
 
     this.newMessage = '';
     this.savedDate='';      
@@ -142,7 +143,7 @@ export class VotingComponent implements OnInit
 
   isMe(email)
   {
-    if (email == this.email)
+    if (this.user2.email == email)
       return true;
     return false;
   }

@@ -7,7 +7,7 @@
             <div  class = "temp" *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
                 <div *ngFor = "let community of associatedCommunities | async ">
                     <!--<div class = " col-centered">-->
-                        <div *ngIf = "community.$key == userCommunity && community.associatedUser != '' && saveProjectPath(community,i)">  
+                        <div *ngIf = "community.$key == user2.community && community.associatedUser != '' && saveProjectPath(community,i)">  
                             <app-projectForVote  class = "pull-left"
                                 [item] = "projectPath" 
                                 (click) = "loadProjectDetails(community,i)">
