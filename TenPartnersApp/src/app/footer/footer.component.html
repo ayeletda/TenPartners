@@ -1,31 +1,44 @@
 
 <div class = "footer">
-    <div class="btn-group btn-group-justified">
-        
-        <a  id = "voting" *ngIf="serviceService.getPermission()=='2'" (click)="clicked($event)" [class.afterClick] = "isClick == 'voting'" class="btn btn-default">
+    <div class = "btn-group btn-group-justified">
+
+        <a  id = "voting" *ngIf="user.permission == '2'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'voting'" class = "btn btn-default">
             <div id = "votInPro">
-                <i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i>
-                <i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i>
-            </div>Voting in<br> Progress</a>
-        <a  id = "home" *ngIf="serviceService.getPermission()=='1'" (click)="clicked($event)" [class.afterClick] = "isClick == 'home'" class="btn btn-default">
-            <i id = "hom" class="fa fa-home fa-2x" aria-hidden="true"></i>
+                <i class = "fa fa-thumbs-o-down fa-2x" aria-hidden = "true"></i>
+                <i class = "fa fa-thumbs-o-up fa-2x" aria-hidden = "true"></i>
+            </div>
+            Voting in<br> Progress
+        </a>
+       
+        <a  id = "home" *ngIf = "user.permission == '1'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'home'" class = "btn btn-default">
+            <i id = "hom" class = "fa fa-home fa-2x" aria-hidden = "true"></i>
                 Home
         </a>
-        <a  id = "addUser" *ngIf="serviceService.getPermission()=='1'" (click)="clicked($event)" [class.afterClick] = "isClick == 'addUser'" class="btn btn-default">
-            <i id = "addU" class="fa fa-user-plus fa-2x" aria-hidden="true"></i>
+       
+        <a  id = "addUser" *ngIf = "user.permission == '1'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'addUser'" class = "btn btn-default">
+            <i id = "addU" class = "fa fa-user-plus fa-2x" aria-hidden = "true"></i>
                 Add User
         </a>
-        <a  id = "myProjects" *ngIf="serviceService.getPermission()=='2'" (click)="clicked($event)" [class.afterClick] = "isClick == 'myProjects'" class="btn btn-default">
-            <i class="fa fa-address-card fa-2x" aria-hidden="true" id = "myP"></i>My<br>Project</a>
+       
+        <a  id = "myProjects" *ngIf="user.permission == '2'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'myProjects'" class = "btn btn-default">
+            <i class = "fa fa-address-card fa-2x" aria-hidden = "true" id = "myP"></i>
+            My<br>Project
+        </a>
 
-        <a  id = "board" *ngIf="serviceService.getPermission()=='2'" (click)="clicked($event)" [class.afterClick] = "isClick == 'board'" class="btn btn-default">
-            <i class="fa fa-list fa-2x" aria-hidden="true"  id="sub"></i>Submitted<br>projects</a>
+        <a  id = "board" *ngIf = "user.permission == '2'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'board'" class = "btn btn-default">
+            <i class = "fa fa-list fa-2x" aria-hidden = "true"  id = "sub"></i>
+            Submitted<br>projects
+        </a>
 
-        <a  id = "masterDB" (click)="clicked($event)" [class.afterClick] = "isClick == 'masterDB'" class="btn btn-default">
-            <i class="fa fa-database fa-2x" aria-hidden="true" id = "mDB"></i>Master<br>DB</a>
+        <a  id = "masterDB" (click) = "clicked($event)" [class.afterClick] = "isClick == 'masterDB'" class="btn btn-default">
+            <i class = "fa fa-database fa-2x" aria-hidden="true" id = "mDB"></i>
+            Master<br>DB
+        </a>
             
-        <a   id ="SubmitProject" (click)="clicked($event)" [class.afterClick] = "isClick == 'SubmitProject'" class="btn btn-default">
-            <i class="fa fa-file-text-o fa-2x" aria-hidden="true" id = "pro"></i>Submit<br> Project</a>
+        <a   id = "SubmitProject" (click) = "clicked($event)" [class.afterClick] = "isClick == 'SubmitProject'" class="btn btn-default">
+            <i class = "fa fa-file-text-o fa-2x" aria-hidden = "true" id = "pro"></i>
+            Submit<br>Project
+        </a>
 
     </div>
 </div>

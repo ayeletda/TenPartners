@@ -1,5 +1,6 @@
 
-main {
+main 
+{
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: 1.5px solid #cccccc;
@@ -13,7 +14,8 @@ main {
 	width: 100%;
 }
 
-.from{
+.from
+{
 	font-size: 17px;
 	display: inline;
 }
@@ -23,54 +25,100 @@ main {
   overflow: auto;
   max-height: 200px;
 }
-.d5 {
+
+.d5 
+{
 	min-height: 0px;
     max-height:200px;
 }
 
+span
+{
+	position: initial;
+}
 
-span{position: initial;}
-
-.continer{
+.continer
+{
 	position: unset;
 }
 
-.center-block{margin-top: 10px;margin-bottom: 10px;}
+.center-block
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
 
-.col-lg-6,.btn,.btn-default,.form-control{
+.col-lg-6,.btn,.btn-default,.form-control
+{
 	position: unset;
 }
 
-.input-group{position: unset;}
-
-.input-group-btn{position: unset;}
-
-.col-lg-12{
-position: unset;
+.input-group
+{
+	position: unset;
 }
 
-.commmm{
+.input-group-btn
+{
+	position: unset;
+}
+
+.col-lg-12
+{
+	position: unset;
+}
+
+.commmm
+{
 	display:inline;
 }
 
-.glyphicon-heart{
+.glyphicon-heart
+{
 	display: inline-block;
 	position: relative;
 	color: white; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 	margin-right:5px; 
 }
-.title{font-size: 25px; padding-bottom: 10px; outline: 0;}
 
-.comments{ margin: 15px; margin-right: 5px;}
-
-.btn-grup{display: inline;}
-
-.more{font-size: 20px;
-width: 100%;}
-
-.social{font-size: 20px; padding-left: 8px; padding-right: 0.5%;}
-
-.comment{display: inline;
+.title
+{
+	font-size: 25px;
+	padding-bottom: 10px;
+	outline: 0;
 }
 
-.glyphicon-comment{color: #FFF2A8; text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;}
+.comments
+{
+	margin: 15px;
+	margin-right: 5px;
+}
+
+.btn-grup
+{
+	display: inline;
+}
+
+.more
+{
+	font-size: 20px;
+	width: 100%;
+}
+
+.social
+{
+	font-size: 20px; 
+	padding-left: 8px; 
+	padding-right: 0.5%;
+}
+
+.comment
+{
+	display: inline;
+}
+
+.glyphicon-comment
+{
+	color: #FFF2A8;
+	text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}

@@ -1,52 +1,52 @@
-.btn-default{
+.btn-default
+{
 	border: none;
 }
 
-.btn-default:active{
+.btn-default:active 
+{
 	color: darkblue;
 }
 
-.btn-default:after{
+.btn-default:after
+{
 	color: darkblue;
 }
 
-a:active{
-	color: darkblue;
-	
+a:active
+{
+	color: darkblue;	
 }
 
-.afterClick{
-	color: darkblue;
-	
+.afterClick
+{
+	color: darkblue;	
 }
 
-.footer{
-   display: block;
-position: absolute;
-  position: fixed;
+.footer
+{
+	display: block;
+	position: fixed;
   	border: 1.5px solid #cccccc;
-
-	 bottom: 0%;
- 
+	bottom: 0%;
 }
-button{
+
+button
+{
 	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	height: 100%;
 	margin: auto;
+}
 
 
-	}
-
-
-#set,#myP,#mDB,#votInPro,#pro,#sub,#addU,#hom{
+#set,#myP,#mDB,#votInPro,#pro,#sub,#addU,#hom
+{
 	display: block;
 	margin: auto;
 	margin-bottom: 5px;
-
 }
 
-a{
+a
+{
 	font-size: 10px;
 }
-
-
