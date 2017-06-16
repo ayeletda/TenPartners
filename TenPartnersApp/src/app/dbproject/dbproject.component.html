@@ -16,7 +16,7 @@
         <div class="more" *ngIf="more">
           Description: {{item.description}}<br> Purpose for the jewish communuty: {{item.purpose}}<br><br>
           <div class="commmm" (click)="viewComments()">
-            <span class="glyphicon glyphicon-comment"></span> ({{ (comments | async)?.length }})
+            <span class="glyphicon glyphicon-comment"></span> ({{ (commentsFBList | async)?.length }})
                        </div> <span class="glyphicon glyphicon-heart"></span>(0)
 
           <div *ngIf="view" class="w3-animate-opacity">
