@@ -65,7 +65,7 @@ constructor(private serviceService:ServiceService, private router: Router, publi
 
 commentOpen(key:string)
 {
-  this.currentProjecOpentKey=key;
+  //this.currentProjecOpentKey=key;
 }
 
 firstC(key:string)

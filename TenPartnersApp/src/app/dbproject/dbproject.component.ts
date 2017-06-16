@@ -136,12 +136,8 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
 
   private viewComments() {
     this.view = !this.view;
+    this.close.emit();
 
-    if(this.view==false)
-      {
-        this.close.emit();
-
-      }
   }
 
   //======================================  viewMore  ===============================================================================================
@@ -150,8 +146,10 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
     this.more = !this.more;
     if (this.view == true) {
       this.view = false;
-      this.close.emit();
     }
+
+    this.close.emit();
+
   }
 
   //=======================================  checkIfExist  =============================================================================================
