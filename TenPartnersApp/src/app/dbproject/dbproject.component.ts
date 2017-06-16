@@ -7,24 +7,23 @@ import { ChangeDetectorRef, Input, Output } from "@angular/core";
 import { ServiceService } from '../service.service';
 
 @Component(
-{
-  selector: 'app-dbproject',
-  templateUrl: './dbproject.component.html',
-  styleUrls: ['./dbproject.component.css']
-})
+  {
+    selector: 'app-dbproject',
+    templateUrl: './dbproject.component.html',
+    styleUrls: ['./dbproject.component.css']
+  })
 
 //=============================  DBprojectComponent class  ===========================================================================================
 
-export class DBprojectComponent implements OnInit 
-{
+export class DBprojectComponent implements OnInit {
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
-  
-  @Output() sendComment: EventEmitter<any> = new EventEmitter(); 
-  @Output() close: EventEmitter<any> = new EventEmitter(); 
+
+  @Output() sendComment: EventEmitter<any> = new EventEmitter();
+  @Output() close: EventEmitter<any> = new EventEmitter();
   @Input() item;
   @Input() path;
   @Input() first;
-  
+
   //user details
   private user = { id: null, permission: null, community: null, name: null, email: null };
 
@@ -36,18 +35,18 @@ export class DBprojectComponent implements OnInit
 
   //pointers of object or list in firebase
   private commentsFBList: FirebaseListObservable<any>;
+  private likesFBList: FirebaseListObservable<any>;
   private usersVotingFBList: FirebaseListObservable<any>;
   private projectFBList: FirebaseListObservable<any>;
   private communitiesFBList: FirebaseListObservable<any>;
-  
+
   //flags
   private view: boolean;
   private more: boolean;
-
+  private islike: boolean;
   //====================================  constructor  ===========================================================================================
 
-  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
-  {
+  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) {
     //initializes
     this.community = "";
     this.newComment = "";
@@ -60,64 +59,103 @@ export class DBprojectComponent implements OnInit
 
   //=======================================  ngOnInit  ===========================================================================================
 
-  ngOnInit() 
-  {
-    this.commentsFBList = this.af.list(this.path + "/comments", 
-    {
-      query: 
+  ngOnInit() {
+    this.commentsFBList = this.af.list(this.path + "/comments",
       {
-        orderByChild: 'nombre'
-      }
-    });
+        query:
+        {
+          orderByChild: 'nombre'
+        }
+      });
+
+    this.likesFBList = this.af.list(this.path + "/likes/",
+      {
+        query:
+        {
+          orderByChild: 'nombre'
+        },
+         preserveSnapshot: true
+
+      });
 
     this.view = this.first;
     this.more = this.first;
+    this.islike=this.checkIfdoLike();
   }
 
   //=======================================  addComment  ================================================================================================
 
-  private addComment() 
-  {
-    if (this.newComment != "") 
-    {
+  private addComment() {
+    if (this.newComment != "") {
       this.commentsFBList = this.af.list(this.path + "/comments/");
       let date = new Date().toLocaleString();
       let community = this.user.community;
-      this.commentsFBList.push({ authorKey: this.user.id + "", comment: this.newComment + "", authorName: this.user.name + "", date: date + "", community: community + "" }).then(()=> this.scrollToBottom() );
+      this.commentsFBList.push({ authorKey: this.user.id + "", comment: this.newComment + "", authorName: this.user.name + "", date: date + "", community: community + "" }).then(() => this.scrollToBottom());
       this.sendComment.emit(this.item.$key);
       this.newComment = "";
     }
   }
-  
+
+  //====================================  checkIfdoLike  ===================================================================================================
+
+private checkIfdoLike(){
+
+this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true });
+    let status = false;
+    let temp = this.likesFBList.subscribe(snapshots => {
+      snapshots.some(snapshot => {
+        let temp1 = snapshot.key;
+
+        if (this.user.id == temp1) {
+          status = true;
+        }
+      });
+    });
+
+    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.service.allSubscribe.push(temp);
+    return status;
+
+
+}
+
+  //====================================  doLike  ===================================================================================================
+
+
+  private doLike() {
+      console.log("like: "+this.checkIfdoLike());
+      this.islike=!this.islike;
+      if(this.checkIfdoLike()==false)
+              this.likesFBList.update(this.user.id+"",{userName: this.user.name});
+       else{
+      const itemObservable = this.af.object(this.path + "/likes/" + this.user.id);
+      itemObservable.remove();
+       }       
+  }
+
   //====================================  viewComments  ===================================================================================================
 
-  private viewComments()
-  {
+  private viewComments() {
     this.view = !this.view;
   }
-  
+
   //======================================  viewMore  ===============================================================================================
 
-  private viewMore() 
-  {
-    this.more = !this.more; 
-    if(this.view == true)
-    {
+  private viewMore() {
+    this.more = !this.more;
+    if (this.view == true) {
       this.view = false;
       this.close.emit();
     }
   }
 
-//=======================================  checkIfExist  =============================================================================================
+  //=======================================  checkIfExist  =============================================================================================
 
-  private checkIfExist()
-  {
+  private checkIfExist() {
     this.projectFBList = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
     let status = false;
-    let temp = this.projectFBList.subscribe(snapshots => 
-    {
-      snapshots.some(snapshot => 
-      {
+    let temp = this.projectFBList.subscribe(snapshots => {
+      snapshots.some(snapshot => {
         let temp1 = snapshot.key;
 
         if (this.user.community == temp1 || this.community == temp1) {
@@ -125,26 +163,24 @@ export class DBprojectComponent implements OnInit
         }
       });
     });
-    
+
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.allSubscribe.push(temp);  
+    this.service.allSubscribe.push(temp);
     return status;
   }
 
-//==========================================  Nominate  =======================================================================================
+  //==========================================  Nominate  =======================================================================================
 
-  private Nominate() 
-  {
-    if (this.checkIfExist() == false) 
-    {
+  private Nominate() {
+    if (this.checkIfExist() == false) {
       let cost = prompt("Please enter the project cost", "100$");
       let date = prompt("Please enter the project date", "dd/mm/yyyy");
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
       this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.user.id + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
-      
+
       this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "" + "/" + this.item.$key + "/votingList");
-      this.usersVotingFBList.update(this.user.id + "",{vote:"for"});
+      this.usersVotingFBList.update(this.user.id + "", { vote: "for" });
 
       alert("The project is nominated");
     }
@@ -152,14 +188,11 @@ export class DBprojectComponent implements OnInit
     else alert("This project already exists in your community");
   }
 
-//=========================================  pushToBoard  ==================================================================================================
+  //=========================================  pushToBoard  ==================================================================================================
 
- private pushToBoard() 
- {
-    if (this.community != "") 
-    {
-      if (this.checkIfExist() == false) 
-      {
+  private pushToBoard() {
+    if (this.community != "") {
+      if (this.checkIfExist() == false) {
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
         this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });
         alert("project pushed")
@@ -174,12 +207,10 @@ export class DBprojectComponent implements OnInit
 
   //=======================================  removeComment  ==========================================
 
-  private removeComment(commentkey: string) 
-  {
+  private removeComment(commentkey: string) {
     let meessage = "Are you sure you want to delete the comment?";
-  
-    if (confirm(meessage)) 
-    {
+
+    if (confirm(meessage)) {
       const itemObservable = this.af.object(this.path + "/comments/" + commentkey);
       itemObservable.remove();
       this.sendComment.emit(this.item.$key);
@@ -188,13 +219,11 @@ export class DBprojectComponent implements OnInit
 
   //=======================================  scrollToBottom  ==========================================
 
-  private scrollToBottom()
-  {
-    try 
-    {
+  private scrollToBottom() {
+    try {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
-    } 
-    catch(err) {}
+    }
+    catch (err) { }
   }
 
 }
