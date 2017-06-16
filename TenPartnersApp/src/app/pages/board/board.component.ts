@@ -37,6 +37,7 @@ export class BoardComponent implements OnInit {
     private description: string;
 
     private showDetailsForm: boolean;
+    private noProjects:boolean;
 
 
     private firstTimeOfScoller: boolean;
@@ -65,6 +66,7 @@ export class BoardComponent implements OnInit {
         this.email = this.service.getCurrentEmail();
         this.firstTimeOfScoller = true;
         this.showDetailsForm = false;
+        this.noProjects= true;
 
         let temp = this.user.subscribe((snapshots) => {
             snapshots.forEach(snapshot => {
@@ -111,6 +113,7 @@ export class BoardComponent implements OnInit {
 
     saveProjectPath(project, i) {
         this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
+        this.noProjects = false;
         return true;
     }
 
@@ -123,12 +126,12 @@ export class BoardComponent implements OnInit {
         let projectPathH = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/'+project.$key;
         this.projectUpdate = this.af.object(projectPathH,{preserveSnapshot:true});
         this.projectSelected = true;
+
         this.cost = project.cost;
         this.date = project.date;
         this.purpose = this.projectsValues_Arr[i].purpose;
         this.description = this.projectsValues_Arr[i].description;
         this.needViewMore=false;
-
         this.usersVotingList = this.af.list('projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/'+project.$key + "/votingList");
     }
 

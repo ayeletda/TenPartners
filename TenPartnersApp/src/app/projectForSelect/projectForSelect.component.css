@@ -47,27 +47,7 @@ p
     color:black;
 }
 
-#like, #unlike
-{
-    cursor: pointer;
-}
 
-#like, #unlike, .projectName
-{
-    margin: 5%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-}
-
-#like
-{
-    color:   #7acd47;
-}
-
-#unlike
-{
-    color: #e2675a;
-}
 
 #transparentElement
 {
@@ -106,31 +86,23 @@ label
 @media only screen and (min-height: 1366px)
 {
 
+    .main{
+        width:1200px;
+    }
     #up
     {
-        height: 200px;
+        height: 500px;
     }
 
-    .lable
-    {
-        font-size: 50px;
-    }
-
-    p
-    {
-        font-size: 45px;
-    }
-
-    #like, #unlike
-    {
-        font-size: 35px;
-        margin-top: 7%;
-    }
 }
 
 
 @media only screen and (min-height: 1024px)
 {
+    .main{
+        width:255px;
+    }
+
     #up
     {
         height: 180px;
@@ -140,22 +112,14 @@ label
     {
         font-size: 35px;
     }
-
-    p
-    {
-        font-size: 30px;
-    }
-
-    #like, #unlike
-    {
-        font-size: 35px;
-        margin-top: 7%;
-    }
 }
 
 
 @media only screen and (min-height: 1366px)
 {
+    .main{
+        width:350px;
+    }
     #up
     {
         height: 200px;
@@ -166,30 +130,27 @@ label
         font-size: 47px;
     }
 
-    p
-    {
-        font-size: 42px;
-    }
-
-    #like, #unlike
-    {
-        font-size: 40px;
-        margin-top: 10%;
-    }
 }
 
 
 @media only screen and (max-height: 736px)
 {
+    .main{
+        width:140px;
+    }
     #up
     {
         height: 100px;
     }
+
 }
 
 
 @media only screen and (max-height: 732px)
 {
+    .main{
+        width:140px;
+    }
     #up
     {
         height: 100px;
@@ -199,63 +160,36 @@ label
 
 @media only screen and (max-height: 667px )
 {
+    .main{
+        width:128px;
+    }
     #up
     {
         height: 90px;
     }
-
-    .lable
-    {
-        font-size: 20px;
-    }
-
-    p
-    {
-        font-size: 15px;
-    }
-
 
 }
 
 
 @media only screen and (max-height: 640px)
 {
-    #up
-    {
+    .main{
+        width:120px;
+    }
+    #up {
         height: 90px;
-    }
-
-    .lable
-    {
-        font-size: 20px;
-    }
-
-    p
-    {
-        font-size: 15px;
     }
 }
 
 
 @media only screen and (max-height: 568px)
 {
+    .main{
+        width:107px;
+    }
     #up
     {
         height: 80px;
     }
 
-    .lable
-    {
-        font-size: 17px;
-    }
-
-    p
-    {
-        font-size: 12px;
-    }
-
-    #like, #unlike
-    {
-        font-size: 17px;
-    }
 }
