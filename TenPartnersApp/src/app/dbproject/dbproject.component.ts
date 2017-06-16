@@ -13,7 +13,7 @@ import { ServiceService } from '../service.service';
   styleUrls: ['./dbproject.component.css']
 })
 
-//=============================  VotingComponent class  ===========================================================================================
+//=============================  DBprojectComponent class  ===========================================================================================
 
 export class DBprojectComponent implements OnInit 
 {
@@ -32,7 +32,6 @@ export class DBprojectComponent implements OnInit
   private purpose: String;
   private community: string;
   private communitysPath: string;
-  private myKey: string;
   private newComment: string;
 
   //pointers of object or list in firebase
@@ -71,7 +70,6 @@ export class DBprojectComponent implements OnInit
       }
     });
 
-    this.myKey = this.service.getKey();
     this.view = this.first;
     this.more = this.first;
   }
@@ -83,10 +81,9 @@ export class DBprojectComponent implements OnInit
     if (this.newComment != "") 
     {
       this.commentsFBList = this.af.list(this.path + "/comments/");
-      let key = this.service.getKey();
       let date = new Date().toLocaleString();
       let community = this.user.community;
-      this.commentsFBList.push({ authorKey: key + "", comment: this.newComment + "", authorName: this.user.name + "", date: date + "", community: community + "" }).then(()=> this.scrollToBottom() );
+      this.commentsFBList.push({ authorKey: this.user.id + "", comment: this.newComment + "", authorName: this.user.name + "", date: date + "", community: community + "" }).then(()=> this.scrollToBottom() );
       this.sendComment.emit(this.item.$key);
       this.newComment = "";
     }
@@ -144,10 +141,10 @@ export class DBprojectComponent implements OnInit
       let date = prompt("Please enter the project date", "dd/mm/yyyy");
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
-      this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.service.getKey() + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
+      this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.user.id + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
       
       this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "" + "/" + this.item.$key + "/votingList");
-      this.usersVotingFBList.update(this.service.getKey() + "",{vote:"for"});
+      this.usersVotingFBList.update(this.user.id + "",{vote:"for"});
 
       alert("The project is nominated");
     }
