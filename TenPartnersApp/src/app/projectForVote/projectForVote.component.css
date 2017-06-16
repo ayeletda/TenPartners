@@ -31,7 +31,7 @@ p
     padding:10%;
 }
 
-#unavailablePic, #projectName
+#projectName
 {
     text-align: center;
     display: block;
@@ -139,7 +139,6 @@ label
 
  @media only screen and (min-height: 1366px)
 {
-
      #up
     {
         height: 200px;

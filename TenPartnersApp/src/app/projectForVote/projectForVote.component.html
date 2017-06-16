@@ -20,7 +20,7 @@
     </div>
 
     <!-- footer of a project - the voting status -->
-    <div *ngFor="let value of pointerToProjectInAF | async">
+    <div *ngFor="let value of projectFBList | async">
         <div id="down">
             <div *ngIf="value.$key == 'for'">
                 <label class="green" for="for" id="for"><i class="lable fa fa-thumbs-o-up fa-lg" aria-hidden="true" ></i><p #forVal> {{ value.$value }} </p> </label>

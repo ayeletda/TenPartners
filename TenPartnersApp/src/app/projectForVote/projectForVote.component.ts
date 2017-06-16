@@ -23,24 +23,26 @@ export class ProjectForVoteComponent implements OnInit
   @ViewChild('avoidVal') private avoidVal: any;
   @ViewChild('againstVal') private againstVal: any;
   
-  // variables
+  //user details
+  private user = { id: null, permission: null, community: null, name: null, email: null };
+  private voteStatus: string;
+
+  //project details
   private projectName: string;
   private projectDate: Date;
   private projectUplodeDate: Date;
   private leftDays: number;
-  private userId: any;
-  private voteStatus: string;
 
   //determined according to customer
   private votingNumForChoosingProject: number; 
   private maxVotingNum: number;         
   private maxDaysForVoting: number;
 
-  // pointers to object or list in firebase
-  private pointerToProjectInAF: any;
-  private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
-  private projects: FirebaseListObservable<any>;
-  private usersVotingList: FirebaseListObservable<any>;
+  //pointers to object or list in firebase
+  private projectFBList: any;
+  private projectFBObject: FirebaseObjectObservable<any>;
+  private projectsFBList: FirebaseListObservable<any>;
+  private usersVotingFBList: FirebaseListObservable<any>;
   
   //flags
   private isAccuciatedUser: boolean;
@@ -50,35 +52,40 @@ export class ProjectForVoteComponent implements OnInit
   constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     //initializes variables with deafult values
-    this.projectName = '';
-    this.projectDate = null;
-    this.projectUplodeDate = null;
-    this.leftDays = -1;
-    this.voteStatus = '';
-    this.pointerToProjectInAF = null;
-    this.pointerToProjectObjectInAF = null;
-    this.usersVotingList = null;
+    // this.projectName = '';
+    // this.projectDate = null;
+    // this.projectUplodeDate = null;
+    // this.leftDays = -1;
+    // this.voteStatus = '';
+    // this.projectFBList = null;
+    // this.projectFBObject = null;
+    // this.usersVotingFBList = null;
+
+    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.service.getDetails(this.user);
+   console.log(this.user.id);
+
 
     //initializes variables with corrent values
-    this.projects = this.af.list('projects');
+    this.projectsFBList = this.af.list('projects');
     this.votingNumForChoosingProject = 7;
     this.maxVotingNum = 10;
-    this.maxDaysForVoting = 14;
-    this.userId = this.service.getCurrentID();
-    
+    this.maxDaysForVoting = 14;    
   }
 
   //====================================  ngOnInit  ============================================
 
   ngOnInit() 
   {
-    this.pointerToProjectInAF = this.af.list(this.item); // item is a path
-    this.pointerToProjectObjectInAF = this.af.object(this.item, { preserveSnapshot: true });
-    this.projectName = this.pointerToProjectInAF.$ref.path.o[1];
-    this.usersVotingList = this.af.list(this.item + "/votingList");
+    //initializes FB objects & lists
+    this.projectFBList = this.af.list(this.item); // item is a path
+    this.projectFBObject = this.af.object(this.item, { preserveSnapshot: true });
+    this.projectName = this.projectFBList.$ref.path.o[1];
+    this.usersVotingFBList = this.af.list(this.item + "/votingList");
 
+    //initializes accociatedUser
     let accociatedUser ='';
-    let temp = this.pointerToProjectInAF.subscribe(snapshots => 
+    let temp = this.projectFBList.subscribe(snapshots => 
     {
       snapshots.forEach(snapshot => 
       {
@@ -87,30 +94,35 @@ export class ProjectForVoteComponent implements OnInit
       });
     });
 
+    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
     this.service.allSubscribe.push(temp);
 
-    this.isAccuciatedUser = this.userId == accociatedUser ? true : false;
+    this.isAccuciatedUser = this.user.id == accociatedUser ? true : false;
 
+    //initializes voteStatus
     this.setUserVotingStatus();
   }
 
   //====================================  userVotingStatu  ============================================
+    //initializes voteStatus due to votingList in FB
 
   setUserVotingStatus()
   {
-   let temp= this.usersVotingList.subscribe(snapshots => 
+   let temp= this.usersVotingFBList.subscribe(snapshots => 
     {
       snapshots.forEach(snapshot => {
-        if (snapshot.$key == this.userId)
+        if (snapshot.$key == this.user.id)
           this.voteStatus = snapshot.vote;
       });
+
     });
-
-        this.service.allSubscribe.push(temp);
-
+    
+    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
+     this.service.allSubscribe.push(temp);
   }
 
   //===================================  updateLeftDays  =========================================
+// calculates the left day for voting for project
 
   updateLeftDays(projectUplodeDate)
   {
@@ -182,12 +194,13 @@ export class ProjectForVoteComponent implements OnInit
   updateVotingVarsAndVoteStatus(forVal, avoidVal, againstVal, newStatus)
   {
     //updating voting's vars on firebase
-    this.pointerToProjectObjectInAF.update({ 'for': forVal });
-    this.pointerToProjectObjectInAF.update({ 'avoid': avoidVal });
-    this.pointerToProjectObjectInAF.update({ 'against': againstVal });
+    this.projectFBObject.update({ 'for': forVal });
+    this.projectFBObject.update({ 'avoid': avoidVal });
+    this.projectFBObject.update({ 'against': againstVal });
+console.log(this.user.id +" statuse: "+ newStatus);
 
     //updating voteStatus on firebase
-    this.usersVotingList.update(this.userId, { vote: newStatus});
+    this.usersVotingFBList.update(this.user.id, { vote: newStatus });
   }
 
   //====================================  removeProject  =========================================
@@ -195,7 +208,7 @@ export class ProjectForVoteComponent implements OnInit
   removeProject( deleteMessage )
   {
     //removes the project from the voting list
-    this.pointerToProjectObjectInAF.update({ 'associatedUser': '' });
+    this.projectFBObject.update({ 'associatedUser': '' });
 
     //message that a project was rejected
     let txt = 'The project "'+ this.projectName +'"' + deleteMessage;

@@ -35,7 +35,7 @@ export class VotingComponent implements OnInit
   private newMessage: string;
   private messagesFBList: FirebaseListObservable<any>;
 
-  // pointers of object or list in firebase
+  //pointers of object or list in firebase
   private projectsFBList: FirebaseListObservable<any>;
   private projectsAssociatedCommunities_Arr: any;
   private projectValues_Arr: any;

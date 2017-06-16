@@ -8,13 +8,13 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} 
 import { ChangeDetectorRef } from "@angular/core";
 
 @Injectable()
-export class ServiceService {
+export class ServiceService 
+{
   userName:string;
   userEmail:string;
   userID:string;
   permission:string;
   community:string;
- // password:String; I dont think we need that - check :)
   private isLoggedIn;
   private title;
   users: FirebaseListObservable<any>;
@@ -97,12 +97,6 @@ let temp1 = this.users
             status = true;
             return status;
           }
-        
-
-
-
-
-
     });
   });
 
@@ -196,19 +190,8 @@ let status;
 
   }
 
-  // private afterLogin() {
-  //   if(this.permission=="2")
-  //                     this.router.navigateByUrl('/voting');
-                  
-
-  //           else if(this.permission=="1")
-
-  //                      this.router.navigateByUrl('/home');
-  // }
-
+  
   logout(){
-// this.anguarfireAuth.authState.subscribe(() => this.router.navigate(['']));
-    // The composed observable completes, so there's no need to unsubscribe.
     this.allSubscribe.forEach((item) => item.unsubscribe);
    this.anguarfireAuth.auth.signOut();
    this.isLoggedIn=false;
@@ -227,10 +210,7 @@ firebase.auth().signInWithPopup(provider).then((user)=>
   this.connectType="facebook";
 
    if (this.checkIfUser()==true)
-           this.isLoggedIn=true;
-
-    //location.reload();      I dont think we need that - check :)
-  
+           this.isLoggedIn=true;  
 })
 .catch((error)=>
 {
