@@ -15,10 +15,11 @@ import {ServiceService} from '../service.service';
 
 export class HeaderComponent implements OnInit 
 {
-  private _opened: boolean = false;
+  private _opened: boolean 
 
   constructor(private router: Router, private service:ServiceService) 
   {
+    this._opened = false;
   }
 
   @Input()item;

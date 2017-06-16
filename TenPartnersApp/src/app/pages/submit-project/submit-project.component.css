@@ -1,14 +1,16 @@
-.SubmitProject{
+.SubmitProject
+{
     padding-bottom: 60px;
     padding-top: 30px;
     height: 100%;
 }
 
-.form-group,fieldset{border:none;}
+.form-group,fieldset
+{
+    border:none;
+}
 
-.col-lg-12{position: unset;}
-.col-md-12 {position: unset;}
-.col-sm-12 {position: unset;}
-.col-xs-12{position: unset;}
-.col-md-3{position: unset;}
-.col-md-9{position: unset;}
+.col-lg-12, .col-md-12, .col-md-12, .col-sm-12, .col-xs-12, .col-md-3, .col-md-9
+{
+    position: unset;
+}

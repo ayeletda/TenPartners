@@ -14,7 +14,7 @@ import {ServiceService} from '../service.service';
 export class FooterComponent implements OnInit 
 {
   private user = { id: null, permission: null, community: null, name: null, email: null };
-  private isClick:string;
+  private isClick: string;
  
   //================================================  constructor  ============================================================
 
