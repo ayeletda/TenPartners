@@ -4,20 +4,19 @@
     height: 100%;
 }
 
-.col{
-    position: unset;
-}
-
 .intoduction{
     color: #000040;
     font-weight: normal;
     line-height: 150%;
 }
 
+.form-control{
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+    position: unset;
+}
 
-.col-lg-12{position: unset;}
-.col-md-12 {position: unset;}
-.col-sm-12 {position: unset;}
-.col-xs-12{position: unset;}
-.col-md-3{position: unset;}
-.col-md-9{position: unset;}
+.col-lg-12, .col-md-12, .col-sm-12, .col-xs-12{
+    position: unset;
+}
+
