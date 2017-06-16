@@ -8,31 +8,38 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} 
 import { ChangeDetectorRef } from "@angular/core";
 
 @Injectable()
+
+//=============================================  ServiceService class  ============================================================
 export class ServiceService 
 {
-  userName:string;
-  userEmail:string;
-  userID:string;
-  permission:string;
-  community:string;
-  private isLoggedIn;
+  //user details
+  private userName: string;
+  private userEmail: string;
+  private userID: string;
+  private permission: string;
+  private community: string;
+  private connectType: string;
+
   private title;
-  users: FirebaseListObservable<any>;
-  usersValues_Arr: any;
-  connectType:string;
   public allSubscribe: any;
+  private usersValues_Arr: any;
 
-  user = {userID: null, permission: null, community: null, userName: null, email: null };
+  //flags
+  private isLoggedIn: boolean;
 
-  constructor(private router: Router, public anguarfireAuth:AngularFireAuth,public af: AngularFireDatabase)
+  //pointers of object or list in firebase
+  private usersFBList: FirebaseListObservable<any>;
+
+
+  constructor(private router: Router, public anguarfireAuth:AngularFireAuth, public af: AngularFireDatabase)
   {
-    this.allSubscribe=[];
+    this.allSubscribe = [];
     this.logout(); 
-    this.userName ='';
+    this.userName = '';
     this.userEmail = '';
-    this.userID='';
-    this.isLoggedIn=false;
-    this.users = this.af.list('/users',{ preserveSnapshot: true });
+    this.userID = '';
+    this.isLoggedIn = false;
+    this.usersFBList = this.af.list('/users',{ preserveSnapshot: true });
   }
 
   public registerUsers(email,password)
@@ -46,12 +53,12 @@ export class ServiceService
 
   getDetails(user)
   {
-    let temp1 = this.users.subscribe(snapshots => 
+    let temp1 = this.usersFBList.subscribe(snapshots => 
     {
       snapshots.some(snapshot => 
       {
-        let temp=snapshot.val();      
-        if(this.userEmail == snapshot.val().email || this.userEmail == snapshot.val().email || this.userEmail == snapshot.val().email)
+        let temp = snapshot.val();      
+        if(this.userEmail == snapshot.val().email)
         {
           user.permission = temp.permission;
           user.community = temp.associatedCommunity;
@@ -67,38 +74,27 @@ export class ServiceService
 
   checkIfUser()
   {
-    let status=false;
-    let temp1 = this.users.subscribe(snapshots => 
+    let status = false;
+    let temp1 = this.usersFBList.subscribe(snapshots => 
     {
       snapshots.some(snapshot => 
       {
         let temp=snapshot.val();      
-        if(this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email)
+        if(this.userEmail==snapshot.val().email)
         {
-          this.permission=temp.permission;
-          this.community=temp.associatedCommunity;
-          this.userName=temp.name;
-          this.userID=snapshot.key;
+          this.permission = temp.permission;
+          this.community = temp.associatedCommunity;
+          this.userName = temp.name;
+          this.userID = snapshot.key;
           status = true;
           return status;
         }
       });
     });
   
-  this.allSubscribe.push(temp1);
-  return status;
+    this.allSubscribe.push(temp1);
+    return status;
   }
-
-
-  public getKey(){ return this.userID; }
-  public getPermission(){ return this.permission; } 
-  setTitle(Title:String){ this.title=Title; }  
-  public getCommunity(){ return this.community; }
-  getCurrentUser(){ return this.userName; }
-  getCurrentEmail(){ return this.userEmail; }
-  getCurrentID(){ return this.userID; }
-  getlogin(){ return this.isLoggedIn; }
-
 
   login(username:HTMLInputElement, password:HTMLInputElement)
   {
@@ -109,7 +105,7 @@ export class ServiceService
       this.userID = user.uid;
       this.connectType="mail";
 
-      let temp = this.users.subscribe((snapshots)=>
+      let temp = this.usersFBList.subscribe((snapshots)=>
       {
         this.usersValues_Arr=[];
         snapshots.forEach(snapshot => 
@@ -122,18 +118,18 @@ export class ServiceService
       
       this.allSubscribe.push(temp);
       let status;
-      let temp1 = this.users.subscribe(snapshots => 
+      let temp1 = this.usersFBList.subscribe(snapshots => 
       {
         snapshots.some(snapshot => 
         {
           let temp=snapshot.val();      
-          if(this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email||this.userEmail==snapshot.val().email)
+          if( this.userEmail == snapshot.val().email)
           {
-            this.permission=temp.permission;
-            this.community=temp.associatedCommunity;
-            this.userName=temp.name;
-            this.userID=snapshot.key;
-            this.isLoggedIn=true;
+            this.permission = temp.permission;
+            this.community = temp.associatedCommunity;
+            this.userName = temp.name;
+            this.userID = snapshot.key;
+            this.isLoggedIn = true;
           }
         });
       });
@@ -143,17 +139,16 @@ export class ServiceService
       alert("Email or password incorrect");
     });
 
-    password.value=null;
-    username.value=null;
+    password.value = null;
+    username.value = null;
   }
 
-  
   logout()
   {
     this.allSubscribe.forEach((item) => item.unsubscribe);
     this.anguarfireAuth.auth.signOut();
-    this.isLoggedIn=false;
-    this.title="home";
+    this.isLoggedIn = false;
+    this.title = "home";
   }
 
   FBlogin()
@@ -165,10 +160,10 @@ export class ServiceService
       this.userName = user.user.displayName;
       this.userEmail = user.user.email;
       this.userID = user.user.uid;
-      this.connectType="facebook";
+      this.connectType = "facebook";
 
-      if (this.checkIfUser()==true)
-        this.isLoggedIn=true;  
+      if (this.checkIfUser() == true)
+        this.isLoggedIn = true;  
     })
     .catch((error)=>
     {
@@ -183,13 +178,13 @@ export class ServiceService
 
     firebase.auth().signInWithPopup(provider).then((user)=>
     {
-      this.connectType="google";
+      this.connectType = "google";
       this.userName = user.user.displayName;
       this.userEmail = user.user.email;
       this.userID = user.user.uid;
 
-      if (this.checkIfUser()==true)
-              this.isLoggedIn=true;
+      if (this.checkIfUser() == true)
+        this.isLoggedIn = true;
     })
     .catch((error)=>
     {
@@ -197,11 +192,9 @@ export class ServiceService
     });
   }
 
-
-
   TWITlogin()
   {
-    this.connectType="twitter";
+    this.connectType = "twitter";
 
   /*
   var provider = new firebase.auth.TwitterAuthProvider();
@@ -225,5 +218,18 @@ export class ServiceService
       alert("Email or password incorrect");
   });
   */
-  }
+}
+
+
+
+//getters & setters
+  public getKey(){ return this.userID; }
+  public getPermission(){ return this.permission; } 
+  setTitle(Title:String){ this.title=Title; }  
+  public getCommunity(){ return this.community; }
+  getCurrentUser(){ return this.userName; }
+  getCurrentEmail(){ return this.userEmail; }
+  getCurrentID(){ return this.userID; }
+  getlogin(){ return this.isLoggedIn; }
+
 }
