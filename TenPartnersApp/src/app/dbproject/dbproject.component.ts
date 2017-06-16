@@ -136,6 +136,12 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
 
   private viewComments() {
     this.view = !this.view;
+
+    if(this.view==false)
+      {
+        this.close.emit();
+
+      }
   }
 
   //======================================  viewMore  ===============================================================================================
