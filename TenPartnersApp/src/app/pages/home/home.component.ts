@@ -13,10 +13,14 @@ import { ServiceService } from '../../service.service';
   styleUrls: ['./home.component.css']
 })
 
+//========================= HomeComponent class ==================================================================
+
 export class HomeComponent implements OnInit 
 {
-  community: string;
-  communitiesFBList: FirebaseListObservable<any>;
+  private community: string;
+  private communitiesFBList: FirebaseListObservable<any>;
+
+  //=========================  constructor  =====================================================================
 
   constructor(private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
   {
@@ -24,12 +28,16 @@ export class HomeComponent implements OnInit
     this.community = '';
   }
 
+  //==========================  ngOnInit  =======================================================================
+  
   ngOnInit() 
   {
     this.service.setTitle("Home");
   }
 
-  addCommunity() 
+  //========================== addCommunity ======================================================================
+
+  private addCommunity() 
   {
     if (this.community == '') 
     {
@@ -48,7 +56,9 @@ export class HomeComponent implements OnInit
           this.community = '';
   }
 
-  doesCommunityExist() 
+  //====================== doesCommunityExist =====================================================================
+
+  private doesCommunityExist() 
   {
     let status = false;
     let temp = this.communitiesFBList.subscribe((snapshots) => 
@@ -68,7 +78,7 @@ export class HomeComponent implements OnInit
 
     return status;
   }
-  
+
 }
 
 /*
