@@ -65,6 +65,8 @@ constructor(private serviceService:ServiceService, private router: Router, publi
 
 commentOpen(key:string)
 {
+  //adva delete this. not all if have a problem
+ //toceckifheveproblem 
   //this.currentProjecOpentKey=key;
 }
 
