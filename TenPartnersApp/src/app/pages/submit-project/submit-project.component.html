@@ -1,14 +1,14 @@
 <div class="SubmitProject">
   <div class="container">
-	<div class="row">
+	  <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <form class="form-horizontal" action="" method="post">
+        <form class="form-horizontal" action="" method="post">
           <fieldset> <br>   
             <!-- Name input-->
             <div class="form-group">
               <label class="col-md-3 control-label" for="ProjectName" >Project's Name</label>
               <div class="col-md-9">
-                <input [(ngModel)] = "Name" class="form-control" id="ProjectName" name="ProjectName" maxlength="10" type="text" placeholder="maximum 10 characters">
+                <input [(ngModel)] = "name" class="form-control" id="ProjectName" name="ProjectName" maxlength="10" type="text" placeholder="maximum 10 characters">
               </div>
             </div>
     
@@ -16,7 +16,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="Purpose">Purpose for the Jewish community</label>
               <div class="col-md-9">
-                <input [(ngModel)] = "Purpose" class="form-control" id="Purpose" name="Purpose" maxlength="32" placeholder="maximum 32 characters">
+                <input [(ngModel)] = "purpose" class="form-control" id="Purpose" name="Purpose" maxlength="32" placeholder="maximum 32 characters">
              
               </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="form-group">
               <label class="col-md-3 control-label" for="Description">Description</label>
               <div class="col-md-9">
-                <textarea [(ngModel)] = "Description" class="form-control" id="Description" name="Description" placeholder="Please enter the project's description here" rows=15></textarea>
+                <textarea [(ngModel)] = "description" class="form-control" id="Description" name="Description" placeholder="Please enter the project's description here" rows=15></textarea>
               </div>
             </div>
 
@@ -36,9 +36,9 @@
               </div>
             </div>
           </fieldset>
-          </form>
+        </form>
       </div>
-	</div>
-</div>
+	  </div>
+  </div>
 
 </div>
