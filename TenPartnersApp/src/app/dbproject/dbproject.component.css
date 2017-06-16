@@ -86,7 +86,7 @@ span
 .glyphicon-heart
 {
 	display: inline-block;
-	position: relative;
+	position: unset;
 	margin-right:5px; 
 }
 
