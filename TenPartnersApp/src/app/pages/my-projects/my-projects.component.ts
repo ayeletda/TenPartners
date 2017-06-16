@@ -17,6 +17,7 @@ import { ServiceService } from '../../service.service';
 export class MyProjectsComponent implements OnInit 
 {
   // variabels
+  private noProjects:boolean;
   userId: string;
   userCommunity: string;
   
@@ -34,6 +35,7 @@ export class MyProjectsComponent implements OnInit
 
   constructor(private router: Router,private service:ServiceService, public af: AngularFireDatabase) 
   {
+    this.noProjects= true;
     this.userId = this.service.getCurrentID();
     this.user = this.af.list('users/' + this.userId); // the specific user
     this.currentProject = '';
@@ -82,6 +84,7 @@ export class MyProjectsComponent implements OnInit
   saveProjectPath(project, i)
   {
     this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
+    this.noProjects = false;
     return true;
   }
 
