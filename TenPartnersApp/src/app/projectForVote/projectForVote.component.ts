@@ -52,14 +52,14 @@ export class ProjectForVoteComponent implements OnInit
   constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     //initializes variables with deafult values
-    // this.projectName = '';
-    // this.projectDate = null;
-    // this.projectUplodeDate = null;
-    // this.leftDays = -1;
-    // this.voteStatus = '';
-    // this.projectFBList = null;
-    // this.projectFBObject = null;
-    // this.usersVotingFBList = null;
+    this.projectName = '';
+    this.projectDate = null;
+    this.projectUplodeDate = null;
+    this.leftDays = -1;
+    this.voteStatus = '';
+    this.projectFBList = null;
+    this.projectFBObject = null;
+    this.usersVotingFBList = null;
 
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.getDetails(this.user);

@@ -12,13 +12,12 @@ import {ServiceService} from '../../service.service';
   styleUrls: ['./login.component.css']
 })
 
+//=============================================  VotingComponent class  ============================================================
+
 export class LoginComponent implements OnInit 
 {
-
-
   constructor(private serviceService:ServiceService, private router:Router)
-  {
-    
+  {   
   }
 
   ngOnInit() {}
@@ -42,16 +41,20 @@ export class LoginComponent implements OnInit
   {
     this.serviceService.TWITlogin();
   }
+   
+  private afterLogin() 
+  {
+    //if it's admin
+    if(this.serviceService.getPermission()=="1")
+      this.router.navigateByUrl('/home');
 
-  private afterLogin() {
-    if(this.serviceService.getPermission()=="2")
-                      this.router.navigateByUrl('/voting');
-                  
+    //if it's authorized user
+    else if(this.serviceService.getPermission()=="2")
+      this.router.navigateByUrl('/voting');
 
-            else if(this.serviceService.getPermission()=="1")
-                       this.router.navigateByUrl('/home');
-  }
+    //if it's blocked user
+    else if(this.serviceService.getPermission()=="3")
+     this.router.navigateByUrl('');
 
-
+   }
 }
-
