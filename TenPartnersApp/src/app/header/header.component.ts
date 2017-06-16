@@ -11,26 +11,28 @@ import {ServiceService} from '../service.service';
   styleUrls: ['./header.component.css']
 })
 
+//======================== HeaderComponent class ===============================================================
+
 export class HeaderComponent implements OnInit 
 {
-  
   private _opened: boolean = false;
 
-  constructor(private router: Router,private serviceService:ServiceService) { }
+  constructor(private router: Router,private serviceService:ServiceService) 
+  {
+  }
 
   @Input()item;
 
   ngOnInit() {}
   
-  private logOut(){
+  private logOut()
+  {
     this.serviceService.logout();
   }
 
-
-  private _toggleSidebar() {
+  private _toggleSidebar() 
+  {
     this._opened = !this._opened;
   }
-
-
 
 }
