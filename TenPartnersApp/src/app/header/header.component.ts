@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit
 {
   private _opened: boolean = false;
 
-  constructor(private router: Router,private serviceService:ServiceService) 
+  constructor(private router: Router, private service:ServiceService) 
   {
   }
 
@@ -27,7 +27,7 @@ export class HeaderComponent implements OnInit
   
   private logOut()
   {
-    this.serviceService.logout();
+    this.service.logout();
   }
 
   private _toggleSidebar() 

@@ -6,46 +6,57 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { ChangeDetectorRef } from "@angular/core";
 import { ServiceService } from '../../service.service';
 
-@Component({
+@Component(
+{
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
 
-
+export class HomeComponent implements OnInit 
+{
   community: string;
-  communities: FirebaseListObservable<any>;
+  communitiesFBList: FirebaseListObservable<any>;
 
-  constructor(private router: Router, private serviceService: ServiceService, public af: AngularFireDatabase) {
-
-    this.communities = this.af.list('communities',{ preserveSnapshot: true });
+  constructor(private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
+  {
+    this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
     this.community = '';
   }
 
-  ngOnInit() {
-    this.serviceService.setTitle("Home");
+  ngOnInit() 
+  {
+    this.service.setTitle("Home");
   }
 
-  addCommunity() {
-    if (this.community == '') {
+  addCommunity() 
+  {
+    if (this.community == '') 
+    {
       alert('Enter a community name');
       return;
-    } else if (!this.doesCommunityExist()) {
-      this.communities.push({ name: this.community });
+    }
+    else if (!this.doesCommunityExist()) 
+    {
+      this.communitiesFBList.push({ name: this.community });
       alert('Community is added');
-    } else {
+    }
+    else 
+    {
       alert('This community already exists');
     }
           this.community = '';
-
   }
 
-  doesCommunityExist() {
+  doesCommunityExist() 
+  {
     let status = false;
-    let temp = this.communities.subscribe((snapshots) => {
-      snapshots.some(snapshot => {        
-        if (snapshot.val().name == this.community) {
+    let temp = this.communitiesFBList.subscribe((snapshots) => 
+    {
+      snapshots.some(snapshot => 
+      {        
+        if (snapshot.val().name == this.community) 
+        {
           //        alert('This community already exists');
           //        this.community = '';
           status=true;
@@ -53,14 +64,11 @@ export class HomeComponent implements OnInit {
       });
     });
 
-    this.serviceService.allSubscribe.push(temp);
+    this.service.allSubscribe.push(temp);
 
     return status;
-
   }
-
-
-
+  
 }
 
 /*
