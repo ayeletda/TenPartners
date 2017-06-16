@@ -8,7 +8,6 @@ main
     color: black;
     height: 100%;
     width: 137px; /* =======>>>>>>>>>> HEREEEEEE */
-	border: 2%;
     border-color: #E3E3E3;
     background-color: #FFFFF5;
     border-style: solid;
@@ -35,7 +34,6 @@ p
 {
     text-align: center;
     display: block;
-    float:  center;
 }
 
 #clock
@@ -53,8 +51,8 @@ p
 #like, #unlike, .projectName
 {
     margin: 5%;
-    margin-top: 0%;
-    margin-bottom: 0%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #like
@@ -74,7 +72,7 @@ p
 
 #txtAssigned
 {
-    margin-bottom: 0%;
+    margin-bottom: 0;
     float: left;
     margin-left: 4%;
 }
@@ -93,7 +91,7 @@ label
     float: left;
     text-align: center;
     padding-top: 2%;
-    margin: 0%;
+    margin: 0;
 }
 /* ============================ colors for CSS of this component ======================= */
 
@@ -139,6 +137,9 @@ label
 
  @media only screen and (min-height: 1366px)
 {
+     main{
+         width:340px;
+     }
      #up
     {
         height: 200px;
@@ -164,6 +165,9 @@ label
 
  @media only screen and (min-height: 1024px)
 {
+     main{
+         width:340px;
+     }
      #up
     {
         height: 180px;
@@ -189,6 +193,7 @@ label
 
 @media only screen and (min-height: 1366px)
 {
+
      #up
     {
         height: 200px;
@@ -214,6 +219,9 @@ label
 
 @media only screen and (max-height: 736px)
 {
+    main{
+        width:138px;
+    }
     #up
     {
          height: 100px;   
@@ -223,6 +231,9 @@ label
 
 @media only screen and (max-height: 732px)
 {
+    main{
+        width:138px;
+    }
     #up
     {
         height: 100px;
@@ -232,6 +243,9 @@ label
 
 @media only screen and (max-height: 667px )
 {
+    main{
+        width:125px;
+    }
     #up
     {
         height: 90px;
@@ -251,6 +265,9 @@ label
 
 @media only screen and (max-height: 640px)
 {
+    main{
+        width:120px;
+    }
     #up
     {
         height: 90px;
@@ -265,11 +282,17 @@ label
     {
         font-size: 15px;
     }
+    .vertical-menu2{
+        height: 210px;
+    }
 }
 
 
 @media only screen and (max-height: 568px)
 {
+    main{
+        width: 120px;
+    }
     #up
     {
         height: 80px;
@@ -288,5 +311,34 @@ label
     #like, #unlike
     {
         font-size: 17px;
+    }
+    .vertical-menu2 {
+        height: 210px;
+    }
+}
+@media only screen and (min-width: 768px){
+    main{
+        width: 255px;
+    }
+    .vertical-menu2 {
+        height: 476px;
+    }
+}
+@media only screen and (min-width: 1024px){
+    @media only screen and (min-height: 1366px){
+        main{
+            width: 340px;
+        }
+        .vertical-menu2[_ngcontent-c3] {
+            height: 747px;
+        }
+    }
+
+
+
+}
+@media only screen and (max-width: 320px){
+    main{
+        width: 106px;
     }
 }

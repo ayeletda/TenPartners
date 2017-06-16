@@ -116,6 +116,7 @@ p
 .temp
 {
   display: inline-block;
+ // width: 31vw;
 }
 
 /* ============================ CSS of input ======================= */
