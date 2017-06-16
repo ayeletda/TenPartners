@@ -1,7 +1,5 @@
 <div class="home">
   <br>
-  <label class="col-lg-12 col-md-12 col-sm-12 col-xs-12" class="intoduction">Admin's pages:</label>
-  <br>
   <!-- add a community -->
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
     <div class="input-group">
@@ -9,11 +7,39 @@
         <button class="btn btn-default" (click)="addCommunity()" 
         type="button">add community</button>
       </span>
-      <input [(ngModel)]="community" type="text" class="form-control" 
-      placeholder="Enter the community name here">
+      <input [(ngModel)]="adcommunity" type="text" class="form-control" placeholder="maximum 20 letters">
     </div>
-      <!-- /input-group -->
   </div>
+  <br>
+  <br>
+
+  <!-- Choose a community -->
+  <div class="form-group">
+    <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Community</label>
+    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+      <select class="form-control">
+          <option value="">Community</option>
+          <option value = {{community.name}} *ngFor = "let community of adcommunityFBList | async"> {{ community.name }} </option>
+        </select>
+    </div>
+  </div>
+
+
+
+
+  <!-- Delete a community -->
+  <div class="form-group">
+    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
+      <button type="delete" class="btn btn-danger btn-md" (click)="deleteCommunity()"><i class="fa fa-trash-o fa-lg"></i> Delete </button>
+    </div>
+  </div>
+
+
+
+
+
+
+
 </div>
 
 

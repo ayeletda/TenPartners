@@ -17,15 +17,20 @@ import { ServiceService } from '../../service.service';
 
 export class HomeComponent implements OnInit 
 {
+  private adcommunity: string;
   private community: string;
   private communitiesFBList: FirebaseListObservable<any>;
+  private adcommunityFBList: FirebaseListObservable<any>;
+  
 
   //=========================  constructor  =====================================================================
 
   constructor(private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
   {
     this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
-    this.community = '';
+    this.adcommunityFBList = this.af.list('communities');
+    this.adcommunity = '';
+    
   }
 
   //==========================  ngOnInit  =======================================================================
@@ -39,21 +44,21 @@ export class HomeComponent implements OnInit
 
   private addCommunity() 
   {
-    if (this.community == '') 
+    if (this.adcommunity == '') 
     {
       alert('Enter a community name');
       return;
     }
     else if (!this.doesCommunityExist()) 
     {
-      this.communitiesFBList.push({ name: this.community });
+      this.communitiesFBList.push({ name: this.adcommunity });
       alert('Community is added');
     }
     else 
     {
       alert('This community already exists');
     }
-          this.community = '';
+          this.adcommunity = '';
   }
 
   //====================== doesCommunityExist =====================================================================
@@ -65,12 +70,8 @@ export class HomeComponent implements OnInit
     {
       snapshots.some(snapshot => 
       {        
-        if (snapshot.val().name == this.community) 
-        {
-          //        alert('This community already exists');
-          //        this.community = '';
+        if (snapshot.val().name == this.adcommunity) 
           status=true;
-        }
       });
     });
 
@@ -80,6 +81,18 @@ export class HomeComponent implements OnInit
   }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 

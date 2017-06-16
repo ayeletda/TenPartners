@@ -6,7 +6,8 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { ChangeDetectorRef } from "@angular/core";
 import { ServiceService } from '../../service.service';
 
-@Component({
+@Component(
+{
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
@@ -28,7 +29,8 @@ export class AddUserComponent implements OnInit {
   // projectsValues_Arr: any;
   // public messages: FirebaseListObservable<any>;
 
-  constructor(private router: Router, private serviceService: ServiceService, public af: AngularFireDatabase) {
+  constructor(private router: Router, private serviceService: ServiceService, public af: AngularFireDatabase)
+  {
     this.UserName = "";
     //    this.Community="";
     this.TenPartnersAccount = "";
@@ -50,18 +52,18 @@ export class AddUserComponent implements OnInit {
     if (this.UserName != "" && this.TenPartnersAccount != "" && this.Password != "" && this.Community != "Community") {
       //      if (this.checkUserName()==true)
       //        alert("this username already exist");
-      
+
 
 
       this.serviceService.registerUsers(this.TenPartnersAccount, this.Password);
       this.users = this.af.list('users');
       this.users.push({
-        name: this.UserName+"", email: this.TenPartnersAccount+"", facebook: this.FacebookAccount+"",
-        google: this.GoogleAccount+"", twitter: this.TwitterAccount+"", associatedCommunity: this.Community+"",
-        permission: this.Permission+""
+        name: this.UserName + "", email: this.TenPartnersAccount + "", facebook: this.FacebookAccount + "",
+        google: this.GoogleAccount + "", twitter: this.TwitterAccount + "", associatedCommunity: this.Community + "",
+        permission: this.Permission + ""
       });
 
-      alert("user is saved");
+      alert("The user is added");
 
       this.UserName = "";
       this.Permission = "";
@@ -70,48 +72,12 @@ export class AddUserComponent implements OnInit {
       this.FacebookAccount = "";
       this.GoogleAccount = "";
       this.TwitterAccount = "";
-      this.Community = "";
     }
 
-    /*
-      checkUserName(){
-      var status=false;
-      this.users.subscribe(snapshots => {
-        snapshots.some(snapshot => {
-          console.log(snapshot.val().mail);
-          var temp=snapshot.val();      
-          if(this.userEmail==temp.email||this.userEmail==temp.google||this.userEmail==temp.facebook)
-            {
-              console.log("hereee");
-              this.permission=temp.permission;
-              this.community=temp.associatedCommunity;
-              this.userName=temp.name;
-              status =true;
-              return status;
-            }
-          });
-        });
-        return status;
-      }
-    */
+
     else alert("something's missing");
 
 
   }
 
-  sendProject() {
-    /*    console.log("hrhr "+ this.Name + this.Description+this.Purpose);
-    
-        if(this.Name==""||this.Description==""||this.Purpose=="")
-            alert("something's missing");
-    
-        else {
-          this.projects.update(this.Name ,{name: this.Name, description: this.Description,purpose: this.Purpose,associatedCommunities: "NULL"});
-          this.Name = '';
-          this.Description="";
-          this.Purpose="";
-           alert("your project send!");
-          }
-    */
-  }
 }
