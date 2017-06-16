@@ -3,24 +3,10 @@
 	border: none;
 }
 
-.btn-default:active 
+.btn-default:active, .btn-default:after, a:active, .afterClick
+
 {
 	color: darkblue;
-}
-
-.btn-default:after
-{
-	color: darkblue;
-}
-
-a:active
-{
-	color: darkblue;	
-}
-
-.afterClick
-{
-	color: darkblue;	
 }
 
 .footer

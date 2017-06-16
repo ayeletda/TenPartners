@@ -1,4 +1,5 @@
-.title{
+.title
+{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center; 
@@ -7,47 +8,51 @@
     margin-right: 50px;
 }
 
-.head{
-    background-color: darkblue ; 
-    height: 40px;
-    width: 100%;
-    position: fixed;
-     top: 0;
-     margin-bottom: 35px;
-     z-index: 10;
-    margin: 0;
-    padding: 0;
-    display: inline-flex;
-    overflow: hidden;
-	border: 1.5px solid #cccccc;
-
+.head
+{
+  background-color: darkblue ; 
+  height: 40px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  margin-bottom: 35px;
+  z-index: 10;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  overflow: hidden;
+  border: 1.5px solid #cccccc;
 }
 
-.onoffswitch1{
+.onoffswitch1
+{
   display: inline;
 }
 
 #settings
 {
-cursor: pointer;
-color: white;
-position: relative;
-margin: 5px;
+  cursor: pointer;
+  color: white;
+  position: relative;
+  margin: 5px;
 }
 
 
-.glyphicon-log-out{
+.glyphicon-log-out
+{
   padding-left: 10px;
 }
 
-.nav{
+.nav
+{
   padding-bottom: 20px;
   font-size: 20px;
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
 }
 
 /* The switch - the box around the slider */
-.switch {
+.switch 
+{
   position: relative;
   display: inline-block;
   width: 60px;
@@ -56,10 +61,14 @@ margin: 5px;
 }
 
 /* Hide default HTML checkbox */
-.switch input {display:none;}
+.switch input 
+{
+  display:none;
+}
 
 /* The slider */
-.slider {
+.slider 
+{
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -71,7 +80,8 @@ margin: 5px;
   transition: .4s;
 }
 
-.slider:before {
+.slider:before 
+{
   position: absolute;
   content: "";
   height: 26px;
@@ -83,44 +93,51 @@ margin: 5px;
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked + .slider 
+{
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+input:focus + .slider 
+{
   box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked + .slider:before 
+{
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
 
 /* Rounded sliders */
-.slider.round {
+.slider.round 
+{
   border-radius: 34px;
 }
 
-.slider.round:before {
+.slider.round:before 
+{
   border-radius: 50%;
 }
 
-.list{
+.list
+{
   padding-top: 60px;
   padding-left: 15px;
   padding-right: 15px;
   height: 100%;
   background-color:#F8F9F9;
   opacity: 0.9;
-
-}
-ng-sidebar-container{
-  opacity: 0.9;
-  
 }
 
-.close {
+ng-sidebar-container
+{
+  opacity: 0.9;  
+}
+
+.close 
+{
   font-size: 29px;
   font-weight: bold;
   line-height: 18px;
@@ -130,7 +147,9 @@ ng-sidebar-container{
   filter: alpha(opacity=20);
   text-decoration: none;
 }
-.close:hover {
+
+.close:hover 
+{
   color: #000000;
   text-decoration: none;
   opacity: 0.4;
