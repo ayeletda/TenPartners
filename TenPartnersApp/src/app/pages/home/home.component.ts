@@ -21,7 +21,9 @@ export class HomeComponent implements OnInit
   private community: string;
   private communitiesFBList: FirebaseListObservable<any>;
   private adcommunityFBList: FirebaseListObservable<any>;
-  
+  private usersArr: any;
+  private usersFBList: any;
+
 
   //=========================  constructor  =====================================================================
 
@@ -29,8 +31,19 @@ export class HomeComponent implements OnInit
   {
     this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
     this.adcommunityFBList = this.af.list('communities');
+    this.usersFBList = this.af.list('communities').take(1);
     this.adcommunity = '';
-    
+
+    let temp = this.usersFBList.subscribe((snapshots)=>
+    {
+      this.usersArr = [];
+      snapshots.forEach(snapshot => 
+      {
+        this.usersArr.push(snapshot);
+      });
+    })
+    //    this.serviceService.allSubscribe.push(temp);
+
   }
 
   //==========================  ngOnInit  =======================================================================

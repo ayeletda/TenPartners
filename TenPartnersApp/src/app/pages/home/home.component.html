@@ -24,7 +24,19 @@
     </div>
   </div>
 
+  <!-- Showing the community's users 
+  it will work after creating a component for a user
 
+  <div class="showCommunity">
+    <div *ngFor="let user of users">
+      <app-comuser *ngIf = "user.associatedCommunity == community.name " [item]="user" [path]="saveProjectPath(project)" [first]="firstC(project.$key)"></app-comuser>
+    </div>
+  </div>
+
+  -->
+
+
+  <!-- For a community component -->
 
 
   <!-- Delete a community -->
@@ -33,10 +45,6 @@
       <button type="delete" class="btn btn-danger btn-md" (click)="deleteCommunity()"><i class="fa fa-trash-o fa-lg"></i> Delete </button>
     </div>
   </div>
-
-
-
-
 
 
 
