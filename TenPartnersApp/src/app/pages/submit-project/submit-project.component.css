@@ -4,7 +4,7 @@
     height: 100%;
 }
 
-
+.form-group,fieldset{border:none;}
 
 .col-lg-12{position: unset;}
 .col-md-12 {position: unset;}
