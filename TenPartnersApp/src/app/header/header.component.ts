@@ -15,7 +15,7 @@ import {ServiceService} from '../service.service';
 
 export class HeaderComponent implements OnInit 
 {
-  private _opened: boolean 
+  private _opened: boolean;
 
   constructor(private router: Router, private service:ServiceService) 
   {

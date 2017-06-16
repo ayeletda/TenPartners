@@ -1,10 +1,10 @@
-.MasterDB{
+.MasterDB
+{
     padding-top: 45px;
     padding-bottom: 69px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     width: 100%;
     height: 100%;
-
 }
 
 .d4
@@ -12,31 +12,42 @@
   overflow: auto;
   max-height: 100%;
 }
-.d5 {
+
+.d5 
+{
     min-width: 0px;
     max-height: 75vh;
 }
 
-.input-group{
+.input-group
+{
     margin-left: 0.5%;
 	margin-right: 0.5%;
     position: unset;
 }
 
-.input{position: unset;}
+.input
+{
+    position: unset;
+}
 
-.col-md-12, .form-control, .input-lg{position: unset;}
+.col-md-12, .form-control, .input-lg
+{
+    position: unset;
+}
 
-.title{
+.title
+{
     font-size: 30px;
 }
-details{
+
+details
+{
     left: 0;
 }
 
-
-
-summary{
+summary
+{
     padding-top: 15px;
     margin-top: 5px;
     margin-bottom: 5px;
@@ -49,10 +60,9 @@ summary{
     border: 1.5px solid #cccccc;
 	box-shadow: 0 0 10px #e6e6e6;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-
-
 }
 
-p{
+p
+{
     font-size: 15px;
 }

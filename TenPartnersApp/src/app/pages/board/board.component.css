@@ -1,7 +1,7 @@
 .body2
 {
     margin-top: 10%;
-    background-color: #E3E3E3;
+    background-color: #E5E7E9;
 }
 
 .part1
@@ -43,16 +43,14 @@
 
 
 .part2 {
-    background-color: #E3E3E3;
+    background-color: #E5E7E9;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 .part3 {
-    margin-left: 30%;
-    margin-right: 30%;
-    margin-top: -7%;
-
+    width: 100%;
+    text-align: center;
 }
 
 /*========================================= CSS for the chat ============================================*/
@@ -82,6 +80,7 @@ p {
     display: inline-block;
     overflow-x: hidden;
     overflow-y: scroll;
+    height: 50vh;
 }
 
 /* ====================== CSS of vertical-menu-x ======================= */
@@ -99,16 +98,11 @@ input::placeholder {
 }
 
 #chooseProject {
-    background-color: green; /* Green */
+    background-color: green;
     color: white;
-    border-radius: 12%;
-    padding: 6%;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: -3% 23%;
-    cursor: pointer;
+    padding: 7px 20px;
+    border: 0;
+    border-radius: 7px;
 }
 
 .details {
@@ -163,9 +157,7 @@ input::placeholder {
 /*=================================== fixing heights according to the screen's size ======================================== */
 
 @media only screen and (max-height: 1366px) {
-    .vertical-menu1 {
-        height: 820px;
-    }
+
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -186,9 +178,7 @@ input::placeholder {
 }
 
 @media only screen and (max-height: 1024px) {
-    .vertical-menu1 {
-        height: 600px;
-    }
+
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -208,9 +198,7 @@ input::placeholder {
 }
 
 @media only screen and (max-height: 736px) {
-    .vertical-menu1 {
-        height: 439px;
-    }
+
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -231,9 +219,7 @@ input::placeholder {
 }
 
 @media only screen and (max-height: 732px) {
-    .vertical-menu1 {
-        height: 410px;
-    }
+
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -253,9 +239,7 @@ input::placeholder {
 }
 
 @media only screen and (max-height: 667px) {
-    .vertical-menu1 {
-        height: 367px;
-    }
+
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -280,9 +264,7 @@ input::placeholder {
 }
 
 @media only screen and (max-height: 640px) {
-    .vertical-menu1 {
-        height: 340px;
-    }
+
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -302,9 +284,7 @@ input::placeholder {
 }
 
 @media only screen and (max-height: 568px) {
-    .vertical-menu1 {
-        height: 288px;
-    }
+
     ::-webkit-scrollbar {
         width: 7px;
     }
@@ -321,4 +301,13 @@ input::placeholder {
         font-size: 14px;
     }
 
+}
+
+
+/** Overdue by r */
+
+@media screen and (min-width: 768px) {
+    .body2 {
+        margin-top: 5%;
+    }
 }

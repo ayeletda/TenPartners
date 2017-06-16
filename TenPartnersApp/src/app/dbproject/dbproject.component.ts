@@ -15,7 +15,8 @@ import { ServiceService } from '../service.service';
 
 //=============================  DBprojectComponent class  ===========================================================================================
 
-export class DBprojectComponent implements OnInit {
+export class DBprojectComponent implements OnInit 
+{
   @ViewChild('scrollMe') private myScrollContainer: ElementRef;
 
   @Output() sendComment: EventEmitter<any> = new EventEmitter();
@@ -46,7 +47,8 @@ export class DBprojectComponent implements OnInit {
   private islike: boolean;
   //====================================  constructor  ===========================================================================================
 
-  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) {
+  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
+  {
     //initializes
     this.community = "";
     this.newComment = "";
@@ -59,7 +61,8 @@ export class DBprojectComponent implements OnInit {
 
   //=======================================  ngOnInit  ===========================================================================================
 
-  ngOnInit() {
+  ngOnInit() 
+  {
     this.commentsFBList = this.af.list(this.path + "/comments",
       {
         query:
@@ -85,8 +88,10 @@ export class DBprojectComponent implements OnInit {
 
   //=======================================  addComment  ================================================================================================
 
-  private addComment() {
-    if (this.newComment != "") {
+  private addComment() 
+  {
+    if (this.newComment != "") 
+    {
       this.commentsFBList = this.af.list(this.path + "/comments/");
       let date = new Date().toLocaleString();
       let community = this.user.community;
@@ -98,15 +103,18 @@ export class DBprojectComponent implements OnInit {
 
   //====================================  checkIfdoLike  ===================================================================================================
 
-private checkIfdoLike(){
-
-this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true });
+  private checkIfdoLike()
+  {
+    this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true });
     let status = false;
-    let temp = this.likesFBList.subscribe(snapshots => {
-      snapshots.some(snapshot => {
+  
+    let temp = this.likesFBList.subscribe(snapshots => 
+    {
+      snapshots.some(snapshot => 
+      {
         let temp1 = snapshot.key;
-
-        if (this.user.id == temp1) {
+        if (this.user.id == temp1) 
+        {
           status = true;
         }
       });
@@ -115,55 +123,56 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.allSubscribe.push(temp);
     return status;
-
-
-}
+  }
 
   //====================================  doLike  ===================================================================================================
 
-
-  private doLike() {
-      this.islike=!this.islike;
-      if(this.checkIfdoLike()==false)
-              this.likesFBList.update(this.user.id+"",{userName: this.user.name});
-       else{
+  private doLike() 
+  {
+    this.islike =! this.islike;
+    if(this.checkIfdoLike() == false)
+      this.likesFBList.update(this.user.id+"",{userName: this.user.name});
+    else
+    {
       const itemObservable = this.af.object(this.path + "/likes/" + this.user.id);
       itemObservable.remove();
-       }       
+    }       
   }
 
   //====================================  viewComments  ===================================================================================================
 
-  private viewComments() {
+  private viewComments() 
+  {
     this.view = !this.view;
     this.close.emit();
-
   }
 
   //======================================  viewMore  ===============================================================================================
 
-  private viewMore() {
+  private viewMore() 
+  {
     this.more = !this.more;
-    if (this.view == true) {
+    if (this.view == true) 
       this.view = false;
-    }
 
     this.close.emit();
-
   }
 
   //=======================================  checkIfExist  =============================================================================================
 
-  private checkIfExist() {
+  private checkIfExist() 
+  {
     this.projectFBList = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
+    
     let status = false;
-    let temp = this.projectFBList.subscribe(snapshots => {
-      snapshots.some(snapshot => {
+    let temp = this.projectFBList.subscribe(snapshots => 
+    {
+      snapshots.some(snapshot => 
+      {
         let temp1 = snapshot.key;
 
-        if (this.user.community == temp1 || this.community == temp1) {
+        if (this.user.community == temp1 || this.community == temp1) 
           status = true;
-        }
       });
     });
 
@@ -174,8 +183,10 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
 
   //==========================================  Nominate  =======================================================================================
 
-  private Nominate() {
-    if (this.checkIfExist() == false) {
+  private Nominate() 
+  {
+    if (this.checkIfExist() == false) 
+    {
       let cost = prompt("Please enter the project cost", "100$");
       let date = prompt("Please enter the project date", "dd/mm/yyyy");
 
@@ -193,9 +204,12 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
 
   //=========================================  pushToBoard  ==================================================================================================
 
-  private pushToBoard() {
-    if (this.community != "") {
-      if (this.checkIfExist() == false) {
+  private pushToBoard() 
+  {
+    if (this.community != "") 
+    {
+      if (this.checkIfExist() == false) 
+      {
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
         this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });
         alert("project pushed")
@@ -210,10 +224,12 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
 
   //=======================================  removeComment  ==========================================
 
-  private removeComment(commentkey: string) {
+  private removeComment(commentkey: string) 
+  {
     let meessage = "Are you sure you want to delete the comment?";
 
-    if (confirm(meessage)) {
+    if (confirm(meessage)) 
+    {
       const itemObservable = this.af.object(this.path + "/comments/" + commentkey);
       itemObservable.remove();
       this.sendComment.emit(this.item.$key);
@@ -222,8 +238,10 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
 
   //=======================================  scrollToBottom  ==========================================
 
-  private scrollToBottom() {
-    try {
+  private scrollToBottom() 
+  {
+    try 
+    {
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     }
     catch (err) { }

@@ -69,7 +69,7 @@ Please visit our wiki for furthur project info:
 - [Iteration 1 - MVP](../../wiki/iter1-MVP)
 - [Iteration 2 - Corrections](../../wiki/iter2-Corrections)
 - [Iteration 3 - Functionality](../../wiki/iter3-Functionality)
-- [Iteration 4 - Feature Z](../..//wiki/iter4-FeatureZ)
+- [Iteration 4 - Tests](../..//wiki/iter4-Tests)
 
 
 
