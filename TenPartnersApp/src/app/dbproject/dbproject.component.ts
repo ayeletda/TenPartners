@@ -123,7 +123,6 @@ this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true 
 
 
   private doLike() {
-      console.log("like: "+this.checkIfdoLike());
       this.islike=!this.islike;
       if(this.checkIfdoLike()==false)
               this.likesFBList.update(this.user.id+"",{userName: this.user.name});
