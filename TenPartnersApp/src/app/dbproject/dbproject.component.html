@@ -22,7 +22,7 @@
           <div *ngIf="view" class="w3-animate-opacity">
             <div #scrollMe class="d4">
               <div class="d5">
-                <div *ngFor="let comment of comments | async">
+                <div *ngFor="let comment of commentsFBList | async">
                   <a aria-label="Delete" *ngIf="comment.authorKey == myKey" (click)="removeComment(comment.$key)">
 	              	<i class = "fa fa-trash-o pull-right" aria-hidden = "true"></i>
                 	</a>
@@ -53,9 +53,9 @@
 
 
       <div class="social">
-        <button class="btn btn-primary btn-lg center-block" *ngIf="serviceService.getPermission()=='2'" (click)="Nominate()">Nominate</button>
+        <button class="btn btn-primary btn-lg center-block" *ngIf="user.permmision == '2'" (click)="Nominate()">Nominate</button>
 
-        <div class="row" *ngIf="serviceService.getPermission()=='1'">
+        <div class="row" *ngIf="user.permmision == '1'">
           <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-btn">
@@ -63,7 +63,7 @@
       </span>
               <select [(ngModel)]="community" class="form-control">
       <option value="">Community</option>
-      <option value = {{community.name}}  *ngFor = "let community of communities | async"> {{ community.name }} </option>
+      <option value = {{community.name}}  *ngFor = "let community of communitiesFBList | async"> {{ community.name }} </option>
      </select>
             </div>
             <!-- /input-group -->
