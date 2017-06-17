@@ -145,7 +145,6 @@ export class ServiceService
 
   logout()
   {
-    console.log("subscribe length"+ this.allSubscribe.length());
     this.allSubscribe.forEach((item) => item.unsubscribe);
     this.anguarfireAuth.auth.signOut();
     this.isLoggedIn = false;
