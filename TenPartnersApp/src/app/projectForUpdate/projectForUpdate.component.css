@@ -1,5 +1,6 @@
 
-main {
+main
+{
 	box-sizing: border-box;
 	border-radius: 5px;
 	border: 1.5px solid #cccccc;
@@ -13,28 +14,33 @@ main {
 	width: 100%;
 }
 
-.card {
+.card 
+{
 	height: 100%;
 	background: red;
 	position: unset;
 }
 
-i {
+i 
+{
 	font-size: 20px;
 	padding-left: 10px;
 	display: inline-block;
 }
 
-.row {
+.row 
+{
 	margin-left: 25px;
 	padding: 3px;
 }
 
-a {
+a 
+{
 	margin-right: 6px;
 }
 
-.btn-danger {
+.btn-danger 
+{
     color: #fff;
     background-color: #00008b;
 	margin-right: 6px;
@@ -42,31 +48,37 @@ a {
 	position: unset;
 }
 
-input {
+input 
+{
 	margin-right: 6px;
 	max-width: 40%;
 }
 
-.budgetInput {
+.budgetInput 
+{
 	display: inline;
 }
 
-.dateInput {
+.dateInput 
+{
 	margin-left: 26px;
 	display: inline;
 }
 
-.fa-trash-o {
+.fa-trash-o 
+{
 	color: red;
 	font-size: 25px;
 	padding-top: 3px;
 	padding-right: 3px;
 }
 
-.fa-check {
+.fa-check 
+{
 	display: inline-block;
 }
 
-.fa-times {
+.fa-times 
+{
 	display: inline-block;
 }

@@ -12,29 +12,32 @@ import { ChangeDetectorRef, Input, Output} from "@angular/core";
   styleUrls: ['./projectForUpdate.component.css']
 })
 
+//=============================  ProjectForUpdate class ============================================
+
 export class ProjectForUpdateComponent implements OnInit
 {
   @Input() item;
-
+  
   // variables
   private projectName: string;
-  private updateDateFlag: boolean;
-  private updateCostFlag: boolean;
 
   // pointers to object or list in firebase
-  private projects: FirebaseListObservable<any>;
+  private projectsFBList: FirebaseListObservable<any>;
   private pointerToProjectInAF: any;
-  private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
-  private card:boolean;
+  private projectFBObject: FirebaseObjectObservable<any>;
+
+  //flags
+  private card: boolean;
+  private updateDateFlag: boolean;
+  private updateCostFlag: boolean;
 
 //===================================  constructor  ============================================
 
   constructor(private router: Router, public af: AngularFireDatabase)
   {
-    this.projects = this.af.list('projects');
+    this.projectsFBList = this.af.list('projects');
     this.updateDateFlag = false;
     this.updateCostFlag = false;
-    
   }
 
 //====================================  ngOnInit()  ===============================================
@@ -42,7 +45,7 @@ export class ProjectForUpdateComponent implements OnInit
   ngOnInit() 
   {
     this.pointerToProjectInAF = this.af.list(this.item); // item is a path
-    this.pointerToProjectObjectInAF = this.af.object(this.item, { preserveSnapshot: true });
+    this.projectFBObject = this.af.object(this.item, { preserveSnapshot: true });
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1]
   }
 
@@ -50,23 +53,31 @@ export class ProjectForUpdateComponent implements OnInit
 
    clickOnMyProjects(event)
   {
-    this.router.navigateByUrl('/'+event.currentTarget.id);
+    this.router.navigateByUrl('/' + event.currentTarget.id);
   }
 
 //================================== remove project ====================================
 
   removeProject()
   {
-    let meessage = "Are you sure you want to delete " +this.projectName+" project?";
+    let meessage = "Are you sure you want to delete " + this.projectName + " project?";
     if(confirm(meessage))
-    this.pointerToProjectObjectInAF.update({ 'associatedUser': ""});
+    this.projectFBObject.update({ 'associatedUser': ""});
   }
 
 //================================== updating date ====================================
   
   updateDate()
   {
-    this.updateDateFlag = true;
+    //if the user clicked on update cost first
+    if(this.updateCostFlag)
+    {
+      alert("Save or cancel the new price")
+    }
+    else
+    {
+      this.updateDateFlag = true;
+    }
   }
 
   OKupdateDate(dateVal, isNeedUpdate)
@@ -82,7 +93,7 @@ export class ProjectForUpdateComponent implements OnInit
     else
     {
       let newDate = dateVal;
-      this.pointerToProjectObjectInAF.update({ 'date': newDate }).then(
+      this.projectFBObject.update({ 'date': newDate }).then(
           x => { this.updateDateFlag = false; }
         );
     }
@@ -92,7 +103,15 @@ export class ProjectForUpdateComponent implements OnInit
   
   updateCost()
   {
-    this.updateCostFlag = true;
+    //if the user clicked on update cost flag and enter a cost
+    if(this.updateDateFlag)
+    {
+      alert("Save or cancel the new date")
+    }
+    else
+    {
+      this.updateCostFlag = true;
+    }
   }
 
   OKupdateCost(costVal, isNeedUpdate)
@@ -108,7 +127,7 @@ export class ProjectForUpdateComponent implements OnInit
     else
     {
       let newCost = costVal;
-      this.pointerToProjectObjectInAF.update({ 'cost': newCost}).then(
+      this.projectFBObject.update({ 'cost': newCost}).then(
           x => { this.updateCostFlag = false; }
       );
     }  
