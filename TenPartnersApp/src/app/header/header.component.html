@@ -17,14 +17,7 @@
         <a><span class="glyphicon glyphicon-log-out" (click)="logOut()"></span></a>
       </div>
 
-      <div class = "nav notification">Notification
-        <label class="switch">
-          <input type="checkbox">
-          <div class="slider round"></div>
-        </label>
-      </div>
-
-      <div class = "nav changePass">Change password</div>
+      <div class = "nav changePass" (click) = "chengePassword()">Change password</div>
 
       <div class="nav mailNotification">Notification to the email
         <label class="switch">
