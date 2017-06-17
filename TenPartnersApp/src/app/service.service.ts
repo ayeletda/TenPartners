@@ -9,15 +9,12 @@ import { ChangeDetectorRef } from "@angular/core";
 
 @Injectable()
 
-//=============================================  ServiceService class  ============================================================
+//================  ServiceService class  ============================================================
+
 export class ServiceService 
-{
+{  
   //user details
-  private userName: string;
-  private userEmail: string;
-  private userID: string;
-  private permission: string;
-  private community: string;
+  private user = { id: null, permission: null, community: null, name: null, email: null };
   private connectType: string;
 
   private title;
@@ -30,17 +27,18 @@ export class ServiceService
   //pointers of object or list in firebase
   private usersFBList: FirebaseListObservable<any>;
 
-
+  //==================== constructor ===============================================================
+  
   constructor(private router: Router, public anguarfireAuth:AngularFireAuth, public af: AngularFireDatabase)
   {
     this.allSubscribe = [];
     this.logout(); 
-    this.userName = '';
-    this.userEmail = '';
-    this.userID = '';
+
     this.isLoggedIn = false;
     this.usersFBList = this.af.list('/users',{ preserveSnapshot: true });
   }
+
+  //=================== registerUsers ===============================================================
 
   public registerUsers(email,password)
   {
@@ -50,6 +48,8 @@ export class ServiceService
       let errorMessage = error.message;
     });
   }
+  
+  //==================== getDetails ===============================================================
 
   getDetails(user)
   {
@@ -58,7 +58,7 @@ export class ServiceService
       snapshots.some(snapshot => 
       {
         let temp = snapshot.val();      
-        if(this.userEmail == snapshot.val().email)
+        if(this.user.email == snapshot.val().email)
         {
           user.permission = temp.permission;
           user.community = temp.associatedCommunity;
@@ -72,38 +72,48 @@ export class ServiceService
     this.allSubscribe.push(temp1);
   }
 
+  //===================== getDetails ===============================================================
+
   checkIfUser()
   {
     let status = false;
-    let temp1 = this.usersFBList.subscribe(snapshots => 
+    let users =  this.af.list('/users',{ preserveSnapshot: true }).take(1);
+
+    let temp1 = users.subscribe(snapshots => 
     {
       snapshots.some(snapshot => 
       {
         let temp=snapshot.val();      
-        if(this.userEmail==snapshot.val().email)
+        if(this.user.email==snapshot.val().email)
         {
-          this.permission = temp.permission;
-          this.community = temp.associatedCommunity;
-          this.userName = temp.name;
-          this.userID = snapshot.key;
           status = true;
           return status;
         }
       });
     });
-  
-    this.allSubscribe.push(temp1);
     return status;
   }
 
+//==================  types of connection  ============================================================
+
+  //----------------------- logout -----------------------------
+  logout()
+  {
+    this.allSubscribe.forEach((item) => item.unsubscribe);
+    this.anguarfireAuth.auth.signOut();
+    this.isLoggedIn = false;
+    this.title = "home";
+  }
+
+  //----------------- email & fassword login ------------------------
   login(username:HTMLInputElement, password:HTMLInputElement)
   {
     this.anguarfireAuth.auth.signInWithEmailAndPassword(username.value, password.value).then((user)=>
     {
-      this.userName = username.value;
-      this.userEmail = user.email;
-      this.userID = user.uid;
       this.connectType="mail";
+      this.user.name = username.value;
+      this.user.email = user.email;
+      this.user.id = user.uid;
 
       let temp = this.usersFBList.subscribe((snapshots)=>
       {
@@ -117,22 +127,7 @@ export class ServiceService
       });
       
       this.allSubscribe.push(temp);
-      let status;
-      let temp1 = this.usersFBList.subscribe(snapshots => 
-      {
-        snapshots.some(snapshot => 
-        {
-          let temp=snapshot.val();      
-          if( this.userEmail == snapshot.val().email)
-          {
-            this.permission = temp.permission;
-            this.community = temp.associatedCommunity;
-            this.userName = temp.name;
-            this.userID = snapshot.key;
-            this.isLoggedIn = true;
-          }
-        });
-      });
+      this.getDetails(this.user);
     })
     .catch((error)=>
     {
@@ -143,27 +138,17 @@ export class ServiceService
     username.value = null;
   }
 
-  logout()
-  {
-    this.allSubscribe.forEach((item) => item.unsubscribe);
-    this.anguarfireAuth.auth.signOut();
-    this.isLoggedIn = false;
-    this.title = "home";
-  }
-
+  //-------------------- facebook login ------------------------
   FBlogin()
   {
     let provider = new firebase.auth.FacebookAuthProvider();
 
     firebase.auth().signInWithPopup(provider).then((user)=>
     {
-      this.userName = user.user.displayName;
-      this.userEmail = user.user.email;
-      this.userID = user.user.uid;
       this.connectType = "facebook";
 
-      if (this.checkIfUser() == true)
-        this.isLoggedIn = true;  
+      // a method that initializes user's details
+      this.initializeUserDetails(user, this.connectType);
     })
     .catch((error)=>
     {
@@ -171,7 +156,7 @@ export class ServiceService
     });
   }
 
-
+  //--------------------- google login --------------------------
   GOGlogin()
   {
     let provider = new firebase.auth.GoogleAuthProvider();
@@ -179,12 +164,9 @@ export class ServiceService
     firebase.auth().signInWithPopup(provider).then((user)=>
     {
       this.connectType = "google";
-      this.userName = user.user.displayName;
-      this.userEmail = user.user.email;
-      this.userID = user.user.uid;
 
-      if (this.checkIfUser() == true)
-        this.isLoggedIn = true;
+      // a method that initializes user's details
+      this.initializeUserDetails(user, this.connectType);
     })
     .catch((error)=>
     {
@@ -192,6 +174,7 @@ export class ServiceService
     });
   }
 
+  //--------------------- twitter login ------------------------
   TWITlogin()
   {
     this.connectType = "twitter";
@@ -220,16 +203,26 @@ export class ServiceService
   */
 }
 
+  // a method that initializes user's details
+  private initializeUserDetails(user, connectType)
+  {
+    this.user.name = user.user.displayName;
+    this.user.email = user.user.email;
+    this.user.id = user.user.uid;
 
+    if(connectType == "facebook" || connectType == "google" || connectType == "twitter")
+      if (this.checkIfUser() == true)
+        this.isLoggedIn = true;  
+  }
 
 //getters & setters
-  public getKey(){ return this.userID; }
-  public getPermission(){ return this.permission; } 
-  setTitle(Title:String){ this.title=Title; }  
-  public getCommunity(){ return this.community; }
-  getCurrentUser(){ return this.userName; }
-  getCurrentEmail(){ return this.userEmail; }
-  getCurrentID(){ return this.userID; }
+  public getKey(){ return this.user.id; }
+  public getPermission(){ return this.user.id } 
+  public getCommunity(){ this.user.community; }
+  getCurrentUser(){ return this.user.name; }
+  getCurrentEmail(){ return this.user.email; }
+  getCurrentID(){ return this.user.id; }
+    setTitle(Title:String){ this.title=Title; }  
   getlogin(){ return this.isLoggedIn; }
 
 }
