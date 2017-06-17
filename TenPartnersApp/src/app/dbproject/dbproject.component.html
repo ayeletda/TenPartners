@@ -15,13 +15,21 @@
         <div class="title" (click)="viewMore()">Project's name: {{item.name}}</div>
         <div class="more" *ngIf="more">
           Description: {{item.description}}<br> Purpose for the jewish communuty: {{item.purpose}}<br><br>
-          <div class="commmm" (click)="viewComments()">
+          <div class="commmm" (click)="viewComments('comments')">
             <span class="glyphicon glyphicon-comment"></span> ({{ (commentsFBList | async)?.length }})
-                       </div> <span class="glyphicon glyphicon-heart" [ngClass]="[!islike ? 'whiteH' : 'redH']" (click) = "doLike()"></span>({{ (likesFBList | async)?.length }})
+                       </div> <span class="glyphicon glyphicon-heart" [ngClass]="[!islike ? 'whiteH' : 'redH']" (click) = "doLike()"></span><div class = "likes" (click) = "viewComments('likes')">({{ (likesFBList | async)?.length }})</div>
 
           <div *ngIf="view" class="w3-animate-opacity">
             <div #scrollMe class="d4">
               <div class="d5">
+              <div *ngIf="whatToView=='likes'" class = "viewLikes">
+                <div *ngFor="let like of likesFBList | async"> 
+                  <hr>                
+                    {{like.val().userName}} <div class="from"> from {{like.val().userCommunity}}</div>
+                </div>
+                <hr *ngIf= "(likesFBList | async)?.length>0">
+              </div>
+                <div *ngIf="whatToView=='comments'" class = "viewcomments">
                 <div *ngFor="let comment of commentsFBList | async">
                   <a aria-label="Delete" *ngIf="comment.authorKey == user.id" (click)="removeComment(comment.$key)">
 	              	<i class = "fa fa-trash-o pull-right" aria-hidden = "true"></i>
@@ -30,8 +38,10 @@
                   <div class="from">
                     from {{ comment.community }} </div> <br> {{ comment.comment }}<br> <div class="from">{{ comment.date }}</div>
                 </div>
+                </div>
               </div>
             </div>
+            <div *ngIf="whatToView=='comments'" class = "send">
             <hr>
             <div class="input-group">
               <span class="input-group-btn"> 
@@ -42,6 +52,7 @@
             </div>
 
             <hr>
+            </div>
           </div>
 
         </div>

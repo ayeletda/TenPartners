@@ -90,6 +90,10 @@ span
 	margin-right:5px; 
 }
 
+.likes{
+	display: inline;
+}
+
 .title
 {
 	font-size: 25px;

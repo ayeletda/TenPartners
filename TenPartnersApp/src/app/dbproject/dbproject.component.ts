@@ -45,6 +45,7 @@ export class DBprojectComponent implements OnInit
   private view: boolean;
   private more: boolean;
   private islike: boolean;
+  private whatToView:string;
   //====================================  constructor  ===========================================================================================
 
   constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -57,6 +58,7 @@ export class DBprojectComponent implements OnInit
 
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.getDetails(this.user);
+    this.whatToView="";
   }
 
   //=======================================  ngOnInit  ===========================================================================================
@@ -131,7 +133,7 @@ export class DBprojectComponent implements OnInit
   {
     this.islike =! this.islike;
     if(this.checkIfdoLike() == false)
-      this.likesFBList.update(this.user.id+"",{userName: this.user.name});
+      this.likesFBList.update(this.user.id+"",{userName: this.user.name, userCommunity: this.user.community});
     else
     {
       const itemObservable = this.af.object(this.path + "/likes/" + this.user.id);
@@ -141,9 +143,17 @@ export class DBprojectComponent implements OnInit
 
   //====================================  viewComments  ===================================================================================================
 
-  private viewComments() 
+  private viewComments(view:string) 
   {
-    this.view = !this.view;
+    if(this.whatToView==view)
+          this.view = !this.view;
+
+    else{ this.whatToView=view;
+
+      if(this.view==false)
+          this.view=true;
+    }
+
     this.close.emit();
   }
 
