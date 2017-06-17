@@ -1,7 +1,7 @@
+
 <div class= "main">
 
     <div id="up">
-        <i class="simbol fa fa-clock-o" id="clock" aria-hidden="true">{{leftDay}}d</i>
         <div class = "row">
             <div class="projectName">
                 <h4> {{projectName}} </h4>
@@ -9,19 +9,14 @@
         </div>
     </div>
 
-
     <div *ngFor = "let value of pointerToProjectInAF | async">
         <div id = "down">
-            <div *ngIf = "value.$key == 'uploudDate' && leftDayFn(value.$value)">
-            </div>
+            <div *ngIf = "value.$key == 'uploudDate' && leftDayFn(value.$value)"></div>
         </div>
     </div>
 
     <div class="stopper">
         14:0:0:0
     </div>
-
-
-
 
 </div>
