@@ -10,10 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 
+//========================= AppComponent  class ==========================================
 export class AppComponent 
 {
   user = {userID: null, permission: null, community: null, userName: null, email: null };
   private isLoggedIn:boolean;
+
+  //=========================== constructor ===============================================
 
   constructor(private Service:ServiceService, private router:Router) 
   {
@@ -35,8 +38,9 @@ export class AppComponent
     });
   }
 
+  //=========================== getDetails ===============================================
 
-  getDetails()
+  private getDetails()
   {
     let users = this.Service.af.list('/users',{ preserveSnapshot: true });
     
@@ -45,7 +49,7 @@ export class AppComponent
       snapshots.forEach(snapshot => 
       {
         let temp = snapshot.val();      
-        if(this.user.email == snapshot.val().email || this.user.email == snapshot.val().email || this.user.email == snapshot.val().email)
+        if(this.user.email == snapshot.val().email)
         {
           this.user.permission = temp.permission;
           this.user.community = temp.associatedCommunity;
