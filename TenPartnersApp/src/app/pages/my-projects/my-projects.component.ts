@@ -14,49 +14,43 @@ import { ServiceService } from '../../service.service';
   styleUrls: ['./my-projects.component.css']
 })
 
+//=============================================  MyProjects class  ============================================================
+
 export class MyProjectsComponent implements OnInit 
 {
-  // variabels
-  private noProjects:boolean;
-  userId: string;
-  userCommunity: string;
-  
-  currentProject: any;
-  projectPath: any;
-  thereIsProjects: boolean;
+  // user's details
+  private user = { id: null, permission: null, community: null, name: null, email: null };
+
+  // project's details
+  private currentProject: any;
+  private projectPath: any;
+  private projectsValues_Arr: any;
+  private projectsAssociatedCommunities_Arr: any;
 
   // pointers of object or list in firebase
-  user: FirebaseListObservable<any>;         // pointer to user's object
-  projects: FirebaseListObservable<any>;
-  projectsValues_Arr: any;
-  projectsAssociatedCommunities_Arr: any;
+  private projectsFBList: FirebaseListObservable<any>;
+
+  // flags
+  private noProjects: boolean;
+  private isThereProjects: boolean;
 
   //===============================================  contructor  ====================================================================
 
   constructor(private router: Router,private service:ServiceService, public af: AngularFireDatabase) 
   {
-    this.noProjects= true;
-    this.userId = this.service.getCurrentID();
-    this.user = this.af.list('users/' + this.userId); // the specific user
+    //initializes with defult values
     this.currentProject = '';
     this.projectPath = '';
-    this.thereIsProjects = false;
+    this.noProjects= true;
+    this.isThereProjects = false;
     
-    let temp = this.user.subscribe((snapshots)=>
-    {
-      snapshots.forEach(snapshot =>
-      {
-        if (snapshot.$key == 'associatedCommunity')
-          this.userCommunity = snapshot.$value;
-      });
-    });
+    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.service.getDetails(this.user);
 
-    this.service.allSubscribe.push(temp);
+    //initializes arrays
+    this.projectsFBList = this.af.list('projects');
 
-
-    this.projects = this.af.list('projects');
-
-    let temp2 = this.projects.subscribe((snapshots)=>
+    let temp2 = this.projectsFBList.subscribe((snapshots)=>
     {
       this.projectsAssociatedCommunities_Arr = [];
       this.projectsValues_Arr = [];
@@ -68,7 +62,8 @@ export class MyProjectsComponent implements OnInit
       });
     });
 
-        this.service.allSubscribe.push(temp2);
+    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
+    this.service.allSubscribe.push(temp2);
 
   }
 
@@ -81,7 +76,7 @@ export class MyProjectsComponent implements OnInit
 
   //=================================================== saveProjectPath  ============================================================
 
-  saveProjectPath(project, i)
+  private saveProjectPath(project, i)
   {
     this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
     this.noProjects = false;
@@ -90,9 +85,9 @@ export class MyProjectsComponent implements OnInit
 
   //=============================================  updateThereIsProjectsFlag  ==============================================================
 
-  updateThereIsProjectsFlag(bol)
+  private updateThereIsProjectsFlag(bol)
   {
-    this.thereIsProjects = bol;
+    this.isThereProjects = bol;
     return true;
   }
 }

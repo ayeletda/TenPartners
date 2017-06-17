@@ -1,17 +1,15 @@
 
-.MyProjects {
+.MyProjects 
+{
 	padding-top: 60px;
 	font-size: 20px;
 	width :100%;
 	margin-bottom:70px;
 }
 
-.continer {
+.continer, .col-lg-12 
+
+{
 	position: unset;
-}
-
-
-.col-lg-12 {
-position: unset;
 }
 

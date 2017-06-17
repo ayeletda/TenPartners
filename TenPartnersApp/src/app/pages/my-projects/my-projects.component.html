@@ -8,7 +8,7 @@
 			<div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index;  " [attr.data-index] = "i" >
 				<div *ngFor = "let community of associatedCommunities | async">
 					<!--<div *ngIf = 'updateThereIsProjectsFlag(false)'></div>--> <!--dont work if i have 1 project-->
-					<div *ngIf = "community.$key == userCommunity && community.associatedUser == userId && saveProjectPath(community,i)" class="picture" id="pic1">  
+					<div *ngIf = "community.$key == user.community && community.associatedUser == user.id && saveProjectPath(community,i)" class="picture" id="pic1">  
 						<div class = "project" *ngIf = "community && updateThereIsProjectsFlag(true)">
 							<app-projectForUpdate
 								[item] = "projectPath">
@@ -16,13 +16,13 @@
 						</div>
 					</div>
 				</div>
-				<!--<div *ngIf = "!thereIsProjects && i == projectsAssociatedCommunities_Arr.length-1">
+				<!--<div *ngIf = "!isThereProjects && i == projectsAssociatedCommunities_Arr.length-1">
 					You don't have any associated projects yet.
 				</div> --> <!--dont work if i have 1 project-->
 			</div>		
 		</div>
 	</div>
-	<div *ngIf='noProjects' class = "noProjects">
+	<div *ngIf='isNoProjects' class = "noProjects">
 		You don't have any associated projects.
 	</div>
 

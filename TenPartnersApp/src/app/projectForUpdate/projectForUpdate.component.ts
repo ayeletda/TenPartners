@@ -26,12 +26,12 @@ export class ProjectForUpdateComponent implements OnInit
   private pointerToProjectInAF: any;
   private projectFBObject: FirebaseObjectObservable<any>;
 
-  //flags
+  // flags
   private card: boolean;
   private updateDateFlag: boolean;
   private updateCostFlag: boolean;
 
-//===================================  constructor  ============================================
+//===================================  constructor  =================================================
 
   constructor(private router: Router, public af: AngularFireDatabase)
   {
@@ -40,7 +40,7 @@ export class ProjectForUpdateComponent implements OnInit
     this.updateCostFlag = false;
   }
 
-//====================================  ngOnInit()  ===============================================
+//====================================  ngOnInit()  ==================================================
 
   ngOnInit() 
   {
@@ -49,25 +49,25 @@ export class ProjectForUpdateComponent implements OnInit
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1]
   }
 
-//================================= clickOnMyProjects  =================================
+//================================= clickOnMyProjects  ===============================================
 
-   clickOnMyProjects(event)
+  private clickOnMyProjects(event)
   {
     this.router.navigateByUrl('/' + event.currentTarget.id);
   }
 
-//================================== remove project ====================================
+//================================== remove project ==================================================
 
-  removeProject()
+  private removeProject()
   {
     let meessage = "Are you sure you want to delete " + this.projectName + " project?";
     if(confirm(meessage))
     this.projectFBObject.update({ 'associatedUser': ""});
   }
 
-//================================== updating date ====================================
+//================================== updating date ====================================================
   
-  updateDate()
+  private updateDate()
   {
     //if the user clicked on update cost first
     if(this.updateCostFlag)
@@ -80,7 +80,7 @@ export class ProjectForUpdateComponent implements OnInit
     }
   }
 
-  OKupdateDate(dateVal, isNeedUpdate)
+  private OKupdateDate(dateVal, isNeedUpdate)
   {
     if(!isNeedUpdate)
     {
@@ -99,9 +99,9 @@ export class ProjectForUpdateComponent implements OnInit
     }
   }
   
-//================================= updating cost ====================================
+//================================= updating cost ============================================================
   
-  updateCost()
+  private updateCost()
   {
     //if the user clicked on update cost flag and enter a cost
     if(this.updateDateFlag)
@@ -114,7 +114,7 @@ export class ProjectForUpdateComponent implements OnInit
     }
   }
 
-  OKupdateCost(costVal, isNeedUpdate)
+  private OKupdateCost(costVal, isNeedUpdate)
   {
     if(!isNeedUpdate)
     {
