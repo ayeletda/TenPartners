@@ -1,18 +1,20 @@
 .body2
 {
   margin-top: 35px;
-  background-color:  #E5E7E9;   
+  background-color:  #E5E7E9;
+  height: 100%;
 }
 
 .part1
 {
   width: 100%;
+  height: 40%;
 }
 
 .navbar
 {
   width: 100%;
-  margin: 0%;
+  margin: 0;
   display:block;
   background-color: transparent;
   border-color: transparent;  
@@ -20,27 +22,30 @@
 
 .part2
 {
-  background-color:  #E5E7E9;   
+  background-color:  #E5E7E9;
+  height:80%;
 }
 
 .part3
 {
+
   background-color: #FFFFF5;
+
 }
+
 
 .details, .clickText
 {
   font-size: 14px;
-  margin: 0%;
+  margin: 0;
 }
 
 .clickText
 {
   font-weight: bold;
-  margin: 2%;
   margin-right: 1%;
   margin-top: 3%;
-  margin-bottom: 0%;
+  margin-bottom: 0;
   cursor: pointer;
 }
 
@@ -88,6 +93,7 @@ p
   display: inline-block;
   overflow-x:hidden;
   overflow-y: scroll;
+
 }
 
 .vertical-menu2
@@ -103,6 +109,7 @@ p
   display: inline-block;
   overflow-x:hidden;
   overflow-y: scroll;
+
 }
 /* ====================== CSS of vertical-menu-x ======================= */
 
@@ -226,7 +233,7 @@ input::placeholder
 {
   border: 10px solid transparent;
   border-bottom-color: rgba(0,0,0,0.5);
-  bottom: 0px;
+  bottom: 0;
   left: -7px;
   z-index: -2;
 }
@@ -348,10 +355,7 @@ input::placeholder
 
 @media only screen and (max-height: 1366px)
 {
-  /*.vertical-menu1
-  {
-    height:  170px;   
-  }*/
+
 
    .vertical-menu2
   {
@@ -362,14 +366,11 @@ input::placeholder
 
  @media only screen and (max-height: 1024px)
 {
-  /*.vertical-menu1
-  {
-    height:  150px;   
-  }*/
+
 
    .vertical-menu2
   {
-    height:  537px   
+    height:  472px
   }
 }
 
@@ -387,7 +388,7 @@ height:  370px;
 }
    .vertical-menu2
   {
-    height:  336px   
+    height:  322px
   }
 
 }
@@ -402,7 +403,7 @@ height:  370px;
 
    .vertical-menu2
   {
-    height:  356px   
+    height:  273px
   }
 }
 
@@ -416,7 +417,7 @@ height:  370px;
 
    .vertical-menu2
   {
-    height:  297px   
+    height:  276px
   }
 }
 
@@ -430,7 +431,7 @@ height:  370px;
 
    .vertical-menu2
   {
-    height:  286px   
+    height:  269px
   }
 }
 
@@ -444,10 +445,16 @@ height:  370px;
 
    .vertical-menu2
   {
-    height:  238px   
+    height:  208px
   }
 }
 
 
+
+@media only screen and (max-width: 360px) and (min-width: 360px) and (max-height: 640px) and (min-height: 640px){
+  .vertical-menu2[_ngcontent-c3] {
+    height: 272px;
+  }
+}
 
 
