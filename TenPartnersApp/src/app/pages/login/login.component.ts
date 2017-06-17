@@ -57,4 +57,16 @@ export class LoginComponent implements OnInit
      this.router.navigateByUrl('');
 
    }
+
+   private forgotPassword(){
+//      var auth = this.serviceService.anguarfireAuth.auth;
+//      var emailAddress = "user@example.com";
+
+// auth.sendPasswordResetEmail(emailAddress).then(function() {
+//   // Email sent.
+// }, function(error) {
+//   // An error happened.
+// });
+
+    }
 }
