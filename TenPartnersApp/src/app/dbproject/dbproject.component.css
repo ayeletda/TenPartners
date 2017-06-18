@@ -48,7 +48,7 @@ span
 	margin-bottom: 10px;
 }
 
-.col-lg-6,.btn,.btn-default,.form-control
+.col-lg-6,.btn,.btn-default,.form-control,.btn-success
 {
 	position: unset;
 }
