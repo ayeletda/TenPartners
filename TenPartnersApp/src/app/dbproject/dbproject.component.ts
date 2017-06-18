@@ -254,14 +254,18 @@ PopMassage()
       {
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
         this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });
-        alert("project pushed")
+        this.whatToPop="pushedPop";
+        this.showDetailsForm=true;
         this.community = "";
       }
 
-      else alert("This project already exists in this community");
+      else{this.whatToPop="existsPop";
+          this.showDetailsForm=true;
+          this.community = ""; }
     }
 
-    else alert("Enter a community name")
+    else{this.whatToPop="communityEmptyPop";
+          this.showDetailsForm=true;}
   }
 
   //=======================================  removeComment  ==========================================

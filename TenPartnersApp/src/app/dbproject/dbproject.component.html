@@ -102,7 +102,7 @@
             </div>
 
             <div class="existsPop" *ngIf="whatToPop == 'existsPop'">
-               This project already exists in your community 
+               This project already exists in the community 
             </div>
 
 
@@ -113,6 +113,14 @@
 
              <div class="nominatePop" *ngIf="whatToPop == 'nominatePop'">
               The project is nominated
+            </div>
+
+            <div class="pushedPop" *ngIf="whatToPop == 'pushedPop'">
+              project pushed
+            </div>
+
+            <div class="communityEmptyPop" *ngIf="whatToPop == 'communityEmptyPop'">
+                 Enter a community name
             </div>
 
         </form>
