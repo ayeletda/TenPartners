@@ -17,34 +17,80 @@
   <div class="form-group">
     <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Community</label>
     <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-      <select class="form-control">
-          <option value="">Community</option>
-          <option value = {{community.name}} *ngFor = "let community of adcommunityFBList | async"> {{ community.name }} </option>
+      <select #selectedCommunity class="form-control">
+          <option disabled selected >Community</option>
+          <option *ngFor = "let community of adcommunityFBList | async" [value] = "community.name"> {{ community.name }} </option>
         </select>
     </div>
   </div>
 
-  <!-- Showing the community's users 
-  it will work after creating a component for a user
+  <!-- Showing the community's users -->
 
   <div class="showCommunity">
-    <div *ngFor="let user of users">
-      <app-comuser *ngIf = "user.associatedCommunity == community.name " [item]="user" [path]="saveProjectPath(project)" [first]="firstC(project.$key)"></app-comuser>
+    <div *ngFor="let user of usersFBList | async">
+      <div *ngIf="user.associatedCommunity == selectedCommunity.value">
+
+        <br>
+        <br>
+
+
+        <div class="form-group btn-group open col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <a class="btn btn-primary"><i class="fa fa-user fa-fw"></i> {{ user.name }}</a>
+          <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+          <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+            <li><a><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+            <li class="divider"></li>
+            <li><a><i class="fa fa-unlock"></i> Make admin</a></li>
+          </ul>
+          <br>
+        </div>
+      </div>
+
+
     </div>
   </div>
 
-  -->
 
+
+
+  <!-- For a community component 
+
+
+  
+ <br>
+ <br>
+
+
+  <div class="form-group btn-group open col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngFor = "let user of usersFBList | async">
+    <a class="btn btn-primary" ><i class="fa fa-user fa-fw"></i> {{ user.name }}</a>
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
+  </a>
+    <ul class="dropdown-menu">
+      <li><a><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+      <li><a><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+      <li class="divider"></li>
+      <li><a><i class="fa fa-unlock"></i> Make admin</a></li>
+    </ul>
+    <br>
+  </div>
+-->
 
   <!-- For a community component -->
 
 
   <!-- Delete a community -->
   <div class="form-group">
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">
-      <!--<button type="delete" class="btn btn-danger btn-md" (click)="deleteCommunity()"><i class="fa fa-trash-o fa-lg"></i> Delete </button>-->
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+      <br>
+      <button type="delete" class="btn btn-danger btn-md" (deleteCommunity)="deleteCommunity(selectedCommunity)"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
     </div>
   </div>
+
+
 
 
 
