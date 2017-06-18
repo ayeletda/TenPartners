@@ -36,6 +36,9 @@ export class AppComponent
         this.getDetails();
       }
     });
+
+         this.Service.allSubscribe.push(temp);
+
   }
 
   //=========================== getDetails ===============================================

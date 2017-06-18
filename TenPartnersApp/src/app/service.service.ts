@@ -88,10 +88,12 @@ export class ServiceService
         if(this.user.email==snapshot.val().email)
         {
           status = true;
-          return status;
         }
       });
     });
+
+     this.allSubscribe.push(temp1);
+
     return status;
   }
 

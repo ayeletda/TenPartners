@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit
         this.usersArr.push(snapshot);
       });
     })
-    //    this.serviceService.allSubscribe.push(temp);
+      this.service.allSubscribe.push(temp);
 
   }
 
