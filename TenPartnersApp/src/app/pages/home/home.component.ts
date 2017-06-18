@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit
   {
     this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
     this.adcommunityFBList = this.af.list('communities');
-    this.usersFBList = this.af.list('communities').take(1);
+    this.usersFBList = this.af.list('users').take(1);
     this.adcommunity = '';
 
     let temp = this.usersFBList.subscribe((snapshots)=>
@@ -90,6 +90,24 @@ export class HomeComponent implements OnInit
     this.service.allSubscribe.push(temp);
 
     return status;
+  }
+
+//====================== deleteCommunity =====================================================================
+
+  deleteCommunity(community) 
+  {
+    
+    
+    
+  }
+
+//====================== deleteUser =====================================================================
+
+  deleteUser(community) 
+  {
+    
+    
+    
   }
 
 }
