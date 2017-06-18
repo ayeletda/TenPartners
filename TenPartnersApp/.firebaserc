@@ -1,7 +1,11 @@
 {
   "projects": {
+<<<<<<< HEAD
     "default": "application-5baf2",
     "application": "application-5baf2",
     "ayelet": "application-5baf2"
+=======
+    "default": "application-5baf2"
+>>>>>>> 2e67d27a7760f06a6a91788fbe1b5690df80cf5d
   }
 }

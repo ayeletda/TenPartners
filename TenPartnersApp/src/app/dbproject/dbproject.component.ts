@@ -228,8 +228,7 @@ PopMassage()
       let date = this.date;
 
       if(cost==""||this.date==null)
-          { this.whatToPop="emptyPop";
-           this.showDetailsForm = true;
+          { alert("empty!") 
             return;}
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
@@ -238,8 +237,7 @@ PopMassage()
       this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "/votingList");
       this.usersVotingFBList.update(this.user.id + "", { vote: "for" });
 
-      this.whatToPop="nominatePop";
-      this.showDetailsForm=true;
+      alert("The project is nominated");
     }
 
   }
@@ -254,18 +252,14 @@ PopMassage()
       {
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
         this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });
-        this.whatToPop="pushedPop";
-        this.showDetailsForm=true;
+        alert("project pushed")
         this.community = "";
       }
 
-      else{this.whatToPop="existsPop";
-          this.showDetailsForm=true;
-          this.community = ""; }
+      else alert("This project already exists in this community");
     }
 
-    else{this.whatToPop="communityEmptyPop";
-          this.showDetailsForm=true;}
+    else alert("Enter a community name")
   }
 
   //=======================================  removeComment  ==========================================
