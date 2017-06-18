@@ -203,7 +203,7 @@ export class DBprojectComponent implements OnInit
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
       this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.user.id + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
 
-      this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "" + "/" + this.item.$key + "/votingList");
+      this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "/votingList");
       this.usersVotingFBList.update(this.user.id + "", { vote: "for" });
 
       alert("The project is nominated");
