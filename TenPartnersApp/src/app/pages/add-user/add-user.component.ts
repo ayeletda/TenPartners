@@ -12,8 +12,8 @@ import { ServiceService } from '../../service.service';
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
 })
-export class AddUserComponent implements OnInit {
-
+export class AddUserComponent implements OnInit 
+{
   public UserName: string;
   public Community: string;
   public TenPartnersAccount: string;
@@ -29,10 +29,9 @@ export class AddUserComponent implements OnInit {
   // projectsValues_Arr: any;
   // public messages: FirebaseListObservable<any>;
 
-  constructor(private router: Router, private serviceService: ServiceService, public af: AngularFireDatabase)
+  constructor(private router: Router, private serviceService: ServiceService, private af: AngularFireDatabase)
   {
     this.UserName = "";
-    //    this.Community="";
     this.TenPartnersAccount = "";
     this.Password = "";
     this.GoogleAccount = "";
@@ -43,7 +42,8 @@ export class AddUserComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  ngOnInit()
+  {
     this.serviceService.setTitle("Add user");
   }
 

@@ -18,18 +18,18 @@ import { ServiceService } from '../../service.service';
 export class SubmitProjectComponent implements OnInit
 {
   //project details
-  private name: string;
-  private description: String;
-  private purpose: String;
-  private projectsValues_Arr: any;
+  name: string;
+  description: String;
+  purpose: String;
+  projectsValues_Arr: any;
 
   //pointers of object or list in firebase
-  private projectsFBList: FirebaseListObservable<any>;
-  private messagesFBList: FirebaseListObservable<any>;
+  projectsFBList: FirebaseListObservable<any>;
+  messagesFBList: FirebaseListObservable<any>;
 
 //===========================  constructor  ====================================================================
 
-  constructor(private service: ServiceService, private router: Router, public af: AngularFireDatabase) 
+  constructor( private service: ServiceService, private router: Router, private af: AngularFireDatabase) 
   {
     //initializes with defult values
     this.name = "";
@@ -76,4 +76,3 @@ export class SubmitProjectComponent implements OnInit
   }
 
 }
-  

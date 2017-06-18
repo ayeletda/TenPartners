@@ -14,28 +14,29 @@ import { ChangeDetectorRef } from "@angular/core";
 export class ServiceService 
 {  
   //user details
-  private user = { id: null, permission: null, community: null, name: null, email: null };
-  private connectType: string;
+  user = { id: null, permission: null, community: null, name: null, email: null };
+  connectType: string;
 
-  private title;
-  public allSubscribe: any;
-  private usersValues_Arr: any;
+  title;
+  allSubscribe: any;
+  usersValues_Arr: any;
 
   //flags
-  private isLoggedIn: boolean;
+  isLoggedIn: boolean;
 
   //pointers of object or list in firebase
-  private usersFBList: FirebaseListObservable<any>;
+  usersFBList: FirebaseListObservable<any>;
 
   //==================== constructor ===============================================================
   
-  constructor(private router: Router, public anguarfireAuth:AngularFireAuth, public af: AngularFireDatabase)
+  constructor( private router: Router, public anguarfireAuth:AngularFireAuth, public af: AngularFireDatabase)
   {
     this.allSubscribe = [];
-    this.logout(); 
 
     this.isLoggedIn = false;
     this.usersFBList = this.af.list('/users',{ preserveSnapshot: true });
+    this.logout(); 
+
   }
 
   //=================== registerUsers ===============================================================
@@ -204,7 +205,7 @@ export class ServiceService
 }
 
   // a method that initializes user's details
-  private initializeUserDetails(user, connectType)
+   initializeUserDetails(user, connectType)
   {
     this.user.name = user.user.displayName;
     this.user.email = user.user.email;
@@ -216,12 +217,12 @@ export class ServiceService
   }
 
 //getters & setters
-  public getKey(){ return this.user.id; }
-  public getPermission(){ return this.user.id } 
-  public getCommunity(){ this.user.community; }
-  getCurrentUser(){ return this.user.name; }
-  getCurrentEmail(){ return this.user.email; }
-  getCurrentID(){ return this.user.id; }
+  // public getKey(){ return this.user.id; }
+  // public getPermission(){ return this.user.id } 
+  // public getCommunity(){ this.user.community; }
+  // getCurrentUser(){ return this.user.name; }
+  // getCurrentEmail(){ return this.user.email; }
+  // getCurrentID(){ return this.user.id; }
     setTitle(Title:String){ this.title=Title; }  
   getlogin(){ return this.isLoggedIn; }
 

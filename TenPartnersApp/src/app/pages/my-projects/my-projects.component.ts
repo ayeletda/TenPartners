@@ -19,29 +19,29 @@ import { ServiceService } from '../../service.service';
 export class MyProjectsComponent implements OnInit 
 {
   // user's details
-  private user = { id: null, permission: null, community: null, name: null, email: null };
+  user = { id: null, permission: null, community: null, name: null, email: null };
 
   // project's details
-  private currentProject: any;
-  private projectPath: any;
-  private projectsValues_Arr: any;
-  private projectsAssociatedCommunities_Arr: any;
+  currentProject: any;
+  projectPath: any;
+  projectsValues_Arr: any;
+  projectsAssociatedCommunities_Arr: any;
 
   // pointers of object or list in firebase
-  private projectsFBList: FirebaseListObservable<any>;
+  projectsFBList: FirebaseListObservable<any>;
 
   // flags
-  private noProjects: boolean;
-  private isThereProjects: boolean;
+  isNoProjects: boolean;
+  isThereProjects: boolean;
 
   //===============================================  contructor  ====================================================================
 
-  constructor(private router: Router,private service:ServiceService, public af: AngularFireDatabase) 
+  constructor( private router: Router,  private service:ServiceService, private af: AngularFireDatabase) 
   {
     //initializes with defult values
     this.currentProject = '';
     this.projectPath = '';
-    this.noProjects= true;
+    this.isNoProjects= true;
     this.isThereProjects = false;
     
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
@@ -76,16 +76,16 @@ export class MyProjectsComponent implements OnInit
 
   //=================================================== saveProjectPath  ============================================================
 
-  private saveProjectPath(project, i)
+  saveProjectPath(project, i)
   {
     this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
-    this.noProjects = false;
+    this.isNoProjects = false;
     return true;
   }
 
   //=============================================  updateThereIsProjectsFlag  ==============================================================
 
-  private updateThereIsProjectsFlag(bol)
+  updateThereIsProjectsFlag(bol)
   {
     this.isThereProjects = bol;
     return true;

@@ -18,22 +18,22 @@ import 'rxjs/Rx';
 
 export class MasterDBComponent implements OnInit 
 {
-  public newProject: string;
-  private projectPath: any;
-  private projectsValues_Arr: any;
-  private projectName: string;
-  private search: string;
-  private currentProjecOpentKey: string;
+  newProject: string;
+  projectPath: any;
+  projectsValues_Arr: any;
+  projectName: string;
+  search: string;
+  currentProjecOpentKey: string;
 
   //pointers of object or list in firebase
-  public projectsFBList: any;
+  projectsFBList: any;
 
   //flags
-  private first: boolean;
+  first: boolean;
 
   //==========================  constructor  ============================================================
   
-  constructor(private router: Router, private servise: ServiceService, public af: AngularFireDatabase)
+  constructor(private router: Router, private servise: ServiceService, private af: AngularFireDatabase)
   {
     this.search = '';
     this.projectName = '';

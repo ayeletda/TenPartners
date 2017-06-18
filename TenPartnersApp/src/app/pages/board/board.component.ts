@@ -18,45 +18,45 @@ import {ServiceService} from '../../service.service';
 export class BoardComponent implements OnInit 
 {
     @Input()path;
-    @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+    @ViewChild('scrollMe')  myScrollContainer: ElementRef;
 
     //user's details
-    private user = { id: null, permission: null, community: null, name: null, email: null };
+    user = { id: null, permission: null, community: null, name: null, email: null };
 
     //project's details
-    private currentProject: any;
-    private currentI: any;
-    private projectPath: any;
-    private cost: number;
-    private date: Date;
-    private purpose: string;
-    private description: string;
+    currentProject: any;
+    currentI: any;
+    projectPath: any;
+    cost: number;
+    date: Date;
+    purpose: string;
+    description: string;
 
-    private savedDate: string;
-    private newMessage: string;
-    private projectUpdate: FirebaseObjectObservable<any>;
+    savedDate: string;
+    newMessage: string;
+    projectUpdate: FirebaseObjectObservable<any>;
 
     //determined according to customer
-    private maxVotingNum: number;    
+    maxVotingNum: number;    
 
     // pointers of object or list in firebase
-    private projects: FirebaseListObservable<any>;
-    private projectsAssociatedCommunities_Arr: any;
-    private projectsValues_Arr: any;
-    private needViewMore: boolean;
-    private usersVotingList: FirebaseListObservable<any>;
-    private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
+    projects: FirebaseListObservable<any>;
+    projectsAssociatedCommunities_Arr: any;
+    projectsValues_Arr: any;
+    needViewMore: boolean;
+    usersVotingList: FirebaseListObservable<any>;
+    pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
 
     //flags
-    private showDetailsForm: boolean;
-    private noProjects:boolean;
-    private projectSelected: boolean;
-    private firstTimeOfScoller: boolean;
+    showDetailsForm: boolean;
+    noProjects:boolean;
+    projectSelected: boolean;
+    firstTimeOfScoller: boolean;
 
 
     //====================  constructor  ============================================================
 
-    constructor(private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
+    constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
     {    
         //initializes with defult values
         this.newMessage = '';
@@ -101,7 +101,7 @@ export class BoardComponent implements OnInit
 
     //================  saveProjectPath  =========================================================
 
-    private saveProjectPath(project, i) 
+    saveProjectPath(project, i) 
     {
         this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
         this.noProjects = false;
@@ -110,7 +110,7 @@ export class BoardComponent implements OnInit
 
     //===============  loadProjectDetails  =========================================================
 
-    private loadProjectDetails(project, i) 
+    loadProjectDetails(project, i) 
     {
         this.currentProject = project;
         this.currentI = i;
@@ -128,12 +128,12 @@ export class BoardComponent implements OnInit
 
     //==================  chooseProject  ============================================================
 
-    private chooseProject()
+    chooseProject()
     {
         this.showDetailsForm = true;
     }
 
-    private updateDetails() 
+    updateDetails() 
     {
         //updating project's details
         this.projectUpdate.update({'associatedUser': this.user.id });
@@ -152,7 +152,7 @@ export class BoardComponent implements OnInit
 
     //===================== close  ============================================================
 
-    private close() 
+    close() 
     {
         this.showDetailsForm = false;
         this.currentI = -1;
@@ -160,7 +160,7 @@ export class BoardComponent implements OnInit
 
     //===============   scrollToBottom  =========================================================
 
-    private scrollToBottom(): void 
+    scrollToBottom(): void 
     {
         // if(this.firstTimeOfScoller == true)
         // {
@@ -177,7 +177,7 @@ export class BoardComponent implements OnInit
 
     //===================   viewMore  =========================================================
 
-    private viewMore(bol)
+    viewMore(bol)
     {
         this.needViewMore = bol;
     }

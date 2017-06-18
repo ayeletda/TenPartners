@@ -123,7 +123,6 @@ p
 .temp
 {
   display: inline-block;
- // width: 31vw;
 }
 
 /* ============================ CSS of input ======================= */
@@ -355,8 +354,6 @@ input::placeholder
 
 @media only screen and (max-height: 1366px)
 {
-
-
    .vertical-menu2
   {
     height:  650px   
@@ -366,8 +363,6 @@ input::placeholder
 
  @media only screen and (max-height: 1024px)
 {
-
-
    .vertical-menu2
   {
     height:  472px
@@ -382,10 +377,10 @@ input::placeholder
     max-height:  500px;
   }
 
-#part2part3size
-{
-height:  370px;
-}
+  #part2part3size
+  {
+    height:  300px;
+  }
    .vertical-menu2
   {
     height:  322px

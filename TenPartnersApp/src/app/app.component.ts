@@ -14,7 +14,7 @@ import { Router } from '@angular/router';
 export class AppComponent 
 {
   user = {userID: null, permission: null, community: null, userName: null, email: null };
-  private isLoggedIn:boolean;
+  isLoggedIn:boolean;
 
   //=========================== constructor ===============================================
 
@@ -40,7 +40,7 @@ export class AppComponent
 
   //=========================== getDetails ===============================================
 
-  private getDetails()
+  getDetails()
   {
     let users = this.Service.af.list('/users',{ preserveSnapshot: true });
     

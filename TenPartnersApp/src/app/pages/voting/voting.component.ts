@@ -17,51 +17,49 @@ import { ServiceService } from '../../service.service';
 
 export class VotingComponent implements OnInit 
 {
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  @ViewChild('scrollMe')  myScrollContainer: ElementRef;
 
   //user details
-  private user = { id: null, permission: null, community: null, name: null, email: null };
+  user = { id: null, permission: null, community: null, name: null, email: null };
 
   //project details
-  private noProjects:boolean;
-  private currentProject: any;
-  private projectPath: any;
-  private cost: number;
-  private date: Date;
-  private purpose: string;
-  private description: string;
+  noProjects:boolean;
+  currentProject: any;
+  projectPath: any;
+  cost: number;
+  date: Date;
+  purpose: string;
+  description: string;
 
   //message details
-  private savedDate: string;
-  private newMessage: string;
-  private messagesFBList: FirebaseListObservable<any>;
+  savedDate: string;
+  newMessage: string;
+  messagesFBList: FirebaseListObservable<any>;
 
   //pointers of object or list in firebase
-  private projectsFBList: FirebaseListObservable<any>;
-  private projectsAssociatedCommunities_Arr: any;
-  private projectValues_Arr: any;
+  projectsFBList: FirebaseListObservable<any>;
+  projectsAssociatedCommunities_Arr: any;
+  projectValues_Arr: any;
 
   //flags
-  private isProjectSelected: boolean;
-  private isNeedViewMore: boolean;
+  isProjectSelected: boolean;
+  isNeedViewMore: boolean;
 
   //======================================================  constructor  ============================================================
 
-  constructor(private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
+  constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     //initializes with defult values
-    this.noProjects= true;
+    this.noProjects = true;
     this.currentProject = '';
     this.projectPath = '';
     this.cost = -1;
     this.date = null;
     this.purpose = '';
     this.description = '';
-
     this.savedDate = '';
     this.newMessage = '';
     this.messagesFBList = null;
-
     this.isProjectSelected = false;
     this.isNeedViewMore = false;
 

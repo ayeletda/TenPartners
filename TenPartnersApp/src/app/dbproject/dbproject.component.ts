@@ -17,7 +17,7 @@ import { ServiceService } from '../service.service';
 
 export class DBprojectComponent implements OnInit 
 {
-  @ViewChild('scrollMe') private myScrollContainer: ElementRef;
+  @ViewChild('scrollMe')    myScrollContainer: ElementRef;
 
   @Output() sendComment: EventEmitter<any> = new EventEmitter();
   @Output() close: EventEmitter<any> = new EventEmitter();
@@ -26,29 +26,29 @@ export class DBprojectComponent implements OnInit
   @Input() first;
 
   //user details
-  private user = { id: null, permission: null, community: null, name: null, email: null };
+  user = { id: null, permission: null, community: null, name: null, email: null };
 
-  private description: String;
-  private purpose: String;
-  private community: string;
-  private communitysPath: string;
-  private newComment: string;
+  description: String;
+  purpose: String;
+  community: string;
+  communitysPath: string;
+  newComment: string;
 
   //pointers of object or list in firebase
-  private commentsFBList: FirebaseListObservable<any>;
-  private likesFBList: FirebaseListObservable<any>;
-  private usersVotingFBList: FirebaseListObservable<any>;
-  private projectFBList: FirebaseListObservable<any>;
-  private communitiesFBList: FirebaseListObservable<any>;
+  commentsFBList: FirebaseListObservable<any>;
+  likesFBList: FirebaseListObservable<any>;
+  usersVotingFBList: FirebaseListObservable<any>;
+  projectFBList: FirebaseListObservable<any>;
+  communitiesFBList: FirebaseListObservable<any>;
 
   //flags
-  private view: boolean;
-  private more: boolean;
-  private islike: boolean;
-  private whatToView:string;
+  view: boolean;
+  more: boolean;
+  islike: boolean;
+  whatToView:string;
   //====================================  constructor  ===========================================================================================
 
-  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
+  constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     //initializes
     this.community = "";
@@ -90,7 +90,7 @@ export class DBprojectComponent implements OnInit
 
   //=======================================  addComment  ================================================================================================
 
-  private addComment() 
+  addComment() 
   {
     if (this.newComment != "") 
     {
@@ -105,7 +105,7 @@ export class DBprojectComponent implements OnInit
 
   //====================================  checkIfdoLike  ===================================================================================================
 
-  private checkIfdoLike()
+  checkIfdoLike()
   {
     this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true });
     let status = false;
@@ -129,7 +129,7 @@ export class DBprojectComponent implements OnInit
 
   //====================================  doLike  ===================================================================================================
 
-  private doLike() 
+  doLike() 
   {
     this.islike =! this.islike;
     if(this.checkIfdoLike() == false)
@@ -143,7 +143,7 @@ export class DBprojectComponent implements OnInit
 
   //====================================  viewComments  ===================================================================================================
 
-  private viewComments(view:string) 
+  viewComments(view:string) 
   {
     if(this.whatToView==view)
           this.view = !this.view;
@@ -159,7 +159,7 @@ export class DBprojectComponent implements OnInit
 
   //======================================  viewMore  ===============================================================================================
 
-  private viewMore() 
+  viewMore() 
   {
     this.more = !this.more;
     if (this.view == true) 
@@ -170,7 +170,7 @@ export class DBprojectComponent implements OnInit
 
   //=======================================  checkIfExist  =============================================================================================
 
-  private checkIfExist() 
+  checkIfExist() 
   {
     this.projectFBList = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
     
@@ -193,7 +193,7 @@ export class DBprojectComponent implements OnInit
 
   //==========================================  Nominate  =======================================================================================
 
-  private Nominate() 
+  Nominate() 
   {
     if (this.checkIfExist() == false) 
     {
@@ -214,7 +214,7 @@ export class DBprojectComponent implements OnInit
 
   //=========================================  pushToBoard  ==================================================================================================
 
-  private pushToBoard() 
+  pushToBoard() 
   {
     if (this.community != "") 
     {
@@ -234,7 +234,7 @@ export class DBprojectComponent implements OnInit
 
   //=======================================  removeComment  ==========================================
 
-  private removeComment(commentkey: string) 
+  removeComment(commentkey: string) 
   {
     let meessage = "Are you sure you want to delete the comment?";
 
@@ -248,7 +248,7 @@ export class DBprojectComponent implements OnInit
 
   //=======================================  scrollToBottom  ==========================================
 
-  private scrollToBottom() 
+  scrollToBottom() 
   {
     try 
     {

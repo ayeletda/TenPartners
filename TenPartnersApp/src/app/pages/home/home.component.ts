@@ -17,17 +17,16 @@ import { ServiceService } from '../../service.service';
 
 export class HomeComponent implements OnInit 
 {
-  private adcommunity: string;
-  private community: string;
-  private communitiesFBList: FirebaseListObservable<any>;
-  private adcommunityFBList: FirebaseListObservable<any>;
-  private usersArr: any;
-  private usersFBList: any;
-
+  adcommunity: string;
+  community: string;
+  communitiesFBList: FirebaseListObservable<any>;
+  adcommunityFBList: FirebaseListObservable<any>;
+  usersArr: any;
+  usersFBList: any;
 
   //=========================  constructor  =====================================================================
 
-  constructor(private router: Router, private service: ServiceService, public af: AngularFireDatabase) 
+  constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
     this.adcommunityFBList = this.af.list('communities');
@@ -55,7 +54,7 @@ export class HomeComponent implements OnInit
 
   //========================== addCommunity ======================================================================
 
-  private addCommunity() 
+  addCommunity() 
   {
     if (this.adcommunity == '') 
     {
@@ -76,7 +75,7 @@ export class HomeComponent implements OnInit
 
   //====================== doesCommunityExist =====================================================================
 
-  private doesCommunityExist() 
+  doesCommunityExist() 
   {
     let status = false;
     let temp = this.communitiesFBList.subscribe((snapshots) => 
@@ -128,7 +127,7 @@ import { ChangeDetectorRef } from "@angular/core";
 export class SubmitProjectComponent implements OnInit {
 public projects: FirebaseListObservable<any>;
 public newProject: string;
-  constructor(private router: Router, public af: AngularFireDatabase)
+  constructor( router: Router, public af: AngularFireDatabase)
    {
   this.projects = this.af.list('projects'); //= select * from projects 
 

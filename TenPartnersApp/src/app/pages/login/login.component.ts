@@ -16,49 +16,54 @@ import {ServiceService} from '../../service.service';
 
 export class LoginComponent implements OnInit 
 {
-  constructor(private serviceService:ServiceService, private router:Router)
+  //user details
+  user = { id: null, permission: null, community: null, name: null, email: null };
+
+  constructor(private service:ServiceService, private router:Router)
   {   
+    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.service.getDetails(this.user);
   }
 
   ngOnInit() {}
 
-  private login(username:HTMLInputElement, password:HTMLInputElement)
+  login(username:HTMLInputElement, password:HTMLInputElement)
   {
-    this.serviceService.login(username,password);
+    this.service.login(username,password);
   }
   
-  private fbLogin()
+  fbLogin()
   {
-    this.serviceService.FBlogin();
+    this.service.FBlogin();
   }
 
-  private gogLogin()
+  gogLogin()
   {
-    this.serviceService.GOGlogin();
+    this.service.GOGlogin();
   }
 
-  private twitLogin()
+  twitLogin()
   {
-    this.serviceService.TWITlogin();
+    this.service.TWITlogin();
   }
    
-  private afterLogin() 
+  afterLogin() 
   {
     //if it's admin
-    if(this.serviceService.getPermission()=="1")
+    if(this.user.permission == "1")
       this.router.navigateByUrl('/home');
 
     //if it's authorized user
-    else if(this.serviceService.getPermission()=="2")
+    else if(this.user.permission == "2")
       this.router.navigateByUrl('/voting');
 
     //if it's blocked user
-    else if(this.serviceService.getPermission()=="3")
+    else if(this.user.permission == "3")
      this.router.navigateByUrl('');
 
-   }
+  }
 
-   private forgotPassword(){
+  forgotPassword(){
 //      var auth = this.serviceService.anguarfireAuth.auth;
 //      var emailAddress = "user@example.com";
 

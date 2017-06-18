@@ -22,19 +22,19 @@ export class ProjectForSelectComponent implements OnInit
   @Output() voteChoose: EventEmitter<any> = new EventEmitter();
 
   //user details
-  private user = { id: null, permission: null, community: null, name: null, email: null };
+  user = { id: null, permission: null, community: null, name: null, email: null };
 
   // variables
-  private projectName: string;
-  private projectUplodeDate: Date;
+  projectName: string;
+  projectUplodeDate: Date;
 
   // pointers to object or list in firebase
-  private pointerToProjectInAF: any;
-  private pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
+  pointerToProjectInAF: any;
+  pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
 
   //===================================  constructor  ============================================
 
-  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
+  constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {  
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.getDetails(this.user);    
@@ -51,7 +51,7 @@ export class ProjectForSelectComponent implements OnInit
 
   //===================================  leftDayFn  ============================================
 
-  private leftDayFn(projectUplodeDate)
+   leftDayFn(projectUplodeDate)
   {
     // console.log(projectUplodeDate);
     // if (projectUplodeDate)

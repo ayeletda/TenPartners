@@ -19,37 +19,37 @@ export class ProjectForVoteComponent implements OnInit
   @Input() item;
   @Output() voteChoose: EventEmitter<any> = new EventEmitter();
 
-  @ViewChild('forVal') private forVal: any;
-  @ViewChild('avoidVal') private avoidVal: any;
-  @ViewChild('againstVal') private againstVal: any;
+  @ViewChild('forVal')  forVal: any;
+  @ViewChild('avoidVal')  avoidVal: any;
+  @ViewChild('againstVal')  againstVal: any;
   
   //user details
-  private user = { id: null, permission: null, community: null, name: null, email: null };
-  private voteStatus: string;
+  user = { id: null, permission: null, community: null, name: null, email: null };
+  voteStatus: string;
 
   //project details
-  private projectName: string;
-  private projectDate: Date;
-  private projectUplodeDate: Date;
-  private leftDays: number;
+  projectName: string;
+  projectDate: Date;
+  projectUplodeDate: Date;
+  leftDays: number;
 
   //determined according to customer
-  private votingNumForChoosingProject: number; 
-  private maxVotingNum: number;         
-  private maxDaysForVoting: number;
+  votingNumForChoosingProject: number; 
+  maxVotingNum: number;         
+  maxDaysForVoting: number;
 
   //pointers to object or list in firebase
-  private projectFBList: any;
-  private projectFBObject: FirebaseObjectObservable<any>;
-  private projectsFBList: FirebaseListObservable<any>;
-  private usersVotingFBList: FirebaseListObservable<any>;
+  projectFBList: any;
+  projectFBObject: FirebaseObjectObservable<any>;
+  projectsFBList: FirebaseListObservable<any>;
+  usersVotingFBList: FirebaseListObservable<any>;
   
   //flags
-  private isAccuciatedUser: boolean;
+  isAccuciatedUser: boolean;
 
   //===================================  constructor  ============================================
 
-  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
+  constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     //initializes variables with deafult values
     this.projectName = '';

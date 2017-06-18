@@ -15,8 +15,8 @@ import {ServiceService} from '../service.service';
 
 export class HeaderComponent implements OnInit 
 {
-  private _opened: boolean;
-  private newPass:string;
+  _opened: boolean;
+  newPass: string;
 
   constructor(private router: Router, private service:ServiceService) 
   {
@@ -27,32 +27,34 @@ export class HeaderComponent implements OnInit
 
   ngOnInit() {}
   
-  private logOut()
+  logOut()
   {
     this.service.logout();
   }
 
-  private _toggleSidebar() 
+  _toggleSidebar() 
   {
     this._opened = !this._opened;
   }
 
-
-  private chengePassword()
+  chengePassword()
   {
-    var user = this.service.anguarfireAuth.auth.currentUser;
+    let user = this.service.anguarfireAuth.auth.currentUser;
     let newPassword = prompt("Enter new password");
 
     if (newPassword=="")
-          return;
+      return;
           
-user.updatePassword(newPassword).then(function() {
-  // Update successful.
-  alert("The password change");
-}, function(error) {
-    alert("The password don't change");
+    user.updatePassword(newPassword).then(function() 
+    {
+    // Update successful.
+    alert("The password change");
+    },  function(error) 
+    {
+      alert("The password don't change");
 
-  // An error happened.
-});
+      // An error happened.
+    });
   }
+
 }
