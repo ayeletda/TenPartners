@@ -53,6 +53,9 @@ export class BoardComponent implements OnInit
     projectSelected: boolean;
     firstTimeOfScoller: boolean;
 
+    incorrectValues:boolean;
+    alert:boolean;
+
 
     //====================  constructor  ============================================================
 
@@ -65,7 +68,12 @@ export class BoardComponent implements OnInit
         this.projectPath = '';
         this.projectSelected = false;
         this.firstTimeOfScoller = true;
+
         this.showDetailsForm = false;
+        this.incorrectValues = false;
+        this.alert = false;
+
+
         this.noProjects= true;
         this.maxVotingNum = 10;
 
@@ -135,6 +143,32 @@ export class BoardComponent implements OnInit
 
     updateDetails() 
     {
+        this.close();
+        if(this.date ==null || this.cost<=0 || this.cost == null){
+            this.showIncorrectValues();
+        }
+        else{
+            this.showAlert();
+        }
+
+
+    }
+    showIncorrectValues(){
+        this.incorrectValues = true;
+    }
+
+    submitIncorrectValues(){
+        this.incorrectValues = false;
+
+    }
+
+
+    showAlert(){
+
+        this.alert = true;
+
+    }
+    submitAlert(){
         //updating project's details
         this.projectUpdate.update({'associatedUser': this.user.id });
         this.projectUpdate.update({ 'uploudDate': new Date().getTime() });
@@ -146,9 +180,12 @@ export class BoardComponent implements OnInit
 
         //updating voteStatus
         this.usersVotingList.update(this.user.id, { vote: "for"});
-
-        this.close();
+        this.closeAlert();
     }
+
+
+
+
 
     //===================== close  ============================================================
 
@@ -156,6 +193,16 @@ export class BoardComponent implements OnInit
     {
         this.showDetailsForm = false;
         this.currentI = -1;
+    }
+
+    closeIncorrectValues(){
+        this.incorrectValues = false;
+    }
+
+    closeAlert(){
+        this.alert = false;
+
+
     }
 
     //===============   scrollToBottom  =========================================================
