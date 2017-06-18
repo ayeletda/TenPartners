@@ -134,15 +134,17 @@ label
 
 
 /*=================================== fixing heights according to the screen's size ======================================== */
- @media only screen and (min-height: 1366px)
+@media only screen and (min-height: 1366px)
 {
-
-     #up
+    main{
+        width:340px;
+    }
+    #up
     {
         height: 200px;
     }
 
-   .lable
+    .lable
     {
         font-size: 50px;
     }
@@ -160,23 +162,26 @@ label
 }
 
 
- @media only screen and (min-height: 1024px)
+@media only screen and (min-height: 1024px)
 {
-     #up
+    main{
+        width:340px;
+    }
+    #up
     {
         height: 180px;
     }
- 
+
     .lable
     {
         font-size: 35px;
     }
- 
+
     p
     {
         font-size: 30px;
     }
- 
+
     #like, #unlike
     {
         font-size: 35px;
@@ -187,21 +192,22 @@ label
 
 @media only screen and (min-height: 1366px)
 {
-     #up
+
+    #up
     {
         height: 200px;
     }
-    
+
     .lable
     {
         font-size: 47px;
     }
-    
+
     p
     {
         font-size: 42px;
     }
-    
+
     #like, #unlike
     {
         font-size: 40px;
@@ -212,15 +218,21 @@ label
 
 @media only screen and (max-height: 736px)
 {
+    main{
+        width:138px;
+    }
     #up
     {
-         height: 100px;   
+        height: 100px;
     }
 }
 
 
 @media only screen and (max-height: 732px)
 {
+    main{
+        width:138px;
+    }
     #up
     {
         height: 100px;
@@ -230,16 +242,19 @@ label
 
 @media only screen and (max-height: 667px )
 {
+    main{
+        width:125px;
+    }
     #up
     {
         height: 90px;
     }
-    
+
     .lable
     {
         font-size: 20px;
     }
-    
+
     p
     {
         font-size: 15px;
@@ -249,42 +264,80 @@ label
 
 @media only screen and (max-height: 640px)
 {
+    main{
+        width:120px;
+    }
     #up
     {
         height: 90px;
     }
-    
+
     .lable
     {
         font-size: 20px;
     }
-    
+
     p
     {
         font-size: 15px;
+    }
+    .vertical-menu2{
+        height: 210px;
     }
 }
 
 
 @media only screen and (max-height: 568px)
 {
+    main{
+        width: 120px;
+    }
     #up
     {
         height: 80px;
     }
-    
+
     .lable
     {
         font-size: 17px;
     }
-    
+
     p
     {
         font-size: 12px;
     }
-    
+
     #like, #unlike
     {
         font-size: 17px;
+    }
+    .vertical-menu2 {
+        height: 210px;
+    }
+}
+@media only screen and (min-width: 768px){
+    main{
+        width: 255px;
+    }
+    .vertical-menu2 {
+        height: 476px;
+    }
+}
+@media only screen and (min-width: 1024px){
+    @media only screen and (min-height: 1366px){
+        main{
+            width: 340px;
+        }
+        .vertical-menu2[_ngcontent-c3] {
+            height: 747px;
+        }
+    }
+
+
+
+}
+@media only screen and (max-width: 320px){
+    main{
+        width: 106px;
     }
 }
