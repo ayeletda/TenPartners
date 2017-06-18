@@ -5,7 +5,7 @@
 		
 		<!--delete -->
 		<a  aria-label = "Delete">
-			<i class = "fa fa-trash-o pull-right" aria-hidden = "true" (click) = "removeProject()"></i>
+			<i class = "fa fa-trash-o pull-right" aria-hidden = "true" (click) = "PopMassage()"></i>
 		</a>
 
 		<div *ngFor = "let value of pointerToProjectInAF | async">
@@ -31,5 +31,14 @@
 			</div>
 		
 		</div>
+
+		<div *ngIf = "showDetailsForm" class = "nominateAlert">
+			<form (submit)="removeProject()">
+				<div class="close" (click)="PopMassage()">X</div>
+          	 Are you sure you want to delete {{projectName}} project?<br><br>
+            <input  class= "btn btn-success btn-lg" id="submitButton" type="submit" value="delete">
+			</form>
+		</div>
+
 	</div>		
 </main>
