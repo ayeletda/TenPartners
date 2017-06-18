@@ -126,9 +126,11 @@ input:checked + .slider:before
   padding-top: 60px;
   padding-left: 15px;
   padding-right: 15px;
-  height: 100%;
+  height: 100vh;
   background-color:#F8F9F9;
   opacity: 0.9;
+  width:auto;
+  position: absolute;
 }
 
 ng-sidebar-container

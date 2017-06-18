@@ -15,12 +15,12 @@ import {ServiceService} from '../service.service';
 
 export class HeaderComponent implements OnInit 
 {
-  _opened: boolean;
+  isOpen: boolean;
   newPass: string;
 
   constructor(private router: Router, private service:ServiceService) 
   {
-    this._opened = false;
+    this.isOpen = false;
   }
 
   @Input()item;
@@ -32,9 +32,9 @@ export class HeaderComponent implements OnInit
     this.service.logout();
   }
 
-  _toggleSidebar() 
+  toggleSidebar() 
   {
-    this._opened = !this._opened;
+    this.isOpen = !this.isOpen;
   }
 
   chengePassword()
