@@ -66,6 +66,9 @@ export class ServiceService
           user.name = temp.name;
           user.email = temp.email;
           user.id = snapshot.key;
+          // user.google = temp.google;
+          // user.facebook=temp.facebook;
+          // user.twitter=temp.twitter;
         }
       });
     });
