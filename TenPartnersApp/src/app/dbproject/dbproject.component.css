@@ -48,6 +48,32 @@ span
 	margin-bottom: 10px;
 }
 
+
+.nominateAlert 
+{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+	right: 0px;
+}
+
+
+.nominateAlert form 
+{
+	top:0px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7%;
+    text-align: center;
+    background-color: white;
+
+}
+
 .col-lg-6,.btn,.btn-default,.form-control,.btn-success
 {
 	position: unset;

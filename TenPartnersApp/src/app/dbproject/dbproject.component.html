@@ -64,7 +64,7 @@
 
 
       <div class="social">
-        <button class="btn btn-success btn-lg center-block" *ngIf="user.permission == '2'" (click)="Nominate()">Nominate</button>
+        <button class="btn btn-success btn-lg center-block" *ngIf="user.permission == '2'" (click)="PopMassage()">Nominate</button>
 
         <div class="row" *ngIf="user.permission == '1'">
           <div class="col-lg-6">
@@ -83,6 +83,24 @@
 
         </div>
       </div>
+
+      <div *ngIf='showDetailsForm' class="nominateAlert">
+
+        <form>
+
+            <div class="close" (click)="PopMassage()">X</div>
+            Date:<br>
+            <input type="date" name="date" [(ngModel)]="date">
+            <br>
+            Cost:<br>
+            <input type="number" name="cost" [(ngModel)]="cost">
+            <br><br>
+            <input id="submitButton" type="submit" value="Submit" (click)="Nominate()">
+
+        </form>
+
+    </div>
+
     </main>
   </div>
 </div>
