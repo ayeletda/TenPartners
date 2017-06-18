@@ -61,6 +61,7 @@ export class DBprojectComponent implements OnInit
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communitiesFBList = this.af.list("/communities");
     this.showDetailsForm = false;
+    this.cost="";
 
 
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
@@ -237,7 +238,8 @@ PopMassage()
 
       this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "/votingList");
       this.usersVotingFBList.update(this.user.id + "", { vote: "for" });
-
+      this.cost="";
+      this.date=null;
       this.whatToPop="nominatePop";
       this.showDetailsForm=true;
     }
