@@ -33,6 +33,9 @@ export class DBprojectComponent implements OnInit
   community: string;
   communitysPath: string;
   newComment: string;
+  cost: string;
+  date: Date;
+  whatToPop:string;
 
   //pointers of object or list in firebase
   commentsFBList: FirebaseListObservable<any>;
@@ -46,6 +49,8 @@ export class DBprojectComponent implements OnInit
   more: boolean;
   islike: boolean;
   whatToView:string;
+  showDetailsForm: boolean;
+
   //====================================  constructor  ===========================================================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -55,10 +60,13 @@ export class DBprojectComponent implements OnInit
     this.newComment = "";
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communitiesFBList = this.af.list("/communities");
+    this.showDetailsForm = false;
+
 
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.getDetails(this.user);
     this.whatToView="";
+    this.whatToPop="";
   }
 
   //=======================================  ngOnInit  ===========================================================================================
@@ -191,14 +199,37 @@ export class DBprojectComponent implements OnInit
     return status;
   }
 
+
+
+PopMassage()
+{
+  if(this.showDetailsForm==false)
+  { 
+      if(this.checkIfExist()==true)
+        { this.whatToPop="existsPop";
+          this.showDetailsForm=true;
+          
+        return;}
+
+  }
+  this.whatToPop ="detailsPop";
+  this.showDetailsForm =!this.showDetailsForm;
+}
+
   //==========================================  Nominate  =======================================================================================
 
   Nominate() 
   {
+      this.showDetailsForm = false;
+
     if (this.checkIfExist() == false) 
     {
-      let cost = prompt("Please enter the project cost", "100$");
-      let date = prompt("Please enter the project date", "dd/mm/yyyy");
+      let cost =this.cost;
+      let date = this.date;
+
+      if(cost==""||this.date==null)
+          { alert("empty!") 
+            return;}
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
       this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.user.id + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
@@ -209,7 +240,6 @@ export class DBprojectComponent implements OnInit
       alert("The project is nominated");
     }
 
-    else alert("This project already exists in your community");
   }
 
   //=========================================  pushToBoard  ==================================================================================================

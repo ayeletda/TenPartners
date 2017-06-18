@@ -30,7 +30,8 @@ export class ProjectForUpdateComponent implements OnInit
   card: boolean;
   updateDateFlag: boolean;
   updateCostFlag: boolean;
-
+  whatToPop:string;
+  showDetailsForm: boolean;
 //===================================  constructor  =================================================
 
   constructor( private router: Router, private af: AngularFireDatabase)
@@ -38,6 +39,8 @@ export class ProjectForUpdateComponent implements OnInit
     this.projectsFBList = this.af.list('projects');
     this.updateDateFlag = false;
     this.updateCostFlag = false;
+    this.whatToPop="";
+    this.showDetailsForm=false;
   }
 
 //====================================  ngOnInit()  ==================================================
@@ -48,6 +51,20 @@ export class ProjectForUpdateComponent implements OnInit
     this.projectFBObject = this.af.object(this.item, { preserveSnapshot: true });
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1]
   }
+
+
+PopMassage()
+{
+  if(this.showDetailsForm==false)
+  { 
+         this.whatToPop="deletePop";
+          this.showDetailsForm=true;
+          return;
+
+  }
+
+  this.showDetailsForm =!this.showDetailsForm;
+}
 
 //================================= clickOnMyProjects  ===============================================
 
@@ -60,8 +77,6 @@ export class ProjectForUpdateComponent implements OnInit
 
    removeProject()
   {
-    let meessage = "Are you sure you want to delete " + this.projectName + " project?";
-    if(confirm(meessage))
     this.projectFBObject.update({ 'associatedUser': ""});
   }
 

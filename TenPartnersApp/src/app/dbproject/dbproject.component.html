@@ -64,7 +64,7 @@
 
 
       <div class="social">
-        <button class="btn btn-success btn-lg center-block" *ngIf="user.permission == '2'" (click)="Nominate()">Nominate</button>
+        <button class="btn btn-success btn-lg center-block" *ngIf="user.permission == '2'" (click)="PopMassage()">Nominate</button>
 
         <div class="row" *ngIf="user.permission == '1'">
           <div class="col-lg-6">
@@ -83,6 +83,32 @@
 
         </div>
       </div>
+
+      <div *ngIf='showDetailsForm' class="nominateAlert">
+
+        <form (submit)="Nominate()">
+
+            <div class="close" (click)="PopMassage()">X</div>
+
+            <div class = "detailsPop" *ngIf="whatToPop == 'detailsPop'">
+
+            Date:
+            <input type="date" name="date" [(ngModel)]="date">
+            <br>
+            Cost:
+            <input placeholder="100$" name="cost" [(ngModel)]="cost">
+            <br><br>
+            <input  class= "btn btn-success btn-lg center-block" id="submitButton" type="submit" value="Submit">
+            </div>
+
+            <div class="existsPop">
+               This project already exists in your community 
+            </div>
+
+        </form>
+
+    </div>
+
     </main>
   </div>
 </div>
