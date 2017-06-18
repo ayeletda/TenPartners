@@ -60,6 +60,25 @@ span
 	right: 0px;
 }
 
+.close 
+{
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    background-color: black;
+    border-radius: 50%;
+    width: 15%;
+    height: 16%;
+    line-height: 163%;
+    opacity: 1;
+    color: white;
+}
+
+.close:hover 
+{
+    opacity: 0.8;
+}
+
 
 .nominateAlert form 
 {
@@ -71,6 +90,8 @@ span
     padding: 7%;
     text-align: center;
     background-color: white;
+	border-radius:10px;
+	border-color: grey; 
 
 }
 
