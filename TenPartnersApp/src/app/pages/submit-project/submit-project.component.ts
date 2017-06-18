@@ -22,6 +22,8 @@ export class SubmitProjectComponent implements OnInit
   description: String;
   purpose: String;
   projectsValues_Arr: any;
+  whatToPop:string;
+  showDetailsForm: boolean;
 
   //pointers of object or list in firebase
   projectsFBList: FirebaseListObservable<any>;
@@ -35,7 +37,8 @@ export class SubmitProjectComponent implements OnInit
     this.name = "";
     this.description = "";
     this.purpose = "";
-
+    this.whatToPop="";
+    this.showDetailsForm=false;
     //initialize projectsValues_Arr
     this.projectsFBList = this.af.list('projects');
 
@@ -59,20 +62,40 @@ export class SubmitProjectComponent implements OnInit
     this.service.setTitle("Submit Project");
   }
 
+
+PopMassage()
+{
+  if(this.showDetailsForm==false)
+  { 
+
+     if(this.name == "" || this.description == "" || this.purpose == "")
+          this.whatToPop="fieldEmptyPop";
+          
+
+        else{
+            this.sendProject();
+            this.whatToPop="projectSendPop";
+        }  
+
+        this.showDetailsForm=true;
+        return;
+
+  }
+
+  this.showDetailsForm =!this.showDetailsForm;
+}
+
+
   //==========================  sendProject  ====================================================================
 
   sendProject()
   {
-    if(this.name == "" || this.description == "" || this.purpose == "")
-        alert("You must fill out all fields before submitting a project.");
-    else 
-    {
+    
       this.projectsFBList.push({name: this.name, description: this.description,purpose: this.purpose,associatedCommunities: "NULL"});
       this.name = '';
       this.description = "";
       this.purpose = "";
-       alert("Your project was send!");
-    }
+    
   }
 
 }

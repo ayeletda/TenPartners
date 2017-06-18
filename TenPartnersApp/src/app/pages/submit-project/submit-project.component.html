@@ -32,9 +32,27 @@
             <!-- Form actions -->
             <div class="form-group">
               <div class="col-md-12 text-right">
-                <button type="submit" class="btn btn-primary btn-lg" (click) = "sendProject()">Submit</button>
+                <button type="submit" class="btn btn-primary btn-lg" (click) = "PopMassage()">Submit</button>
               </div>
             </div>
+
+
+<div *ngIf = "showDetailsForm" class = "nominateAlert">
+			<form>
+				<div class="close" (click)="PopMassage()">X</div>
+
+        <div *ngIf="whatToPop=='fieldEmptyPop'">
+          	You must fill out all fields before submitting a project.
+        </div>
+
+        <div *ngIf="whatToPop=='projectSendPop'">
+          	Your project was send!
+        </div>
+
+			</form>
+		</div>
+
+
           </fieldset>
         </form>
       </div>
