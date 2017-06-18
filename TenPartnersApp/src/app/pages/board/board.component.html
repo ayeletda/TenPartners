@@ -1,25 +1,22 @@
-<!--========================== the page ==============================-->
-
 
 <div class="body2">
+    
     <div class="part1 vertical-menu-x">
         <div class="temp" *ngFor="let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
             <div *ngFor="let community of associatedCommunities | async ">
-                <!--<div class = " col-centered">-->
-                <div *ngIf="community.$key == userCommunity && community.associatedUser == '' && saveProjectPath(community,i)">
-                    <app-projectForSelect class="pull-left"
-                                        [item]="projectPath"
-                                        (click)="loadProjectDetails(community,i)">
+                <div *ngIf="community.$key == user.community && community.associatedUser == '' && saveProjectPath(community,i)">
+                    <app-projectForSelect 
+                        class="pull-left"
+                        [item]="projectPath"
+                        (click)="loadProjectDetails(community,i)">
                     </app-projectForSelect>
                 </div>
             </div>
         </div>
     </div>
 
-
-    <!--//No projects have been selected for discussion yet...-->
     <div *ngIf='noProjects' class = "noProjects">
-        No projects have been selected for discussion
+        No projects have been selected for discussion yet...
     </div>
 
     <div class=" part2">

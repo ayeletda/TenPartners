@@ -21,7 +21,8 @@
     white-space: nowrap;
 }
 
-::-webkit-scrollbar {
+::-webkit-scrollbar 
+{
     -webkit-appearance: none;
     width: 7px;
 }
@@ -32,43 +33,46 @@
    height: 4px;
  }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb 
+{
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .5);
 }
+
 ::-webkit-scrollbar-thumb:horizontal
 {
     background-color: rgba(0, 0, 0, .5);
 }
 
-
-.part2 {
+.part2 
+{
     background-color: #E5E7E9;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.part3 {
+.part3 
+{
     width: 100%;
     text-align: center;
 }
 
-/*========================================= CSS for the chat ============================================*/
-
-br {
+br 
+{
     display: block;
     line-height: 1.6em;
 }
 
-p {
+p 
+{
     font-size: 1.2em;
     line-height: 1.25em;
 }
 
-
 /* ============================ CSS of vertical-menu-x ======================= */
 
-.vertical-menu1 {
+.vertical-menu1 
+{
     padding: 3%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 62.5%;
@@ -85,7 +89,8 @@ p {
 
 /* ====================== CSS of vertical-menu-x ======================= */
 
-.vertical-menu-x {
+.vertical-menu-x 
+{
     overflow-x: scroll;
     overflow-y: hidden;
     width: 100%;
@@ -93,11 +98,13 @@ p {
     height: 100%;
 }
 
-input::placeholder {
+input::placeholder 
+{
     text-align: left;
 }
 
-#chooseProject {
+#chooseProject 
+{
     background-color: green;
     color: white;
     padding: 7px 20px;
@@ -105,11 +112,13 @@ input::placeholder {
     border-radius: 7px;
 }
 
-.details {
+.details 
+{
     visibility: hidden;
 }
 
-.nominateAlert {
+.nominateAlert 
+{
     position: fixed;
     top: 0;
     height: 100%;
@@ -118,7 +127,8 @@ input::placeholder {
     font-weight: bold;
 }
 
-.nominateAlert form {
+.nominateAlert form 
+{
     position: absolute;
     left: 50%;
     top: 50%;
@@ -129,7 +139,8 @@ input::placeholder {
 
 }
 
-#submitButton {
+#submitButton 
+{
     background-color: green;
     border-radius: 10%;
     color: white;
@@ -137,7 +148,8 @@ input::placeholder {
     padding: 4%;
 }
 
-.close {
+.close 
+{
     position: absolute;
     left: -5%;
     top: -5%;
@@ -150,15 +162,17 @@ input::placeholder {
     color: white;
 }
 
-.close:hover {
+.close:hover 
+{
     opacity: 0.8;
 }
 
 /*=================================== fixing heights according to the screen's size ======================================== */
 
-@media only screen and (max-height: 1366px) {
-
-    ::-webkit-scrollbar {
+@media only screen and (max-height: 1366px) 
+{
+    ::-webkit-scrollbar 
+    {
         width: 7px;
     }
 
@@ -167,19 +181,21 @@ input::placeholder {
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb 
+    {
         border-radius: 4px;
     }
 
-    .descriptionOfProject{
+    .descriptionOfProject
+    {
         font-size: 14px;
     }
-
 }
 
-@media only screen and (max-height: 1024px) {
-
-    ::-webkit-scrollbar {
+@media only screen and (max-height: 1024px) 
+{
+    ::-webkit-scrollbar 
+    {
         width: 7px;
     }
 
@@ -188,18 +204,21 @@ input::placeholder {
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb 
+    {
         border-radius: 4px;
     }
-    .descriptionOfProject{
+    
+    .descriptionOfProject
+    {
         font-size: 20px;
     }
-
 }
 
-@media only screen and (max-height: 736px) {
-
-    ::-webkit-scrollbar {
+@media only screen and (max-height: 736px) 
+{
+    ::-webkit-scrollbar 
+    {
         width: 7px;
     }
 
@@ -208,19 +227,21 @@ input::placeholder {
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb 
+    {
         border-radius: 4px;
     }
 
-    .descriptionOfProject{
+    .descriptionOfProject
+    {
         font-size: 14px;
     }
-
 }
 
-@media only screen and (max-height: 732px) {
-
-    ::-webkit-scrollbar {
+@media only screen and (max-height: 732px) 
+{
+    ::-webkit-scrollbar 
+    {
         width: 7px;
     }
 
@@ -229,18 +250,21 @@ input::placeholder {
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb 
+    {
         border-radius: 4px;
     }
-    .descriptionOfProject{
+    
+    .descriptionOfProject
+    {
         font-size: 18px;
     }
-
 }
 
-@media only screen and (max-height: 667px) {
-
-    ::-webkit-scrollbar {
+@media only screen and (max-height: 667px) 
+{
+    ::-webkit-scrollbar 
+    {
         width: 7px;
     }
 
@@ -249,23 +273,26 @@ input::placeholder {
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb 
+    {
         border-radius: 4px;
     }
+    
     ::-webkit-scrollbar:horizontal
     {
         height: 4px;
     }
-    .descriptionOfProject{
+    
+    .descriptionOfProject
+    {
         font-size: 14px;
     }
-
-
 }
 
-@media only screen and (max-height: 640px) {
-
-    ::-webkit-scrollbar {
+@media only screen and (max-height: 640px) 
+{
+    ::-webkit-scrollbar 
+    {
         width: 7px;
     }
 
@@ -274,18 +301,21 @@ input::placeholder {
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb 
+    {
         border-radius: 4px;
     }
-    .descriptionOfProject{
+    
+    .descriptionOfProject
+    {
         font-size: 14px;
     }
-
 }
 
-@media only screen and (max-height: 568px) {
-
-    ::-webkit-scrollbar {
+@media only screen and (max-height: 568px) 
+{
+    ::-webkit-scrollbar 
+    {
         width: 7px;
     }
 
@@ -294,20 +324,24 @@ input::placeholder {
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb {
+    ::-webkit-scrollbar-thumb 
+    {
         border-radius: 4px;
     }
-    .descriptionOfProject{
+    
+    .descriptionOfProject
+    {
         font-size: 14px;
     }
-
 }
 
 
 /** Overdue by r */
 
-@media screen and (min-width: 768px) {
-    .body2 {
+@media screen and (min-width: 768px) 
+{
+    .body2 
+    {
         margin-top: 5%;
     }
 }
