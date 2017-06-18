@@ -238,7 +238,8 @@ PopMassage()
       this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "/votingList");
       this.usersVotingFBList.update(this.user.id + "", { vote: "for" });
 
-      alert("The project is nominated");
+      this.whatToPop="nominatePop";
+      this.showDetailsForm=true;
     }
 
   }
