@@ -47,9 +47,9 @@ export class AddUserComponent implements OnInit
     this.serviceService.setTitle("Add user");
   }
 
-  sendUser() {
-
-    if (this.UserName != "" && this.TenPartnersAccount != "" && this.Password != "" && this.Community != "Community") {
+  sendUser(community) {
+    this.Community = community;
+    if (this.UserName != "" && this.TenPartnersAccount != "" && this.Password != "" && this.Community) {
       //      if (this.checkUserName()==true)
       //        alert("this username already exist");
 
