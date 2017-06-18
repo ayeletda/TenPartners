@@ -33,7 +33,7 @@ export class DBprojectComponent implements OnInit
   community: string;
   communitysPath: string;
   newComment: string;
-  cost: number;
+  cost: string;
   date: Date;
 
   //pointers of object or list in firebase
@@ -222,6 +222,10 @@ PopMassage()
     {
       let cost =this.cost;
       let date = this.date;
+
+      if(cost==""||this.date==null)
+          { alert("empty!") 
+            return;}
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
       this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.user.id + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });

@@ -86,16 +86,16 @@
 
       <div *ngIf='showDetailsForm' class="nominateAlert">
 
-        <form>
+        <form (submit)="Nominate()">
 
             <div class="close" (click)="PopMassage()">X</div>
-            Date:<br>
+            Date:
             <input type="date" name="date" [(ngModel)]="date">
             <br>
-            Cost:<br>
-            <input type="number" name="cost" [(ngModel)]="cost">
+            Cost:
+            <input placeholder="100$" name="cost" [(ngModel)]="cost">
             <br><br>
-            <input id="submitButton" type="submit" value="Submit" (click)="Nominate()">
+            <input  class= "btn btn-success btn-lg center-block" id="submitButton" type="submit" value="Submit">
 
         </form>
 
