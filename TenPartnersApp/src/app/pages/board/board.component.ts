@@ -163,6 +163,8 @@ export class BoardComponent implements OnInit
     }
 
 
+
+
     showAlert(){
 
         this.alert = true;
