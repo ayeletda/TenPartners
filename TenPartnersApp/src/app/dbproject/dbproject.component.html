@@ -72,7 +72,7 @@
       </span>
               <select [(ngModel)]="community" class="form-control">
       <option value="">Community</option>
-      <option value = {{community.name}}  *ngFor = "let community of communitiesFBList | async"> {{ community.name }} </option>
+      <option  *ngFor = "let community of communitiesFBList | async" value = {{community.name}} > {{ community.name }} </option>
      </select>
             </div>
             <!-- /input-group -->
