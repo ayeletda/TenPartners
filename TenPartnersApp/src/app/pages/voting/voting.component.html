@@ -16,7 +16,7 @@
     </div>  
     
     <!--//No projects have been selected for discussion yet...-->
-    <!--<div *ngIf='noProjects' class = "noProjects">
+    <!--<div *ngIf='isNoProjects' class = "noProjects">
         No projects have been selected for discussion yet
     </div>-->
 
@@ -29,8 +29,7 @@
                 <p class = "details"> Cost: {{cost}} </p>
                 <p class = "details"> Purpose: {{purpose}} </p>
                 <p *ngIf = "!isNeedViewMore" class = "clickText pull-right" (click) = "viewMore(true)">Click for viewing more details </p>
-                <p *ngIf = "isNeedViewMore" class = "details" id = "part2part3size"> Description: {{description}} <br>
-                </p> 
+                <p *ngIf = "isNeedViewMore" class = "details" id = "part2part3size"> Description: {{description}} </p> 
             </div>
         </div>
         <p *ngIf = "isNeedViewMore" class = "clickText pull-right" (click) = "viewMore(false)">Click for viewing less details </p>

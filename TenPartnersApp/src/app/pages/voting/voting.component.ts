@@ -23,7 +23,6 @@ export class VotingComponent implements OnInit
   user = { id: null, permission: null, community: null, name: null, email: null };
 
   //project details
-  noProjects:boolean;
   currentProject: any;
   projectPath: any;
   cost: number;
@@ -44,13 +43,15 @@ export class VotingComponent implements OnInit
   //flags
   isProjectSelected: boolean;
   isNeedViewMore: boolean;
+  isNoProjects:boolean;
+
 
   //======================================================  constructor  ============================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     //initializes with defult values
-    this.noProjects = true;
+    this.isNoProjects = true;
     this.currentProject = '';
     this.projectPath = '';
     this.cost = -1;
@@ -101,7 +102,7 @@ export class VotingComponent implements OnInit
   saveProjectPath(project, i) 
   {
     this.projectPath = 'projects/' + this.projectValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
-    this.noProjects = false;
+    this.isNoProjects = false;
     return true;
   }
 

@@ -63,8 +63,6 @@ export class ProjectForVoteComponent implements OnInit
 
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.getDetails(this.user);
-   console.log(this.user.id);
-
 
     //initializes variables with corrent values
     this.projectsFBList = this.af.list('projects');
@@ -197,7 +195,6 @@ export class ProjectForVoteComponent implements OnInit
     this.projectFBObject.update({ 'for': forVal });
     this.projectFBObject.update({ 'avoid': avoidVal });
     this.projectFBObject.update({ 'against': againstVal });
-console.log(this.user.id +" statuse: "+ newStatus);
 
     //updating voteStatus on firebase
     this.usersVotingFBList.update(this.user.id, { vote: newStatus });
