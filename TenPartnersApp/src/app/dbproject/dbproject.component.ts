@@ -35,6 +35,7 @@ export class DBprojectComponent implements OnInit
   newComment: string;
   cost: string;
   date: Date;
+  whatToPop:string;
 
   //pointers of object or list in firebase
   commentsFBList: FirebaseListObservable<any>;
@@ -65,6 +66,7 @@ export class DBprojectComponent implements OnInit
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.getDetails(this.user);
     this.whatToView="";
+    this.whatToPop="";
   }
 
   //=======================================  ngOnInit  ===========================================================================================
@@ -204,11 +206,13 @@ PopMassage()
   if(this.showDetailsForm==false)
   { 
       if(this.checkIfExist()==true)
-        {alert("This project already exists in your community");
+        { this.whatToPop="existsPop";
+          this.showDetailsForm=true;
+          
         return;}
 
   }
-
+  this.whatToPop ="detailsPop";
   this.showDetailsForm =!this.showDetailsForm;
 }
 
@@ -224,7 +228,8 @@ PopMassage()
       let date = this.date;
 
       if(cost==""||this.date==null)
-          { alert("empty!") 
+          { this.whatToPop="emptyPop";
+           this.showDetailsForm = true;
             return;}
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");

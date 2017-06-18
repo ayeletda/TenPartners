@@ -89,6 +89,9 @@
         <form (submit)="Nominate()">
 
             <div class="close" (click)="PopMassage()">X</div>
+
+            <div class = "detailsPop" *ngIf="whatToPop == 'detailsPop'">
+
             Date:
             <input type="date" name="date" [(ngModel)]="date">
             <br>
@@ -96,7 +99,16 @@
             <input placeholder="100$" name="cost" [(ngModel)]="cost">
             <br><br>
             <input  class= "btn btn-success btn-lg center-block" id="submitButton" type="submit" value="Submit">
+            </div>
 
+            <div class="existsPop" *ngIf="whatToPop == 'existsPop'">
+               This project already exists in your community 
+            </div>
+
+
+            <div class="emptyPop" *ngIf="whatToPop == 'emptyPop'">
+              You must fill all fields!
+            </div>
         </form>
 
     </div>
