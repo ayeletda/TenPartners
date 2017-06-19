@@ -32,11 +32,11 @@
 		
 		</div>
 
-		<div *ngIf = "showDetailsForm" class = "nominateAlert">
-			<form (submit)="removeProject()">
-				<div class="close" (click)="PopMassage()">X</div>
-          	 Are you sure you want to delete {{projectName}} project?<br><br>
-            <input  class= "btn btn-success btn-lg" id="submitButton" type="submit" value="delete">
+		<div *ngIf = "doesNeedPop" class = "popAlert">
+			<form (submit) = "removeProject()">
+				<div class = "close" (click)="PopMassage()">X</div>
+          		Are you sure you want to delete {{ projectName }} project? <br><br>
+            	<input class = "btn btn-success btn-lg" id = "submitButton" type = "submit" value = "delete">
 			</form>
 		</div>
 
