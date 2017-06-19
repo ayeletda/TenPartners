@@ -43,6 +43,9 @@ export class DBprojectComponent implements OnInit
   usersVotingFBList: FirebaseListObservable<any>;
   projectFBList: FirebaseListObservable<any>;
   communitiesFBList: FirebaseListObservable<any>;
+  projectsFBList: FirebaseListObservable<any>;
+  projectsValues_Arr: any;
+
 
   //flags
   view: boolean;
@@ -55,6 +58,26 @@ export class DBprojectComponent implements OnInit
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
+
+ //initialize projectsValues_Arr
+ //not do nothing not working witout this 
+    this.projectsFBList = this.af.list('projects');
+
+    let temp = this.projectsFBList.subscribe((snapshots)=>
+    {
+      this.projectsValues_Arr=[];
+      snapshots.forEach(snapshot => 
+      {
+        this.projectsValues_Arr.push(snapshot);
+      });
+    });
+
+    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
+    this.service.allSubscribe.push(temp);
+    //untill here!!!!!
+
+
+
     //initializes
     this.community = "";
     this.newComment = "";
@@ -94,7 +117,7 @@ export class DBprojectComponent implements OnInit
 
     this.view = this.first;
     this.more = this.first;
-    this.islike=this.checkIfdoLike();
+    this.islike = this.checkIfdoLike();
   }
 
   //=======================================  addComment  ================================================================================================
@@ -116,7 +139,7 @@ export class DBprojectComponent implements OnInit
 
   checkIfdoLike()
   {
-    this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true });
+    this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true});
     let status = false;
   
     let temp = this.likesFBList.subscribe(snapshots => 
@@ -130,7 +153,6 @@ export class DBprojectComponent implements OnInit
         }
       });
     });
-
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.allSubscribe.push(temp);
     return status;
