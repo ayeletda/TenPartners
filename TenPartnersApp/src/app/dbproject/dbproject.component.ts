@@ -248,7 +248,7 @@ PopMassage()
 
   //=========================================  pushToBoard  ==================================================================================================
 
-  pushToBoard() 
+  pushToBoard(communityPush:string) 
   {
     if (this.community != "") 
     {
