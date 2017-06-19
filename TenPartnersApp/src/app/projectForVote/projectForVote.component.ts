@@ -32,7 +32,6 @@ export class ProjectForVoteComponent implements OnInit
   projectDate: Date;
   projectUplodeDate: Date;
   leftDays: number;
-  whatToPop: string;
 
   //determined according to customer
   votingNumForChoosingProject: number; 
@@ -48,6 +47,7 @@ export class ProjectForVoteComponent implements OnInit
   //flags
   isAccuciatedUser: boolean;
   doesNeedPop: boolean;
+  whatToPop: string;
 
   //===================================  constructor  ============================================
 

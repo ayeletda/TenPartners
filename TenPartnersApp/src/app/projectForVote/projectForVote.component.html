@@ -37,10 +37,10 @@
     </div>
 
     <!-- popUp messages -->
-    <div *ngIf = 'doesNeedAlert' class = "popAlert">
+    <div *ngIf = 'doesNeedPop' class = "popAlert">
         <form>
             kjkjkjkjkjkjkjkjkj
-            <div class = "close" (click) = "doesNeedAlert = false">X</div>
+            <div class = "close" (click) = "doesNeedPop = false">X</div>
             hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
             <div class = "selected" *ngIf = "whatToPop == 'selected'">
                 The project {{ projectName }} was selected!

@@ -32,7 +32,6 @@ export class ProjectForUpdateComponent implements OnInit
   updateCostFlag: boolean;
   doesNeedPop: boolean;
   whatToPop: string;
-
   
   //===================================  constructor  =================================================
 
@@ -41,7 +40,7 @@ export class ProjectForUpdateComponent implements OnInit
     this.projectsFBList = this.af.list('projects');
     this.updateDateFlag = false;
     this.updateCostFlag = false;
-    this.whatToPop="";
+    this.whatToPop = "";
     this.doesNeedPop=false;
   }
 

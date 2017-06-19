@@ -26,7 +26,7 @@
 					Date: {{ value.$value }}<i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateDate()"></i>
 				</div>
 				<div *ngIf = "updateDateFlag" class = "row">
-					<label> Date: <input #newDateVal class = "dateInput" type = "date" name = "txtDate" placeholder = "yyyy-MM-dd" required><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, false)"></i></label>
+					<label> Date: <input #newDateVal class = "dateInput" type = "text" name = "txtDate" placeholder = "dd/mm/yyyy" required><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, false)"></i></label>
 				</div>
 			</div>
 		

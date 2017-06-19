@@ -1,14 +1,14 @@
 
-<div class="body2">
+<div class = "body2">
     
-    <div class="part1 vertical-menu-x">
-        <div class="temp" *ngFor="let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
-            <div *ngFor="let community of associatedCommunities | async ">
-                <div *ngIf="community.$key == user.community && community.associatedUser == '' && saveProjectPath(community,i)">
+    <div class = "part1 vertical-menu-x">
+        <div class = "temp" *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
+            <div *ngFor = "let community of associatedCommunities | async ">
+                <div *ngIf = "community.$key == user.community && community.associatedUser == '' && saveProjectPath(community,i)">
                     <app-projectForSelect 
-                        class="pull-left"
-                        [item]="projectPath"
-                        (click)="loadProjectDetails(community,i)">
+                        class = "pull-left"
+                        [item] = "projectPath"
+                        (click) = "loadProjectDetails(community,i)">
                     </app-projectForSelect>
                 </div>
             </div>
@@ -16,13 +16,13 @@
     </div>
     <h4 *ngIf = '!projectSelected'> Click on a project for viewing its details... </h4>
 
-    <div *ngIf='noProjects' class = "noProjects">
+    <div *ngIf = 'noProjects' class = "noProjects">
         No projects have been selected for discussion yet...
     </div>
 
-    <div class=" part2">
-        <div class="vertical-menu1">
-            <div *ngIf='projectSelected' class="descriptionOfProject">
+    <div class = " part2">
+        <div class = "vertical-menu1">
+            <div *ngIf = 'projectSelected' class = "descriptionOfProject">
                 <p> Purpose: {{purpose}} </p>
                 <p> Description: {{description}} </p>
             </div>
@@ -30,21 +30,21 @@
     </div>
 
     <div class=" part3">
-        <button *ngIf="currentI > -1" id="chooseProject" (click)="chooseProject()">Nominate</button>
+        <button *ngIf = "currentI > -1" id = "chooseProject" (click) = "chooseProject()">Nominate</button>
     </div>
 
-    <div *ngIf='showDetailsForm' class="nominateAlert">
+    <div *ngIf = 'doesNeedPop' class = "nominateAlert">
 
         <form>
 
-            <div class="close" (click)="close()">X</div>
+            <div class = "close" (click) = "close()">X</div>
             Date:<br>
-            <input type="date" name="date" [(ngModel)]="date">
+            <input type="text" placeholder = "dd/mm/yyyy" name = "date" [(ngModel)] = "date">
             <br>
             Cost:<br>
-            <input type="number" name="cost" [(ngModel)]="cost">
+            <input type = "number" name = "cost" [(ngModel)] = "cost">
             <br><br>
-            <input id="submitButton" type="submit" value="Submit" (click)="updateDetails()">
+            <input id = "submitButton" type = "submit" value = "Submit" (click) = "updateDetails()">
 
         </form>
 

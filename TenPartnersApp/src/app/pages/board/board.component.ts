@@ -48,7 +48,7 @@ export class BoardComponent implements OnInit
     pointerToProjectObjectInAF: FirebaseObjectObservable<any>;
 
     //flags
-    showDetailsForm: boolean;
+    doesNeedPop: boolean;
     noProjects:boolean;
     projectSelected: boolean;
     firstTimeOfScoller: boolean;
@@ -65,7 +65,7 @@ export class BoardComponent implements OnInit
         this.projectPath = '';
         this.projectSelected = false;
         this.firstTimeOfScoller = true;
-        this.showDetailsForm = false;
+        this.doesNeedPop = false;
         this.noProjects= true;
         this.maxVotingNum = 10;
 
@@ -130,7 +130,7 @@ export class BoardComponent implements OnInit
 
     chooseProject()
     {
-        this.showDetailsForm = true;
+        this.doesNeedPop = true;
     }
 
     updateDetails() 
@@ -154,7 +154,7 @@ export class BoardComponent implements OnInit
 
     close() 
     {
-        this.showDetailsForm = false;
+        this.doesNeedPop = false;
         this.currentI = -1;
     }
 
