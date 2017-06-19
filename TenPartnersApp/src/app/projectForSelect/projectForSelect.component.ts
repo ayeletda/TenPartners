@@ -47,6 +47,12 @@ export class ProjectForSelectComponent implements OnInit
     this.pointerToProjectInAF = this.af.list(this.item); // item is a path
     this.pointerToProjectObjectInAF = this.af.object(this.item, {preserveSnapshot: true});
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1];
+
+    (<any>$(".stopper")).each(function (k, v) {
+      (<any>$(v)).countdown(v.dataset.date, function(event) {
+        $(this).text(event.strftime('%D days %H:%M:%S'));
+      });
+    });
   }
 
   //===================================  leftDayFn  ============================================
