@@ -6,8 +6,6 @@ import * as firebase from 'firebase/app';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
 import { ChangeDetectorRef } from "@angular/core";
-import { OnDestroy } from "@angular/core";
-import { ISubscription } from "rxjs/Subscription";
 
 @Injectable()
 
@@ -107,8 +105,7 @@ export class ServiceService
   //----------------------- logout -----------------------------
   logout()
   {
-    //this.allSubscribe.forEach((item) => item.unsubscribe);
-    console.log("subscribe: "+this.allSubscribe.length);
+    this.allSubscribe.forEach((item) => item.unsubscribe);
     this.anguarfireAuth.auth.signOut();
     this.isLoggedIn = false;
     this.title = "home";
