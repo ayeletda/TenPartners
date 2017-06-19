@@ -68,9 +68,9 @@
           <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-btn">
-        <button class="btn btn-default" (click)="pushToBoard()" type="button">push to</button>
+        <button class="btn btn-default" (click)="pushToBoard(selectCommunity.value)" type="button">push to</button>
       </span>
-              <select [(ngModel)]="community" class="form-control">
+              <select #selectCommunity [(ngModel)]="community" class="form-control">
       <option value="">Community</option>
       <option  *ngFor = "let community of communitiesFBList | async" value = {{community.name}} > {{ community.name }} </option>
      </select>
