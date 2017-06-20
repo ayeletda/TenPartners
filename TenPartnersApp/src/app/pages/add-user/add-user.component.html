@@ -74,6 +74,23 @@
                 <button type="add" class="btn btn-primary btn-lg" (click) = "sendUser(selectedCommunity.value)">add user</button>
               </div>
             </div>
+
+<div *ngIf = "showDetailsForm" class = "Alert">
+			<form>
+				<div class="close" (click)="PopMassage()">X</div>
+
+        <div *ngIf="whatToPop=='fieldEmptyPop'">
+          	You must fill out all fields before adding a user.
+        </div>
+
+        <div *ngIf="whatToPop=='userSendPop'">
+          	The user is added
+        </div>
+
+			</form>
+		</div>
+
+
           </fieldset>
           </form>
       </div>
