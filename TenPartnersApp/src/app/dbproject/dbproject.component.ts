@@ -26,7 +26,7 @@ export class DBprojectComponent implements OnInit
   @Input() first;
 
   //user details
-  user;
+  user = { id: null, permission: null, community: null, name: null, email: null };
 
   description: String;
   purpose: String;
@@ -60,6 +60,9 @@ export class DBprojectComponent implements OnInit
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
+    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.service.getDetails(this.user);
+
     //initializes
     this.cost = "";
     this.community = "";
@@ -70,9 +73,6 @@ export class DBprojectComponent implements OnInit
     this.isCommunitiesSnapshot = false;
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communitiesFBList = this.af.list("/communities");
-
-    //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.user = this.service.getUser();
   }
 
   //=======================================  ngOnInit  ===========================================================================================
