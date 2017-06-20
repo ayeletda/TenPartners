@@ -193,10 +193,11 @@ export class DBprojectComponent implements OnInit
     
     if(this.isCommunitiesSnapshot==false){
 
+     this.communitiesExistaValues_Arr=[];
+     
      this.communitiesExistaFBList=this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
     let temp = this.communitiesExistaFBList.subscribe((snapshots)=>
     {
-      this.communitiesExistaValues_Arr=[];
       snapshots.some(snapshot => 
       {
          this.communitiesExistaValues_Arr.push(snapshot);
