@@ -69,6 +69,10 @@ p
     line-height: 1.25em;
 }
 
+form .msg {
+    color: red;
+}
+
 /* ============================ CSS of vertical-menu-x ======================= */
 
 .vertical-menu1 
@@ -144,10 +148,10 @@ input::placeholder
 #submitButton 
 {
     background-color: green;
-    border-radius: 10%;
     color: white;
-    border-color: white;
-    padding: 4%;
+    padding: 7px 20px;
+    border: 0;
+    border-radius: 7px;
 }
 
 .alertIncrrectValues{
@@ -195,27 +199,29 @@ input::placeholder
  
  }
  
- .submitButton
- {
+ .submitButton {
      background-color: green;
-     border-radius: 10%;
      color: white;
-     border-color: white;
-     padding: 4%;
+     padding: 7px 20px;
+     border: 0;
+     border-radius: 7px;
  }
  .submitIncorrectValues
  {
      background-color: green;
-     border-radius: 10%;
      color: white;
-     border-color: white;
-     padding: 4%;
+     padding: 7px 20px;
+     border: 0;
+     border-radius: 7px;
  }
  
  .submitAlert
   {
-      background-color: green;
-      border-radius: 10%;
+     background-color: green;
+     color: white;
+     padding: 7px 20px;
+     border: 0;
+     border-radius: 7px;
 
   }
   
@@ -225,10 +231,10 @@ input::placeholder
      top: -5%;
      background-color: black;
      border-radius: 50%;
-     width: 15%;
+     width: 21%;
      height: 16%;
-     line-height: 163%;
-    opacity: 1;
+     line-height: 209%;
+     opacity: 1;
      color: white;
  }
  
@@ -243,8 +249,8 @@ input::placeholder
      top: -5%;
      background-color: black;
      border-radius: 50%;
-     width: 15%;
-     height: 16%;
+     width: 17%;
+     height: 21%;
      line-height: 163%;
      opacity: 1;
      color: white;
@@ -262,9 +268,9 @@ input::placeholder
     top: -5%;
     background-color: black;
     border-radius: 50%;
-    width: 15%;
-    height: 16%;
-    line-height: 163%;
+    width: 40px;
+    height: 40px;
+    line-height: 35px;
     opacity: 1;
     color: white;
 }

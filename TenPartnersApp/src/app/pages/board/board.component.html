@@ -1,28 +1,28 @@
+<div class="body2">
 
-<div class = "body2">
-    
-    <div class = "part1 vertical-menu-x">
-        <div class = "temp" *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
-            <div *ngFor = "let community of associatedCommunities | async ">
-                <div *ngIf = "community.$key == user.community && community.associatedUser == '' && saveProjectPath(community,i)">
-                    <app-projectForSelect 
-                        class = "pull-left"
-                        [item] = "projectPath"
-                        (click) = "loadProjectDetails(community,i)">
+    <div class="part1 vertical-menu-x">
+        <div class="temp" *ngFor="let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
+            <div *ngFor="let community of associatedCommunities | async ">
+                <div *ngIf="community.$key == user.community && community.associatedUser == '' && saveProjectPath(community,i)">
+                    <app-projectForSelect
+                            class="pull-left"
+                            [item]="projectPath"
+                            [project]="community"
+                            (click)="loadProjectDetails(community,i)">
                     </app-projectForSelect>
                 </div>
             </div>
         </div>
     </div>
-    <h4 *ngIf = '!projectSelected'> Click on a project for viewing its details... </h4>
+    <h4 *ngIf='!projectSelected'> Click on a project for viewing its details... </h4>
 
-    <div *ngIf = 'noProjects' class = "noProjects">
+    <div *ngIf='noProjects' class="noProjects">
         No projects have been selected for discussion yet...
     </div>
 
-    <div class = " part2">
-        <div class = "vertical-menu1">
-            <div *ngIf = 'projectSelected' class = "descriptionOfProject">
+    <div class=" part2">
+        <div class="vertical-menu1">
+            <div *ngIf='projectSelected' class="descriptionOfProject">
                 <p> Purpose: {{purpose}} </p>
                 <p> Description: {{description}} </p>
             </div>
@@ -30,51 +30,39 @@
     </div>
 
     <div class=" part3">
-        <button *ngIf = "currentI > -1" id = "chooseProject" (click) = "chooseProject()">Nominate</button>
+        <button *ngIf="currentI > -1" id="chooseProject" (click)="chooseProject(this)">Nominate</button>
     </div>
 
-    <div *ngIf = 'doesNeedPop' class = "popAlert">
-
+    <div *ngIf='doesNeedPop' class="popAlert">
         <form>
-
-            <div class = "close" (click) = "close()">X</div>
+            <div class="close" (click)="close()">X</div>
             Date:<br>
-            <input type="text" placeholder = "dd/mm/yyyy" name = "date" [(ngModel)] = "date">
+
+            <input title="Date" data-msg="Please enter a valid date" required pattern="\d{2}/\d{2}/\d{4}" type="text" placeholder="dd/mm/yyyy" name="date" [(ngModel)]="date">
             <br>
+            <div class="msg"></div>
+            <br>
+
             Cost:<br>
-            <input type = "number" name = "cost" [(ngModel)] = "cost">
-            <br><br>
-           <input class="submitButton" type="submit" value="Submit" (click)="updateDetails()">
+            <input title="Cost" required min="1" data-msg="Please enter a positive number" type="number" name="cost" [(ngModel)]="cost">
+            <br>
+            <div class="msg"></div>
+            <br>
+            <br>
+
+            <input class="submitButton" type="submit" value="Submit" (click)="updateDetails($event)">
 
         </form>
 
     </div>
-    <div *ngIf='incorrectValues' class="alertIncrrectValues">
- 
-         <form>
- 
-             <div class="closeIncorrectValues" (click)="closeIncorrectValues()">X</div>
-            Incorrect values
-             <input class="submitIncorrectValues" type="submit" value="Submit" (click)="submitIncorrectValues()">
- 
-         </form>
- 
-     </div>
- 
- 
-     <div *ngIf='alert ' class="alert">
- 
-         <form>
- 
-             <div class="closeAlert" (click)="closeAlert()">X</div>
-             You are sure you want to take responsibility on this project?
-             <input class="submitAlert" type="submit" value="Submit" (click)="submitAlert()">
- 
-         </form>
 
-     </div>
- 
- 
+    <div *ngIf='alert ' class="alert">
+        <form>
+            <div class="closeAlert" (click)="closeAlert()">X</div>
+            You are sure you want to take responsibility on this project?
+            <input class="submitAlert" type="submit" value="Submit" (click)="submitAlert()">
+        </form>
+    </div>
 
 </div>
 
