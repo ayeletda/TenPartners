@@ -110,6 +110,14 @@ export class HomeComponent implements OnInit
     
   }
 
+//====================== showDropdow =====================================================================
+
+  showDropdow(user)
+  {
+console.log(user.name);
+
+  }
+  
 }
 
 
