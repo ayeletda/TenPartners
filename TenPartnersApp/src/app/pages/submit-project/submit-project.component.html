@@ -1,9 +1,11 @@
+
 <div class="SubmitProject">
   <div class="container">
 	  <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <form class="form-horizontal" action="" method="post">
           <fieldset> <br>   
+            
             <!-- Name input-->
             <div class="form-group">
               <label class="col-md-3 control-label" for="ProjectName" >Project's Name</label>
@@ -36,27 +38,28 @@
               </div>
             </div>
 
+            <!--=================================== popUp messages ======================================-->
 
-<div *ngIf = "showDetailsForm" class = "nominateAlert">
-			<form>
-				<div class="close" (click)="PopMassage()">X</div>
+            <div *ngIf = "doesNeedPop" class = "popAlert">
+              <form>
 
-        <div *ngIf="whatToPop=='fieldEmptyPop'">
-          	You must fill out all fields before submitting a project.
-        </div>
+                <div class = "close" (click) = "PopMassage()">X</div>
 
-        <div *ngIf="whatToPop=='projectSendPop'">
-          	Your project was send!
-        </div>
+                <div *ngIf = "whatToPop == 'fieldEmptyPop'">
+                    You must fill out all fields before submitting a project.
+                </div>
 
-			</form>
-		</div>
-
-
+                <div *ngIf = "whatToPop == 'projectSendPop'">
+                    Your project was send!
+                </div>
+      
+		          </form>
+	          </div>
+            <!--========================================================================================-->
+          
           </fieldset>
         </form>
       </div>
 	  </div>
   </div>
-
 </div>

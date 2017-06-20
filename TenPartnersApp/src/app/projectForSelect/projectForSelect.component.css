@@ -44,6 +44,9 @@ p
     margin: -10%;
     color:black;
 }
+.stopper{
+    color:green;
+}
 
 #transparentElement
 {

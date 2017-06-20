@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Observable } from 'rxjs/Observable';
@@ -9,6 +10,9 @@ import { ChangeDetectorRef } from "@angular/core";
 import { OnDestroy } from "@angular/core";
 import { ISubscription } from "rxjs/Subscription";
 
+
+interface User { id: string, permission: number, community: number, name: string, email: string };
+
 @Injectable()
 
 //================  ServiceService class  ============================================================
@@ -16,7 +20,7 @@ import { ISubscription } from "rxjs/Subscription";
 export class ServiceService 
 {  
   //user details
-  user = { id: null, permission: null, community: null, name: null, email: null };
+  user: User;
   connectType: string;
 
   title;
@@ -34,11 +38,11 @@ export class ServiceService
   constructor( private router: Router, public anguarfireAuth:AngularFireAuth, public af: AngularFireDatabase)
   {
     this.allSubscribe = [];
-
+    this.user = { id: null, permission: null, community: null, name: null, email: null };
     this.isLoggedIn = false;
     this.usersFBList = this.af.list('/users',{ preserveSnapshot: true });
-    this.logout(); 
-
+    this.logout();
+    this.getDetails(this.user); 
   }
 
   //=================== registerUsers ===============================================================
@@ -76,6 +80,11 @@ export class ServiceService
     });
     
     this.allSubscribe.push(temp1);
+  }
+
+  getUser()
+  {
+    return this.user;
   }
 
   //===================== getDetails ===============================================================
@@ -225,13 +234,7 @@ export class ServiceService
   }
 
 //getters & setters
-  // public getKey(){ return this.user.id; }
-  // public getPermission(){ return this.user.id } 
-  // public getCommunity(){ this.user.community; }
-  // getCurrentUser(){ return this.user.name; }
-  // getCurrentEmail(){ return this.user.email; }
-  // getCurrentID(){ return this.user.id; }
-    setTitle(Title:String){ this.title=Title; }  
+  setTitle(Title:String){ this.title=Title; }  
   getlogin(){ return this.isLoggedIn; }
 
 }

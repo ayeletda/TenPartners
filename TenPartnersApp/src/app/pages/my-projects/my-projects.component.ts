@@ -19,7 +19,7 @@ import { ServiceService } from '../../service.service';
 export class MyProjectsComponent implements OnInit 
 {
   // user's details
-  user = { id: null, permission: null, community: null, name: null, email: null };
+  user;
 
   // project's details
   currentProject: any;
@@ -44,8 +44,8 @@ export class MyProjectsComponent implements OnInit
     this.isNoProjects= true;
     this.isThereProjects = false;
     
-    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.getDetails(this.user);
+    //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.user = this.service.getUser();
 
     //initializes arrays
     this.projectsFBList = this.af.list('projects');

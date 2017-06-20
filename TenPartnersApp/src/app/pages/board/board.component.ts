@@ -21,7 +21,7 @@ export class BoardComponent implements OnInit
     @ViewChild('scrollMe')  myScrollContainer: ElementRef;
 
     //user's details
-    user = { id: null, permission: null, community: null, name: null, email: null };
+    user;
 
     //project's details
     currentProject: any;
@@ -52,7 +52,8 @@ export class BoardComponent implements OnInit
     noProjects:boolean;
     projectSelected: boolean;
     firstTimeOfScoller: boolean;
-
+     incorrectValues:boolean;
+    alert:boolean;
 
     //====================  constructor  ============================================================
 
@@ -68,9 +69,11 @@ export class BoardComponent implements OnInit
         this.doesNeedPop = false;
         this.noProjects= true;
         this.maxVotingNum = 10;
+        this.incorrectValues = false;
+        this.alert = false;
 
-        //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-        this.service.getDetails(this.user);
+        //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+         this.user = this.service.getUser();
 
         //initialize arrays
         this.projects = this.af.list('projects');
@@ -133,8 +136,37 @@ export class BoardComponent implements OnInit
         this.doesNeedPop = true;
     }
 
+
     updateDetails() 
     {
+         this.close();
+         if(this.date ===null || this.cost<=0 || this.cost == null){
+             this.showIncorrectValues();
+         }
+         else{
+             this.showAlert();
+         }
+ 
+ 
+     }
+     showIncorrectValues(){
+         this.incorrectValues = true;
+     }
+ 
+     submitIncorrectValues(){
+         this.incorrectValues = false;
+         this.showAlert();
+     }
+ 
+ 
+ 
+ 
+     showAlert(){
+ 
+         this.alert = true;
+ 
+     }
+    submitAlert(){
         //updating project's details
         this.projectUpdate.update({'associatedUser': this.user.id });
         this.projectUpdate.update({ 'uploudDate': new Date().getTime() });
@@ -148,6 +180,7 @@ export class BoardComponent implements OnInit
         this.usersVotingList.update(this.user.id, { vote: "for"});
 
         this.close();
+        this.closeAlert();
     }
 
     //===================== close  ============================================================
@@ -155,7 +188,17 @@ export class BoardComponent implements OnInit
     close() 
     {
         this.doesNeedPop = false;
-        this.currentI = -1;
+        this.currentI = 1;
+    }
+    closeIncorrectValues(){
+         this.incorrectValues = false;
+         this.doesNeedPop = true;
+     }
+ 
+     closeAlert(){
+         this.alert = false;
+ 
+
     }
 
     //===============   scrollToBottom  =========================================================

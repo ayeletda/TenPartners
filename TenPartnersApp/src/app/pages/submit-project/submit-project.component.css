@@ -22,14 +22,15 @@ fieldset
     position: unset;
 }
 
+/*========================= CSS of popUp messages =============================*/
 
-.nominateAlert 
+.popAlert 
 {
     position: fixed;
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
     font-weight: bold;
 	right: 0px;
 }
@@ -53,8 +54,7 @@ fieldset
     opacity: 0.8;
 }
 
-
-.nominateAlert form 
+.popAlert form 
 {
 	top:0px;
     position: absolute;
@@ -67,7 +67,4 @@ fieldset
 	border-radius:10px;
 	border-color: grey; 
 	width: 300px;
-	
-	
-
 }
