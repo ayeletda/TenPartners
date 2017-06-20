@@ -15,52 +15,50 @@
           Description: {{item.description}}<br> Purpose for the jewish communuty: {{item.purpose}}<br><br>
           <div class="commmm" (click)="viewComments('comments')">
             <span class="glyphicon glyphicon-comment"></span> ({{ (commentsFBList | async)?.length }})
-                       </div> <span class="glyphicon glyphicon-heart" [ngClass]="[!islike ? 'whiteH' : 'redH']" (click) = "doLike()"></span><div class = "likes" (click) = "viewComments('likes')">({{ (likesFBList | async)?.length }})</div>
+          </div> 
+          <span class="glyphicon glyphicon-heart" [ngClass]="[!islike ? 'whiteH' : 'redH']" (click) = "doLike()"></span><div class = "likes" (click) = "viewComments('likes')">({{ (likesFBList | async)?.length }})</div>
 
           <div *ngIf="view" class="w3-animate-opacity">
+           
             <div #scrollMe class="d4">
               <div class="d5">
-              <div *ngIf="whatToView=='likes'" class = "viewLikes">
+               <div *ngIf="whatToView=='likes'" class = "viewLikes">
                 <div *ngFor="let like of likesFBList | async"> 
                   <hr>                
                     {{like.val().userName}} <div class="from"> from {{like.val().userCommunity}}</div>
                 </div>
                 <hr *ngIf= "(likesFBList | async)?.length>0">
               </div>
-                <div *ngIf="whatToView=='comments'" class = "viewcomments">
+              <div *ngIf="whatToView=='comments'" class = "viewcomments">
                 <div *ngFor="let comment of commentsFBList | async">
                   <a aria-label="Delete" *ngIf="comment.authorKey == user.id" (click)="removeComment(comment.$key)">
-	              	<i class = "fa fa-trash-o pull-right" aria-hidden = "true"></i>
+	                	<i class = "fa fa-trash-o pull-right" aria-hidden = "true"></i>
                 	</a>
                   <hr> {{ comment.authorName }}
                   <div class="from">
                     from {{ comment.community }} </div> <br> {{ comment.comment }}<br> <div class="from">{{ comment.date }}</div>
-                </div>
+                  </div>
                 </div>
               </div>
             </div>
+           
             <div *ngIf="whatToView=='comments'" class = "send">
             <hr>
-            <div class="input-group">
-              <span class="input-group-btn"> 
-                   <button class = "input btn btn-difult" type = "submit" (click) = "addComment()">Send  <i class = "input fa fa-arrow-up"></i></button>
+              <div class="input-group">
+                <span class="input-group-btn"> 
+                  <button class = "input btn btn-difult" type = "submit" (click) = "addComment()">Send  <i class = "input fa fa-arrow-up"></i></button>
                 </span>
-              <input type="text" class="input form-control" id="msg-input" placeholder="Write your comment here.." (keyup.enter)="addComment()"
+                <input type="text" class="input form-control" id="msg-input" placeholder="Write your comment here.." (keyup.enter)="addComment()"
                 [(ngModel)]="newComment">
-            </div>
-
+              </div>
             <hr>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
 
-      <!-- -->
-
-
-
-
+  <!-- -->
       <div class="social">
         <button class="btn btn-success btn-lg center-block" *ngIf="user.permission == '2'" (click)="PopMassage()">Nominate</button>
 
@@ -68,62 +66,58 @@
           <div class="col-lg-6">
             <div class="input-group">
               <span class="input-group-btn">
-        <button class="btn btn-default" (click)="pushToBoard(selectCommunity.value)" type="button">push to</button>
-      </span>
+                <button class="btn btn-default" (click)="pushToBoard(selectCommunity.value)" type="button">push to</button>
+              </span>
               <select #selectCommunity [(ngModel)]="community" class="form-control">
-      <option value="">Community</option>
-      <option  *ngFor = "let community of communitiesFBList | async" value = {{community.name}} > {{ community.name }} </option>
-     </select>
-            </div>
+                <option value="">Community</option>
+                <option  *ngFor = "let community of communitiesFBList | async" value = {{community.name}} > {{ community.name }} </option>
+              </select>
+            </div>  
             <!-- /input-group -->
           </div>
-          <!--/.col-lg-6 -->
-
+              <!--/.col-lg-6 -->
         </div>
       </div>
 
-      <div *ngIf='showDetailsForm' class="nominateAlert">
+      <div *ngIf = 'doesNeedPop' class = "popAlert">
 
-        <form (submit)="Nominate()">
+        <form (submit) = "Nominate()">
 
-            <div class="close" (click)="PopMassage()">X</div>
+          <div class = "close" (click) = "PopMassage()">X</div>
 
-            <div class = "detailsPop" *ngIf="whatToPop == 'detailsPop'">
-
+          <div class = "detailsPop" *ngIf="whatToPop == 'detailsPop'">
             Date:
-            <input type="date" name="date" [(ngModel)]="date">
+            <input type="text" placeholder = "dd/mm/yyyy" name = "date" [(ngModel)] = "date">
             <br>
             Cost:
-            <input placeholder="100$" name="cost" [(ngModel)]="cost">
+            <input name = "cost" [(ngModel)] = "cost">
             <br><br>
-            <input  class= "btn btn-success btn-lg center-block" id="submitButton" type="submit" value="Submit">
-            </div>
+            <input  class = "btn btn-success btn-lg center-block" id = "submitButton" type = "submit" value = "Submit">
+          </div>
 
-            <div class="existsPop" *ngIf="whatToPop == 'existsPop'">
-               This project already exists in the community 
-            </div>
+          <div class="existsPop" *ngIf="whatToPop == 'existsPop'">
+            This project already exists in the community 
+          </div>
 
+          <div class="emptyPop" *ngIf="whatToPop == 'emptyPop'">
+            You must fill all fields!
+          </div>
 
-            <div class="emptyPop" *ngIf="whatToPop == 'emptyPop'">
-              You must fill all fields!
-            </div>
+          <div class="nominatePop" *ngIf="whatToPop == 'nominatePop'">
+            The project is nominated
+          </div>
 
+          <div class="pushedPop" *ngIf="whatToPop == 'pushedPop'">
+            project pushed
+          </div>
 
-             <div class="nominatePop" *ngIf="whatToPop == 'nominatePop'">
-              The project is nominated
-            </div>
-
-            <div class="pushedPop" *ngIf="whatToPop == 'pushedPop'">
-              project pushed
-            </div>
-
-            <div class="communityEmptyPop" *ngIf="whatToPop == 'communityEmptyPop'">
-                 Enter a community name
-            </div>
+          <div class="communityEmptyPop" *ngIf="whatToPop == 'communityEmptyPop'">
+            Enter a community name
+          </div>
 
         </form>
 
-    </div>
+      </div>
 
     </main>
   </div>

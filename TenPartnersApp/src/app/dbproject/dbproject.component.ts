@@ -35,7 +35,6 @@ export class DBprojectComponent implements OnInit
   newComment: string;
   cost: string;
   date: Date;
-  whatToPop:string;
 
   //pointers of object or list in firebase
   commentsFBList: FirebaseListObservable<any>;
@@ -46,14 +45,14 @@ export class DBprojectComponent implements OnInit
   projectsFBList: FirebaseListObservable<any>;
   projectsValues_Arr: any;
 
-
   //flags
   view: boolean;
   more: boolean;
   islike: boolean;
-  whatToView:string;
-  showDetailsForm: boolean;
-
+  doesNeedPop: boolean;
+  whatToView: string;
+  whatToPop: string;
+  
   //====================================  constructor  ===========================================================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -76,14 +75,12 @@ export class DBprojectComponent implements OnInit
     this.service.allSubscribe.push(temp);
     //untill here!!!!!
 
-
-
     //initializes
     this.community = "";
     this.newComment = "";
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communitiesFBList = this.af.list("/communities");
-    this.showDetailsForm = false;
+    this.doesNeedPop = false;
     this.cost="";
 
 
@@ -226,24 +223,24 @@ export class DBprojectComponent implements OnInit
 
 PopMassage()
 {
-  if(this.showDetailsForm==false)
+  if(this.doesNeedPop==false)
   { 
       if(this.checkIfExist()==true)
         { this.whatToPop="existsPop";
-          this.showDetailsForm=true;
+          this.doesNeedPop=true;
           
         return;}
 
   }
   this.whatToPop ="detailsPop";
-  this.showDetailsForm =!this.showDetailsForm;
+  this.doesNeedPop =!this.doesNeedPop;
 }
 
   //==========================================  Nominate  =======================================================================================
 
   Nominate() 
   {
-      this.showDetailsForm = false;
+      this.doesNeedPop = false;
 
     if (this.checkIfExist() == false) 
     {
@@ -252,7 +249,7 @@ PopMassage()
 
       if(cost==""||this.date==null)
           { this.whatToPop="emptyPop";
-           this.showDetailsForm = true;
+           this.doesNeedPop = true;
             return;}
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
@@ -263,7 +260,7 @@ PopMassage()
       this.cost="";
       this.date=null;
       this.whatToPop="nominatePop";
-      this.showDetailsForm=true;
+      this.doesNeedPop=true;
     }
 
   }
@@ -279,17 +276,17 @@ PopMassage()
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
         this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });
         this.whatToPop="pushedPop";
-        this.showDetailsForm=true;
+        this.doesNeedPop=true;
         this.community = "";
       }
 
       else{this.whatToPop="existsPop";
-          this.showDetailsForm=true;
+          this.doesNeedPop=true;
           this.community = ""; }
     }
 
     else{this.whatToPop="communityEmptyPop";
-          this.showDetailsForm=true;}
+          this.doesNeedPop=true;}
   }
 
   //=======================================  removeComment  ==========================================

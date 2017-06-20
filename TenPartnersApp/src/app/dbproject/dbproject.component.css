@@ -42,33 +42,37 @@ span
 	position: unset;
 }
 
+/*======================== css of popUp message =========================== */
+
 .center-block
 {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
 
-
-.nominateAlert 
+.popAlert 
 {
     position: fixed;
     top: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.7);
     font-weight: bold;
 	right: 0px;
 }
-form{
-		font-size: 20px;
+
+form
+{
+	font-size: 20px;
 }
+
 .close 
 {
     position: absolute;
     left: -5%;
     top: -5%;
     background-color: black;
-   border-radius:50px;
+	border-radius:50px;
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -81,8 +85,7 @@ form{
     opacity: 0.8;
 }
 
-
-.nominateAlert form 
+.popAlert form 
 {
 	top:0px;
     position: absolute;
@@ -96,6 +99,8 @@ form{
 	border-color: grey; 
 
 }
+
+/*=================================================== */
 
 .col-lg-6,.btn,.btn-default,.form-control,.btn-success
 {

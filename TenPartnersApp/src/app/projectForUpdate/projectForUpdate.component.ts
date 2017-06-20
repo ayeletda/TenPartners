@@ -30,20 +30,21 @@ export class ProjectForUpdateComponent implements OnInit
   card: boolean;
   updateDateFlag: boolean;
   updateCostFlag: boolean;
-  whatToPop:string;
-  showDetailsForm: boolean;
-//===================================  constructor  =================================================
+  doesNeedPop: boolean;
+  whatToPop: string;
+  
+  //===================================  constructor  =================================================
 
   constructor( private router: Router, private af: AngularFireDatabase)
   {
     this.projectsFBList = this.af.list('projects');
     this.updateDateFlag = false;
     this.updateCostFlag = false;
-    this.whatToPop="";
-    this.showDetailsForm=false;
+    this.whatToPop = "";
+    this.doesNeedPop=false;
   }
 
-//====================================  ngOnInit()  ==================================================
+  //====================================  ngOnInit  ==================================================
 
   ngOnInit() 
   {
@@ -52,37 +53,39 @@ export class ProjectForUpdateComponent implements OnInit
     this.projectName = this.pointerToProjectInAF.$ref.path.o[1]
   }
 
+  //====================================  PopMassage  ==================================================
 
-PopMassage()
-{
-  if(this.showDetailsForm==false)
-  { 
-         this.whatToPop="deletePop";
-          this.showDetailsForm=true;
-          return;
-
+  PopMassage()
+  {
+    if(this.doesNeedPop == false)
+    { 
+      this.whatToPop = "deletePop";
+      this.doesNeedPop = true;
+      return;
+    }
+    this.doesNeedPop =! this.doesNeedPop;
   }
 
-  this.showDetailsForm =!this.showDetailsForm;
-}
+  //================================= clickOnMyProjects  ===============================================
 
-//================================= clickOnMyProjects  ===============================================
-
-   clickOnMyProjects(event)
+  clickOnMyProjects(event)
   {
     this.router.navigateByUrl('/' + event.currentTarget.id);
   }
 
-//================================== remove project ==================================================
+  //================================== remove project ==================================================
+  //removes the project from the voting list & reset its messages & votingList
 
-   removeProject()
+  removeProject()
   {
-    this.projectFBObject.update({ 'associatedUser': ""});
+    this.af.list ( this.item + "/messages").remove();
+    this.af.list (this.item + "/votingList").remove();
+    this.projectFBObject.update({ 'associatedUser': '' }); 
   }
 
-//================================== updating date ====================================================
+  //================================== updating date ====================================================
   
-   updateDate()
+  updateDate()
   {
     //if the user clicked on update cost first
     if(this.updateCostFlag)
@@ -95,7 +98,7 @@ PopMassage()
     }
   }
 
-   OKupdateDate(dateVal, isNeedUpdate)
+  OKupdateDate(dateVal, isNeedUpdate)
   {
     if(!isNeedUpdate)
     {
@@ -114,9 +117,9 @@ PopMassage()
     }
   }
   
-//================================= updating cost ============================================================
+  //================================= updating cost ============================================================
   
-   updateCost()
+  updateCost()
   {
     //if the user clicked on update cost flag and enter a cost
     if(this.updateDateFlag)
@@ -129,7 +132,7 @@ PopMassage()
     }
   }
 
-   OKupdateCost(costVal, isNeedUpdate)
+  OKupdateCost(costVal, isNeedUpdate)
   {
     if(!isNeedUpdate)
     {

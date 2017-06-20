@@ -112,12 +112,14 @@ input::placeholder
     border-radius: 7px;
 }
 
+/*======================== css of popUp message =========================== */
+
 .details 
 {
     visibility: hidden;
 }
 
-.nominateAlert 
+.popAlert 
 {
     position: fixed;
     top: 0;
@@ -127,7 +129,7 @@ input::placeholder
     font-weight: bold;
 }
 
-.nominateAlert form 
+.popAlert form 
 {
     position: absolute;
     left: 50%;
@@ -136,7 +138,6 @@ input::placeholder
     padding: 7%;
     text-align: center;
     background-color: white;
-
 }
 
 #submitButton 

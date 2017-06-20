@@ -43,9 +43,11 @@ export class ProjectForVoteComponent implements OnInit
   projectFBObject: FirebaseObjectObservable<any>;
   projectsFBList: FirebaseListObservable<any>;
   usersVotingFBList: FirebaseListObservable<any>;
-  
+
   //flags
   isAccuciatedUser: boolean;
+  doesNeedPop: boolean;
+  whatToPop: string;
 
   //===================================  constructor  ============================================
 
@@ -60,6 +62,8 @@ export class ProjectForVoteComponent implements OnInit
     this.projectFBList = null;
     this.projectFBObject = null;
     this.usersVotingFBList = null;
+    this.whatToPop = '';
+    this.doesNeedPop = false;
 
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.getDetails(this.user);
@@ -80,7 +84,7 @@ export class ProjectForVoteComponent implements OnInit
     this.projectFBObject = this.af.object(this.item, { preserveSnapshot: true });
     this.projectName = this.projectFBList.$ref.path.o[1];
     this.usersVotingFBList = this.af.list(this.item + "/votingList");
-
+    
     //initializes accociatedUser
     let accociatedUser ='';
     let temp = this.projectFBList.subscribe(snapshots => 
@@ -131,7 +135,10 @@ export class ProjectForVoteComponent implements OnInit
       this.leftDays = this.maxDaysForVoting - (Math.ceil(timeDiff /oneDay)-1);
 
       if(this.leftDays == 0)
-        this.removeProject("passed his voting time and therefore was deleted.");  
+      {
+        this.removeProject("passedTime");  
+        return;
+      }
      }
 
     // Checking "leftDays" every half hour
@@ -151,7 +158,10 @@ export class ProjectForVoteComponent implements OnInit
     
     //if a project was selected
     if(forVal == this.votingNumForChoosingProject)
-      this.removeProject(" was selected!");
+    {
+      this.removeProject( "selected" );
+      return;
+    }
 
     //updates "against" or "avoid"
     if ( this.voteStatus == "against") 
@@ -174,7 +184,10 @@ export class ProjectForVoteComponent implements OnInit
 
     //if a project was rejected by all of the team
     if(againstVal == this.maxVotingNum)
-      this.removeProject( " was rejected by all of the team and therefore was deleted." );
+    {
+      this.removeProject( "rejectByAll" );
+      return;
+    }
 
     // updates for or avoid
     if ( this.voteStatus == "for")
@@ -202,14 +215,19 @@ export class ProjectForVoteComponent implements OnInit
 
   //====================================  removeProject  =========================================
 
-  removeProject( deleteMessage )
+  removeProject( popUpType:string )
   {
-    //removes the project from the voting list
+    //removes the project from the voting list & reset its messages & votingList
+    this.af.list ( this.item + "/messages").remove();
+    this.usersVotingFBList = null;
+    this.af.list (this.item + "/votingList").remove();
     this.projectFBObject.update({ 'associatedUser': '' });
 
     //message that a project was rejected
-    let txt = 'The project "'+ this.projectName +'"' + deleteMessage;
-    alert(txt);
+    this.whatToPop = popUpType;
+    this.doesNeedPop = true;
+    console.log(popUpType);
+    console.log(this.doesNeedPop);
   }
 
 }

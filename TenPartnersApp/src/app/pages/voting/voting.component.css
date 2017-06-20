@@ -33,7 +33,6 @@
 
 }
 
-
 .details, .clickText
 {
   font-size: 14px;
@@ -78,6 +77,13 @@ p
   height: 50%;
   width: 100%;
 }
+
+.input-group, .input-group-btn,.btn, #msg-input, .form-control, input, placeholder  /* for the slide nav*/
+{
+  position: unset;
+}
+
+
 /* ============================ CSS of vertical-menu-y ======================= */
 
 .vertical-menu1
@@ -130,6 +136,7 @@ p
 input::placeholder
 {
   text-align: left;
+  position: unset;
 }
 
 /* ======================= CSS of scrollbar of the chat ======================= */
