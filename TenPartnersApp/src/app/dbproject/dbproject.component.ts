@@ -3,7 +3,7 @@ import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit, EventEmitter } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { ChangeDetectorRef, Input, Output } from "@angular/core";
+import { ChangeDetectorRef, Input, Output, OnDestroy } from "@angular/core";
 import { ServiceService } from '../service.service';
 
 @Component(
@@ -43,38 +43,24 @@ export class DBprojectComponent implements OnInit
   projectFBList: FirebaseListObservable<any>;
   communitiesFBList: FirebaseListObservable<any>;
   projectsFBList: FirebaseListObservable<any>;
-  projectsValues_Arr: any;
+  communitiesExistaValues_Arr: any;
+  communitiesExistaFBList: FirebaseListObservable<any>;
+
 
   //flags
   view: boolean;
   more: boolean;
   islike: boolean;
+  isExists: boolean;
   doesNeedPop: boolean;
   whatToView: string;
   whatToPop: string;
+  isCommunitiesSnapshot:boolean;
   
   //====================================  constructor  ===========================================================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
-
- //initialize projectsValues_Arr
- //not do nothing not working witout this 
-    this.projectsFBList = this.af.list('projects');
-
-    let temp = this.projectsFBList.subscribe((snapshots)=>
-    {
-      this.projectsValues_Arr=[];
-      snapshots.forEach(snapshot => 
-      {
-        this.projectsValues_Arr.push(snapshot);
-      });
-    });
-
-    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
-    this.service.allSubscribe.push(temp);
-    //untill here!!!!!
-
     //initializes
     this.community = "";
     this.newComment = "";
@@ -88,6 +74,7 @@ export class DBprojectComponent implements OnInit
     this.service.getDetails(this.user);
     this.whatToView="";
     this.whatToPop="";
+    this.isCommunitiesSnapshot=false;
   }
 
   //=======================================  ngOnInit  ===========================================================================================
@@ -114,7 +101,11 @@ export class DBprojectComponent implements OnInit
 
     this.view = this.first;
     this.more = this.first;
-    this.islike = this.checkIfdoLike();
+    this.checkIfdoLike();
+    this.checkIfExist();
+
+
+    
   }
 
   //=======================================  addComment  ================================================================================================
@@ -137,7 +128,7 @@ export class DBprojectComponent implements OnInit
   checkIfdoLike()
   {
     this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true});
-    let status = false;
+    this.islike = false;
   
     let temp = this.likesFBList.subscribe(snapshots => 
     {
@@ -146,13 +137,12 @@ export class DBprojectComponent implements OnInit
         let temp1 = snapshot.key;
         if (this.user.id == temp1) 
         {
-          status = true;
+           this.islike =true;
         }
       });
     });
     //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.service.allSubscribe.push(temp);
-    return status;
   }
 
   //====================================  doLike  ===================================================================================================
@@ -160,7 +150,7 @@ export class DBprojectComponent implements OnInit
   doLike() 
   {
     this.islike =! this.islike;
-    if(this.checkIfdoLike() == false)
+    if(this.islike == true)
       this.likesFBList.update(this.user.id+"",{userName: this.user.name, userCommunity: this.user.community});
     else
     {
@@ -200,32 +190,48 @@ export class DBprojectComponent implements OnInit
 
   checkIfExist() 
   {
-    this.projectFBList = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
     
-    let status = false;
-    let temp = this.projectFBList.subscribe(snapshots => 
+    if(this.isCommunitiesSnapshot==false){
+
+     this.communitiesExistaValues_Arr=[];
+     
+     this.communitiesExistaFBList=this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
+    let temp = this.communitiesExistaFBList.subscribe((snapshots)=>
     {
       snapshots.some(snapshot => 
       {
-        let temp1 = snapshot.key;
-
-        if (this.user.community == temp1 || this.community == temp1) 
-          status = true;
+         this.communitiesExistaValues_Arr.push(snapshot);
       });
     });
+    this.isCommunitiesSnapshot=true;
+     this.service.allSubscribe.push(temp);
+  }
+  
 
-    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.allSubscribe.push(temp);
-    return status;
+  else{
+    this.isExists=false;
+    let i=0;
+
+      for(;i<this.communitiesExistaValues_Arr.length;i++)
+      {
+        if (this.user.community == this.communitiesExistaValues_Arr[i].key || this.community == this.communitiesExistaValues_Arr[i].key)
+        {
+          this.isExists=true;
+          return;
+        } 
+      }
+    }
   }
 
 
 
 PopMassage()
 {
+  this.checkIfExist();
+
   if(this.doesNeedPop==false)
   { 
-      if(this.checkIfExist()==true)
+      if(this.isExists==true)
         { this.whatToPop="existsPop";
           this.doesNeedPop=true;
           
@@ -241,8 +247,9 @@ PopMassage()
   Nominate() 
   {
       this.doesNeedPop = false;
-
-    if (this.checkIfExist() == false) 
+      this.checkIfExist();
+ 
+    if ( this.isExists== false) 
     {
       let cost =this.cost;
       let date = this.date;
@@ -267,11 +274,16 @@ PopMassage()
 
   //=========================================  pushToBoard  ==================================================================================================
 
+
+//function after if
   pushToBoard(communityPush:string) 
-  {
+  { this.community=communityPush;
+
+    this.checkIfExist();
+
     if (this.community != "") 
     {
-      if (this.checkIfExist() == false) 
+      if (this.isExists == false) 
       {
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
         this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });

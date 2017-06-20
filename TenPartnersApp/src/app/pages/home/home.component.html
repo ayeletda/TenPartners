@@ -1,69 +1,53 @@
 <div class="home">
-  <br>
-  <!-- add a community -->
-  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <div class="input-group">
-      <span class="input-group-btn">
+  <div class="container">
+    <div class="row">
+
+      <br>
+      <!-- add a community -->
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="input-group">
+          <span class="input-group-btn">
         <button class="btn btn-default" (click)="addCommunity()" 
         type="button">add community</button>
       </span>
-      <input [(ngModel)]="adcommunity" type="text" class="form-control" placeholder="maximum 20 letters">
-    </div>
-  </div>
-  <br>
-  <br>
+          <input [(ngModel)]="adcommunity" type="text" class="form-control" placeholder="maximum 20 letters">
+        </div>
+      </div>
+      <br>
+      <br>
 
-  <!-- Choose a community -->
-  <div class="form-group">
-    <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Community</label>
-    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-      <select #selectedCommunity class="form-control">
+      <!-- Choose a community -->
+      <div class="form-group">
+        <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Community</label>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+          <select #selectedCommunity class="form-control">
           <option disabled selected >Community</option>
           <option *ngFor = "let community of adcommunityFBList | async" [value] = "community.name"> {{ community.name }} </option>
         </select>
-    </div>
-  </div>
-
-  <!-- Showing the community's users -->
-
-  <div class="showCommunity">
-    <div *ngFor="let user of usersFBList | async">
-      <div *ngIf="user.associatedCommunity == selectedCommunity.value">
-
-        <br>
-        <br>
-
-
-        <div class="form-group btn-group open col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <a class="btn btn-primary"><i class="fa fa-user fa-fw"></i> {{ user.name }}</a>
-          <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-          <span class="fa fa-caret-down" title="Toggle dropdown menu"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
-            <li><a><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
-            <li class="divider"></li>
-            <li><a><i class="fa fa-unlock"></i> Make admin</a></li>
-          </ul>
-          <br>
         </div>
       </div>
 
+      <!-- Showing the community's users -->
 
-    </div>
-  </div>
-
-
-
-
-  <!-- For a community component 
-
-
-  
- <br>
- <br>
-
-
+      <div class="showCommunity">
+        <div *ngFor="let user of usersFBList | async">
+          <div *ngIf="user.associatedCommunity == selectedCommunity.value">
+            <br>
+            <br>
+            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <button type="auser" class="btn btn-primary dropdown-toggle" title="Toggle dropdown menu" data-toggle="dropdown" (click)="showDropdow(user.value)">
+                <i class="fa fa-user fa-fw"></i> {{  user.name  }}<i class="fa fa-caret-down"></i></button>
+              <ul class="dropdown-menu">
+                <li><a><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+                <li class="divider"></li>
+                <li><a><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+              </ul>
+              <br>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- For a community component 
   <div class="form-group btn-group open col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngFor = "let user of usersFBList | async">
     <a class="btn btn-primary" ><i class="fa fa-user fa-fw"></i> {{ user.name }}</a>
     <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
@@ -79,57 +63,14 @@
   </div>
 -->
 
-  <!-- For a community component -->
+      <!-- Delete a community -->
+      <div class="form-group">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+          <br>
+          <button type="delete" class="btn btn-danger btn-md" (click)="deleteCommunity(selectedCommunity)"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
+        </div>
+      </div>
 
-
-  <!-- Delete a community -->
-  <div class="form-group">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-      <br>
-      <button type="delete" class="btn btn-danger btn-md" (deleteCommunity)="deleteCommunity(selectedCommunity)"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
     </div>
   </div>
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
-
-  <div *ngFor = "let project of projects | async" > 
-                    <!--<div *ngIf = "needToPrint(message.date | date: 'dd/MM/yy')">
-                        <p class = "date-stamp"> {{ message.date | date: "MM/dd/yy" }} </p> 
-                    </div>
-                        <div >
-                            <p id = "msg-name"> {{ project.date }}</p>
-                             <p id = "msg-context"> {{ project.description}} </p>
-                            <div class = "author">
-                            </div>
-                        </div>
-                </div>
-
- -->

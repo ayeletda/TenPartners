@@ -1,3 +1,4 @@
+
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -81,6 +82,8 @@ export class ProjectForUpdateComponent implements OnInit
     this.af.list ( this.item + "/messages").remove();
     this.af.list (this.item + "/votingList").remove();
     this.projectFBObject.update({ 'associatedUser': '' }); 
+    this.projectFBObject.update({ 'cost': '' });
+    this.projectFBObject.update({ 'date': '' });
   }
 
   //================================== updating date ====================================================
@@ -90,7 +93,8 @@ export class ProjectForUpdateComponent implements OnInit
     //if the user clicked on update cost first
     if(this.updateCostFlag)
     {
-      alert("Save or cancel the new price")
+      this.whatToPop="save/cancelPrice"
+      this.doesNeedPop=true; 
     }
     else
     {
@@ -106,7 +110,8 @@ export class ProjectForUpdateComponent implements OnInit
     }
     else if(dateVal == "")
     {
-      alert ("You should enter a valid date")
+      this.whatToPop="validDate";
+      this.doesNeedPop=true;
     }
     else
     {
@@ -124,7 +129,8 @@ export class ProjectForUpdateComponent implements OnInit
     //if the user clicked on update cost flag and enter a cost
     if(this.updateDateFlag)
     {
-      alert("Save or cancel the new date")
+      this.whatToPop="save/cancelDate";
+      this.doesNeedPop=true; 
     }
     else
     {
@@ -140,7 +146,8 @@ export class ProjectForUpdateComponent implements OnInit
     }
     else if(costVal == "" || costVal < 0)
     {
-      alert ("You should enter a valid budget")
+      this.whatToPop="validBudget";
+      this.doesNeedPop=true;
     }
     else
     {

@@ -91,7 +91,7 @@ PopMassage()
   sendProject()
   {
     
-      this.projectsFBList.push({name: this.name, description: this.description,purpose: this.purpose,associatedCommunities: "NULL"});
+      this.projectsFBList.push({name: this.name, description: this.description,purpose: this.purpose});
       this.name = '';
       this.description = "";
       this.purpose = "";

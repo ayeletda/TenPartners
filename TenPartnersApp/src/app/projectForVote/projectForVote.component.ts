@@ -24,7 +24,7 @@ export class ProjectForVoteComponent implements OnInit
   @ViewChild('againstVal')  againstVal: any;
   
   //user details
-  user = { id: null, permission: null, community: null, name: null, email: null };
+  user;
   voteStatus: string;
 
   //project details
@@ -65,8 +65,8 @@ export class ProjectForVoteComponent implements OnInit
     this.whatToPop = '';
     this.doesNeedPop = false;
 
-    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.getDetails(this.user);
+    //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.user = this.service.getUser();
 
     //initializes variables with corrent values
     this.projectsFBList = this.af.list('projects');
@@ -222,6 +222,8 @@ export class ProjectForVoteComponent implements OnInit
     this.usersVotingFBList = null;
     this.af.list (this.item + "/votingList").remove();
     this.projectFBObject.update({ 'associatedUser': '' });
+    this.projectFBObject.update({ 'cost': '' });
+    this.projectFBObject.update({ 'date': '' });
 
     //message that a project was rejected
     this.whatToPop = popUpType;

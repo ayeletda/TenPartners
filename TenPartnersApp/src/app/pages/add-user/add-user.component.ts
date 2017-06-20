@@ -22,6 +22,11 @@ export class AddUserComponent implements OnInit
   public FacebookAccount: String;
   public TwitterAccount: String;
   public Permission: String;
+  public whatToPop:string;
+  public showDetailsForm: boolean;
+
+
+
   users: FirebaseListObservable<any>;
   communities: FirebaseListObservable<any>;
 
@@ -31,12 +36,15 @@ export class AddUserComponent implements OnInit
 
   constructor(private router: Router, private serviceService: ServiceService, private af: AngularFireDatabase)
   {
+    this.whatToPop="";
+    this.showDetailsForm=false;
     this.UserName = "";
     this.TenPartnersAccount = "";
     this.Password = "";
     this.GoogleAccount = "";
     this.FacebookAccount = "";
     this.TwitterAccount = "";
+    this.Permission = "";
     this.users = this.af.list('users');
     this.communities = this.af.list('communities');
 
@@ -63,7 +71,8 @@ export class AddUserComponent implements OnInit
         permission: this.Permission + ""
       });
 
-      alert("The user is added");
+     this.whatToPop="userSendPop";
+     this.showDetailsForm=true;
 
       this.UserName = "";
       this.Permission = "";
@@ -75,9 +84,19 @@ export class AddUserComponent implements OnInit
     }
 
 
-    else alert("something's missing");
+    else {
+      this.whatToPop="fieldEmptyPop";
+     this.showDetailsForm=true;
+    }
 
 
   }
+
+
+PopMassage()
+{
+  this.showDetailsForm =!this.showDetailsForm;
+}
+
 
 }

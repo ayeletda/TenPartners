@@ -31,3 +31,52 @@ fieldset
     position: unset;
 }
 
+
+.Alert 
+{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+	right: 0px;
+}
+
+.close 
+{
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    background-color: black;
+    border-radius:50px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    opacity: 1;
+    color: white;
+}
+
+.close:hover 
+{
+    opacity: 0.8;
+}
+
+
+.Alert form 
+{
+	top:0px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7%;
+    text-align: center;
+    background-color: white;
+	border-radius:10px;
+	border-color: grey; 
+	width: 300px;
+	
+	
+
+}
