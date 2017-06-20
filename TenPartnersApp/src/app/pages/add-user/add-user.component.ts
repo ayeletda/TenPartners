@@ -37,6 +37,7 @@ export class AddUserComponent implements OnInit
     this.GoogleAccount = "";
     this.FacebookAccount = "";
     this.TwitterAccount = "";
+    this.Permission = "";
     this.users = this.af.list('users');
     this.communities = this.af.list('communities');
 
