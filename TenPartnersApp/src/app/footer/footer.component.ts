@@ -13,15 +13,15 @@ import {ServiceService} from '../service.service';
 
 export class FooterComponent implements OnInit 
 {
-   user;
+   user = { id: null, permission: null, community: null, name: null, email: null };
    isClick: string;
  
   //================================================  constructor  ============================================================
 
   constructor( private router: Router, private service:ServiceService) 
   {
-    //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.user = this.service.getUser();
+    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.service.getDetails(this.user);
   }
 
   //=================================================  ngOnInit  ============================================================
