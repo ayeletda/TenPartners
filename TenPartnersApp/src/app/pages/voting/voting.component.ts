@@ -20,7 +20,7 @@ export class VotingComponent implements OnInit
   @ViewChild('scrollMe')  myScrollContainer: ElementRef;
 
   //user details
-  user = { id: null, permission: null, community: null, name: null, email: null };
+  user;
 
   //project details
   currentProject: any;
@@ -63,8 +63,8 @@ export class VotingComponent implements OnInit
     this.isProjectSelected = false;
     this.isNeedViewMore = false;
 
-    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.getDetails(this.user);
+    //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.user = this.service.getUser();
 
     //updates the projects in part1 (projects for voting)
     this.projectsFBList = this.af.list('projects');
@@ -175,14 +175,8 @@ export class VotingComponent implements OnInit
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     }
     catch (err) { }
-  }
-
-  //????????
-  trackByFn(index, item) 
-  {
-    this.scrollToBottom();
-    console.log("in trackByFn");
-  }
+ }
+ 
 }
 
 

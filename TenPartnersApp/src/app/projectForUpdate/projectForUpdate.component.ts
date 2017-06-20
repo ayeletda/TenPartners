@@ -1,3 +1,4 @@
+
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -81,6 +82,8 @@ export class ProjectForUpdateComponent implements OnInit
     this.af.list ( this.item + "/messages").remove();
     this.af.list (this.item + "/votingList").remove();
     this.projectFBObject.update({ 'associatedUser': '' }); 
+    this.projectFBObject.update({ 'cost': '' });
+    this.projectFBObject.update({ 'date': '' });
   }
 
   //================================== updating date ====================================================
@@ -91,7 +94,7 @@ export class ProjectForUpdateComponent implements OnInit
     if(this.updateCostFlag)
     {
       this.whatToPop="save/cancelPrice"
-      this.doesNeedPop=true;
+      this.doesNeedPop=true; 
     }
     else
     {
@@ -127,7 +130,7 @@ export class ProjectForUpdateComponent implements OnInit
     if(this.updateDateFlag)
     {
       this.whatToPop="save/cancelDate";
-      this.doesNeedPop=true;
+      this.doesNeedPop=true; 
     }
     else
     {

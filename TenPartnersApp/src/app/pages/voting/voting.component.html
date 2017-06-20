@@ -57,15 +57,17 @@
         </div>
 
         <!-- the sending message's part -->
-        <div class = "input-group">
-            <span class = "input-group-btn"> 
-                <button class = "input btn btn-difult" type = "submit" (click) = "sendMessage()">Send  <i class = "input fa fa-arrow-up"></i></button>
-            </span>
-            <input type = "text" class = "input form-control" id = "msg-input" placeholder = "Write your message here.." (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">
-            <!--<span>
-                <button  class = "input btn btn-difult" type = "submit" (click) = "scrollToBottom()">ll<i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
-            </span>-->
+        <div class = "input-group float-left">
+            <span class = "input-group-btn float-left"> 
+                <button class = "input float-left btn btn-difult" type = "submit" (click) = "sendMessage()">Send  <i class = "input fa fa-arrow-up"></i></button>
+            <input type = "text" class = "input float-left form-control" id = "msg-input" placeholder = "Write your message here.." (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">
+
+                <button  class = "input float-left btn btn-difult" type = "submit" (click) = "scrollToBottom()"><i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
+                        </span>
+
         </div>
+
+
     </div>
     
 </div>
