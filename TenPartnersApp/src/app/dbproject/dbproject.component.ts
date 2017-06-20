@@ -15,7 +15,7 @@ import { ServiceService } from '../service.service';
 
 //=============================  DBprojectComponent class  ===========================================================================================
 
-export class DBprojectComponent implements OnInit, OnDestroy 
+export class DBprojectComponent implements OnInit 
 {
   @ViewChild('scrollMe')    myScrollContainer: ElementRef;
 
@@ -43,7 +43,9 @@ export class DBprojectComponent implements OnInit, OnDestroy
   projectFBList: FirebaseListObservable<any>;
   communitiesFBList: FirebaseListObservable<any>;
   projectsFBList: FirebaseListObservable<any>;
-  communitiesValues_Arr: any;
+  communitiesExistaValues_Arr: any;
+  communitiesExistaFBList: FirebaseListObservable<any>;
+
 
   //flags
   view: boolean;
@@ -53,29 +55,12 @@ export class DBprojectComponent implements OnInit, OnDestroy
   doesNeedPop: boolean;
   whatToView: string;
   whatToPop: string;
+  isCommunitiesSnapshot:boolean;
   
   //====================================  constructor  ===========================================================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
-
- //initialize projectsValues_Arr
- //not do nothing not working witout this 
-    // this.projectsFBList = this.af.list('projects');
-
-    // let temp = this.projectsFBList.subscribe((snapshots)=>
-    // {
-    //   this.projectsValues_Arr=[];
-    //   snapshots.forEach(snapshot => 
-    //   {
-    //     this.projectsValues_Arr.push(snapshot);
-    //   });
-    // });
-
-    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
-    // this.service.allSubscribe.push(temp);
-    //untill here!!!!!
-
     //initializes
     this.community = "";
     this.newComment = "";
@@ -89,6 +74,7 @@ export class DBprojectComponent implements OnInit, OnDestroy
     this.service.getDetails(this.user);
     this.whatToView="";
     this.whatToPop="";
+    this.isCommunitiesSnapshot=false;
   }
 
   //=======================================  ngOnInit  ===========================================================================================
@@ -116,6 +102,7 @@ export class DBprojectComponent implements OnInit, OnDestroy
     this.view = this.first;
     this.more = this.first;
     this.checkIfdoLike();
+    this.checkIfExist();
 
 
     
@@ -138,13 +125,6 @@ export class DBprojectComponent implements OnInit, OnDestroy
 
   //====================================  checkIfdoLike  ===================================================================================================
 
-  // get _status(){
-
-  // }
-
-  // set _status(flag: boolean){
-
-  // }
   checkIfdoLike()
   {
     this.likesFBList = this.af.list(this.path + "/likes/", { preserveSnapshot: true});
@@ -210,26 +190,37 @@ export class DBprojectComponent implements OnInit, OnDestroy
 
   checkIfExist() 
   {
-    this.projectFBList = this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
     
-    this.isExists=false;
+    if(this.isCommunitiesSnapshot==false){
 
-    let temp = this.projectFBList.subscribe(snapshots => 
+     this.communitiesExistaFBList=this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
+    let temp = this.communitiesExistaFBList.subscribe((snapshots)=>
     {
+      this.communitiesExistaValues_Arr=[];
       snapshots.some(snapshot => 
       {
-        let temp1 = snapshot.key;
-        console.log("temp1:"+temp1+"community:"+this.community);
-        if (this.user.community == temp1 || this.community == temp1) 
-                     {console.log("here true in is exist");
-                       this.isExists = true;
-                     }
+         this.communitiesExistaValues_Arr.push(snapshot);
       });
     });
+    this.isCommunitiesSnapshot=true;
+     this.service.allSubscribe.push(temp);
+  }
+  
 
-    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.allSubscribe.push(temp);
+  else{
+    this.isExists=false;
+    let i=0;
+
+      for(;i<this.communitiesExistaValues_Arr.length;i++)
+      {
+        if (this.user.community == this.communitiesExistaValues_Arr[i].key || this.community == this.communitiesExistaValues_Arr[i].key)
+        {
+          this.isExists=true;
+          return;
+        } 
+      }
     }
+  }
 
 
 
@@ -286,7 +277,6 @@ PopMassage()
 //function after if
   pushToBoard(communityPush:string) 
   { this.community=communityPush;
-    console.log(this.community);
 
     this.checkIfExist();
 
@@ -294,7 +284,6 @@ PopMassage()
     {
       if (this.isExists == false) 
       {
-        console.log("here is exsits push board");
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
         this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });
         this.whatToPop="pushedPop";
@@ -334,10 +323,6 @@ PopMassage()
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     }
     catch (err) { }
-  }
-
-  public ngOnDestroy(){
-    // this.likesFBList.un
   }
 
 }
