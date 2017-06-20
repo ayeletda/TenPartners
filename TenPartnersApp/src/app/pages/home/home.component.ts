@@ -63,7 +63,8 @@ export class HomeComponent implements OnInit
     }
     else if (!this.doesCommunityExist()) 
     {
-      this.communitiesFBList.push({ name: this.adcommunity });
+      this.communitiesFBList.update(this.adcommunity, {name: this.adcommunity});
+      //this.communitiesFBList.push({ name: this.adcommunity });
       alert('Community is added');
     }
     else 
@@ -94,10 +95,32 @@ export class HomeComponent implements OnInit
 
 //====================== deleteCommunity =====================================================================
 
-  deleteCommunity(community) 
+  deleteCommunity(communityKey: string) 
   {
-    
-    
+    //-- for the message --
+    // let meessage = "Be aware that deleting this community causes all its users deletion!";
+    // if (confirm(meessage)) 
+
+
+    // {
+      //-- deleting the community --
+      const itemObservable = this.af.object('communities/' + communityKey);
+      itemObservable.remove();
+      //-- deleting the users in this community --
+      for(let i=0; i<this.usersArr.length; i++)
+      {
+        if (this.usersArr[i].associatedCommunity == communityKey)
+        {
+          //console.log('key' + this.usersArr[i].$key);
+          //console.log(this.usersArr[i].name);
+          //console.log(this.usersArr[i].associatedCommunity);
+        const itemObservable2 = this.af.object('users/' + this.usersArr[i].$key);
+        itemObservable2.remove();
+        }
+      }
+
+
+    // }
     
   }
 
