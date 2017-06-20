@@ -14,7 +14,7 @@
             <div>
                 <i *ngIf = "voteStatus != 'against' && !isAccuciatedUser" class = "simbol fa fa-thumbs-o-down  pull-right" id = "unlike" aria-hidden="true" (click)="votAgainst()"></i>
                 <i *ngIf = "voteStatus == 'against'" class = "simbol fa fa-thumbs-o-down  pull-right" id = "transparentElement" aria-hidden="true"></i>
-                <!--<h5 *ngIf="isAccuciatedUser" id="txtAssigned"> You are assigned </h5>-->
+                <h5 *ngIf="isAccuciatedUser" class = "simbol pull-right" id = "blockUnlike" aria-hidden="true"></h5>
             </div>
         </div>
     </div>
