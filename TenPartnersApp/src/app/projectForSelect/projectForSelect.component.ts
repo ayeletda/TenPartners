@@ -31,6 +31,7 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked {
   projectDate: Date;
 
 
+
   @Output() voteChoose: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router, private af: AngularFireDatabase) {
