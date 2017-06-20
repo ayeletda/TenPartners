@@ -30,6 +30,7 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked {
   leftDay: any;
   projectDate: Date;
 
+
   @Output() voteChoose: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router, private af: AngularFireDatabase) {
