@@ -23,7 +23,7 @@ export class SubmitProjectComponent implements OnInit
   purpose: String;
   projectsValues_Arr: any;
   whatToPop:string;
-  showDetailsForm: boolean;
+  doesNeedPop: boolean;
 
   //pointers of object or list in firebase
   projectsFBList: FirebaseListObservable<any>;
@@ -38,8 +38,9 @@ export class SubmitProjectComponent implements OnInit
     this.description = "";
     this.purpose = "";
     this.whatToPop="";
-    this.showDetailsForm=false;
-    //initialize projectsValues_Arr
+    this.doesNeedPop=false;
+   
+    //initializes projectsValues_Arr
     this.projectsFBList = this.af.list('projects');
 
     let temp = this.projectsFBList.subscribe((snapshots)=>
@@ -61,41 +62,35 @@ export class SubmitProjectComponent implements OnInit
   {
     this.service.setTitle("Submit Project");
   }
+  
+  //=========================  PopMassage  ====================================================================
 
-
-PopMassage()
-{
-  if(this.showDetailsForm==false)
-  { 
-
-     if(this.name == "" || this.description == "" || this.purpose == "")
-          this.whatToPop="fieldEmptyPop";
-          
-
-        else{
-            this.sendProject();
-            this.whatToPop="projectSendPop";
-        }  
-
-        this.showDetailsForm=true;
+  PopMassage()
+  {
+    if(this.doesNeedPop==false)
+    { 
+      if(this.name == "" || this.description == "" || this.purpose == "")
+        this.whatToPop="fieldEmptyPop";
+      else
+      {
+        this.sendProject();
+        this.whatToPop="projectSendPop";
+      }  
+        this.doesNeedPop=true;
         return;
+    }
 
+    this.doesNeedPop =!this.doesNeedPop;
   }
-
-  this.showDetailsForm =!this.showDetailsForm;
-}
-
 
   //==========================  sendProject  ====================================================================
 
   sendProject()
   {
-    
       this.projectsFBList.push({name: this.name, description: this.description,purpose: this.purpose});
       this.name = '';
       this.description = "";
       this.purpose = "";
-    
   }
 
 }

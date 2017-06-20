@@ -26,7 +26,7 @@ export class DBprojectComponent implements OnInit
   @Input() first;
 
   //user details
-  user = { id: null, permission: null, community: null, name: null, email: null };
+  user;
 
   description: String;
   purpose: String;
@@ -46,7 +46,6 @@ export class DBprojectComponent implements OnInit
   communitiesExistaValues_Arr: any;
   communitiesExistaFBList: FirebaseListObservable<any>;
 
-
   //flags
   view: boolean;
   more: boolean;
@@ -62,19 +61,18 @@ export class DBprojectComponent implements OnInit
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
     //initializes
+    this.cost = "";
     this.community = "";
     this.newComment = "";
+    this.whatToView = "";
+    this.whatToPop = "";
+    this.doesNeedPop = false;
+    this.isCommunitiesSnapshot = false;
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communitiesFBList = this.af.list("/communities");
-    this.doesNeedPop = false;
-    this.cost="";
 
-
-    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.getDetails(this.user);
-    this.whatToView="";
-    this.whatToPop="";
-    this.isCommunitiesSnapshot=false;
+    //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.user = this.service.getUser();
   }
 
   //=======================================  ngOnInit  ===========================================================================================
@@ -103,9 +101,6 @@ export class DBprojectComponent implements OnInit
     this.more = this.first;
     this.checkIfdoLike();
     this.checkIfExist();
-
-
-    
   }
 
   //=======================================  addComment  ================================================================================================

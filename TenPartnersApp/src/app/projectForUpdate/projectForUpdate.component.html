@@ -32,6 +32,8 @@
 		
 		</div>
 
+	    <!--=================================== popUp messages ======================================-->
+
 		<div *ngIf = "doesNeedPop" class = "popAlert">
 			<form (submit) = "removeProject()">
 				<div class = "close" (click)="PopMassage()">X</div>
@@ -57,11 +59,9 @@
 				You should enter a valid budget
 				</div>
 
-
-
-
 			</form>
 		</div>
+	    <!--========================================================================================-->
 
 	</div>		
 </main>

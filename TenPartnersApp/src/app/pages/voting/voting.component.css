@@ -1,6 +1,4 @@
- voting/css
- 
- 
+  
  .body2
 {
   margin-top: 35px;
@@ -14,10 +12,6 @@
   height: 40%;
 }
 
-.float-left 
-{
-display: inline;
-}
 .navbar
 {
   width: 100%;
@@ -95,6 +89,17 @@ p
   position: unset;
 }
 
+.row, .col-lg-offset-3, .input-group, .input-group-btn, .btn-difult, .input, .form-control 
+{
+  margin: 0%;
+}
+
+
+.row, .col-lg-offset-3, .input-group
+{
+  width: 100%;
+  padding: 0%; 
+}
 
 /* ============================ CSS of vertical-menu-y ======================= */
 

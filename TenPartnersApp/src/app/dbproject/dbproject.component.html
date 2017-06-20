@@ -79,6 +79,8 @@
         </div>
       </div>
 
+      <!--=================================== popUp messages ======================================-->
+
       <div *ngIf = 'doesNeedPop' class = "popAlert">
 
         <form (submit) = "Nominate()">
@@ -96,7 +98,7 @@
           </div>
 
           <div class="existsPop" *ngIf="whatToPop == 'existsPop'">
-            This project already exists in the community 
+            This project already exists in the community. 
           </div>
 
           <div class="emptyPop" *ngIf="whatToPop == 'emptyPop'">
@@ -104,20 +106,21 @@
           </div>
 
           <div class="nominatePop" *ngIf="whatToPop == 'nominatePop'">
-            The project is nominated
+            The project is nominated.
           </div>
 
           <div class="pushedPop" *ngIf="whatToPop == 'pushedPop'">
-            project pushed
+            Project pushed.
           </div>
 
           <div class="communityEmptyPop" *ngIf="whatToPop == 'communityEmptyPop'">
-            Enter a community name
+            Enter a community name.
           </div>
 
         </form>
 
       </div>
+      <!--========================================================================================-->
 
     </main>
   </div>

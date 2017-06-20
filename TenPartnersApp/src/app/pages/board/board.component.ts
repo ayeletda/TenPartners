@@ -21,11 +21,9 @@ export class BoardComponent implements OnInit
     @ViewChild('scrollMe')  myScrollContainer: ElementRef;
 
     //user's details
-    user = { id: null, permission: null, community: null, name: null, email: null };
+    user;
 
     //project's details
-
-    
     currentProject: any;
     currentI: any;
     projectPath: any;
@@ -57,7 +55,6 @@ export class BoardComponent implements OnInit
      incorrectValues:boolean;
     alert:boolean;
 
-
     //====================  constructor  ============================================================
 
     constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -73,10 +70,10 @@ export class BoardComponent implements OnInit
         this.noProjects= true;
         this.maxVotingNum = 10;
         this.incorrectValues = false;
-         this.alert = false;
+        this.alert = false;
 
-        //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-        this.service.getDetails(this.user);
+        //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+         this.user = this.service.getUser();
 
         //initialize arrays
         this.projects = this.af.list('projects');

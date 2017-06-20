@@ -6,16 +6,18 @@ import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit, EventEmitte
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ChangeDetectorRef, Input, Output } from "@angular/core";
 
-
 @Component(
-    {
-      selector: 'app-projectForSelect',
-      templateUrl: './projectForSelect.component.html',
-      styleUrls: ['./projectForSelect.component.css']
-    })
+{
+  selector: 'app-projectForSelect',
+  templateUrl: './projectForSelect.component.html',
+  styleUrls: ['./projectForSelect.component.css']
+})
 
-export class ProjectForSelectComponent implements OnInit, AfterViewChecked {
+export class ProjectForSelectComponent implements OnInit, AfterViewChecked 
+{
   @Input() item;
+  @Output() voteChoose: EventEmitter<any> = new EventEmitter();
+
   @ViewChild('forVal') private forVal: any;
   @ViewChild('avoidVal') private avoidVal: any;
   @ViewChild('againstVal') private againstVal: any;
@@ -29,10 +31,6 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked {
   projectUplodeDate: Date;
   leftDay: any;
   projectDate: Date;
-
-
-
-  @Output() voteChoose: EventEmitter<any> = new EventEmitter();
 
   constructor(private router: Router, private af: AngularFireDatabase) {
 

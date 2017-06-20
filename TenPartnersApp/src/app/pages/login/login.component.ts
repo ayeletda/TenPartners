@@ -17,12 +17,12 @@ import {ServiceService} from '../../service.service';
 export class LoginComponent implements OnInit 
 {
   //user details
-  user = { id: null, permission: null, community: null, name: null, email: null };
+  user;
 
   constructor(private service:ServiceService, private router:Router)
   {   
-    //function (in servic.component.ts) that includs subscribe that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
-    this.service.getDetails(this.user);
+    //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
+    this.user = this.service.getUser();
   }
 
   ngOnInit() {}
@@ -60,7 +60,6 @@ export class LoginComponent implements OnInit
     //if it's blocked user
     else if(this.user.permission == "3")
      this.router.navigateByUrl('');
-
   }
 
   forgotPassword(){
