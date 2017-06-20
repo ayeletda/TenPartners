@@ -155,6 +155,7 @@ export class BoardComponent implements OnInit
  
      submitIncorrectValues(){
          this.incorrectValues = false;
+         this.showAlert();
      }
  
  
@@ -187,10 +188,11 @@ export class BoardComponent implements OnInit
     close() 
     {
         this.doesNeedPop = false;
-        this.currentI = -1;
+        this.currentI = 1;
     }
     closeIncorrectValues(){
          this.incorrectValues = false;
+         this.doesNeedPop = true;
      }
  
      closeAlert(){

@@ -138,6 +138,7 @@ input::placeholder
     padding: 7%;
     text-align: center;
     background-color: white;
+    border-radius: 5px;
 }
 
 #submitButton 
@@ -167,6 +168,7 @@ input::placeholder
      padding: 7%;
      text-align: center;
      background-color: white;
+     border-radius: 5px;
  
  }
  
@@ -189,6 +191,7 @@ input::placeholder
      padding: 7%;
      text-align: center;
      background-color: white;
+     border-radius: 5px;
  
  }
  
