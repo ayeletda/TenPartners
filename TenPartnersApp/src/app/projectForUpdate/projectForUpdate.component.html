@@ -35,8 +35,31 @@
 		<div *ngIf = "doesNeedPop" class = "popAlert">
 			<form (submit) = "removeProject()">
 				<div class = "close" (click)="PopMassage()">X</div>
+
+				<div *ngIf="whatToPop == 'deletePop'" class = "deletePop">
           		Are you sure you want to delete {{ projectName }} project? <br><br>
             	<input class = "btn btn-success btn-lg" id = "submitButton" type = "submit" value = "delete">
+				</div>
+
+				<div *ngIf="whatToPop == 'save/cancelPrice'" class = "save/cancelPrice">
+          		Save or cancel the new price<br>
+				</div>
+
+				<div *ngIf="whatToPop == 'validDate'" class = "validDate">
+				You should enter a valid date
+				</div>
+
+				<div *ngIf="whatToPop == 'save/cancelDate'" class = "save/cancelDate">
+				Save or cancel the new date
+				</div>
+
+				<div *ngIf="whatToPop == 'validBudget'" class = "validBudget">
+				You should enter a valid budget
+				</div>
+
+
+
+
 			</form>
 		</div>
 
