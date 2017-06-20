@@ -45,7 +45,6 @@ export class VotingComponent implements OnInit
   isNeedViewMore: boolean;
   isNoProjects:boolean;
 
-
   //======================================================  constructor  ============================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -158,10 +157,13 @@ export class VotingComponent implements OnInit
     if (!this.isProjectSelected)
       alert("You need to choose a project before sending a message.")
     else if (this.newMessage != '')
-      this.messagesFBList.push({ message: this.newMessage, name: this.user.name, email: this.user.email, date: new Date().getTime() });
+      this.messagesFBList.push({ message: this.newMessage, name: this.user.name, email: this.user.email, date: new Date().getTime() }).then(()=>
+      {
+        this.scrollToBottom();
+      }
+      );
 
     this.newMessage = '';
-    this.scrollToBottom();
   }
 
   //======================================================   scrollToBottom  =========================================================
