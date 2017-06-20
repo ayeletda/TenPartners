@@ -33,6 +33,8 @@ export class ProjectForUpdateComponent implements OnInit
   updateCostFlag: boolean;
   doesNeedPop: boolean;
   whatToPop: string;
+  isSelected:boolean;
+  isUnSelected:boolean;
   
   //===================================  constructor  =================================================
 
@@ -43,6 +45,8 @@ export class ProjectForUpdateComponent implements OnInit
     this.updateCostFlag = false;
     this.whatToPop = "";
     this.doesNeedPop=false;
+    this.isSelected=false;
+    this.isUnSelected=false;
   }
 
   //====================================  ngOnInit  ==================================================

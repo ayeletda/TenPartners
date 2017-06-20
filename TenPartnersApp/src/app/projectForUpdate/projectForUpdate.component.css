@@ -12,6 +12,7 @@ main
 	margin-right: 0.5%;
 	height: 20%;
 	width: 100%;
+	font-weight: bold;
 }
 
 .card 
@@ -128,4 +129,12 @@ input
 	border-radius:10px;
 	border-color: grey; 
 	width: 300px;
+}
+
+img{
+	position: absolute;
+	height: 13%;
+	width:90%;
+	margin: auto;
+	
 }
