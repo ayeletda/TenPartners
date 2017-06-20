@@ -42,6 +42,7 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked {
      });
   }
 
+
   ngOnInit() {
     this.pointerToProjectInAF = this.af.list(this.item); // item is a path
     this.pointerToProjectObjectInAF = this.af.object(this.item, { preserveSnapshot: true });
