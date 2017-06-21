@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit
   {
     this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
     this.adcommunityFBList = this.af.list('communities');
-    this.usersFBList = this.af.list('users').take(1);
+    this.usersFBList = this.af.list('users');
     this.adcommunity = '';
     this.whatToDrop="";
     this.doesNeedPop=false;
@@ -102,31 +102,7 @@ export class HomeComponent implements OnInit
 
   deleteCommunity(communityKey: string) 
   {
-    //-- for the message --
-    // let meessage = "Be aware that deleting this community causes all its users deletion!";
-    // if (confirm(meessage)) 
-
-
-    // {
-      //-- deleting the community --
-      const itemObservable = this.af.object('communities/' + communityKey);
-      itemObservable.remove();
-      //-- deleting the users in this community --
-      for(let i=0; i<this.usersArr.length; i++)
-      {
-        if (this.usersArr[i].associatedCommunity == communityKey)
-        {
-          //console.log('key' + this.usersArr[i].$key);
-          //console.log(this.usersArr[i].name);
-          //console.log(this.usersArr[i].associatedCommunity);
-        const itemObservable2 = this.af.object('users/' + this.usersArr[i].$key);
-        itemObservable2.remove();
-        }
-      }
-
-
-    // }
-    
+   
   }
 
 //====================== deleteUser =====================================================================
@@ -136,7 +112,6 @@ export class HomeComponent implements OnInit
   this.doesNeedPop=false;
   this.whatToDrop="";
   let userKey = user.$key; 
-  console.log(userKey);
    const itemObservable = this.af.object("users/" + userKey);
    itemObservable.remove();
 
