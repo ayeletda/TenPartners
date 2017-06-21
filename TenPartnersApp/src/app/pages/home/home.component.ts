@@ -238,7 +238,9 @@ OKupdateCommunity(CommunityVal, isNeedUpdate)
     }
     else
     {
+      this.whatToDrop="";
       let newCommunity= CommunityVal;
+       this.communitiesFBList.update(newCommunity, {name: newCommunity});
       const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
       itemObservable.update({ 'associatedCommunity': newCommunity}).then(
           x => { this.updateCommunityFlag = false; }

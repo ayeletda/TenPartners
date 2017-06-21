@@ -38,8 +38,7 @@
               <button type="auser" class="btn btn-primary menubutton" title="Toggle dropdown menu" (click)="showDropdow(user)">
                 <i class="fa fa-user fa-fw"></i> {{  user.name  }}<i class="fa fa-caret-down"></i></button>
               <div *ngIf="whatToDrop.$key==user.$key" class="menu">
-              <a (click)="editUser()"><i class="fa fa-pencil fa-fw"></i> Edit</a>
-                  <div *ngIf="editUserStatus" class="editor">
+                  <div class="editor">
 
                     <!----work updateName-->
                         <div *ngIf = "!updateNameFlag">
