@@ -1,4 +1,5 @@
 
+
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -39,8 +40,8 @@ export class ProjectForVoteComponent implements OnInit
   maxDaysForVoting: number;
 
   //pointers to object or list in firebase
-  projectFBList: any;
-  projectFBObject: FirebaseObjectObservable<any>;
+  projectInCommunityFBList: any;
+  projectInCommunityFBObject: FirebaseObjectObservable<any>;
   projectsFBList: FirebaseListObservable<any>;
   usersVotingFBList: FirebaseListObservable<any>;
 
@@ -59,8 +60,8 @@ export class ProjectForVoteComponent implements OnInit
     this.projectUplodeDate = null;
     this.leftDays = -1;
     this.voteStatus = '';
-    this.projectFBList = null;
-    this.projectFBObject = null;
+    this.projectInCommunityFBList = null;
+    this.projectInCommunityFBObject = null;
     this.usersVotingFBList = null;
     this.whatToPop = '';
     this.doesNeedPop = false;
@@ -80,14 +81,29 @@ export class ProjectForVoteComponent implements OnInit
   ngOnInit() 
   {
     //initializes FB objects & lists
-    this.projectFBList = this.af.list(this.item); // item is a path
-    this.projectFBObject = this.af.object(this.item, { preserveSnapshot: true });
-    this.projectName = this.projectFBList.$ref.path.o[1];
+    this.projectInCommunityFBList = this.af.list(this.item); // item is a path
+    this.projectInCommunityFBObject = this.af.object(this.item, { preserveSnapshot: true });
     this.usersVotingFBList = this.af.list(this.item + "/votingList");
     
+    //initializes projectName
+    let projectKey = this.projectInCommunityFBList.$ref.path.o[1];
+    let projectFBList = this.af.list("projects/" + projectKey);
+    
+    let temp0 = projectFBList.subscribe(snapshots => 
+    {
+      snapshots.forEach(snapshot => 
+      {
+        if (snapshot.$key == 'name')
+          this.projectName = snapshot.$value;
+      });
+    });
+    
+    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
+    this.service.allSubscribe.push(temp0);
+
     //initializes accociatedUser
     let accociatedUser ='';
-    let temp = this.projectFBList.subscribe(snapshots => 
+    let temp = this.projectInCommunityFBList.subscribe(snapshots => 
     {
       snapshots.forEach(snapshot => 
       {
@@ -205,9 +221,9 @@ export class ProjectForVoteComponent implements OnInit
   updateVotingVarsAndVoteStatus(forVal, avoidVal, againstVal, newStatus)
   {
     //updating voting's vars on firebase
-    this.projectFBObject.update({ 'for': forVal });
-    this.projectFBObject.update({ 'avoid': avoidVal });
-    this.projectFBObject.update({ 'against': againstVal });
+    this.projectInCommunityFBObject.update({ 'for': forVal });
+    this.projectInCommunityFBObject.update({ 'avoid': avoidVal });
+    this.projectInCommunityFBObject.update({ 'against': againstVal });
 
     //updating voteStatus on firebase
     this.usersVotingFBList.update(this.user.id, { vote: newStatus });
@@ -221,9 +237,9 @@ export class ProjectForVoteComponent implements OnInit
     this.af.list ( this.item + "/messages").remove();
     this.usersVotingFBList = null;
     this.af.list (this.item + "/votingList").remove();
-    this.projectFBObject.update({ 'associatedUser': '' });
-    this.projectFBObject.update({ 'cost': '' });
-    this.projectFBObject.update({ 'date': '' });
+    this.projectInCommunityFBObject.update({ 'associatedUser': '' });
+    this.projectInCommunityFBObject.update({ 'cost': '' });
+    this.projectInCommunityFBObject.update({ 'date': '' });
 
     //message that a project was rejected
     this.whatToPop = popUpType;

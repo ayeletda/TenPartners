@@ -1,3 +1,4 @@
+
 import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -98,9 +99,9 @@ export class VotingComponent implements OnInit
 
   //========================================================  saveProjectPath  =========================================================
 
-  saveProjectPath(project, i) 
+  saveProjectPath(community, i) 
   {
-    this.projectPath = 'projects/' + this.projectValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
+    this.projectPath = 'projects/' + this.projectValues_Arr[i].$key + '/associatedCommunities/' + community.$key;
     this.isNoProjects = false;
     return true;
   }
@@ -175,7 +176,7 @@ export class VotingComponent implements OnInit
       this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
     }
     catch (err) { }
- }
+  }
  
 }
 

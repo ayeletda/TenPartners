@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -59,7 +60,10 @@ export class LoginComponent implements OnInit
 
     //if it's blocked user
     else if(this.user.permission == "3")
-     this.router.navigateByUrl('');
+    {
+      alert("Your access to this application was refused by the admin");
+      this.router.navigateByUrl('');
+    }
   }
 
   forgotPassword(){
