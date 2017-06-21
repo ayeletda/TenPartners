@@ -13,6 +13,10 @@ hr{
     color: black;
     margin: 0;
 }
+
+.fields{
+    width: 100px;
+}
 .intoduction
 {
     color: #000040;

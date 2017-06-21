@@ -28,6 +28,11 @@ export class HomeComponent implements OnInit
   whatToPop: string;
   editUserStatus:boolean;
   updateNameFlag:boolean;
+  updateCommunityFlag:boolean;
+  updateEmailFlag:boolean;
+  updateGoogleFlag:boolean;
+  updateFacebookFlag:boolean;
+  updateTwitterFlag:boolean;
   //=========================  constructor  =====================================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -42,6 +47,11 @@ export class HomeComponent implements OnInit
     this.editUserStatus=false;
 
     this.updateNameFlag=false;
+    this.updateCommunityFlag=false;
+    this.updateEmailFlag=false;
+    this.updateFacebookFlag=false;
+    this.updateGoogleFlag=false;
+    this.updateTwitterFlag=false;
 
     let temp = this.usersFBList.subscribe((snapshots)=>
     {
@@ -198,6 +208,201 @@ OKupdateName(NameVal, isNeedUpdate)
     }  
   } 
 
+////////////////////////////////////////
+updateCommunity()
+  {
+    //if the user clicked on update cost flag and enter a cost
+    if(this.updateCommunityFlag)
+    {
+      this.whatToPop="save/cancelCommunity";
+      this.doesNeedPop=true; 
+    }
+
+    else
+    {
+      this.updateCommunityFlag = true;
+    }
+  }
+
+
+OKupdateCommunity(CommunityVal, isNeedUpdate)
+  {
+    if(!isNeedUpdate)
+    {
+      this.updateCommunityFlag = false;
+    }
+    else if(CommunityVal == "")
+    {
+      this.whatToPop="validCommunity";
+      this.doesNeedPop=true;
+    }
+    else
+    {
+      let newCommunity= CommunityVal;
+      const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
+      itemObservable.update({ 'associatedCommunity': newCommunity}).then(
+          x => { this.updateCommunityFlag = false; }
+      );
+    }  
+  } 
+
+
+
+////////////////////////////////////////
+updateEmail()
+  {
+    //if the user clicked on update cost flag and enter a cost
+    if(this.updateEmailFlag)
+    {
+      this.whatToPop="save/cancelEmail";
+      this.doesNeedPop=true; 
+    }
+
+    else
+    {
+      this.updateEmailFlag = true;
+    }
+  }
+
+
+OKupdateEmail(EmailVal, isNeedUpdate)
+  {
+    if(!isNeedUpdate)
+    {
+      this.updateEmailFlag = false;
+    }
+    else if(EmailVal == "")
+    {
+      this.whatToPop="validEmail";
+      this.doesNeedPop=true;
+    }
+    else
+    {
+      let newEmail= EmailVal;
+      const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
+      itemObservable.update({ 'email': newEmail}).then(
+          x => { this.updateEmailFlag = false; }
+      );
+    }  
+  } 
+
+/////////////////////////////////////////////////////////
+
+updateGoogle()
+  {
+    //if the user clicked on update cost flag and enter a cost
+    if(this.updateGoogleFlag)
+    {
+      this.whatToPop="save/cancelGoogle";
+      this.doesNeedPop=true; 
+    }
+
+    else
+    {
+      this.updateGoogleFlag = true;
+    }
+  }
+
+
+OKupdateGoogle(GoogleVal, isNeedUpdate)
+  {
+    if(!isNeedUpdate)
+    {
+      this.updateGoogleFlag = false;
+    }
+    else if(GoogleVal == "")
+    {
+      this.whatToPop="validGoogle";
+      this.doesNeedPop=true;
+    }
+    else
+    {
+      let newGoogle= GoogleVal;
+      const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
+      itemObservable.update({ 'google': newGoogle}).then(
+          x => { this.updateGoogleFlag = false; }
+      );
+    }  
+  } 
+/////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////
+
+updateFacebook()
+  {
+    //if the user clicked on update cost flag and enter a cost
+    if(this.updateFacebookFlag)
+    {
+      this.whatToPop="save/cancelFacebook";
+      this.doesNeedPop=true; 
+    }
+
+    else
+    {
+      this.updateFacebookFlag = true;
+    }
+  }
+
+
+OKupdateFacebook(FacebookVal, isNeedUpdate)
+  {
+    if(!isNeedUpdate)
+    {
+      this.updateFacebookFlag = false;
+    }
+    else if(FacebookVal == "")
+    {
+      this.whatToPop="validFacebook";
+      this.doesNeedPop=true;
+    }
+    else
+    {
+      let newFacebook= FacebookVal;
+      const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
+      itemObservable.update({ 'facebook': newFacebook}).then(
+          x => { this.updateFacebookFlag = false; }
+      );
+    }  
+  } 
+/////////////////////////////////////////////
+
+updateTwitter()
+  {
+    //if the user clicked on update cost flag and enter a cost
+    if(this.updateTwitterFlag)
+    {
+      this.whatToPop="save/cancelTwitter";
+      this.doesNeedPop=true; 
+    }
+
+    else
+    {
+      this.updateTwitterFlag = true;
+    }
+  }
+
+
+OKupdateTwitter(TwitterVal, isNeedUpdate)
+  {
+    if(!isNeedUpdate)
+    {
+      this.updateTwitterFlag = false;
+    }
+    else if(TwitterVal == "")
+    {
+      this.whatToPop="validTwitter";
+      this.doesNeedPop=true;
+    }
+    else
+    {
+      let newTwitter= TwitterVal;
+      const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
+      itemObservable.update({ 'twitter': newTwitter}).then(
+          x => { this.updateTwitterFlag = false; }
+      );
+    }  
+  } 
 
 
 

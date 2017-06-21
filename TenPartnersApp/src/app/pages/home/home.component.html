@@ -41,24 +41,66 @@
               <a (click)="editUser()"><i class="fa fa-pencil fa-fw"></i> Edit</a>
                   <div *ngIf="editUserStatus" class="editor">
 
-                    
+                    <!----work updateName-->
                         <div *ngIf = "!updateNameFlag">
                           Name: {{ user.name }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateName()"></i>
                         </div>
                         <div *ngIf = "updateNameFlag">
-                          <label> Name: <input #newNameVal class = "nameInput" type = "text" name = "txtName"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateName(newNameVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateName(newNameVal.value, false)"></i></label>
+                          <label> Name: <input #newNameVal class = "nameInput fields" type = "text" name = "txtName"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateName(newNameVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateName(newNameVal.value, false)"></i></label>
+                        </div>
+                      <br>
+                    <!----work updateName-->
+
+
+                    <!----work updateCommunity-->
+
+                      <div *ngIf = "!updateCommunityFlag">
+                          Community: {{ user.associatedCommunity }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateCommunity()"></i>
+                        </div>
+                        <div *ngIf = "updateCommunityFlag">
+                          <label> Community: <input #newCommunityVal class = "CommunityInput fields" type = "text" name = "txtCommunity"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateCommunity(newCommunityVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateCommunity(newCommunityVal.value, false)"></i></label>
+                        </div>
+                      <br>
+                    <!----work updateCommunity-->
+
+
+                      <div *ngIf = "!updateEmailFlag">
+                           TenPartners Account: {{ user.email }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateEmail()"></i>
+                        </div>
+                        <div *ngIf = "updateEmailFlag">
+                          <label>  TenPartners Account: <input #newEmailVal class = "emailInput fields" type = "text" name = "txtEmail"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateEmail(newEmailVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateEmail(newEmailVal.value, false)"></i></label>
                         </div>
                       <br>
 
 
+                      <div *ngIf = "!updateGoogleFlag">
+                          Google Account: {{ user.google }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateGoogle()"></i>
+                        </div>
+                        <div *ngIf = "updateGoogleFlag">
+                          <label> Google Account: <input #newGoogleVal class = "GoogleInput fields" type = "text" name = "txtGoogle"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateGoogle(newGoogleVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateGoogle(newGoogleVal.value, false)"></i></label>
+                        </div>
+                      <br>
 
+
+                    <div *ngIf = "!updateFacebookFlag">
+                         Facebook Account: {{ user.facebook }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateFacebook()"></i>
+                        </div>
+                        <div *ngIf = "updateFacebookFlag">
+                          <label> Facebook Account: <input #newFacebookVal class = "FacebookInput fields" type = "text" name = "txtFacebook"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateFacebook(newFacebookVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateFacebook(newFacebookVal.value, false)"></i></label>
+                        </div>
+                      <br>
+
+
+                    <div *ngIf = "!updateTwitterFlag">
+                         Twitter Account: {{user.twitter}} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateTwitter()"></i>
+                        </div>
+                        <div *ngIf = "updateTwitterFlag">
+                          <label> Twitter Account: <input #newTwitterVal class = "TwitterInput fields" type = "text" name = "txtTwitter"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateTwitter(newTwitterVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateTwitter(newTwitterVal.value, false)"></i></label>
+                        </div>
+                      <br>
 
                    
-                    Community: {{user.associatedCommunity}} <br>
-                    TenPartners Account: {{user.email}} <br>
-                    Google Account:{{user.google}}<br>
-                    Facebook Account:{{user.facebook}}<br>
-                    Twitter Account:{{user.twitter}}<br>
+                  
                   </div>
               <a (click) = "PopMassage('sureToDeleteUser')" ><i class="fa fa-trash-o fa-fw"></i> Delete</a>
               </div>
@@ -141,7 +183,7 @@
           </div>
 
 
-          <div *ngIf="whatToPop == 'save/cancelName'" class = "save/cancelName">
+        <div *ngIf="whatToPop == 'save/cancelName'" class = "save/cancelName">
 			        	Save or cancel the new Name
 				</div>
 
@@ -149,6 +191,13 @@
 				You should enter a valid name
 				</div>
 
+        <div *ngIf="whatToPop == 'save/cancelCommunity'" class = "save/cancelCommunity">
+			        	Save or cancel the new community
+				</div>
+
+        <div *ngIf="whatToPop == 'validCommunity'" class = "validCommunity">
+				You should enter a valid commuity
+				</div>
 
         </form>
 
