@@ -35,12 +35,13 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked {
         this.projects = this.af.list('projects');
         (<any>$(".stopper")).each(function (k, v) {
             if (v.textContent.trim().match(/^\d{13}$/) !== null) {
-                //let date = new Date(parseInt(v.textContent) + (14 * 60 * 60 * 24 * 1000));
-                let date = new Date(parseInt(v.textContent));
+                let date = new Date(parseInt(v.textContent) + (14 * 60 * 60 * 24 * 1000));
+                //let date = new Date(parseInt(v.textContent));
 
                 (<any>$(v)).countdown(date, function (event) {
                     $(this).text(event.strftime('%D:%H:%M:%S'));
                 }).on('finish.countdown', function () {
+                  this.project.associatedCommunity = "";
                    //TODO: timer done
                 });
             } else {
