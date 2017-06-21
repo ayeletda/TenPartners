@@ -1,7 +1,10 @@
+
+
+
   
  .body2
 {
-  margin-top: 35px;
+  padding-top: 35px;
   background-color:  #E5E7E9;
   height: 100%;
 }
@@ -477,5 +480,4 @@ input::placeholder
     height: 272px;
   }
 }
-
 

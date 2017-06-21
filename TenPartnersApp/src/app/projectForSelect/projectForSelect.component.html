@@ -9,12 +9,13 @@
         </div>
     </div>
 
-    <div *ngFor = "let value of pointerToProjectInAF | async">
+    <div *ngFor = "let value of projectInCommunityFBList | async">
         <div id = "down">
             <div *ngIf = "value.$key == 'uploudDate'"></div>
         </div>
     </div>
 
-    <div class="stopper" data-date="2017/08/01"></div>
+    <!--<div class="stopper" data-date="2017/08/01"></div>-->
+    <div class="stopper">{{ projectUplodeDate }}</div>
 
 </div>

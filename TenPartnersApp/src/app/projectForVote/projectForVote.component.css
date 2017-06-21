@@ -1,4 +1,5 @@
 
+
 /* ============================ main\top-side of project's square ======================= */
 
 main
@@ -65,9 +66,13 @@ p
     color: #e2675a;    
 }
 
-#blockUnlike
+#blockUnlike, img, src
 {
-    font-size: 5px;
+    height: 13px;
+    width:  13px;
+    margin: 5%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #transparentElement

@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
 import { ChangeDetectorRef, Input, Output} from "@angular/core";
+import { ServiceService } from '../service.service';
 
 @Component(
 {
@@ -38,7 +39,7 @@ export class ProjectForUpdateComponent implements OnInit
   
   //===================================  constructor  =================================================
 
-  constructor( private router: Router, private af: AngularFireDatabase)
+  constructor( private router: Router,private service: ServiceService, private af: AngularFireDatabase)
   {
     this.projectsFBList = this.af.list('projects');
     this.updateDateFlag = false;
@@ -55,7 +56,22 @@ export class ProjectForUpdateComponent implements OnInit
   {
     this.pointerToProjectInAF = this.af.list(this.item); // item is a path
     this.projectFBObject = this.af.object(this.item, { preserveSnapshot: true });
-    this.projectName = this.pointerToProjectInAF.$ref.path.o[1]
+  
+    //initializes projectName
+    let projectKey = this.pointerToProjectInAF.$ref.path.o[1];
+    let projectFBList = this.af.list("projects/" + projectKey);
+
+    let temp0 = projectFBList.subscribe(snapshots => 
+    {
+    snapshots.forEach(snapshot => 
+    {
+        if (snapshot.$key == 'name')
+        this.projectName = snapshot.$value;
+    });
+    });
+    
+    //pushes subscribe to an array for freeing it (listener to firebase) when login-out
+    this.service.allSubscribe.push(temp0);
   }
 
   //====================================  PopMassage  ==================================================

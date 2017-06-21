@@ -1,3 +1,4 @@
+
 <main>
 
     <!-- up part of a project - the clock & the name of a project -->
@@ -14,13 +15,13 @@
             <div>
                 <i *ngIf = "voteStatus != 'against' && !isAccuciatedUser" class = "simbol fa fa-thumbs-o-down  pull-right" id = "unlike" aria-hidden="true" (click)="votAgainst()"></i>
                 <i *ngIf = "voteStatus == 'against'" class = "simbol fa fa-thumbs-o-down  pull-right" id = "transparentElement" aria-hidden="true"></i>
-                <!--<img *ngIf = "isAccuciatedUser" class = "simbol pull-right" id = "blockUnlike" src = "https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/blockUnlike.png?alt=media&token=210eb720-5589-4856-b0a7-61eefea013fb">-->
+                <img *ngIf = "isAccuciatedUser" class = "simbol pull-right" id = "blockUnlike" src = "https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/unlikeavia.png?alt=media&token=9d63303f-4bf9-4072-98fd-b3f38d52c891">
             </div>
         </div>
     </div>
 
     <!-- footer of a project - the voting status -->
-    <div *ngFor = "let value of projectFBList | async">
+    <div *ngFor = "let value of projectInCommunityFBList | async">
         <div id = "down">
             <div *ngIf = "value.$key == 'for'">
                 <label class = "green" for = "for" id = "for"><i class = "lable fa fa-thumbs-o-up fa-lg" aria-hidden = "true" ></i><p #forVal> {{ value.$value }} </p> </label>
