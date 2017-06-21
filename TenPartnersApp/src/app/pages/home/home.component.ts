@@ -102,7 +102,23 @@ export class HomeComponent implements OnInit
 
   deleteCommunity(communityKey: string) 
   {
-   
+  this.doesNeedPop=false;
+  this.whatToDrop="";
+  const itemObservable = this.af.object("communities/" + communityKey);
+  itemObservable.remove();
+
+  let temp = this.usersFBList.subscribe((snapshots)=>
+    {
+      snapshots.forEach(snapshot => 
+      {
+        if(snapshot.associatedCommunity==communityKey)
+              this.deleteUser(snapshot);
+            
+            
+      });
+    })
+      this.service.allSubscribe.push(temp);
+
   }
 
 //====================== deleteUser =====================================================================
@@ -112,8 +128,8 @@ export class HomeComponent implements OnInit
   this.doesNeedPop=false;
   this.whatToDrop="";
   let userKey = user.$key; 
-   const itemObservable = this.af.object("users/" + userKey);
-   itemObservable.remove();
+  const itemObservable = this.af.object("users/" + userKey);
+  itemObservable.remove();
 
   }
 
