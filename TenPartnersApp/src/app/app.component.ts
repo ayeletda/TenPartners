@@ -34,6 +34,8 @@ export class AppComponent
         this.user.userID = auth.uid;
         this.user.email = auth.email;
         this.getDetails();
+        this.Service.setEmail(this.user.email);
+        this.Service.getDetails();
       }
     });
 

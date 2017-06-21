@@ -41,8 +41,9 @@ export class ServiceService
     this.user = { id: null, permission: null, community: null, name: null, email: null };
     this.isLoggedIn = false;
     this.usersFBList = this.af.list('/users',{ preserveSnapshot: true });
-    this.logout();
-    this.getDetails(this.user); 
+    // this.logout();
+    this.getDetails();
+
   }
 
   //=================== registerUsers ===============================================================
@@ -58,7 +59,7 @@ export class ServiceService
   
   //==================== getDetails ===============================================================
 
-  getDetails(user)
+  getDetails()
   {
     let temp1 = this.usersFBList.subscribe(snapshots => 
     {
@@ -67,11 +68,11 @@ export class ServiceService
         let temp = snapshot.val();      
         if(this.user.email == snapshot.val().email)
         {
-          user.permission = temp.permission;
-          user.community = temp.associatedCommunity;
-          user.name = temp.name;
-          user.email = temp.email;
-          user.id = snapshot.key;
+          this.user.permission = temp.permission;
+          this.user.community = temp.associatedCommunity;
+          this.user.name = temp.name;
+          this.user.email = temp.email;
+          this.user.id = snapshot.key;
           // user.google = temp.google;
           // user.facebook=temp.facebook;
           // user.twitter=temp.twitter;
@@ -81,12 +82,7 @@ export class ServiceService
     
     this.allSubscribe.push(temp1);
   }
-
-  getUser()
-  {
-    return this.user;
-  }
-
+ 
   //===================== getDetails ===============================================================
 
   checkIfUser()
@@ -146,7 +142,7 @@ export class ServiceService
       });
       
       this.allSubscribe.push(temp);
-      this.getDetails(this.user);
+      this.user = this.getUser();
     })
     .catch((error)=>
     {
@@ -197,32 +193,32 @@ export class ServiceService
   {
     this.connectType = "twitter";
 
-  /*
-  var provider = new firebase.auth.TwitterAuthProvider();
+    /*
+    var provider = new firebase.auth.TwitterAuthProvider();
 
-  firebase.auth().signInWithPopup(provider).then((user)=>
-  {
-    alert("Wellcom tenPartner");
-    this.isLoggedIn=true;
-    this.userName = user.user.displayName;
-    this.userEmail = user.user.email;
-    this.userID = user.user.uid;
-    console.log(this.userID);
-    this.router.navigateByUrl('/home');
-    this.pushUser();
+    firebase.auth().signInWithPopup(provider).then((user)=>
+    {
+      alert("Wellcom tenPartner");
+      this.isLoggedIn=true;
+      this.userName = user.user.displayName;
+      this.userEmail = user.user.email;
+      this.userID = user.user.uid;
+      console.log(this.userID);
+      this.router.navigateByUrl('/home');
+      this.pushUser();
 
-      //location.reload();      I dont think we need that - check :)
-    
-  })
-  .catch((error)=>
-  {
-      alert("Email or password incorrect");
-  });
-  */
-}
+        //location.reload();      I dont think we need that - check :)
+      
+    })
+    .catch((error)=>
+    {
+        alert("Email or password incorrect");
+    });
+    */
+  }
 
   // a method that initializes user's details
-   initializeUserDetails(user, connectType)
+  initializeUserDetails(user, connectType)
   {
     this.user.name = user.user.displayName;
     this.user.email = user.user.email;
@@ -233,8 +229,11 @@ export class ServiceService
         this.isLoggedIn = true;  
   }
 
-//getters & setters
+  //=============== getters & setters ==================================================
+  
   setTitle(Title:String){ this.title=Title; }  
   getlogin(){ return this.isLoggedIn; }
+  getUser(){ return this.user; }
+  setEmail(email){ this.user.email = email; }
 
 }

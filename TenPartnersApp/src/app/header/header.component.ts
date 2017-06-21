@@ -62,12 +62,11 @@ export class HeaderComponent implements OnInit
     });
   }
 
-
-PopMassage(pop:string)
-{
-  this.whatToPop=pop;
-  this.doesNeedPop =!this.doesNeedPop;
-}
+  PopMassage(pop:string)
+  {
+    this.whatToPop=pop;
+    this.doesNeedPop =!this.doesNeedPop;
+  }
 
 
 
