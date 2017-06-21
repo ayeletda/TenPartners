@@ -50,19 +50,19 @@
                       <br>
                     <!----work updateName-->
 
-
+                     Community: {{ user.associatedCommunity }} <br><br>
                     <!----work updateCommunity-->
 
-                      <div *ngIf = "!updateCommunityFlag">
+                      <!--<div *ngIf = "!updateCommunityFlag">
                           Community: {{ user.associatedCommunity }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateCommunity()"></i>
                         </div>
                         <div *ngIf = "updateCommunityFlag">
                           <label> Community: <input #newCommunityVal class = "CommunityInput fields" type = "text" name = "txtCommunity"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateCommunity(newCommunityVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateCommunity(newCommunityVal.value, false)"></i></label>
                         </div>
-                      <br>
+                      <br>-->
                     <!----work updateCommunity-->
 
-
+                      TenPartners Account: {{ user.email }} <br><br>
                       <!--<div *ngIf = "!updateEmailFlag">
                            TenPartners Account: {{ user.email }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateEmail()"></i>
                         </div>
