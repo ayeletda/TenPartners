@@ -109,7 +109,7 @@ input::placeholder
 
 #chooseProject 
 {
-    background-color: green;
+    background-color: #5cb85c;
     color: white;
     padding: 7px 20px;
     border: 0;
@@ -147,7 +147,7 @@ input::placeholder
 
 #submitButton 
 {
-    background-color: green;
+    background-color: #5cb85c;
     color: white;
     padding: 7px 20px;
     border: 0;
@@ -200,7 +200,7 @@ input::placeholder
  }
  
  .submitButton {
-     background-color: green;
+     background-color: #5cb85c;
      color: white;
      padding: 7px 20px;
      border: 0;
@@ -208,7 +208,7 @@ input::placeholder
  }
  .submitIncorrectValues
  {
-     background-color: green;
+     background-color: #5cb85c;
      color: white;
      padding: 7px 20px;
      border: 0;
@@ -217,7 +217,7 @@ input::placeholder
  
  .submitAlert
   {
-     background-color: green;
+     background-color: #5cb85c;
      color: white;
      padding: 7px 20px;
      border: 0;

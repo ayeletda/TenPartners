@@ -1,18 +1,17 @@
-
-import { Router } from '@angular/router';
+import {Router} from '@angular/router';
 import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2/database';
-import { ChangeDetectorRef } from "@angular/core";
-import { ServiceService } from '../../service.service';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {AfterViewChecked, ElementRef, ViewChild, Component, OnInit} from '@angular/core';
+import {AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
+import {ChangeDetectorRef} from "@angular/core";
+import {ServiceService} from '../../service.service';
 
 @Component(
-  {
-    selector: 'app-voting',
-    templateUrl: './voting.component.html',
-    styleUrls: ['./voting.component.css']
-  })
+    {
+        selector: 'app-voting',
+        templateUrl: './voting.component.html',
+        styleUrls: ['./voting.component.css']
+    })
 
 //=============================================  VotingComponent class  ============================================================
 
@@ -47,7 +46,7 @@ export class VotingComponent implements OnInit
   //flags
   isProjectSelected: boolean;
   isNeedViewMore: boolean;
-  isNoProjects:boolean;
+  isNoProjects: boolean;
 
   //======================================================  constructor  ============================================================
 
@@ -153,36 +152,94 @@ export class VotingComponent implements OnInit
       this.savedDate = date;
       return true;
     }
-    return false;
-  }
 
-  //=====================================================  sendMessage  =========================================================
+    //========================================================  ngOnInit  ============================================================
 
-  sendMessage() 
-  {
-    if (!this.isProjectSelected)
-      alert("You need to choose a project before sending a message.")
-    else if (this.newMessage != '')
-      this.messagesFBList.push({ message: this.newMessage, name: this.user.name, email: this.user.email, date: new Date().getTime() }).then(()=>
-      {
-        this.scrollToBottom();
-      }
-      );
+    ngOnInit() {
+        // scrolls the scrollBar of the chat to the bottom
+        this.scrollToBottom()
 
-    this.newMessage = '';
-  }
-
-  //======================================================   scrollToBottom  =========================================================
-
-  scrollToBottom(): void 
-  {
-    try 
-    {
-      this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+        // sets page title
+        this.service.setTitle("Voting In Progress");
     }
-    catch (err) { }
-  }
- 
+
+    //========================================================  saveProjectPath  =========================================================
+
+    saveProjectPath(community, i) {
+        this.projectPath = 'projects/' + this.projectValues_Arr[i].$key + '/associatedCommunities/' + community.$key;
+        this.isNoProjects = false;
+        return true;
+    }
+
+    //======================================================  loadProjectDetails  =========================================================
+
+    loadProjectDetails(project, i) {
+        this.currentProject = project;
+        this.messagesFBList = this.af.list('projects/' + this.projectValues_Arr[i].$key + '/associatedCommunities/' + project.$key + '/messages');
+        this.isProjectSelected = true;
+        this.cost = project.cost;
+        this.date = project.date;
+        this.purpose = this.projectValues_Arr[i].purpose;
+        this.description = this.projectValues_Arr[i].description;
+
+        this.isNeedViewMore = false;
+    }
+
+    //=========================================================  viewMore  ============================================================
+
+    viewMore(bol) {
+        this.isNeedViewMore = bol;
+    }
+
+    //======================================================  isMe(email)  =========================================================
+    // helps to change the bubble's color
+
+    isMe(email) {
+        if (this.user.email == email)
+            return true;
+        return false;
+    }
+
+    //======================================================  needToPrint  =========================================================
+    // If need to print the date ahead
+
+    needToPrint(date) {
+        if (this.savedDate != date) {
+            this.savedDate = date;
+            return true;
+        }
+        return false;
+    }
+
+    //=====================================================  sendMessage  =========================================================
+
+    sendMessage() {
+        if (!this.isProjectSelected)
+            alert("You need to choose a project before sending a message.")
+        else if (this.newMessage != '')
+            this.messagesFBList.push({
+                message: this.newMessage,
+                name: this.user.name,
+                email: this.user.email,
+                date: new Date().getTime()
+            }).then(() => {
+                    this.scrollToBottom();
+                }
+            );
+
+        this.newMessage = '';
+    }
+
+    //======================================================   scrollToBottom  =========================================================
+
+    scrollToBottom(): void {
+        try {
+            this.myScrollContainer.nativeElement.scrollTop = this.myScrollContainer.nativeElement.scrollHeight;
+        }
+        catch (err) {
+        }
+    }
+
 }
 
 

@@ -6,10 +6,8 @@
     color: black;
     height: 100%;
     width: 137px;
-    border-width: 2px;
-    border-color: #D6D6CC;
     background-color: #FFFFF5;
-    border-style: solid;
+    border: 2px solid #D6D6CC;
 }
 
 p {
@@ -61,7 +59,6 @@ label {
 .stopper {
     text-align: center;
     font-size: 15px;
-    background-color: green;
     padding: 8% 0;
     color: white;
 }

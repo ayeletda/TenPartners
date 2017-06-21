@@ -1,9 +1,6 @@
-
-
 /* ============================ main\top-side of project's square ======================= */
 
-main
-{
+main {
     font-family: "comic sans ms";
     font-weight: bold;
     color: black;
@@ -14,74 +11,62 @@ main
     border-style: solid;
 }
 
-p
-{
+p {
     margin: 2%;
 }
 
-.align-right
-{
+.align-right {
     text-align: right;
     height: 90%;
 }
 
-#up
-{
+#up {
     width: 100%;
-    padding:10%;
+    padding: 10%;
 }
 
-#projectName
-{
+#projectName {
     text-align: center;
     display: block;
 }
 
-#clock
-{
+#clock {
     float: left;
     margin: -10%;
-    color:black;
+    color: black;
 }
 
-#like, #unlike
-{   
+#like, #unlike {
     cursor: pointer;
 }
 
-#like, #unlike, .projectName
-{
+#like, #unlike, .projectName {
     margin: 5%;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-#like
-{
+#like {
     color: #7acd47;
 }
 
-#unlike
-{
-    color: #e2675a;    
+#unlike {
+    color: #e2675a;
 }
 
-#blockUnlike, img, src
-{
+#blockUnlike, img, src {
     height: 13px;
-    width:  13px;
+    width: 13px;
     margin: 5%;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-#transparentElement
-{
+#transparentElement {
     color: transparent;
 }
 
-#txtAssigned
-{
+#txtAssigned {
     margin-bottom: 0%;
     float: left;
     margin-left: 4%;
@@ -89,29 +74,26 @@ p
 
 /* ============================== popUp messages ======================= */
 
-.popAlert 
-{
+.popAlert {
     position: fixed;
     top: 0;
     height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     font-weight: bold;
-	right: 0px;
+    right: 0px;
 }
 
-form
-{
+form {
     font-size: 20px;
 }
 
-.close 
-{
+.close {
     position: absolute;
     left: -5%;
     top: -5%;
     background-color: black;
-    border-radius:50px;
+    border-radius: 50px;
     width: 40px;
     height: 40px;
     line-height: 40px;
@@ -119,14 +101,12 @@ form
     color: white;
 }
 
-.close:hover 
-{
+.close:hover {
     opacity: 0.8;
 }
 
-.popAlert form 
-{
-	top:0px;
+.popAlert form {
+    top: 0px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -134,20 +114,18 @@ form
     padding: 7%;
     text-align: center;
     background-color: white;
-	border-radius:10px;
-	border-color: grey; 
+    border-radius: 10px;
+    border-color: grey;
 }
 
 /* ============================ footer of a project ======================= */
 
-#down
-{
+#down {
     height: 20%;
     width: 100%;
 }
 
-label
-{
+label {
     width: 33.3%;
     color: black;
     float: left;
@@ -155,239 +133,205 @@ label
     padding-top: 2%;
     margin: 0;
 }
+
 /* ============================ colors for CSS of this component ======================= */
 
-.yellow 
-{
-  background: #fcf3c3;
-  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #fcf3c3),color-stop(1, #f4e371));
-  background-image: -webkit-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-  background-image: -moz-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-  background-image: -ms-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-  background-image: -o-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
-  background-image: linear-gradient(to bottom, #fcf3c3 15%, #f4e371 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#f4e371', endColorstr='#fcf3c3');
+.yellow {
+    background: #fcf3c3;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #fcf3c3), color-stop(1, #f4e371));
+    background-image: -webkit-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: -moz-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: -ms-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: -o-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
+    background-image: linear-gradient(to bottom, #fcf3c3 15%, #f4e371 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#f4e371', endColorstr='#fcf3c3');
 }
 
 /* red bubble */
-.red 
-{
-  background: #FFC8C8;
-  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ea8378),color-stop(1, #e2675a));
-  background-image: -webkit-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-  background-image: -moz-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-  background-image: -ms-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-  background-image: -o-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
-  background-image: linear-gradient(to bottom, #FFC8C8 15%, #e2675a 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#e2675a', endColorstr='#ea8378');
+.red {
+    background: #FFC8C8;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #ea8378), color-stop(1, #e2675a));
+    background-image: -webkit-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: -moz-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: -ms-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: -o-linear-gradient(bottom, #FFC8C8 15%, #e2675a 100%);
+    background-image: linear-gradient(to bottom, #FFC8C8 15%, #e2675a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#e2675a', endColorstr='#ea8378');
 }
 
-.green 
-{
-  background: #C0FF97;
-  background-image: -webkit-gradient(linear,left bottom,left top,color-stop(0.15, #ace44b),color-stop(1, #7acd47));
-  background-image: -webkit-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-  background-image: -moz-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-  background-image: -ms-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-  background-image: -o-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
-  background-image: linear-gradient(to bottom, #C0FF97 15%, #7acd47 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#7acd47', endColorstr='#ace44b');
+.green {
+    background: #C0FF97;
+    background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #ace44b), color-stop(1, #7acd47));
+    background-image: -webkit-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: -moz-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: -ms-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: -o-linear-gradient(bottom, #C0FF97 15%, #7acd47 100%);
+    background-image: linear-gradient(to bottom, #C0FF97 15%, #7acd47 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#7acd47', endColorstr='#ace44b');
 }
 
+
+.dismikeHolder {
+    position: relative;
+}
+
+img.dismike {
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+}
 
 /*=================================== fixing heights according to the screen's size ======================================== */
- @media only screen and (min-height: 1366px)
-{
+@media only screen and (min-height: 1366px) {
 
-     main
-     {
-         width: 1200px;
-     }
-     #up
-    {
+    main {
+        width: 1200px;
+    }
+
+    #up {
         height: 200px;
     }
 
-   .lable
-    {
+    .lable {
         font-size: 50px;
     }
 
-    p
-    {
+    p {
         font-size: 45px;
     }
 
-    #like, #unlike
-    {
+    #like, #unlike {
         font-size: 35px;
         margin-top: 7%;
     }
 }
 
+@media only screen and (min-height: 1024px) {
+    main {
+        width: 250px;
+    }
 
- @media only screen and (min-height: 1024px)
-{
-     main
-     {
-         width: 250px;
-     }
-
-     #up
-    {
+    #up {
         height: 180px;
     }
- 
-    .lable
-    {
+
+    .lable {
         font-size: 35px;
     }
- 
-    p
-    {
+
+    p {
         font-size: 30px;
     }
- 
-    #like, #unlike
-    {
+
+    #like, #unlike {
         font-size: 35px;
         margin-top: 7%;
     }
 }
 
-
-@media only screen and (min-height: 1366px)
-{
-    main
-    {
+@media only screen and (min-height: 1366px) {
+    main {
         width: 334px;
     }
-     #up
-    {
+
+    #up {
         height: 200px;
     }
-    
-    .lable
-    {
+
+    .lable {
         font-size: 47px;
     }
-    
-    p
-    {
+
+    p {
         font-size: 42px;
     }
-    
-    #like, #unlike
-    {
+
+    #like, #unlike {
         font-size: 40px;
         margin-top: 10%;
     }
 }
 
-
-@media only screen and (max-height: 736px)
-{
-    main
-    {
+@media only screen and (max-height: 736px) {
+    main {
         width: 134px;
     }
-    #up
-    {
-         height: 100px;   
-    }
-}
 
-
-@media only screen and (max-height: 732px)
-{
-    main
-    {
-        width: 133px;
-    }
-    #up
-    {
+    #up {
         height: 100px;
     }
 }
 
-
-@media only screen and (max-height: 667px )
-{
-    main
-    {
-        width:133px;
+@media only screen and (max-height: 732px) {
+    main {
+        width: 133px;
     }
 
-    @media only screen and (max-width: 375px ){
-        main
-        {
-            width:121px;
+    #up {
+        height: 100px;
+    }
+}
+
+@media only screen and (max-height: 667px ) {
+    main {
+        width: 133px;
+    }
+
+    @media only screen and (max-width: 375px ) {
+        main {
+            width: 121px;
         }
     }
 
-    #up
-    {
+    #up {
         height: 90px;
     }
-    
-    .lable
-    {
+
+    .lable {
         font-size: 20px;
     }
-    
-    p
-    {
+
+    p {
         font-size: 15px;
     }
 }
 
-
-@media only screen and (max-height: 640px)
-{
-    main
-    {
+@media only screen and (max-height: 640px) {
+    main {
         width: 117px;
     }
-    #up
-    {
+
+    #up {
         height: 90px;
     }
-    
-    .lable
-    {
+
+    .lable {
         font-size: 20px;
     }
-    
-    p
-    {
+
+    p {
         font-size: 15px;
     }
 }
 
-
-@media only screen and (max-height: 568px)
-{
+@media only screen and (max-height: 568px) {
     main {
         width: 103px;
     }
 
-    #up
-    {
+    #up {
         height: 80px;
     }
-    
-    .lable
-    {
+
+    .lable {
         font-size: 17px;
     }
-    
-    p
-    {
+
+    p {
         font-size: 12px;
     }
-    
-    #like, #unlike
-    {
+
+    #like, #unlike {
         font-size: 17px;
     }
 }
