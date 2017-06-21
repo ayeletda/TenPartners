@@ -17,10 +17,15 @@ export class HeaderComponent implements OnInit
 {
   isOpen: boolean;
   newPass: string;
+  doesNeedPop: boolean;
+  whatToPop: string;
+  newPassword:string;
 
   constructor(private router: Router, private service:ServiceService) 
   {
     this.isOpen = false;
+    this.whatToPop = "";
+    this.doesNeedPop = false;
   }
 
   @Input()item;
@@ -39,13 +44,13 @@ export class HeaderComponent implements OnInit
 
   chengePassword()
   {
+    this.doesNeedPop=false;
     let user = this.service.anguarfireAuth.auth.currentUser;
-    let newPassword = prompt("Enter new password");
 
-    if (newPassword=="")
+    if (this.newPassword=="")
       return;
           
-    user.updatePassword(newPassword).then(function() 
+    user.updatePassword(this.newPassword).then(function() 
     {
     // Update successful.
     alert("The password change");
@@ -57,4 +62,14 @@ export class HeaderComponent implements OnInit
     });
   }
 
+
+PopMassage(pop:string)
+{
+  this.whatToPop=pop;
+  this.doesNeedPop =!this.doesNeedPop;
 }
+
+
+
+}
+

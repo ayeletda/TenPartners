@@ -35,18 +35,31 @@
             <br>
             <br>
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <button type="auser" class="btn btn-primary dropdown-toggle" title="Toggle dropdown menu" data-toggle="dropdown" (click)="showDropdow(user.value)">
+              <button type="auser" class="btn btn-primary" title="Toggle dropdown menu" (click)="showDropdow(user.$key)">
                 <i class="fa fa-user fa-fw"></i> {{  user.name  }}<i class="fa fa-caret-down"></i></button>
-              <ul class="dropdown-menu">
-                <li><a><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
-                <li class="divider"></li>
-                <li><a><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
-              </ul>
+              <div *ngIf="whatToDrop==user.$key" class="menu">
+              <a><i class="fa fa-pencil fa-fw"></i> Edit</a><hr>
+              <a><i class="fa fa-trash-o fa-fw"></i> Delete</a><hr>
+              <a><i class="fa fa-ban fa-fw"></i> Ban</a><hr>
+              <a><i class="fa fa-unlock"></i> Make admin</a>
+              </div>
               <br>
             </div>
           </div>
         </div>
       </div>
+
+       <div class="form-group" *ngIf = "selectedCommunity.value!='Community'">
+        
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+          <br>
+          <button *ngIf="community!=''" type="delete" class="btn btn-danger btn-md" (click)="deleteCommunity(selectedCommunity.value)"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
+        </div>
+      </div>
+
+
+      
+
       <!-- For a community component 
   <div class="form-group btn-group open col-lg-12 col-md-12 col-sm-12 col-xs-12" *ngFor = "let user of usersFBList | async">
     <a class="btn btn-primary" ><i class="fa fa-user fa-fw"></i> {{ user.name }}</a>
@@ -64,12 +77,7 @@
 -->
 
       <!-- Delete a community -->
-      <div class="form-group">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-          <br>
-          <button type="delete" class="btn btn-danger btn-md" (click)="deleteCommunity(selectedCommunity.value)"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
-        </div>
-      </div>
+      
 
     </div>
   </div>

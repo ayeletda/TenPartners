@@ -1,8 +1,8 @@
 
 
 <div class = "MyProjects">
-	<div class = "continer">
-		<div class = "col-lg-12">
+	<div class = "d4">
+   		 <div class = "d5">
 			<div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index;  " [attr.data-index] = "i" >
 				<div *ngFor = "let community of associatedCommunities | async">
 					<!--<div *ngIf = 'updateThereIsProjectsFlag(false)'></div>--> <!--dont work if i have 1 project-->
@@ -18,11 +18,10 @@
 					You don't have any associated projects yet.
 				</div> --> <!--dont work if i have 1 project-->
 			</div>		
-		</div>
-	</div>
 	<div *ngIf='isNoProjects' class = "noProjects">
 		You don't have any associated projects.
 	</div>
-
+   		</div>
+	</div>
 </div>
 	

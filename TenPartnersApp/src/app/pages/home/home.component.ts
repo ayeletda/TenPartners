@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit
   adcommunityFBList: FirebaseListObservable<any>;
   usersArr: any;
   usersFBList: any;
+  whatToDrop:string;
 
   //=========================  constructor  =====================================================================
 
@@ -32,6 +33,7 @@ export class HomeComponent implements OnInit
     this.adcommunityFBList = this.af.list('communities');
     this.usersFBList = this.af.list('users').take(1);
     this.adcommunity = '';
+    this.whatToDrop="";
 
     let temp = this.usersFBList.subscribe((snapshots)=>
     {
@@ -137,8 +139,10 @@ export class HomeComponent implements OnInit
 
   showDropdow(user)
   {
-console.log(user.name);
+    if(this.whatToDrop==user)
+        this.whatToDrop="";
 
+    else this.whatToDrop=user;
   }
   
 }

@@ -1,10 +1,14 @@
 
 .MyProjects 
 {
-	padding-top: 60px;
-	font-size: 20px;
-	width :100%;
-	margin-bottom:70px;
+
+	 padding-top: 45px;
+    padding-bottom: 69px;
+    width: 100%;
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+	
 }
 
 .continer, .col-lg-12 
@@ -13,3 +17,14 @@
 	position: unset;
 }
 
+.d4
+{
+  overflow: auto;
+  max-height: 100%;
+}
+
+.d5 
+{
+    min-width: 0px;
+    max-height: 84vh;
+}

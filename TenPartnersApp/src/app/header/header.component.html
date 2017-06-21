@@ -12,7 +12,7 @@
         <a><span class="glyphicon glyphicon-log-out"></span></a>
       </div>
 
-      <div class = "nav changePass" (click) = "chengePassword()">Change password</div>
+      <div class = "nav changePass" (click) = "PopMassage('changePassPop')">Change password</div>
 
       <div class="nav mailNotification">Notification to the email
         <label class="switch">
@@ -22,4 +22,28 @@
       </div>
 
     </div>
+
+
+    <!--=================================== popUp messages ======================================-->
+
+      <div *ngIf = 'doesNeedPop' class = "popAlert">
+
+        <form (submit) = "chengePassword()">
+
+          <div class = "closeA" (click) = "PopMassage('')">X</div>
+
+          <div class = "changePassPop" *ngIf="whatToPop == 'changePassPop'">
+            Enter new password<br>
+            <input type="text" placeholder = "Minimum 6 characters" name = "newPassword" [(ngModel)] = "newPassword">
+            <br><br>
+            <input  class = "btn btn-success btn-lg center-block" id = "submitButton" type = "submit" value = "Submit">
+          </div>
+
+        </form>
+
+      </div>
+      <!--========================================================================================-->
+
 </div>
+
+ 

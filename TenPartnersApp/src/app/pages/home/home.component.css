@@ -5,11 +5,31 @@
     height: 100%;
 }
 
+button{
+    width: 100%;
+}
+
+hr{
+    color: black;
+    margin: 0;
+}
 .intoduction
 {
     color: #000040;
     font-weight: normal;
     line-height: 150%;
+}
+
+.menu{
+    border: 5px black;
+}
+
+a{
+    border: none;
+    display: block;
+    width: auto;
+    width: 100%;
+    background: white;
 }
 
 .form-control
