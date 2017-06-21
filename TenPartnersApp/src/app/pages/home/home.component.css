@@ -6,7 +6,7 @@
 }
 
 .menubutton{
-    width: 40%;
+    width: 100%;
 }
 
 hr{
@@ -18,6 +18,13 @@ hr{
     color: #000040;
     font-weight: normal;
     line-height: 150%;
+}
+
+.editor{
+    background: white;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
 }
 
 .menu{
@@ -92,7 +99,7 @@ a{
     text-align: center;
     border: 5px,black;
     display:block;
-    width:40%;
+    width:100%;
     background: white;
     height: 35px;
 }

@@ -38,7 +38,28 @@
               <button type="auser" class="btn btn-primary menubutton" title="Toggle dropdown menu" (click)="showDropdow(user)">
                 <i class="fa fa-user fa-fw"></i> {{  user.name  }}<i class="fa fa-caret-down"></i></button>
               <div *ngIf="whatToDrop.$key==user.$key" class="menu">
-              <a (click)="editUser()"><i class="fa fa-pencil fa-fw"></i> Edit</a>              
+              <a (click)="editUser()"><i class="fa fa-pencil fa-fw"></i> Edit</a>
+                  <div *ngIf="editUserStatus" class="editor">
+
+                    
+                        <div *ngIf = "!updateNameFlag">
+                          Name: {{ user.name }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateName()"></i>
+                        </div>
+                        <div *ngIf = "updateNameFlag">
+                          <label> Name: <input #newNameVal class = "nameInput" type = "text" name = "txtName"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateName(newNameVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateName(newNameVal.value, false)"></i></label>
+                        </div>
+                      <br>
+
+
+
+
+                   
+                    Community: {{user.associatedCommunity}} <br>
+                    TenPartners Account: {{user.email}} <br>
+                    Google Account:{{user.google}}<br>
+                    Facebook Account:{{user.facebook}}<br>
+                    Twitter Account:{{user.twitter}}<br>
+                  </div>
               <a (click) = "PopMassage('sureToDeleteUser')" ><i class="fa fa-trash-o fa-fw"></i> Delete</a>
               </div>
               <br>
@@ -118,6 +139,16 @@
                 Enter a community name
             <br>
           </div>
+
+
+          <div *ngIf="whatToPop == 'save/cancelName'" class = "save/cancelName">
+			        	Save or cancel the new Name
+				</div>
+
+        <div *ngIf="whatToPop == 'validName'" class = "validName">
+				You should enter a valid name
+				</div>
+
 
         </form>
 

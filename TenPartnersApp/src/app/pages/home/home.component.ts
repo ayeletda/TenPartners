@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit
   whatToDrop:any;
   doesNeedPop: boolean;
   whatToPop: string;
+  editUserStatus:boolean;
+  updateNameFlag:boolean;
   //=========================  constructor  =====================================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -37,6 +39,9 @@ export class HomeComponent implements OnInit
     this.whatToDrop="";
     this.doesNeedPop=false;
     this.whatToPop="";
+    this.editUserStatus=false;
+
+    this.updateNameFlag=false;
 
     let temp = this.usersFBList.subscribe((snapshots)=>
     {
@@ -155,6 +160,50 @@ PopMassage(pop:string)
   this.doesNeedPop =!this.doesNeedPop;
 }
 
+
+updateName()
+  {
+    //if the user clicked on update cost flag and enter a cost
+    if(this.updateNameFlag)
+    {
+      this.whatToPop="save/cancelName";
+      this.doesNeedPop=true; 
+    }
+
+    else
+    {
+      this.updateNameFlag = true;
+    }
+  }
+
+
+OKupdateName(NameVal, isNeedUpdate)
+  {
+    if(!isNeedUpdate)
+    {
+      this.updateNameFlag = false;
+    }
+    else if(NameVal == "")
+    {
+      this.whatToPop="validName";
+      this.doesNeedPop=true;
+    }
+    else
+    {
+      let newName = NameVal;
+      const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
+      itemObservable.update({ 'name': newName}).then(
+          x => { this.updateNameFlag = false; }
+      );
+    }  
+  } 
+
+
+
+
+editUser(){
+  this.editUserStatus=!this.editUserStatus;
+}
 
 
 }
