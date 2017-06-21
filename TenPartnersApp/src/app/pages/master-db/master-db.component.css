@@ -11,6 +11,9 @@
     position: unset;
 }
 
+.glyphicon-search, .btn-defult, .btn-lg,button,.input-group-btn{
+    position: unset;
+}
 
 .d4
 {
