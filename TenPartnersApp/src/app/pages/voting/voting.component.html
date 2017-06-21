@@ -1,20 +1,19 @@
+<div class="body2">
 
-<div class = "body2">
-    
     <!--=================================== the projects for voting =============================================== -->
-    <div class = "part1 vertical-menu-x" >
-        <div  class = "temp" *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
-            <div *ngFor = "let community of associatedCommunities | async ">
-                <div *ngIf = "community.$key == user.community && community.associatedUser != '' && saveProjectPath(community,i)">  
-                    <app-projectForVote  class = "pull-left"
-                        [item] = "projectPath" 
-                        (click) = "loadProjectDetails(community,i)">
-                    </app-projectForVote> 
+    <div class="part1 vertical-menu-x">
+        <div class="temp" *ngFor="let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
+            <div *ngFor="let community of associatedCommunities | async ">
+                <div *ngIf="community.$key == user.community && community.associatedUser != '' && saveProjectPath(community,i)">
+                    <app-projectForVote class="pull-left"
+                                        [item]="projectPath"
+                                        (click)="loadProjectDetails(community,i)">
+                    </app-projectForVote>
                 </div>
             </div>
         </div>
-    </div>  
-    
+    </div>
+
     <!--//No projects have been selected for discussion yet...-->
     <!--<div *ngIf='isNoProjects' class = "noProjects">
         No projects have been selected for discussion yet
@@ -22,34 +21,39 @@
 
 
     <!--======================== details of project that someone clicked on it ===================================== -->
-    <div class = " part2">
-        <div class = "vertical-menu1" > 
-            <div *ngIf = 'isProjectSelected'>  
-                <p class = "details"> Date: {{date}} </p>
-                <p class = "details"> Cost: {{cost}} </p>
-                <p class = "details"> Purpose: {{purpose}} </p>
-                <p *ngIf = "!isNeedViewMore" class = "clickText pull-right" (click) = "viewMore(true)">Click for viewing more details </p>
-                <p *ngIf = "isNeedViewMore" class = "details" id = "part2part3size"> Description: {{description}} </p> 
+    <div class=" part2">
+        <div class="vertical-menu1">
+            <div *ngIf='isProjectSelected'>
+                <p class="details"> Date: {{date}} </p>
+                <p class="details"> Cost: {{cost}} </p>
+                <p class="details"> Purpose: {{purpose}} </p>
+                <p *ngIf="!isNeedViewMore" class="clickText pull-right" (click)="viewMore(true)">Click for viewing more
+                    details </p>
+                <p *ngIf="isNeedViewMore" class="details" id="part2part3size"> Description: {{description}} </p>
             </div>
         </div>
-        <p *ngIf = "isNeedViewMore" class = "clickText pull-right" (click) = "viewMore(false)">Click for viewing less details </p>
+        <p *ngIf="isNeedViewMore" class="clickText pull-right" (click)="viewMore(false)">Click for viewing less
+            details </p>
 
-        <h4 *ngIf = '!isProjectSelected'> Click on a project for viewing its details... </h4>
+        <h4 *ngIf='!isProjectSelected'> Click on a project for viewing its details... </h4>
     </div>
-    
+
     <!--============================================ chat =========================================================== -->
-    <div *ngIf = "!isNeedViewMore && isProjectSelected" class = " part3">
-       
-        <div #scrollMe class = "vertical-menu2" >
-            <div *ngIf="(messagesFBList | async)?.length == 0"> 
+    <div *ngIf="!isNeedViewMore && isProjectSelected" class=" part3">
+
+        <div #scrollMe class="vertical-menu2">
+            <div *ngIf="(messagesFBList | async)?.length == 0">
                 <h4> No messages have been written about this project yet.</h4>
             </div>
-            <div *ngFor = "let message of messagesFBList | async; trackByFn" >
-                 <!-- the bubble's text -->
-                <div class = "bubble" [class.bubble-alt] = "isMe(message.email)" [class.yellow] = "isMe(message.email)" [class.green] = "!isMe(message.email)">
-                    <p id = "msg-name"> {{ message.name }}</p>
-                    <p id = "msg-context"> {{ message.message }} </p>
-                    <div class = "author">
+            <div *ngFor="let message of messagesFBList | async; trackByFn">
+                <!-- the bubble's text -->
+                <div class="bubble"
+                     [class.bubble-alt]="isMe(message.email)"
+                     [class.yellow]="isMe(message.email)"
+                     [class.green]="!isMe(message.email)">
+                    <p id="msg-name"> {{ message.name }}</p>
+                    <p id="msg-context"> {{ message.message }} </p>
+                    <div class="author">
                         <span id="msg-time"> {{ message.date | date: "MM/dd/yy hh:mm a" }} </span>
                     </div>
                 </div>
@@ -58,22 +62,32 @@
 
         <!-- the sending message's part -->
 
-        <div class = "row">
+        <div class="row submissionBar">
             <div class="col-lg-offset-3 col-lg-6">
                 <div class="input-group">
                     <span class="input-group-btn">
-                        <button class = "input send btn btn-difult" type = "submit" (click) = "sendMessage()">Send  <i class = "input fa fa-arrow-up"></i></button>
+                        <button class="input send btn btn-difult"
+                                type="submit"
+                                (click)="sendMessage()">Send  <i class="input fa fa-arrow-up"></i></button>
                     </span>
-                        <input type = "text" class = "input form-control" id = "msg-input" placeholder = "Write your message here.." (keyup.enter) = "sendMessage()" [(ngModel)] = "newMessage">
+                    <input type="text"
+                           class="input form-control"
+                           id="msg-input"
+                           placeholder="Write your message here.."
+                           (keyup.enter)="sendMessage()"
+                           [(ngModel)]="newMessage">
                     <span class="input-group-btn">
-                        <button  class = "input scroller btn btn-difult" type = "submit" (click) = "scrollToBottom()"><i class="fa fa-angle-double-down" aria-hidden="true"></i></button>
+                        <button class="input scroller btn btn-difult"
+                                type="submit"
+                                (click)="scrollToBottom()"><i class="fa fa-angle-double-down"
+                                                              aria-hidden="true"></i></button>
                     </span>
                 </div>
             </div>
         </div>
 
     </div>
-    
+
 </div>
 
 
