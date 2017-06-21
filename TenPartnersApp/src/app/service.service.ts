@@ -23,7 +23,6 @@ export class ServiceService
   user: User;
   connectType: string;
 
-  // title = {text:null};
   allSubscribe: any;
   usersValues_Arr: any;
 
@@ -115,7 +114,6 @@ export class ServiceService
     // console.log("subscribe: after "+this.allSubscribe.length);
     this.anguarfireAuth.auth.signOut();
     this.isLoggedIn = false;
-    // this.title.text = "home";
   }
 
   //----------------- email & fassword login ------------------------
@@ -228,13 +226,7 @@ export class ServiceService
   }
 
   //=============== getters & setters ==================================================
-  
-  // setTitle(Title:String)
-  // {
-  //   // this.title.text = Title;
-  // }
-
-  // getTitle(){ return this.title; }  
+   
   getlogin(){ return this.isLoggedIn; }
   getUser(){ return this.user; }
   setEmail(email){ this.user.email = email; }

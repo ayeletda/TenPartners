@@ -76,7 +76,6 @@ export class MyProjectsComponent implements OnInit
 
   ngOnInit() 
   {
-    // this.service.setTitle("My Projects");
   }
 
   //=================================================== saveProjectPath  ============================================================
