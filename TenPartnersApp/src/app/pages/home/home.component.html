@@ -35,13 +35,11 @@
             <br>
             <br>
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <button type="auser" class="btn btn-primary" title="Toggle dropdown menu" (click)="showDropdow(user.$key)">
+              <button type="auser" class="btn btn-primary menubutton" title="Toggle dropdown menu" (click)="showDropdow(user)">
                 <i class="fa fa-user fa-fw"></i> {{  user.name  }}<i class="fa fa-caret-down"></i></button>
-              <div *ngIf="whatToDrop==user.$key" class="menu">
-              <a><i class="fa fa-pencil fa-fw"></i> Edit</a><hr>
-              <a><i class="fa fa-trash-o fa-fw"></i> Delete</a><hr>
-              <a><i class="fa fa-ban fa-fw"></i> Ban</a><hr>
-              <a><i class="fa fa-unlock"></i> Make admin</a>
+              <div *ngIf="whatToDrop.$key==user.$key" class="menu">
+              <a (click)="editUser()"><i class="fa fa-pencil fa-fw"></i> Edit</a>              
+              <a (click) = "PopMassage('sureToDeleteUser')" ><i class="fa fa-trash-o fa-fw"></i> Delete</a>
               </div>
               <br>
             </div>
@@ -53,7 +51,7 @@
         
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
           <br>
-          <button *ngIf="community!=''" type="delete" class="btn btn-danger btn-md" (click)="deleteCommunity(selectedCommunity.value)"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
+          <button *ngIf="community!=''" type="delete" class="btn btn-danger btn-md deleteB" (click)="PopMassage('sureToDeleteComunity')"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
         </div>
       </div>
 
@@ -78,6 +76,37 @@
 
       <!-- Delete a community -->
       
+            <!--=================================== popUp messages ======================================-->
+
+      <div *ngIf = 'doesNeedPop' class = "popAlert">
+
+        <form (deleteComunity) ="deleteCommunity(selectedCommunity.value)" (deleteUser)="deleteUser(whatToDrop)">
+
+          <div class = "close" (click) = "PopMassage('')">X</div>
+
+          <div class = "sureToDeleteComunity" *ngIf="whatToPop == 'sureToDeleteComunity'">
+             <br>
+                You are sure you wont to delete {{selectedCommunity.value}} community?
+            <br><br>
+            <input  class = "btn btn-success btn-lg center-block" id = "deleteComunity" type = "deleteComunity" value = "Delete" (click)="deleteCommunity(selectedCommunity.value)">
+          </div>
+
+
+          <div class = "sureToDeleteUser" *ngIf="whatToPop == 'sureToDeleteUser'">
+             <br>
+                You are sure you wont to delete {{whatToDrop.name}} user?
+            <br><br>
+            <input  class = "btn btn-success btn-lg center-block" id = "deleteUser" type = "deleteUser" value = "Delete" (click)="deleteUser(whatToDrop)">
+          </div>
+
+        </form>
+
+      </div>
+      <!--========================================================================================-->
+
+
+
+
 
     </div>
   </div>

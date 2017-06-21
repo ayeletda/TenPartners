@@ -23,8 +23,9 @@ export class HomeComponent implements OnInit
   adcommunityFBList: FirebaseListObservable<any>;
   usersArr: any;
   usersFBList: any;
-  whatToDrop:string;
-
+  whatToDrop:any;
+  doesNeedPop: boolean;
+  whatToPop: string;
   //=========================  constructor  =====================================================================
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
@@ -34,6 +35,8 @@ export class HomeComponent implements OnInit
     this.usersFBList = this.af.list('users').take(1);
     this.adcommunity = '';
     this.whatToDrop="";
+    this.doesNeedPop=false;
+    this.whatToPop="";
 
     let temp = this.usersFBList.subscribe((snapshots)=>
     {
@@ -128,11 +131,15 @@ export class HomeComponent implements OnInit
 
 //====================== deleteUser =====================================================================
 
-  deleteUser(community) 
+  deleteUser(user) 
   {
-    
-    
-    
+  this.doesNeedPop=false;
+  this.whatToDrop="";
+  let userKey = user.$key; 
+  console.log(userKey);
+   const itemObservable = this.af.object("users/" + userKey);
+   itemObservable.remove();
+
   }
 
 //====================== showDropdow =====================================================================
@@ -145,6 +152,17 @@ export class HomeComponent implements OnInit
     else this.whatToDrop=user;
   }
   
+
+
+
+PopMassage(pop:string)
+{
+  this.whatToPop=pop;
+  this.doesNeedPop =!this.doesNeedPop;
+}
+
+
+
 }
 
 

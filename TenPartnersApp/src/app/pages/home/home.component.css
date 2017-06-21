@@ -5,8 +5,8 @@
     height: 100%;
 }
 
-button{
-    width: 100%;
+.menubutton{
+    width: 40%;
 }
 
 hr{
@@ -21,17 +21,85 @@ hr{
 }
 
 .menu{
-    border: 5px black;
+    border: 5px, black;
+    border-radius: 30px;
 }
+
+
+/*======================== css of popUp message =========================== */
+
+.center-block
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.popAlert 
+{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+	right: 0px;
+}
+
+form
+{
+	font-size: 20px;
+}
+
+.close 
+{
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    background-color: black;
+	border-radius:50px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    opacity: 1;
+    color: white;
+}
+
+.close:hover 
+{
+    opacity: 0.8;
+}
+
+.popAlert form 
+{
+	top:0px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7%;
+    text-align: center;
+    background-color: white;
+	border-radius:10px;
+	border-color: grey; 
+}
+
+/*=================================================== */
+
+
 
 a{
-    border: none;
-    display: block;
-    width: auto;
-    width: 100%;
+    padding-top: 3px;
+    text-align: center;
+    border: 5px,black;
+    display:block;
+    width:40%;
     background: white;
+    height: 35px;
 }
 
+.deleteB{
+    width: 100%;
+}
 .form-control
 {
     border-top-left-radius: 4px;
