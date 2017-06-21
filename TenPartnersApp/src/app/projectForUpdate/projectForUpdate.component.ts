@@ -27,6 +27,10 @@ export class ProjectForUpdateComponent implements OnInit
   projectsFBList: FirebaseListObservable<any>;
   pointerToProjectInAF: any;
   projectFBObject: FirebaseObjectObservable<any>;
+  votingFBObject: FirebaseObjectObservable<any>;
+  subscribeVoting:any;
+  ObserveVotingStatus:any;
+
 
   // flags
   card: boolean;
@@ -34,8 +38,8 @@ export class ProjectForUpdateComponent implements OnInit
   updateCostFlag: boolean;
   doesNeedPop: boolean;
   whatToPop: string;
-  isSelected:boolean;
-  isUnSelected:boolean;
+  isSelected:string;
+  isUnSelected:string;
   
   //===================================  constructor  =================================================
 
@@ -46,8 +50,8 @@ export class ProjectForUpdateComponent implements OnInit
     this.updateCostFlag = false;
     this.whatToPop = "";
     this.doesNeedPop=false;
-    this.isSelected=false;
-    this.isUnSelected=false;
+    this.isSelected='10';
+    this.isUnSelected='7';
   }
 
   //====================================  ngOnInit  ==================================================
@@ -70,6 +74,17 @@ export class ProjectForUpdateComponent implements OnInit
     });
     });
     
+
+     let temp = this.projectFBObject.subscribe((snapshot)=>
+    {
+     
+         this.ObserveVotingStatus=snapshot;
+     
+    });
+
+     this.service.allSubscribe.push(temp);
+
+
     //pushes subscribe to an array for freeing it (listener to firebase) when login-out
     this.service.allSubscribe.push(temp0);
   }

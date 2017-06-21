@@ -1,6 +1,8 @@
+<div class="continer">
+  <div class="col-lg-12">
 <main>
-	<img *ngIf="isSelected" src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/selected.png?alt=media&token=87b4d537-eb23-4b48-a107-b259bf75bdae" class="img-responsive" alt="Cinque Terre" />
-  	<img *ngIf= "isUnSelected" src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/unselected%20(1).png?alt=media&token=ff7267f7-849a-4779-b5fb-a198143c9396" class="img-responsive" alt="Cinque Terre" />
+	<img *ngIf="this.ObserveVotingStatus.val().for>=isSelected" src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/selected.png?alt=media&token=87b4d537-eb23-4b48-a107-b259bf75bdae" class="img-responsive" alt="Cinque Terre" />
+  	<img *ngIf= "this.ObserveVotingStatus.val().against>=isUnSelected" src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/unselected%20(1).png?alt=media&token=ff7267f7-849a-4779-b5fb-a198143c9396" class="img-responsive" alt="Cinque Terre" />
 		
 		{{projectName}}
 		
@@ -14,7 +16,7 @@
 			<!-- cost -->
 			<div *ngIf = "value.$key == 'cost'">
 				<div *ngIf = "!updateCostFlag" class="row">
-					Budget: {{ value.$value }} <i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateCost()"></i>
+					Budget: {{ value.$value }} <i *ngIf = "!(this.ObserveVotingStatus.val().for==isSelected||this.ObserveVotingStatus.val().against>=isUnSelected)"  class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateCost()"></i>
 				</div>
 				<div *ngIf = "updateCostFlag" class="row">
 					<label> Budget: <input #newCostVal class = "budgetInput" type = "number" name = "txtCost"><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateCost(newCostVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateCost(newCostVal.value, false)"></i></label>
@@ -24,7 +26,7 @@
 			<!-- date -->
 			<div *ngIf = "value.$key == 'date'" >
 				<div *ngIf = "!updateDateFlag" class = "row">
-					Date: {{ value.$value }}<i class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateDate()"></i>
+					Date: {{ value.$value }}<i *ngIf = "!(this.ObserveVotingStatus.val().for==isSelected||this.ObserveVotingStatus.val().against>=isUnSelected)" class = "fa fa-pencil  fa-1x" aria-hidden = "true" (click) = "updateDate()"></i>
 				</div>
 				<div *ngIf = "updateDateFlag" class = "row">
 					<label> Date: <input #newDateVal class = "dateInput" type = "text" name = "txtDate" placeholder = "dd/mm/yyyy" required><i class = "fa fa-check  fa-1x" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, true)"></i><i class = "fa fa-times" aria-hidden = "true" (click) = "OKupdateDate(newDateVal.value, false)"></i></label>
@@ -65,3 +67,5 @@
 	    <!--========================================================================================-->
 
 </main>
+  </div>
+</div>
