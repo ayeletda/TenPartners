@@ -63,18 +63,21 @@ export class HomeComponent implements OnInit
   {
     if (this.adcommunity == '') 
     {
-      alert('Enter a community name');
+      this.whatToPop="communityEmpty";
+      this.doesNeedPop=true;
       return;
     }
     else if (!this.doesCommunityExist()) 
     {
       this.communitiesFBList.update(this.adcommunity, {name: this.adcommunity});
       //this.communitiesFBList.push({ name: this.adcommunity });
-      alert('Community is added');
+      this.whatToPop="communityAdd";
+      this.doesNeedPop=true;
     }
     else 
     {
-      alert('This community already exists');
+      this.whatToPop="communityExist";
+      this.doesNeedPop=true;
     }
           this.adcommunity = '';
   }

@@ -99,6 +99,26 @@
             <input  class = "btn btn-success btn-lg center-block" id = "deleteUser" type = "deleteUser" value = "Delete" (click)="deleteUser(whatToDrop)">
           </div>
 
+
+           <div class = "communityExist" *ngIf="whatToPop == 'communityExist'">
+            
+                This community already exists
+            <br>
+          </div>
+
+
+          <div class = "communityAdd" *ngIf="whatToPop == 'communityAdd'">
+            
+                Community is added
+            <br>
+          </div>
+
+          <div class = "communityEmpty" *ngIf="whatToPop == 'communityEmpty'">
+             
+                Enter a community name
+            <br>
+          </div>
+
         </form>
 
       </div>
