@@ -12,8 +12,12 @@ import { ServiceService } from '../../service.service';
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
 })
+
 export class AddUserComponent implements OnInit 
 {
+  //the page's title
+  title: string;
+
   public UserName: string;
   public Community: string;
   public TenPartnersAccount: string;
@@ -25,8 +29,6 @@ export class AddUserComponent implements OnInit
   public whatToPop:string;
   public showDetailsForm: boolean;
 
-
-
   users: FirebaseListObservable<any>;
   communities: FirebaseListObservable<any>;
 
@@ -36,6 +38,8 @@ export class AddUserComponent implements OnInit
 
   constructor(private router: Router, private serviceService: ServiceService, private af: AngularFireDatabase)
   {
+    this.title = "Add user";
+
     this.whatToPop="";
     this.showDetailsForm=false;
     this.UserName = "";
@@ -47,12 +51,10 @@ export class AddUserComponent implements OnInit
     this.Permission = "";
     this.users = this.af.list('users');
     this.communities = this.af.list('communities');
-
   }
 
   ngOnInit()
   {
-    this.serviceService.setTitle("Add user");
   }
 
   sendUser(community) {

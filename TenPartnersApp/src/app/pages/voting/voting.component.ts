@@ -20,6 +20,9 @@ export class VotingComponent implements OnInit
 {
   @ViewChild('scrollMe')  myScrollContainer: ElementRef;
 
+  //page's title
+  title: string;
+
   //user details
   user;
 
@@ -50,6 +53,8 @@ export class VotingComponent implements OnInit
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
+    this.title = "Voting In Progress";
+
     //initializes with defult values
     this.isNoProjects = true;
     this.currentProject = '';
@@ -94,7 +99,7 @@ export class VotingComponent implements OnInit
     this.scrollToBottom()
 
     // sets page title
-    this.service.setTitle("Voting In Progress");
+    // this.service.setTitle("Voting In Progress");
   }
 
   //========================================================  saveProjectPath  =========================================================

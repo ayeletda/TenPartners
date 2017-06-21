@@ -17,6 +17,9 @@ import { ServiceService } from '../../service.service';
 
 export class HomeComponent implements OnInit 
 {
+  //page's title
+  title: string;
+
   adcommunity: string;
   community: string;
   communitiesFBList: FirebaseListObservable<any>;
@@ -37,6 +40,8 @@ export class HomeComponent implements OnInit
 
   constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
   {
+    this.title = "Home";
+
     this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
     this.adcommunityFBList = this.af.list('communities');
     this.usersFBList = this.af.list('users');
@@ -69,7 +74,6 @@ export class HomeComponent implements OnInit
   
   ngOnInit() 
   {
-    this.service.setTitle("Home");
   }
 
   //========================== addCommunity ======================================================================

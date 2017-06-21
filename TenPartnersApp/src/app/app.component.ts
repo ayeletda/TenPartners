@@ -14,12 +14,13 @@ import { Router } from '@angular/router';
 export class AppComponent 
 {
   user = {userID: null, permission: null, community: null, userName: null, email: null };
-  isLoggedIn:boolean;
-
+  isLoggedIn: boolean;
+  // title;
   //=========================== constructor ===============================================
 
   constructor(private Service:ServiceService, private router:Router) 
   {
+    // this.title = this.Service.getTitle();
     let temp = this.Service.anguarfireAuth.authState.subscribe((auth) => 
     {
       //if the user *didn't* pass the autonomy

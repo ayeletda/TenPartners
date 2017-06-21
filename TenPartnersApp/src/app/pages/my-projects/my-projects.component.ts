@@ -18,6 +18,9 @@ import { ServiceService } from '../../service.service';
 
 export class MyProjectsComponent implements OnInit 
 {
+  //fage's title
+  title;
+
   // user's details
   user;
 
@@ -38,6 +41,8 @@ export class MyProjectsComponent implements OnInit
 
   constructor( private router: Router,  private service:ServiceService, private af: AngularFireDatabase) 
   {
+    this.title = "My Projects";
+
     //initializes with defult values
     this.currentProject = '';
     this.projectPath = '';
@@ -71,7 +76,7 @@ export class MyProjectsComponent implements OnInit
 
   ngOnInit() 
   {
-    this.service.setTitle("My Projects");
+    // this.service.setTitle("My Projects");
   }
 
   //=================================================== saveProjectPath  ============================================================

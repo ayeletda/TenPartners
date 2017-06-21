@@ -15,9 +15,13 @@ import {ServiceService} from '../../service.service';
 
 //====================  Board class  ============================================================
 
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit 
+{
     @Input() path;
     @ViewChild('scrollMe') myScrollContainer: ElementRef;
+
+    //page's title
+    title: string;
 
     //user's details
     user;
@@ -56,7 +60,10 @@ export class BoardComponent implements OnInit {
 
     //====================  constructor  ============================================================
 
-    constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) {
+    constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
+    {
+        this.title = "Submitted Projects";
+
         //initializes with defult values
         this.newMessage = '';
         this.savedDate = '';
@@ -92,14 +99,14 @@ export class BoardComponent implements OnInit {
 
     //===================  ngOnInit  ============================================================
 
-    ngOnInit() {
-        this.scrollToBottom()
-        this.service.setTitle("Submitted Projects");
+    ngOnInit() 
+    {
     }
 
     //================  saveProjectPath  =========================================================
 
-    saveProjectPath(project, i) {
+    saveProjectPath(project, i) 
+    {
         this.projectPath = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
         this.noProjects = false;
         return true;
@@ -107,7 +114,8 @@ export class BoardComponent implements OnInit {
 
     //===============  loadProjectDetails  =========================================================
 
-    loadProjectDetails(project, i) {
+    loadProjectDetails(project, i) 
+    {
         this.currentProject = project;
         this.currentI = i;
         let projectPathH = 'projects/' + this.projectsValues_Arr[i].$key + '/associatedCommunities/' + project.$key;
@@ -124,12 +132,14 @@ export class BoardComponent implements OnInit {
 
     //==================  chooseProject  ============================================================
 
-    chooseProject() {
+    chooseProject() 
+    {
         this.doesNeedPop = true;
     }
 
 
-    updateDetails(event) {
+    updateDetails(event) 
+    {
         if (event.target.parentElement.checkValidity()) {
             event.target.parentElement.querySelectorAll('input:not([type="submit"]):valid').forEach(function (v) {
                 v.style.border = '';
@@ -138,7 +148,9 @@ export class BoardComponent implements OnInit {
 
             this.close();
             this.showAlert();
-        } else {
+        } 
+        else 
+        {
             event.target.parentElement.querySelectorAll('input:not([type="submit"]):valid').forEach(function (v) {
                 v.style.border = '';
                 v.nextElementSibling.nextElementSibling.textContent = '';

@@ -17,12 +17,15 @@ import { ServiceService } from '../../service.service';
 
 export class SubmitProjectComponent implements OnInit
 {
+  //page title
+  title: string;
+
   //project details
   name: string;
   description: String;
   purpose: String;
   projectsValues_Arr: any;
-  whatToPop:string;
+  whatToPop: string;
   doesNeedPop: boolean;
 
   //pointers of object or list in firebase
@@ -33,12 +36,14 @@ export class SubmitProjectComponent implements OnInit
 
   constructor( private service: ServiceService, private router: Router, private af: AngularFireDatabase) 
   {
+    this.title = "Submit Project"; 
+
     //initializes with defult values
     this.name = "";
     this.description = "";
     this.purpose = "";
-    this.whatToPop="";
-    this.doesNeedPop=false;
+    this.whatToPop = "";
+    this.doesNeedPop = false;
    
     //initializes projectsValues_Arr
     this.projectsFBList = this.af.list('projects');
@@ -60,7 +65,6 @@ export class SubmitProjectComponent implements OnInit
 
   ngOnInit() 
   {
-    this.service.setTitle("Submit Project");
   }
   
   //=========================  PopMassage  ====================================================================

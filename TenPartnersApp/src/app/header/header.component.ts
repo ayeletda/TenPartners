@@ -20,6 +20,7 @@ export class HeaderComponent implements OnInit
   doesNeedPop: boolean;
   whatToPop: string;
   newPassword:string;
+  title: string;
 
   constructor(private router: Router, private service:ServiceService) 
   {
@@ -52,8 +53,8 @@ export class HeaderComponent implements OnInit
           
     user.updatePassword(this.newPassword).then(function() 
     {
-    // Update successful.
-    alert("The password change");
+      // Update successful.
+      alert("The password change");
     },  function(error) 
     {
       alert("The password don't change");

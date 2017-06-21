@@ -1,8 +1,10 @@
+<!-- the page title -->
+<app-header [item]="title"></app-header>
 
-
+<!-- the page -->
 <div class = "MyProjects">
 	<div class = "d4">
-   		 <div class = "d5">
+   		<div class = "d5">
 			<div *ngFor = "let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index;  " [attr.data-index] = "i" >
 				<div *ngFor = "let community of associatedCommunities | async">
 					<!--<div *ngIf = 'updateThereIsProjectsFlag(false)'></div>--> <!--dont work if i have 1 project-->

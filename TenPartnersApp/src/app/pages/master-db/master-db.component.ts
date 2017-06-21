@@ -18,6 +18,9 @@ import 'rxjs/Rx';
 
 export class MasterDBComponent implements OnInit 
 {
+  //page title
+  title: string;
+
   newProject: string;
   projectPath: any;
   projectsValues_Arr: any;
@@ -35,6 +38,8 @@ export class MasterDBComponent implements OnInit
   
   constructor(private router: Router, private servise: ServiceService, private af: AngularFireDatabase)
   {
+    this.title = "Master DB"; 
+
     this.search = '';
     this.projectName = '';
     this.projectsFBList = this.af.list('projects').take(1); //= select * from projects 
@@ -59,7 +64,6 @@ export class MasterDBComponent implements OnInit
 
   ngOnInit() 
   {
-    this.servise.setTitle("Master DB");
   }
   
   //======================  saveProjectPath  ============================================================

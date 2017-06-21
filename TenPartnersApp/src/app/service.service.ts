@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import * as firebase from 'firebase/app';
 import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
 import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable} from 'angularfire2/database';
-import { ChangeDetectorRef } from "@angular/core";
+import { ApplicationRef } from "@angular/core";
 import { OnDestroy } from "@angular/core";
 import { ISubscription } from "rxjs/Subscription";
 
@@ -23,7 +23,7 @@ export class ServiceService
   user: User;
   connectType: string;
 
-  title;
+  // title = {text:null};
   allSubscribe: any;
   usersValues_Arr: any;
 
@@ -35,15 +35,13 @@ export class ServiceService
 
   //==================== constructor ===============================================================
   
-  constructor( private router: Router, public anguarfireAuth:AngularFireAuth, public af: AngularFireDatabase)
+  constructor( private router: Router, public anguarfireAuth: AngularFireAuth, public af: AngularFireDatabase) //, private ref: NgZone
   {
     this.allSubscribe = [];
     this.user = { id: null, permission: null, community: null, name: null, email: null };
     this.isLoggedIn = false;
     this.usersFBList = this.af.list('/users',{ preserveSnapshot: true });
-    // this.logout();
     this.getDetails();
-
   }
 
   //=================== registerUsers ===============================================================
@@ -117,7 +115,7 @@ export class ServiceService
     // console.log("subscribe: after "+this.allSubscribe.length);
     this.anguarfireAuth.auth.signOut();
     this.isLoggedIn = false;
-    this.title = "home";
+    // this.title.text = "home";
   }
 
   //----------------- email & fassword login ------------------------
@@ -231,7 +229,12 @@ export class ServiceService
 
   //=============== getters & setters ==================================================
   
-  setTitle(Title:String){ this.title=Title; }  
+  // setTitle(Title:String)
+  // {
+  //   // this.title.text = Title;
+  // }
+
+  // getTitle(){ return this.title; }  
   getlogin(){ return this.isLoggedIn; }
   getUser(){ return this.user; }
   setEmail(email){ this.user.email = email; }
