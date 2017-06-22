@@ -244,8 +244,7 @@ export class ProjectForVoteComponent implements OnInit
     //message that a project was rejected
     this.whatToPop = popUpType;
     this.doesNeedPop = true;
-    console.log(popUpType);
-    console.log(this.doesNeedPop);
+
   }
 
 }
