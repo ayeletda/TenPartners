@@ -28,7 +28,7 @@ export class ServiceService
 
   //flags
   isLoggedIn: boolean;
-
+  firstTime: boolean;
   //pointers of object or list in firebase
   usersFBList: FirebaseListObservable<any>;
 
@@ -36,6 +36,7 @@ export class ServiceService
   
   constructor( private router: Router, public anguarfireAuth: AngularFireAuth, public af: AngularFireDatabase) //, private ref: NgZone
   {
+    this.firstTime = true;
     this.allSubscribe = [];
     this.user = { id: null, permission: null, community: null, name: null, email: null };
     this.isLoggedIn = false;
@@ -63,10 +64,8 @@ export class ServiceService
       snapshots.forEach(snapshot => 
       {
         let temp = snapshot.val();      
-        if(this.user.email == snapshot.val().email)
+        if(this.user.email == temp.email)
         {
-          console.log(this.user.email);
-          console.log(this.user.permission);
           this.user.permission = temp.permission;
           this.user.community = temp.associatedCommunity;
           this.user.name = temp.name;
@@ -75,6 +74,22 @@ export class ServiceService
           // user.google = temp.google;
           // user.facebook=temp.facebook;
           // user.twitter=temp.twitter;
+
+          if(this.firstTime)
+          {
+            this.firstTime = false;
+          //if it's admin
+          if(this.user.permission == 1)
+            this.router.navigateByUrl('/home');
+
+          //if it's authorized user
+          else if(this.user.permission == 2)
+            this.router.navigateByUrl('/voting');
+
+          //if it's blocked user
+          else if(this.user.permission == 3)
+            this.router.navigate(['']);;
+          }
         }
       });
     });
@@ -116,6 +131,7 @@ export class ServiceService
     // console.log("subscribe: after "+this.allSubscribe.length);
     this.anguarfireAuth.auth.signOut();
     this.isLoggedIn = false;
+    this.firstTime = true;
   }
 
   //----------------- email & fassword login ------------------------

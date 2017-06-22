@@ -25,7 +25,7 @@ export class AddUserComponent implements OnInit
   public GoogleAccount: String;
   public FacebookAccount: String;
   public TwitterAccount: String;
-  public Permission: String;
+  public Permission: number;
   public whatToPop:string;
   public showDetailsForm: boolean;
 
@@ -48,7 +48,7 @@ export class AddUserComponent implements OnInit
     this.GoogleAccount = "";
     this.FacebookAccount = "";
     this.TwitterAccount = "";
-    this.Permission = "";
+    this.Permission = null;
     this.users = this.af.list('users');
     this.communities = this.af.list('communities');
   }
@@ -65,24 +65,27 @@ export class AddUserComponent implements OnInit
 
 
 
-      //this.serviceService.registerUsers(this.TenPartnersAccount, this.Password);
+      this.serviceService.registerUsers(this.TenPartnersAccount, this.Password);
       this.users = this.af.list('users');
 
       this.users.push({
         name: this.UserName + "", email: this.TenPartnersAccount + "", facebook: this.FacebookAccount + "",
         google: this.GoogleAccount + "", twitter: this.TwitterAccount + "", associatedCommunity: this.Community + "",
-        permission: this.Permission + ""});
+        permission: this.Permission}).then(() => {
+      
+          this.UserName = "";
+          this.Permission = null;
+          this.TenPartnersAccount = "";
+          this.Password = "";
+          this.FacebookAccount = "";
+          this.GoogleAccount = "";
+          this.TwitterAccount = "";
+        });
      
 
     
 
-      this.UserName = "";
-      this.Permission = "";
-      this.TenPartnersAccount = "";
-      this.Password = "";
-      this.FacebookAccount = "";
-      this.GoogleAccount = "";
-      this.TwitterAccount = "";
+     
     }
 
 

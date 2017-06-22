@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit
 
   ngOnInit() 
   {
-    if (this.user.permission == '2')
+    if (this.user.permission == 2)
       this.isClick='voting';
     else  this.isClick='home';
   }

@@ -2,7 +2,7 @@
 <div class = "footer">
     <div class = "btn-group btn-group-justified">
 
-        <a  id = "voting" *ngIf="user.permission == '2'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'voting'" class = "btn btn-default">
+        <a  id = "voting" *ngIf="user.permission == 2" (click) = "clicked($event)" [class.afterClick] = "isClick == 'voting'" class = "btn btn-default">
             <div id = "votInPro">
                 <i class = "fa fa-thumbs-o-down fa-2x" aria-hidden = "true"></i>
                 <i class = "fa fa-thumbs-o-up fa-2x" aria-hidden = "true"></i>
@@ -10,7 +10,7 @@
             Voting in<br> Progress
         </a>
        
-        <a  id = "home" *ngIf = "user.permission == '1'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'home'" class = "btn btn-default">
+        <a  id = "home" *ngIf = "user.permission == 1" (click) = "clicked($event)" [class.afterClick] = "isClick == 'home'" class = "btn btn-default">
             <i id = "hom" class = "fa fa-home fa-2x" aria-hidden = "true"></i>
                 Home
         </a>
