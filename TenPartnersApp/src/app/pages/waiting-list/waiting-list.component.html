@@ -5,41 +5,13 @@
 <div class="home">
   <div class="container">
     <div class="row">
-
-      <br>
-      <!-- add a community -->
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="input-group">
-          <span class="input-group-btn">
-        <button class="btn btn-default" (click)="addCommunity()" 
-        type="button">add community</button>
-      </span>
-          <input [(ngModel)]="adcommunity" type="text" class="form-control" placeholder="maximum 20 letters">
-        </div>
-      </div>
-      <br>
-      <br>
-
-      <!-- Choose a community -->
-      <div class="form-group">
-        <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Community</label>
-        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-          <select #selectedCommunity class="form-control">
-          <option disabled selected >Community</option>
-          <option *ngFor = "let community of adcommunityFBList | async" [value] = "community.name"> {{ community.name }} </option>
-        </select>
-        </div>
-      </div>
-
-      <!-- Showing the community's users -->
-
-      <div class="showCommunity">
+<br>
         <div *ngFor="let user of usersFBList | async">
-          <div *ngIf="user.associatedCommunity == selectedCommunity.value&&user.permission!=3">
+          <div *ngIf="user.permission==3">
             <br>
             <br>
             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-              <button type="auser" class="btn menubutton btn-primary" title="Toggle dropdown menu" (click)="showDropdow(user)">
+              <button type="auser" class="btn menubutton btn-warning" title="Toggle dropdown menu" (click)="showDropdow(user)">
                 <i class="fa fa-user fa-fw"></i> {{  user.name  }} <i class="fa fa-caret-down"></i></button>
               <div *ngIf="whatToDrop.$key==user.$key" class="menu">
                   <div class="editor">
@@ -108,22 +80,13 @@
                   </div>
               <a *ngIf = "user.permission=='3'" (click) = "PopMassage('sureToApproveUser')" ><i class="fa fa-check-square-o"></i> Approve user</a>    
               <a (click) = "PopMassage('sureToDeleteUser')" ><i class="fa fa-trash-o fa-fw"></i> Delete user</a>
-              </div>
               <br>
             </div>
           </div>
         </div>
       </div>
 
-       <div class="form-group" *ngIf = "selectedCommunity.value!='Community'">
-        
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-          <br>
-          <button *ngIf="community!=''" type="delete" class="btn btn-danger btn-md deleteB" (click)="PopMassage('sureToDeleteComunity')"><i class="fa fa-trash-o fa-lg"></i> Delete this community </button>
-        </div>
-      </div>
-
-
+       
       
 
       <!-- For a community component 
@@ -148,16 +111,9 @@
 
       <div *ngIf = 'doesNeedPop' class = "popAlert">
 
-        <form (deleteComunity) ="deleteCommunity(selectedCommunity.value)" (deleteUser)="deleteUser(whatToDrop)">
+        <form (deleteUser)="deleteUser(whatToDrop)">
 
           <div class = "close" (click) = "PopMassage('')">X</div>
-
-          <div class = "sureToDeleteComunity" *ngIf="whatToPop == 'sureToDeleteComunity'">
-             <br>
-                You are sure you wont to delete {{selectedCommunity.value}} community?
-            <br><br>
-            <input  class = "btn btn-success btn-lg center-block" id = "deleteComunity" type = "deleteComunity" value = "Delete" (click)="deleteCommunity(selectedCommunity.value)">
-          </div>
 
 
           <div class = "sureToDeleteUser" *ngIf="whatToPop == 'sureToDeleteUser'">

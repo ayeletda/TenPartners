@@ -14,6 +14,11 @@
             <i id = "hom" class = "fa fa-home fa-2x" aria-hidden = "true"></i>
                 Home
         </a>
+
+
+        <a  id = "waitingList" *ngIf = "user.permission == 1" (click) = "clicked($event)" [class.afterClick] = "isClick == 'home'" class = "btn btn-default">
+                Waiting List
+        </a>
        
        
         <a  id = "myProjects" *ngIf="user.permission == '2'" (click) = "clicked($event)" [class.afterClick] = "isClick == 'myProjects'" class = "btn btn-default">

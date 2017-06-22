@@ -6,20 +6,13 @@ import { AngularFireDatabase, FirebaseListObservable, FirebaseObjectObservable }
 import { ChangeDetectorRef } from "@angular/core";
 import { ServiceService } from '../../service.service';
 
-@Component(
-{
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+@Component({
+  selector: 'app-waiting-list',
+  templateUrl: './waiting-list.component.html',
+  styleUrls: ['./waiting-list.component.css']
 })
-
-//========================= HomeComponent class ==================================================================
-
-export class HomeComponent implements OnInit 
-{
-  //page's title
+export class WaitingListComponent implements OnInit {
   title: string;
-
   adcommunity: string;
   community: string;
   communitiesFBList: FirebaseListObservable<any>;
@@ -36,11 +29,10 @@ export class HomeComponent implements OnInit
   updateGoogleFlag:boolean;
   updateFacebookFlag:boolean;
   updateTwitterFlag:boolean;
-  //=========================  constructor  =====================================================================
 
-  constructor( private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
-  {
-    this.title = "Home";
+  constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
+  { 
+    this.title="Waiting List";
 
     this.communitiesFBList = this.af.list('communities',{ preserveSnapshot: true });
     this.adcommunityFBList = this.af.list('communities');
@@ -68,42 +60,14 @@ export class HomeComponent implements OnInit
     })
       this.service.allSubscribe.push(temp);
 
+
   }
 
-  //==========================  ngOnInit  =======================================================================
-  
-  ngOnInit() 
-  {
+  ngOnInit() {
   }
 
-  //========================== addCommunity ======================================================================
 
-  addCommunity() 
-  {
-    if (this.adcommunity == '') 
-    {
-      this.whatToPop="communityEmpty";
-      this.doesNeedPop=true;
-      return;
-    }
-    else if (!this.doesCommunityExist()) 
-    {
-      this.communitiesFBList.update(this.adcommunity, {name: this.adcommunity});
-      //this.communitiesFBList.push({ name: this.adcommunity });
-      this.whatToPop="communityAdd";
-      this.doesNeedPop=true;
-    }
-    else 
-    {
-      this.whatToPop="communityExist";
-      this.doesNeedPop=true;
-    }
-          this.adcommunity = '';
-  }
-
-  //====================== doesCommunityExist =====================================================================
-
-  doesCommunityExist() 
+   doesCommunityExist() 
   {
     let status = false;
     let temp = this.communitiesFBList.subscribe((snapshots) => 
@@ -120,55 +84,41 @@ export class HomeComponent implements OnInit
     return status;
   }
 
-//====================== deleteCommunity =====================================================================
-
-  deleteCommunity(communityKey: string) 
-  {
-  this.doesNeedPop=false;
-  this.whatToDrop="";
-  const itemObservable = this.af.object("communities/" + communityKey);
-  itemObservable.remove();
-
-  let temp = this.usersFBList.subscribe((snapshots)=>
-    {
-      snapshots.forEach(snapshot => 
-      {
-        if(snapshot.associatedCommunity==communityKey)
-              this.deleteUser(snapshot);
-            
-            
-      });
-    })
-      this.service.allSubscribe.push(temp);
-
-  }
-
-//====================== deleteUser =====================================================================
-
-  deleteUser(user) 
+deleteUser(user) 
   {
   this.doesNeedPop=false;
   this.whatToDrop="";
   let userKey = user.$key; 
   const itemObservable = this.af.object("users/" + userKey);
   itemObservable.remove();
-  }
-
-
-
+}
 
 approveUser(user)
 {
  this.doesNeedPop=false;
   this.whatToDrop="";
   let userKey = user.$key; 
+  this.adcommunity=user.associatedCommunity;
+
+ if (user.associatedCommunity == '') 
+    {
+      this.whatToPop="communityEmpty";
+      this.doesNeedPop=true;
+      return;
+    }
+    else if (!this.doesCommunityExist()) 
+    {
+      this.communitiesFBList.update(this.adcommunity, {name: this.adcommunity});
+      //this.communitiesFBList.push({ name: this.adcommunity });
+    }
+
+
   const itemObservable = this.af.object("users/" + userKey);
   itemObservable.update({permission:2});
 }
 
-//====================== showDropdow =====================================================================
 
-  showDropdow(user)
+showDropdow(user)
   {
     if(this.whatToDrop==user)
         this.whatToDrop="";
@@ -184,6 +134,7 @@ PopMassage(pop:string)
   this.whatToPop=pop;
   this.doesNeedPop =!this.doesNeedPop;
 }
+
 
 
 updateName()
@@ -240,7 +191,7 @@ updateCommunity()
   }
 
 
-OKupdateCommunity(CommunityVal, isNeedUpdate)
+  OKupdateCommunity(CommunityVal, isNeedUpdate)
   {
     if(!isNeedUpdate)
     {
@@ -253,7 +204,6 @@ OKupdateCommunity(CommunityVal, isNeedUpdate)
     }
     else
     {
-      this.whatToDrop="";
       let newCommunity= CommunityVal;
        this.communitiesFBList.update(newCommunity, {name: newCommunity});
       const itemObservable = this.af.object("users/" + this.whatToDrop.$key);
@@ -428,57 +378,6 @@ editUser(){
 }
 
 
-}
 
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-What we do with Yonatan:
-on SubmitProjectComponent.ts:
-
-import { Router } from '@angular/router';
-import * as firebase from 'firebase/app';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AfterViewChecked, ElementRef, ViewChild, Component, OnInit } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { ChangeDetectorRef } from "@angular/core";
-
-
-@Component({
-  selector: 'app-submit-project',
-  templateUrl: './submit-project.component.html',
-  styleUrls: ['./submit-project.component.css']
-})
-export class SubmitProjectComponent implements OnInit {
-public projects: FirebaseListObservable<any>;
-public newProject: string;
-  constructor( router: Router, public af: AngularFireDatabase)
-   {
-  this.projects = this.af.list('projects'); //= select * from projects 
-
-    this.projects.push({game:{goal:'great'}}); //= select * from projects 
- this.projects.lift
-    //this.newProject = '';
-    }
-
-  ngOnInit() {
-  }
 
 }
-
-
-
-
-
-*/
