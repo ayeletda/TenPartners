@@ -50,6 +50,7 @@ export class ServiceService
   {
     return this.anguarfireAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) 
     {
+      alert("Your TenPartners Account is alredy in use. Please try a different one");
       // Handle Errors here.
       let errorMessage = error.message;
     });
