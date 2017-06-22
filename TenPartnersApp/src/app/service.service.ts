@@ -93,7 +93,7 @@ export class ServiceService
 
           //if it's blocked user
           else if(this.user.permission == 3)
-            this.router.navigate(['']);;
+            this.router.navigateByUrl('/wait');
           }
         }
       });

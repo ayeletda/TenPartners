@@ -73,6 +73,8 @@ export class AddUserComponent implements OnInit
           this.FacebookAccount = "";
           this.GoogleAccount = "";
           this.TwitterAccount = "";
+          this.Community="";
+
         });
      
 

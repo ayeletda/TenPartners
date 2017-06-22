@@ -10,6 +10,8 @@ import { BoardComponent } from './pages/board/board.component';
 import { VotingComponent } from './pages/voting/voting.component';
 import { SubmitProjectComponent } from './pages/submit-project/submit-project.component';
 import { MasterDBComponent } from './pages/master-db/master-db.component';
+import { WaitForApprovalComponent } from './pages/wait-for-approval/wait-for-approval.component';
+
 
 // imports for admin pages
 import { HomeComponent } from './pages/home/home.component';
@@ -34,7 +36,9 @@ export const appRoutes: Routes=
     {path:'voting', component: VotingComponent},
     {path:'SubmitProject', component: SubmitProjectComponent},
     {path:'masterDB', component: MasterDBComponent},
-    {path:'addUser', component: AddUserComponent}
+    {path:'addUser', component: AddUserComponent},
+    {path:'wait', component: WaitForApprovalComponent}
+    
 
 
 

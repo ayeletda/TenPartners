@@ -35,6 +35,7 @@ import { MasterDBComponent } from './pages/master-db/master-db.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ServiceService} from './service.service';
 import { DBprojectComponent } from './dbproject/dbproject.component';
+import { WaitForApprovalComponent } from './pages/wait-for-approval/wait-for-approval.component';
 //=============================================================================================
 
 //Initialize Firebase
@@ -69,7 +70,8 @@ export const firebaseConfig =
       ProjectForSelectComponent,
       SubmitProjectComponent,
       MasterDBComponent,
-      DBprojectComponent
+      DBprojectComponent,
+      WaitForApprovalComponent
   ],
 
   imports: [
