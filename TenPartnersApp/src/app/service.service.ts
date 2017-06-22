@@ -47,7 +47,7 @@ export class ServiceService
 
   public registerUsers(email,password)
   {
-    firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) 
+    this.anguarfireAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) 
     {
       // Handle Errors here.
       let errorMessage = error.message;
@@ -60,11 +60,13 @@ export class ServiceService
   {
     let temp1 = this.usersFBList.subscribe(snapshots => 
     {
-      snapshots.some(snapshot => 
+      snapshots.forEach(snapshot => 
       {
         let temp = snapshot.val();      
         if(this.user.email == snapshot.val().email)
         {
+          console.log(this.user.email);
+          console.log(this.user.permission);
           this.user.permission = temp.permission;
           this.user.community = temp.associatedCommunity;
           this.user.name = temp.name;

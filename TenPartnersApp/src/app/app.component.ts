@@ -15,11 +15,13 @@ export class AppComponent
 {
   user = {userID: null, permission: null, community: null, userName: null, email: null };
   isLoggedIn: boolean;
+  firstTime: boolean;
 
   //=========================== constructor ===============================================
 
   constructor(private Service:ServiceService, private router:Router) 
   {
+    this.firstTime = true;
     let temp = this.Service.anguarfireAuth.authState.subscribe((auth) => 
     {
       //if the user *didn't* pass the autonomy
@@ -47,7 +49,7 @@ export class AppComponent
 
   getDetails()
   {
-    let users = this.Service.af.list('/users',{ preserveSnapshot: true });
+    let users = this.Service.af.list('/users',{ preserveSnapshot: true }).take(1);
     
     let temp1 = users.subscribe(snapshots => 
     {
@@ -61,6 +63,9 @@ export class AppComponent
           this.user.userName = temp.name;
           this.isLoggedIn = true;
 
+          if(this.firstTime)
+          {
+            this.firstTime = false;
           //if it's admin
           if(this.user.permission == "1")
             this.router.navigateByUrl('/home');
@@ -69,9 +74,11 @@ export class AppComponent
           else if(this.user.permission == "2")
             this.router.navigateByUrl('/voting');
 
+
           //if it's blocked user
           else if(this.user.permission == "3")
             this.router.navigate(['']);;
+          }
         }
       });
     });
