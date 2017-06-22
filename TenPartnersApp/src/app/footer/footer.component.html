@@ -16,7 +16,11 @@
         </a>
 
 
-        <a  id = "waitingList" *ngIf = "user.permission == 1" (click) = "clicked($event)" [class.afterClick] = "isClick == 'home'" class = "btn btn-default">
+        <a  id = "waitingList" *ngIf = "user.permission == 1" (click) = "clicked($event)" [class.afterClick] = "isClick == 'waitingList'" class = "btn btn-default">
+           <div id = "Wlist">
+                <i class="fa fa-plus-square fa-2x" aria-hidden="true"></i>
+                <i class="fa fa-minus-square fa-2x" aria-hidden="true"></i>
+           </div>
                 Waiting List
         </a>
        

@@ -24,6 +24,9 @@ export class LoginComponent implements OnInit
   {   
     //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.user = this.service.getUser();
+
+    //In back to login page logout the user.... adva add !~~ ~
+    this.service.logout();
   }
 
   ngOnInit() {}

@@ -8,7 +8,7 @@ import { ServiceService } from '../../service.service';
 })
 export class WaitForApprovalComponent implements OnInit {
 
-  constructor( private service: ServiceService) { this.service.logout(); }
+  constructor( private service: ServiceService) { }
 
   ngOnInit() {
   }
