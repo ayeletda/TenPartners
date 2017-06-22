@@ -11,7 +11,7 @@ import { OnDestroy } from "@angular/core";
 import { ISubscription } from "rxjs/Subscription";
 
 
-interface User { id: string, permission: number, community: number, name: string, email: string };
+interface User { id: string, permission: number, community: number, name: string, email: string, isLogin:boolean };
 
 @Injectable()
 
@@ -38,7 +38,7 @@ export class ServiceService
   {
     this.firstTime = true;
     this.allSubscribe = [];
-    this.user = { id: null, permission: null, community: null, name: null, email: null };
+    this.user = { id: null, permission: null, community: null, name: null, email: null, isLogin: null};
     this.isLoggedIn = false;
     this.usersFBList = this.af.list('/users',{ preserveSnapshot: true });
     this.getDetails();
@@ -48,7 +48,7 @@ export class ServiceService
 
   public registerUsers(email,password)
   {
-    this.anguarfireAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) 
+    return this.anguarfireAuth.auth.createUserWithEmailAndPassword(email, password).catch(function(error) 
     {
       // Handle Errors here.
       let errorMessage = error.message;
@@ -80,11 +80,16 @@ export class ServiceService
             this.firstTime = false;
           //if it's admin
           if(this.user.permission == 1)
+          {
+            this.user.isLogin=true;
             this.router.navigateByUrl('/home');
-
+          }
           //if it's authorized user
           else if(this.user.permission == 2)
+            {        
+            this.user.isLogin=true;
             this.router.navigateByUrl('/voting');
+            }
 
           //if it's blocked user
           else if(this.user.permission == 3)
@@ -95,6 +100,7 @@ export class ServiceService
     });
     
     this.allSubscribe.push(temp1);
+   
   }
  
   //===================== getDetails ===============================================================
@@ -130,6 +136,7 @@ export class ServiceService
     // this.allSubscribe.forEach((item) => item.unsubscribe());
     // console.log("subscribe: after "+this.allSubscribe.length);
     this.anguarfireAuth.auth.signOut();
+    this.user.isLogin=false;
     this.isLoggedIn = false;
     this.firstTime = true;
   }
@@ -239,8 +246,8 @@ export class ServiceService
     this.user.id = user.user.uid;
 
     if(connectType == "facebook" || connectType == "google" || connectType == "twitter")
-      if (this.checkIfUser() == true)
-        this.isLoggedIn = true;  
+      if (this.checkIfUser() == true && this.user.permission!=3)
+                  this.isLoggedIn = true;  
   }
 
   //=============== getters & setters ==================================================

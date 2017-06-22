@@ -25,7 +25,6 @@ export class AddUserComponent implements OnInit
   public GoogleAccount: String;
   public FacebookAccount: String;
   public TwitterAccount: String;
-  public Permission: number;
   public whatToPop:string;
   public showDetailsForm: boolean;
 
@@ -48,33 +47,27 @@ export class AddUserComponent implements OnInit
     this.GoogleAccount = "";
     this.FacebookAccount = "";
     this.TwitterAccount = "";
-    this.Permission = null;
-    this.users = this.af.list('users');
-    this.communities = this.af.list('communities');
-  }
+    }
 
   ngOnInit()
   {
   }
 
-  sendUser(community) {
-    this.Community = community;
-    if (this.UserName != "" && this.TenPartnersAccount != "" && this.Password != "" && this.Community) {
+  sendUser() {
+    if (this.UserName != "" && this.TenPartnersAccount != "" && this.Password != "" && this.Community!="") {
       //      if (this.checkUserName()==true)
       //        alert("this username already exist");
 
 
 
-      this.serviceService.registerUsers(this.TenPartnersAccount, this.Password);
-      this.users = this.af.list('users');
-
-      this.users.push({
+      this.serviceService.registerUsers(this.TenPartnersAccount, this.Password).then(() => {
+        this.users = this.af.list('users');
+        this.users.push({
         name: this.UserName + "", email: this.TenPartnersAccount + "", facebook: this.FacebookAccount + "",
         google: this.GoogleAccount + "", twitter: this.TwitterAccount + "", associatedCommunity: this.Community + "",
-        permission: this.Permission}).then(() => {
+        permission: 3}).then(() => {
       
           this.UserName = "";
-          this.Permission = null;
           this.TenPartnersAccount = "";
           this.Password = "";
           this.FacebookAccount = "";
@@ -86,6 +79,8 @@ export class AddUserComponent implements OnInit
     
 
      
+      });
+      
     }
 
 

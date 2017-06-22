@@ -1,7 +1,7 @@
 <!-- import an image libery  -->
 <link href = "https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css" rel = "stylesheet">
 
-<body [ngClass]="{'backColor': isLoggedIn==true}">
+<body [ngClass]="{'backColor':  user && user.isLogin}">
  <router-outlet></router-outlet>
-<app-footer *ngIf="isLoggedIn"></app-footer>
+<app-footer *ngIf=" user && user.isLogin"></app-footer>
 </body>

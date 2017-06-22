@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 //========================= AppComponent  class ==========================================
 export class AppComponent 
 {
-  user = {userID: null, permission: null, community: null, userName: null, email: null };
+  user;
+  //  = {userID: null, permission: null, community: null, userName: null, email: null };
   isLoggedIn: boolean;
   firstTime: boolean;
 
@@ -29,17 +30,22 @@ export class AppComponent
       {
         this.isLoggedIn=false;
         this.router.navigate(['']);
+        this.user = this.Service.getUser();
       }
       //if the user passed the autonomy
       else
       {
-        this.user.userID = auth.uid;
-        this.user.email = auth.email;
-        
-        this.isLoggedIn = true;
+        // this.user.userID = auth.uid;
+        // this.user.email = auth.email;
+        this.user = this.Service.getUser();
         //this.getDetails();
-        this.Service.setEmail(this.user.email);
+        this.Service.setEmail(auth.email);
         this.Service.getDetails();
+
+        // if(this.user.permission!=3)
+        //             this.isLoggedIn = true;
+
+       
       }
     });
 

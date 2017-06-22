@@ -1,13 +1,15 @@
-<!-- the page title -->
-<app-header [item]="title"></app-header>
-
 <!-- the page -->
 <div class="addUser">
   <div class="container">
 	<div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <form class="form-horizontal" action="" method="post">
-          <fieldset> <br>   
+          <form class="form-horizontal" action="" method="post" (submit) ="sendUser()" >
+          <fieldset>
+            
+            <h2 class="title">Register</h2>
+            
+            
+             <br>   
                 <!-- Name input-->
             <div class="form-group">
               <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label" for="UserName" >User's Name</label>
@@ -19,19 +21,10 @@
             <div class="form-group">
               <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label">Community</label>
               <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-              <select #selectedCommunity class="form-control">
-                      <option disabled selected>Community</option>
-                  <option *ngFor = "let community of communities | async" [value] = "community.name"> {{ community.name }} </option>
-              </select>
+                <input id="Community"  [(ngModel)] = "Community" name="Community" type="text" placeholder="Community name" class="form-control">
               </div>
             </div>
-                <!-- Permission input-->
-            <div class="form-group">
-              <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label" for="Permission" >Permission</label>
-              <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-                <input id="Permission"  [(ngModel)] = "Permission" name="Permission" maxlength="1" type="number" placeholder="Choose 1 for admin and 2 for tenmember" class="form-control">
-              </div>
-            </div>
+              
                 <!-- TenPartnersAccount input-->
             <div class="form-group">
               <label class="col-lg-4 col-md-4 col-sm-4 col-xs-4 control-label" for="TenPartnersAccount" >TenPartners Account</label>
@@ -75,7 +68,14 @@
                 <!-- Form actions -->
             <div class="form-group">
               <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
-                <button type="add" class="btn btn-primary btn-lg" (click) = "sendUser(selectedCommunity.value)">add user</button>
+                <button type="add" class="btn btn-primary btn-lg btn-block" type = "submit">Register now</button>
+              </div>
+            </div>
+
+
+             <div class="form-group">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right">
+                <button type="button" class="btn btn-danger btn-lg btn-block"  [routerLink]="['']">Back to Sign-In</button>
               </div>
             </div>
 
