@@ -68,8 +68,7 @@ Please visit our wiki for furthur project info:
 - [Iteration 0 - ZFR](../../wiki/iter0-zfr)
 - [Iteration 1 - MVP](../../wiki/iter1-MVP)
 - [Iteration 2 - Corrections](../../wiki/iter2-Corrections)
-- [Iteration 3 - Functionality](../../wiki/iter3-Functionality)
-- [Iteration 4 - Tests](../..//wiki/iter4-Tests)
+- [Iteration 3+4-Functionality & Main admin & Tests](../../wiki/iter3+4-Functionality-&-Main-admin-&-Tests)
 
 
 
