@@ -16,11 +16,9 @@
 						</div>
 					</div>
 				</div>
-				<!--<div *ngIf = "!isThereProjects && i == projectsAssociatedCommunities_Arr.length-1">
-					You don't have any associated projects yet.
-				</div> --> <!--dont work if i have 1 project-->
+
 			</div>		
-	<div *ngIf='isNoProjects' class = "noProjects">
+	<div *ngIf='!isThereProjects ' class = "noProjects">
 		You don't have any associated projects.
 	</div>
    		</div>
