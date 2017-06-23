@@ -344,21 +344,34 @@ input::placeholder {
 
 /*=================================== fixing heights according to the screen's size ======================================== */
 
-@media only screen and (max-height: 1366px) {
+@media only screen and (max-height: 1366px) and (min-height: 1366px){
     .vertical-menu2 {
         height: 650px
     }
-}
+    .vertical-menu-x{
 
-@media only screen and (max-height: 1024px) {
-    .vertical-menu2 {
-        height: 472px
+        margin-top: 0;
     }
 }
 
-@media only screen and (max-height: 736px) {
+@media only screen and (max-height: 1024px) and (min-height: 1024px){
+    .vertical-menu2 {
+        height: 472px
+    }
+    .vertical-menu-x{
+
+        margin-top: 0;
+    }
+}
+
+@media only screen and (max-height: 736px) and (min-height: 736px){
     .vertical-menu1 {
         max-height: 500px;
+    }
+
+    .vertical-menu-x{
+
+        margin-top: 0;
     }
 
     #part2part3size {
