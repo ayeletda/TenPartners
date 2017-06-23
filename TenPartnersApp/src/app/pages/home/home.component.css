@@ -148,3 +148,15 @@ a{
 {
     position: unset;
 }
+
+.d4
+{
+  overflow: auto;
+  max-height: 100vh;
+}
+
+.d5 
+{
+    min-width: 0px;
+    max-height:100vh;
+}
