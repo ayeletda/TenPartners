@@ -125,7 +125,7 @@ p {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
-    margin-top: -7px;
+    margin-top: 0px;
 }
 
 @media screen  and (min-height: 570px) and (max-height: 735px) {
