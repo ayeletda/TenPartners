@@ -53,7 +53,7 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked
             } 
             else 
             {
-                console.log(v.textContent.trim().match(/^\d{13}$/));
+               // console.log(v.textContent.trim().match(/^\d{13}$/));
             }
         });
     }
