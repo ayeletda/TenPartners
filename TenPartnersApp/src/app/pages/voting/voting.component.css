@@ -346,7 +346,7 @@ input::placeholder {
 
 @media only screen and (max-height: 1366px) and (min-height: 1366px){
     .vertical-menu2 {
-        height: 650px
+        height: 731px
     }
     .vertical-menu-x{
 
@@ -356,7 +356,7 @@ input::placeholder {
 
 @media only screen and (max-height: 1024px) and (min-height: 1024px){
     .vertical-menu2 {
-        height: 472px
+        height: 467px
     }
     .vertical-menu-x{
 
@@ -379,7 +379,7 @@ input::placeholder {
     }
 
     .vertical-menu2 {
-        height: 337px
+        height: 331px
     }
 
 }
@@ -391,6 +391,13 @@ input::placeholder {
 
     .vertical-menu2 {
         height: 366px
+    }
+}
+
+@media only screen and (max-height: 640px) and (min-height: 640px) {
+
+    .vertical-menu2 {
+        height: 249px
     }
 }
 
