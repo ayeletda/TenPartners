@@ -40,6 +40,9 @@ export class HeaderComponent implements OnInit
 
   toggleSidebar() 
   {
+    if(this.isOpen&&this.doesNeedPop)
+          this.doesNeedPop=false;
+
     this.isOpen = !this.isOpen;
   }
 
