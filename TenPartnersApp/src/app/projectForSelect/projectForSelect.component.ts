@@ -35,6 +35,7 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked
     constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
     {
         this.projects = this.af.list('projects');
+
         (<any>$(".stopper")).each(function (k, v) 
         {
             if (v.textContent.trim().match(/^\d{13}$/) !== null) 
