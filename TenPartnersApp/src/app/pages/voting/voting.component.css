@@ -4,12 +4,15 @@
     padding-top: 35px;
     background-color: #E5E7E9;
     height: 100%;
+    position: unset;
+
 }
 
 .part1
 {
     width: 100%;
     height: 40%;
+    position: unset;
 }
 
 .navbar
@@ -53,6 +56,13 @@
 {
     padding: 5%;
     margin-top: 5%;
+
+
+}
+
+.unset
+{
+    position: unset;
 }
 /*========================================= CSS for the chat ============================================*/
 
