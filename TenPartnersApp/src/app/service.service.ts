@@ -116,7 +116,7 @@ export class ServiceService
       snapshots.some(snapshot => 
       {
         let temp=snapshot.val();      
-        if(this.user.email==snapshot.val().email)
+        if(this.user.email==snapshot.val().email||this.user.email==snapshot.val().google||this.user.email==snapshot.val().facebook||this.user.email==snapshot.val().twitter)
         {
           status = true;
         }
@@ -245,7 +245,7 @@ export class ServiceService
     this.user.name = user.user.displayName;
     this.user.email = user.user.email;
     this.user.id = user.user.uid;
-
+    
     if(connectType == "facebook" || connectType == "google" || connectType == "twitter")
       if (this.checkIfUser() == true && this.user.permission!=3)
                   this.isLoggedIn = true;  
