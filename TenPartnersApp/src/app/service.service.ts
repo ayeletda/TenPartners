@@ -213,30 +213,23 @@ export class ServiceService
   //--------------------- twitter login ------------------------
   TWITlogin()
   {
-    this.connectType = "twitter";
-
-    /*
+   console.log("herte"); 
     var provider = new firebase.auth.TwitterAuthProvider();
 
     firebase.auth().signInWithPopup(provider).then((user)=>
     {
-      alert("Wellcom tenPartner");
-      this.isLoggedIn=true;
-      this.userName = user.user.displayName;
-      this.userEmail = user.user.email;
-      this.userID = user.user.uid;
-      console.log(this.userID);
-      this.router.navigateByUrl('/home');
-      this.pushUser();
+       this.connectType = "twitter";
+       console.log(user);
 
-        //location.reload();      I dont think we need that - check :)
+      // a method that initializes user's details
+      this.initializeUserDetails(user, this.connectType);
       
     })
     .catch((error)=>
     {
         alert("Email or password incorrect");
     });
-    */
+    
   }
 
   // a method that initializes user's details
