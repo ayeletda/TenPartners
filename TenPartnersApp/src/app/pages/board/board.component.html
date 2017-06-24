@@ -20,9 +20,10 @@
     </div>
     <h4 *ngIf='!projectSelected && !noProjects'> Click on a project for viewing its details... </h4>
 
-    <div *ngIf='noProjects' class="noProjects">
-        No projects have been selected for this community yet, You can view projects on "Master DB" page.
-    </div>
+    <h6 *ngIf='noProjects' class="noProjects">
+        No projects have been selected for this community yet. <br>
+        You can view projects on "Master DB" page.
+    </h6>
 
     <div class=" part2">
         <div class="vertical-menu1">

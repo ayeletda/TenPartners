@@ -9,6 +9,12 @@
     width: 100%;
 }
 
+.noProjects
+{
+    padding: 5%;
+    margin-top: 5%;
+}
+
 .temp
 {
     display: inline-block;

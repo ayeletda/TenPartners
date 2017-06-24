@@ -49,6 +49,11 @@
     cursor: pointer;
 }
 
+.noProjects
+{
+    padding: 5%;
+    margin-top: 5%;
+}
 /*========================================= CSS for the chat ============================================*/
 
 br
