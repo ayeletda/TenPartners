@@ -18,10 +18,10 @@
             </div>
         </div>
     </div>
-    <h4 *ngIf='!projectSelected'> Click on a project for viewing its details... </h4>
+    <h4 *ngIf='!projectSelected && !noProjects'> Click on a project for viewing its details... </h4>
 
     <div *ngIf='noProjects' class="noProjects">
-        No projects have been selected for discussion yet...
+        No projects have been selected for this community yet, You can view projects on "Master DB" page.
     </div>
 
     <div class=" part2">

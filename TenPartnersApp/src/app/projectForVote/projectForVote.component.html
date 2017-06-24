@@ -57,28 +57,6 @@
         </div>
     </div>
 
-    <!--=================================== popUp messages ======================================-->
-
-    <div *ngIf="doesNeedPop" class="popAlert">
-        <form>
-            kjkjkjkjkjkjkjkjkj
-            <div class="close" (click)="doesNeedPop = false">X</div>
-            hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
-            <div class="selected" *ngIf="whatToPop == 'selected'">
-                The project {{ projectName }} was selected!
-            </div>
-
-            <div class="passedTime" *ngIf="whatToPop == 'passedTime'">
-                The project {{ projectName }} passed his voting time and therefore was deleted.
-            </div>
-
-            <div class="rejectByAll" *ngIf="whatToPop == 'rejectByAll'">
-                The project {{ projectName }} was rejected by all of the team and therefore was deleted.
-            </div>
-        </form>
-    </div>
-    <!--========================================================================================-->
-
 </main>
 
 
