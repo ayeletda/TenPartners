@@ -123,17 +123,6 @@ label {
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#7acd47', endColorstr='#ace44b');
 }
 
-
-.dismikeHolder {
-    position: relative;
-}
-
-img.dismike {
-    position: absolute;
-    right: 5px;
-    bottom: 0;
-}
-
 /*=================================== fixing heights according to the screen's size ======================================== */
 @media only screen and (min-height: 1366px) {
 
