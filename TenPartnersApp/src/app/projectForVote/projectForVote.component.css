@@ -38,12 +38,14 @@ p {
 
 #like, #unlike {
     cursor: pointer;
+    position: unset;
 }
 
 #like, #unlike, #blockUnlike, .projectName {
     margin: 5%;
     margin-top: 0;
     margin-bottom: 0;
+    position: unset;
 }
 
 #like {
@@ -57,8 +59,8 @@ p {
 #blockUnlike, img, src {
     height: 13px;
     width: 13px;
-    margin: 5%;
-    margin-bottom: 0;
+    margin: 2%;
+    margin-right: 5%; 
 }
 
 #transparentElement {

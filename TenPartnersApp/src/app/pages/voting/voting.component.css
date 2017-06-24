@@ -72,18 +72,21 @@ p {
     width: 100%;
 }
 
-.input-group, .input-group-btn, .btn, #msg-input, .form-control, input, placeholder /* for the slide nav*/
+.input-group, .input-group-btn, .submissionBar, .btn, #msg-input, .form-control, input, placeholder /* for the slide nav*/
 {
     position: unset;
 }
 
 .row, .col-lg-offset-3, .input-group, .input-group-btn, .btn-difult, .input, .form-control {
     margin: 0%;
+    position: unset;
 }
 
 .row, .col-lg-offset-3, .input-group {
     width: 100%;
     padding: 0%;
+    position: unset;
+
 }
 
 /* ============================ CSS of vertical-menu-y ======================= */
