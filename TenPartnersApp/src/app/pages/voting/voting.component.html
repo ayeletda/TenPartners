@@ -19,10 +19,11 @@
         </div>
     </div>
 
-    <!--//No projects have been selected for discussion yet...-->
-    <!--<div *ngIf='isNoProjects' class = "noProjects">
-        No projects have been selected for discussion yet
-    </div>-->
+    <div *ngIf = 'isNoProjects' class = "noProjects">
+        No projects have been selected for discussion yet.
+        You can discuss a project only after one of your community has taken responsibility for it.
+        If you want to discuss a particular project go to "Master-DB" or "Submitted projects" and associate it with you. 
+    </div>
 
 
     <!--======================== details of project that someone clicked on it ===================================== -->
@@ -47,7 +48,7 @@
     <div *ngIf="!isNeedViewMore && isProjectSelected" class=" part3">
 
         <div #scrollMe class="vertical-menu2">
-            <div *ngIf="(messagesFBList | async)?.length == 0">
+            <div *ngIf="!isNoProjects && (messagesFBList | async)?.length == 0">
                 <h4> No messages have been written about this project yet.</h4>
             </div>
             <div *ngFor="let message of messagesFBList | async; trackByFn">

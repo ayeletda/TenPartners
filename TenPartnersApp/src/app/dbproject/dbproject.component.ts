@@ -271,7 +271,8 @@ PopMassage()
 
 //function after if
   pushToBoard(communityPush:string) 
-  { this.community=communityPush;
+  { 
+    this.community = communityPush;
 
     this.checkIfExist();
 
