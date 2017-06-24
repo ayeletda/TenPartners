@@ -119,6 +119,7 @@ export class ProjectForUpdateComponent implements OnInit
     this.projectFBObject.update({ 'associatedUser': '' }); 
     this.projectFBObject.update({ 'cost': '' });
     this.projectFBObject.update({ 'date': '' });
+    this.projectFBObject.update({ 'uploudDate': new Date().getTime() });
   }
 
   //================================== updating date ====================================================

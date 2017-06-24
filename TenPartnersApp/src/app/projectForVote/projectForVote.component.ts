@@ -47,8 +47,8 @@ export class ProjectForVoteComponent implements OnInit
 
   //flags
   isAccuciatedUser: boolean;
-  doesNeedPop: boolean;
-  whatToPop: string;
+  // doesNeedPop: boolean;
+  // whatToPop: string;
 
   //===================================  constructor  ============================================
 
@@ -63,8 +63,8 @@ export class ProjectForVoteComponent implements OnInit
     this.projectInCommunityFBList = null;
     this.projectInCommunityFBObject = null;
     this.usersVotingFBList = null;
-    this.whatToPop = '';
-    this.doesNeedPop = false;
+    // this.whatToPop = '';
+    // this.doesNeedPop = false;
 
     //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.user = this.service.getUser();
@@ -152,7 +152,7 @@ export class ProjectForVoteComponent implements OnInit
 
       if(this.leftDays == 0)
       {
-        this.removeProject("passedTime");  
+-       this.removeProject("passed his voting time and therefore was deleted.");  
         return;
       }
      }
@@ -175,7 +175,7 @@ export class ProjectForVoteComponent implements OnInit
     //if a project was selected
     if(forVal == this.votingNumForChoosingProject)
     {
-      this.removeProject( "selected" );
+-     this.removeProject(" was selected!");
       return;
     }
 
@@ -201,7 +201,7 @@ export class ProjectForVoteComponent implements OnInit
     //if a project was rejected by all of the team
     if(againstVal == this.maxVotingNum)
     {
-      this.removeProject( "rejectByAll" );
+-     this.removeProject( " was rejected by all of the team and therefore was deleted." );
       return;
     }
 
@@ -231,7 +231,7 @@ export class ProjectForVoteComponent implements OnInit
 
   //====================================  removeProject  =========================================
 
-  removeProject( popUpType:string )
+  removeProject( deleteMessage )
   {
     //removes the project from the voting list & reset its messages & votingList
     this.af.list ( this.item + "/messages").remove();
@@ -240,11 +240,10 @@ export class ProjectForVoteComponent implements OnInit
     this.projectInCommunityFBObject.update({ 'associatedUser': '' });
     this.projectInCommunityFBObject.update({ 'cost': '' });
     this.projectInCommunityFBObject.update({ 'date': '' });
-
-    //message that a project was rejected
-    this.whatToPop = popUpType;
-    this.doesNeedPop = true;
-
+    
+    //pop message
+    let txt = 'The project "'+ this.projectName +'"' + deleteMessage;
+ -  alert(txt);
   }
 
 }
