@@ -1,6 +1,7 @@
 /* ============================ main\top-side of project's square ======================= */
 
-.main {
+.main
+{
     font-family: "comic sans ms";
     font-weight: bold;
     color: black;
@@ -10,44 +11,52 @@
     border: 2px solid #D6D6CC;
 }
 
-p {
+p
+{
     margin: 2%;
 }
 
-.align-right {
+.align-right
+{
     text-align: right;
     height: 90%;
 }
 
-#up {
+#up
+{
 
     padding: 10%;
 }
 
-#projectName {
+#projectName
+{
     text-align: center;
     display: block;
     margin: 30%;
 }
 
-#clock {
+#clock
+{
     float: left;
     margin: -10%;
     color: black;
 }
 
-#transparentElement {
+#transparentElement
+{
     color: transparent;
 }
 
 /* ============================ footer of a project ======================= */
 
-#down {
+#down
+{
     height: 20%;
     width: 100%;
 }
 
-label {
+label
+{
     width: 33.3%;
     color: black;
     float: left;
@@ -56,7 +65,8 @@ label {
     margin: 0;
 }
 
-.stopper {
+.stopper
+{
     text-align: center;
     font-size: 15px;
     padding: 8% 0;
@@ -67,99 +77,128 @@ label {
 
 /*======================= fixing heights according to the screen's size ================= */
 
-@media only screen and (min-height: 1366px) {
+@media only screen and (min-height: 1366px)
+{
 
-    .main {
+    .main
+    {
         width: 1200px;
     }
 
-    #up {
+    #up
+    {
         height: 500px;
     }
 
 }
 
-@media only screen and (min-height: 1024px) {
-    .main {
+@media only screen and (min-height: 1024px)
+{
+    .main
+    {
         width: 250px;
     }
 
-    #up {
+    #up
+    {
         height: 180px;
     }
 
-    .lable {
+    .lable
+    {
         font-size: 35px;
     }
 }
 
-@media only screen and (min-height: 1366px) {
-    .main {
+@media only screen and (min-height: 1366px)
+{
+    .main
+    {
         width: 334px;
     }
 
-    #up {
+    #up
+    {
         height: 200px;
     }
 
-    .lable {
+    .lable
+    {
         font-size: 47px;
     }
 
 }
 
-@media only screen and (max-height: 736px) {
-    .main {
+@media only screen and (max-height: 736px)
+{
+    .main
+    {
         width: 134px;
     }
 
-    #up {
+    #up
+    {
         height: 100px;
     }
 }
 
-@media only screen and (max-height: 732px) {
-    .main {
+@media only screen and (max-height: 732px)
+{
+    .main
+    {
         width: 133px;
     }
 
-    #up {
+    #up
+    {
         height: 100px;
     }
 }
 
-@media only screen and (max-height: 667px ) {
-    .main {
-        width:133px;
+@media only screen and (max-height: 667px )
+{
+    .main
+    {
+        width: 133px;
     }
 
-    #up {
+    #up
+    {
         height: 90px;
     }
-    @media only screen and (max-width: 375px ){
-        .main {
-            width:121px;
+
+    @media only screen and (max-width: 375px )
+    {
+        .main
+        {
+            width: 121px;
         }
     }
 
 }
 
-@media only screen and (max-height: 640px) {
-    .main {
+@media only screen and (max-height: 640px)
+{
+    .main
+    {
         width: 117px;
     }
 
-    #up {
+    #up
+    {
         height: 90px;
     }
 }
 
-@media only screen and (max-height: 568px) {
-    .main {
+@media only screen and (max-height: 568px)
+{
+    .main
+    {
         width: 103px;
     }
 
-    #up {
+    #up
+    {
         height: 80px;
     }
 }

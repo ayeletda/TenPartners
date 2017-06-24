@@ -11,7 +11,7 @@
 
 .temp
 {
-  display: inline-block;
+    display: inline-block;
 }
 
 .vertical-menu-x
@@ -21,19 +21,19 @@
     white-space: nowrap;
 }
 
-::-webkit-scrollbar 
+::-webkit-scrollbar
 {
     -webkit-appearance: none;
     width: 7px;
 }
 
 ::-webkit-scrollbar:horizontal
- {
-   -webkit-appearance: none;
-   height: 4px;
- }
+{
+    -webkit-appearance: none;
+    height: 4px;
+}
 
-::-webkit-scrollbar-thumb 
+::-webkit-scrollbar-thumb
 {
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .5);
@@ -44,38 +44,39 @@
     background-color: rgba(0, 0, 0, .5);
 }
 
-.part2 
+.part2
 {
     background-color: #E5E7E9;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-.part3 
+.part3
 {
     width: 100%;
     text-align: center;
 }
 
-br 
+br
 {
     display: block;
     line-height: 1.6em;
 }
 
-p 
+p
 {
     font-size: 1.2em;
     line-height: 1.25em;
 }
 
-form .msg {
+form .msg
+{
     color: red;
 }
 
 /* ============================ CSS of vertical-menu-x ======================= */
 
-.vertical-menu1 
+.vertical-menu1
 {
     padding: 3%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -93,7 +94,7 @@ form .msg {
 
 /* ====================== CSS of vertical-menu-x ======================= */
 
-.vertical-menu-x 
+.vertical-menu-x
 {
     overflow-x: scroll;
     overflow-y: hidden;
@@ -102,12 +103,12 @@ form .msg {
     height: 100%;
 }
 
-input::placeholder 
+input::placeholder
 {
     text-align: left;
 }
 
-#chooseProject 
+#chooseProject
 {
     background-color: #5cb85c;
     color: white;
@@ -118,12 +119,12 @@ input::placeholder
 
 /*======================== css of popUp message =========================== */
 
-.details 
+.details
 {
     visibility: hidden;
 }
 
-.popAlert 
+.popAlert
 {
     position: fixed;
     top: 0;
@@ -133,7 +134,7 @@ input::placeholder
     font-weight: bold;
 }
 
-.popAlert form 
+.popAlert form
 {
     position: absolute;
     left: 50%;
@@ -145,7 +146,7 @@ input::placeholder
     border-radius: 5px;
 }
 
-#submitButton 
+#submitButton
 {
     background-color: #5cb85c;
     color: white;
@@ -154,114 +155,120 @@ input::placeholder
     border-radius: 7px;
 }
 
-.alertIncrrectValues{
-     position: fixed;
-     top: 0;
-     height: 100%;
-     width: 100%;
-     background-color: rgba(0, 0, 0, 0.7);
-     font-weight: bold;
- }
- 
- .alertIncrrectValues form
- {
-     position: absolute;
-     left: 50%;
-     top: 50%;
-     transform: translate(-50%, -50%);
-     padding: 7%;
-     text-align: center;
-     background-color: white;
-     border-radius: 5px;
- 
- }
- 
- .alert{
- 
-     position: fixed;
-     top: 0;
-     height: 100%;
-     width: 100%;
-     background-color: rgba(0, 0, 0, 0.7);
-     font-weight: bold;
- }
- 
- .alert form
- {
-     position: absolute;
-     left: 50%;
-     top: 50%;
-     transform: translate(-50%, -50%);
-     padding: 7%;
-     text-align: center;
-     background-color: white;
-     border-radius: 5px;
- 
- }
- 
- .submitButton {
-     background-color: #5cb85c;
-     color: white;
-     padding: 7px 20px;
-     border: 0;
-     border-radius: 7px;
- }
- .submitIncorrectValues
- {
-     background-color: #5cb85c;
-     color: white;
-     padding: 7px 20px;
-     border: 0;
-     border-radius: 7px;
- }
- 
- .submitAlert
-  {
-     background-color: #5cb85c;
-     color: white;
-     padding: 7px 20px;
-     border: 0;
-     border-radius: 7px;
+.alertIncrrectValues
+{
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
 
-  }
-  
- .closeAlert{
-     position: absolute;
-     left: -5%;
-     top: -5%;
-     background-color: black;
-     border-radius: 50%;
-     width: 21%;
-     height: 16%;
-     line-height: 209%;
-     opacity: 1;
-     color: white;
- }
- 
- .closeAlert:hover
- {
-     opacity: 0.8;
- }
- 
- .closeIncorrectValues{
-     position: absolute;
-     left: -5%;
-     top: -5%;
-     background-color: black;
-     border-radius: 50%;
-     width: 17%;
-     height: 21%;
-     line-height: 163%;
-     opacity: 1;
-     color: white;
- }
- 
- .closeIncorrectValues:hover
- {
-     opacity: 0.8;
- }
+.alertIncrrectValues form
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
 
-.close 
+}
+
+.alert
+{
+
+    position: fixed;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+}
+
+.alert form
+{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 7%;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+
+}
+
+.submitButton
+{
+    background-color: #5cb85c;
+    color: white;
+    padding: 7px 20px;
+    border: 0;
+    border-radius: 7px;
+}
+
+.submitIncorrectValues
+{
+    background-color: #5cb85c;
+    color: white;
+    padding: 7px 20px;
+    border: 0;
+    border-radius: 7px;
+}
+
+.submitAlert
+{
+    background-color: #5cb85c;
+    color: white;
+    padding: 7px 20px;
+    border: 0;
+    border-radius: 7px;
+
+}
+
+.closeAlert
+{
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    background-color: black;
+    border-radius: 50%;
+    width: 21%;
+    height: 16%;
+    line-height: 209%;
+    opacity: 1;
+    color: white;
+}
+
+.closeAlert:hover
+{
+    opacity: 0.8;
+}
+
+.closeIncorrectValues
+{
+    position: absolute;
+    left: -5%;
+    top: -5%;
+    background-color: black;
+    border-radius: 50%;
+    width: 17%;
+    height: 21%;
+    line-height: 163%;
+    opacity: 1;
+    color: white;
+}
+
+.closeIncorrectValues:hover
+{
+    opacity: 0.8;
+}
+
+.close
 {
     position: absolute;
     left: -5%;
@@ -275,16 +282,16 @@ input::placeholder
     color: white;
 }
 
-.close:hover 
+.close:hover
 {
     opacity: 0.8;
 }
 
 /*=================================== fixing heights according to the screen's size ======================================== */
 
-@media only screen and (max-height: 1366px) 
+@media only screen and (max-height: 1366px)
 {
-    ::-webkit-scrollbar 
+    ::-webkit-scrollbar
     {
         width: 7px;
     }
@@ -294,7 +301,7 @@ input::placeholder
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb 
+    ::-webkit-scrollbar-thumb
     {
         border-radius: 4px;
     }
@@ -305,9 +312,9 @@ input::placeholder
     }
 }
 
-@media only screen and (max-height: 1024px) 
+@media only screen and (max-height: 1024px)
 {
-    ::-webkit-scrollbar 
+    ::-webkit-scrollbar
     {
         width: 7px;
     }
@@ -317,20 +324,20 @@ input::placeholder
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb 
+    ::-webkit-scrollbar-thumb
     {
         border-radius: 4px;
     }
-    
+
     .descriptionOfProject
     {
         font-size: 20px;
     }
 }
 
-@media only screen and (max-height: 736px) 
+@media only screen and (max-height: 736px)
 {
-    ::-webkit-scrollbar 
+    ::-webkit-scrollbar
     {
         width: 7px;
     }
@@ -340,7 +347,7 @@ input::placeholder
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb 
+    ::-webkit-scrollbar-thumb
     {
         border-radius: 4px;
     }
@@ -351,9 +358,9 @@ input::placeholder
     }
 }
 
-@media only screen and (max-height: 732px) 
+@media only screen and (max-height: 732px)
 {
-    ::-webkit-scrollbar 
+    ::-webkit-scrollbar
     {
         width: 7px;
     }
@@ -363,20 +370,20 @@ input::placeholder
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb 
+    ::-webkit-scrollbar-thumb
     {
         border-radius: 4px;
     }
-    
+
     .descriptionOfProject
     {
         font-size: 18px;
     }
 }
 
-@media only screen and (max-height: 667px) 
+@media only screen and (max-height: 667px)
 {
-    ::-webkit-scrollbar 
+    ::-webkit-scrollbar
     {
         width: 7px;
     }
@@ -386,25 +393,25 @@ input::placeholder
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb 
+    ::-webkit-scrollbar-thumb
     {
         border-radius: 4px;
     }
-    
+
     ::-webkit-scrollbar:horizontal
     {
         height: 4px;
     }
-    
+
     .descriptionOfProject
     {
         font-size: 14px;
     }
 }
 
-@media only screen and (max-height: 640px) 
+@media only screen and (max-height: 640px)
 {
-    ::-webkit-scrollbar 
+    ::-webkit-scrollbar
     {
         width: 7px;
     }
@@ -414,20 +421,20 @@ input::placeholder
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb 
+    ::-webkit-scrollbar-thumb
     {
         border-radius: 4px;
     }
-    
+
     .descriptionOfProject
     {
         font-size: 14px;
     }
 }
 
-@media only screen and (max-height: 568px) 
+@media only screen and (max-height: 568px)
 {
-    ::-webkit-scrollbar 
+    ::-webkit-scrollbar
     {
         width: 7px;
     }
@@ -437,23 +444,22 @@ input::placeholder
         height: 4px;
     }
 
-    ::-webkit-scrollbar-thumb 
+    ::-webkit-scrollbar-thumb
     {
         border-radius: 4px;
     }
-    
+
     .descriptionOfProject
     {
         font-size: 14px;
     }
 }
-
 
 /** Overdue by r */
 
-@media screen and (min-width: 768px) 
+@media screen and (min-width: 768px)
 {
-    .body2 
+    .body2
     {
         margin-top: 5%;
     }
