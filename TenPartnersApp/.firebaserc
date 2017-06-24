@@ -1,7 +1,5 @@
 {
   "projects": {
-    "default": "application-5baf2",
-    "application": "application-5baf2",
-
+    "default": "application-5baf2"
   }
 }

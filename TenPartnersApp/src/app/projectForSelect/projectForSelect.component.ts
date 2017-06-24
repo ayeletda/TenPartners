@@ -26,7 +26,7 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked
     votingFor: boolean;
     votingFirstTime: boolean; // saves if it the first time that person voting (true) or not (false)
     private projects: FirebaseListObservable<any>;
-    private projectInCommunityFBList: any;
+    projectInCommunityFBList: any;
     projectInCommunityFBObject: any;
     projectName: string;
     projectUplodeDate: Date;

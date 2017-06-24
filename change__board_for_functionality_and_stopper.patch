@@ -1,0 +1,15 @@
+Index: TenPartnersApp/src/app/projectForSelect/projectForSelect.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- TenPartnersApp/src/app/projectForSelect/projectForSelect.component.ts	(revision )
++++ TenPartnersApp/src/app/projectForSelect/projectForSelect.component.ts	(date 1497978783000)
+@@ -8,7 +8,6 @@
+ 
+ 
+ @Component(
+-
+     {
+       selector: 'app-projectForSelect',
+       templateUrl: './projectForSelect.component.html',
