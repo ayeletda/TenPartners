@@ -178,12 +178,16 @@ export class ServiceService
   //-------------------- facebook login ------------------------
   FBlogin()
   {
+
     let provider = new firebase.auth.FacebookAuthProvider();
+    provider.addScope('email');
+
 
     firebase.auth().signInWithPopup(provider).then((user)=>
     {
+    
+      console.log(user.user.email);
       this.connectType = "facebook";
-
       // a method that initializes user's details
       this.initializeUserDetails(user, this.connectType);
     })
