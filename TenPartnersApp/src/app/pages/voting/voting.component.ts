@@ -155,7 +155,7 @@ export class VotingComponent implements OnInit
   {
     if (!this.isProjectSelected)
       alert("You need to choose a project before sending a message.")
-    else if (this.newMessage != '')
+    else if (this.newMessage.replace(/\s/g, '') != "") // not empty message & not spaces
       this.messagesFBList.push(
       {
         message: this.newMessage,

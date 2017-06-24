@@ -106,7 +106,7 @@ export class DBprojectComponent implements OnInit
 
   addComment() 
   {
-    if (this.newComment != "") 
+    if (this.newComment.replace(/\s/g, '') != "") // not empty message & not spaces
     {
       this.commentsFBList = this.af.list(this.path + "/comments/");
       let date = new Date().toLocaleString();
@@ -217,8 +217,6 @@ export class DBprojectComponent implements OnInit
     }
   }
 
-
-
 PopMassage()
 {
   this.checkIfExist();
@@ -287,13 +285,19 @@ PopMassage()
         this.community = "";
       }
 
-      else{this.whatToPop="existsPop";
-          this.doesNeedPop=true;
-          this.community = ""; }
+      else
+      {
+        this.whatToPop="existsPop";
+        this.doesNeedPop=true;
+        this.community = ""; 
+      }
     }
 
-    else{this.whatToPop="communityEmptyPop";
-          this.doesNeedPop=true;}
+    else
+    {
+      this.whatToPop="communityEmptyPop";
+      this.doesNeedPop=true;
+    }
   }
 
   //=======================================  removeComment  ==========================================
