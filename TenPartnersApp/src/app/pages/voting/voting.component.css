@@ -1,16 +1,19 @@
 
-.body2 {
+.body2
+{
     padding-top: 35px;
     background-color: #E5E7E9;
     height: 100%;
 }
 
-.part1 {
+.part1
+{
     width: 100%;
     height: 40%;
 }
 
-.navbar {
+.navbar
+{
     width: 100%;
     margin: 0;
     display: block;
@@ -18,23 +21,27 @@
     border-color: transparent;
 }
 
-.part2 {
+.part2
+{
     background-color: #E5E7E9;
     height: 80%;
 }
 
-.part3 {
+.part3
+{
 
     background-color: #FFFFF5;
 
 }
 
-.details, .clickText {
+.details, .clickText
+{
     font-size: 14px;
     margin: 0;
 }
 
-.clickText {
+.clickText
+{
     font-weight: bold;
     margin-right: 1%;
     margin-top: 3%;
@@ -44,17 +51,20 @@
 
 /*========================================= CSS for the chat ============================================*/
 
-br {
+br
+{
     display: block;
     line-height: 1.6em;
 }
 
-p {
+p
+{
     font-size: 1.4em;
     line-height: 1.25em;
 }
 
-.date-stamp {
+.date-stamp
+{
     display: inline-block;
     text-align: center;
     font-weight: bold;
@@ -63,11 +73,13 @@ p {
     width: 100%;
 }
 
-.fa-angle-double-down {
+.fa-angle-double-down
+{
     font-weight: bold;
 }
 
-.container {
+.container
+{
     height: 50%;
     width: 100%;
 }
@@ -77,18 +89,21 @@ p {
     position: unset;
 }
 
-.row, .col-lg-offset-3, .input-group, .input-group-btn, .btn-difult, .input, .form-control {
+.row, .col-lg-offset-3, .input-group, .input-group-btn, .btn-difult, .input, .form-control
+{
     margin: 0%;
 }
 
-.row, .col-lg-offset-3, .input-group {
+.row, .col-lg-offset-3, .input-group
+{
     width: 100%;
     padding: 0%;
 }
 
 /* ============================ CSS of vertical-menu-y ======================= */
 
-.vertical-menu1 {
+.vertical-menu1
+{
     padding: 2%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 62.5%;
@@ -103,7 +118,8 @@ p {
 
 }
 
-.vertical-menu2 {
+.vertical-menu2
+{
     padding: 2%;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 62.5%;
@@ -121,48 +137,57 @@ p {
 
 /* ====================== CSS of vertical-menu-x ======================= */
 
-.vertical-menu-x {
+.vertical-menu-x
+{
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
     margin-top: 0px;
 }
 
-@media screen  and (min-height: 570px) and (max-height: 735px) {
-    .vertical-menu-x {
+@media screen  and (min-height: 570px) and (max-height: 735px)
+{
+    .vertical-menu-x
+    {
         margin-top: 0;
     }
 }
 
-.temp {
+.temp
+{
     display: inline-block;
 }
 
 /* ============================ CSS of input ======================= */
 
-input::placeholder {
+input::placeholder
+{
     text-align: left;
     position: unset;
 }
 
 /* ======================= CSS of scrollbar of the chat ======================= */
 
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
     -webkit-appearance: none;
     width: 7px;
 }
 
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .5);
 }
 
-::-webkit-scrollbar:horizontal {
+::-webkit-scrollbar:horizontal
+{
     -webkit-appearance: none;
     height: 4px;
 }
 
-::-webkit-scrollbar-thumb:horizontal {
+::-webkit-scrollbar-thumb:horizontal
+{
     border-radius: 4px;
     background-color: rgba(0, 0, 0, .5);
 }
@@ -171,16 +196,19 @@ input::placeholder {
 
 /* for the text */
 
-#msg-name, #msg-context {
+#msg-name, #msg-context
+{
     text-align: right;
     margin-bottom: 5%;
 }
 
-#msg-name {
+#msg-name
+{
     font-weight: bold;
 }
 
-#msg-time {
+#msg-time
+{
     color: black;
     text-shadow: 0.25px 0.1px 0 grey;
 }
@@ -188,7 +216,8 @@ input::placeholder {
 /*for the bubble box*/
 
 /** ios1-ios6 bubbles **/
-.bubble {
+.bubble
+{
     box-sizing: border-box;
     float: left;
     width: auto;
@@ -227,14 +256,16 @@ input::placeholder {
     margin: 5px;
 }
 
-.bubble:before, .bubble:after {
+.bubble:before, .bubble:after
+{
     border-radius: 20px / 5px;
     content: '';
     display: block;
     position: absolute;
 }
 
-.bubble:before {
+.bubble:before
+{
     border: 10px solid transparent;
     border-bottom-color: rgba(0, 0, 0, 0.5);
     bottom: 0;
@@ -242,33 +273,39 @@ input::placeholder {
     z-index: -2;
 }
 
-.bubble:after {
+.bubble:after
+{
     border: 8px solid transparent;
     border-bottom-color: #95c2fd; /* arrow color */
     bottom: 1px;
     left: -5px;
 }
 
-.bubble-alt {
+.bubble-alt
+{
     float: right;
 }
 
-.bubble-alt:before {
+.bubble-alt:before
+{
     left: auto;
     right: -7px;
 }
 
-.bubble-alt:after {
+.bubble-alt:after
+{
     left: auto;
     right: -5px;
 }
 
-.bubble p {
+.bubble p
+{
     font-size: 1.4em;
 }
 
 /* green bubble */
-.green {
+.green
+{
     background: #7acd47;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #ace44b), color-stop(1, #7acd47));
     background-image: -webkit-linear-gradient(bottom, #ace44b 15%, #7acd47 100%);
@@ -279,12 +316,14 @@ input::placeholder {
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#7acd47', endColorstr='#ace44b');
 }
 
-.green:after {
+.green:after
+{
     border-bottom-color: #7acd47;
 }
 
 /* white bubble */
-.white {
+.white
+{
     background: #e5e5e5;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #e5e5e5), color-stop(1, #dbdbdb));
     background-image: -webkit-linear-gradient(bottom, #e5e5e5 15%, #dbdbdb 100%);
@@ -295,12 +334,14 @@ input::placeholder {
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#dbdbdb', endColorstr='#e5e5e5');
 }
 
-.white:after {
+.white:after
+{
     border-bottom-color: #e5e5e5;
 }
 
 /* yellow bubble */
-.yellow {
+.yellow
+{
     background: #fcf3c3;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #fcf3c3), color-stop(1, #f4e371));
     background-image: -webkit-linear-gradient(bottom, #fcf3c3 15%, #f4e371 100%);
@@ -311,12 +352,14 @@ input::placeholder {
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#f4e371', endColorstr='#fcf3c3');
 }
 
-.yellow:after {
+.yellow:after
+{
     border-bottom-color: #f4e371;
 }
 
 /* red bubble */
-.red {
+.red
+{
     background: #ffbee3;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #ea8378), color-stop(1, #e2675a));
     background-image: -webkit-linear-gradient(bottom, #ffbee3 15%, #e2675a 100%);
@@ -328,7 +371,8 @@ input::placeholder {
 }
 
 /* pink bubble */
-.pink {
+.pink
+{
     background: #ffbee3;
     background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.15, #ffbee3), color-stop(1, #f8a5ce));
     background-image: -webkit-linear-gradient(bottom, #ffbee3 15%, #f8a5ce 100%);
@@ -339,135 +383,177 @@ input::placeholder {
     filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#f8a5ce', endColorstr='#ffbee3');
 }
 
-.pink:after {
+.pink:after
+{
     border-bottom-color: #ffbee3;
 }
 
 /*=================================== fixing heights according to the screen's size ======================================== */
 
-@media only screen and (max-height: 1366px) and (min-height: 1366px){
-    .vertical-menu2 {
+@media only screen and (max-height: 1366px) and (min-height: 1366px)
+{
+    .vertical-menu2
+    {
         height: 731px
     }
-    .vertical-menu-x{
+
+    .vertical-menu-x
+    {
 
         margin-top: 0;
     }
-    #part2part3size {
+
+    #part2part3size
+    {
         height: 700px;
     }
 }
 
-@media only screen and (max-height: 1024px) and (min-height: 1024px){
-    .vertical-menu2 {
+@media only screen and (max-height: 1024px) and (min-height: 1024px)
+{
+    .vertical-menu2
+    {
         height: 467px
     }
-    .vertical-menu-x{
+
+    .vertical-menu-x
+    {
 
         margin-top: 0;
     }
-    #part2part3size {
+
+    #part2part3size
+    {
         height: 500px;
     }
 
 }
 
-@media only screen and (max-height: 736px) and (min-height: 736px){
-    .vertical-menu1 {
+@media only screen and (max-height: 736px) and (min-height: 736px)
+{
+    .vertical-menu1
+    {
         max-height: 500px;
     }
 
-    .vertical-menu-x{
+    .vertical-menu-x
+    {
 
         margin-top: 0;
     }
 
-    #part2part3size {
+    #part2part3size
+    {
         height: 350px;
     }
 
-    .vertical-menu2 {
+    .vertical-menu2
+    {
         height: 331px
     }
 
 }
 
-@media only screen and (max-height: 732px) and (min-height: 732px)  {
-    .vertical-menu1 {
+@media only screen and (max-height: 732px) and (min-height: 732px)
+{
+    .vertical-menu1
+    {
         height: 60px;
     }
-    #part2part3size {
+
+    #part2part3size
+    {
         height: 350px;
     }
 
-    .vertical-menu2 {
+    .vertical-menu2
+    {
         height: 366px
     }
 }
 
-@media only screen and (max-height: 640px) and (min-height: 640px) {
+@media only screen and (max-height: 640px) and (min-height: 640px)
+{
 
-    .vertical-menu2 {
+    .vertical-menu2
+    {
         height: 249px
     }
 }
 
-@media only screen and (max-height: 667px) and (min-height: 667px) {
-    .vertical-menu1 {
+@media only screen and (max-height: 667px) and (min-height: 667px)
+{
+    .vertical-menu1
+    {
         height: 70px;
     }
 
-    .vertical-menu2 {
+    .vertical-menu2
+    {
         height: 290px
     }
 
-    @media only screen and (max-width: 375px) and (min-width: 375px){
-        .vertical-menu2 {
+    @media only screen and (max-width: 375px) and (min-width: 375px)
+    {
+        .vertical-menu2
+        {
             height: 299px
         }
-        #part2part3size {
+
+        #part2part3size
+        {
             height: 600px;
         }
     }
 }
 
-@media only screen and (max-height: 375px) and (min-height: 375px){
-    .vertical-menu1 {
+@media only screen and (max-height: 375px) and (min-height: 375px)
+{
+    .vertical-menu1
+    {
         height: 54px;
     }
 
-    .vertical-menu2 {
+    .vertical-menu2
+    {
         height: 288px
     }
 }
 
-
-
-
-@media only screen and (max-height: 568px ) {
-    .vertical-menu1 {
+@media only screen and (max-height: 568px )
+{
+    .vertical-menu1
+    {
         height: 50px;
     }
-    .vertical-menu-x{
+
+    .vertical-menu-x
+    {
 
         margin-top: 0;
     }
 
-    .vertical-menu2 {
+    .vertical-menu2
+    {
         height: 234px
     }
-    #part2part3size {
+
+    #part2part3size
+    {
         height: 400px;
     }
 
 }
 
-@media only screen and (max-width: 360px) and (min-width: 360px) and (max-height: 640px) and (min-height: 640px) {
-    .vertical-menu2[_ngcontent-c3] {
+@media only screen and (max-width: 360px) and (min-width: 360px) and (max-height: 640px) and (min-height: 640px)
+{
+    .vertical-menu2[_ngcontent-c3]
+    {
         height: 243px;
     }
 }
 
-.submissionBar {
+.submissionBar
+{
     position: absolute;
 }
