@@ -237,7 +237,6 @@ export class ProjectForVoteComponent implements OnInit
     this.af.list ( this.item + "/messages").remove();
     this.usersVotingFBList = null;
     this.af.list (this.item + "/votingList").remove();
-    this.projectInCommunityFBObject.update({ 'associatedUser': '' });
     this.projectInCommunityFBObject.update({ 'cost': '' });
     this.projectInCommunityFBObject.update({ 'date': '' });
     
