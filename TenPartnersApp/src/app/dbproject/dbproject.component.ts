@@ -36,6 +36,9 @@ export class DBprojectComponent implements OnInit
   cost: string;
   date: Date;
 
+  //determined according to customer
+  maxVotingNum: number; 
+  
   //pointers of object or list in firebase
   commentsFBList: FirebaseListObservable<any>;
   likesFBList: FirebaseListObservable<any>;
@@ -73,6 +76,7 @@ export class DBprojectComponent implements OnInit
     this.isCommunitiesSnapshot = false;
     this.communitysPath = this.path + "/associatedCommunities/";
     this.communitiesFBList = this.af.list("/communities");
+    this.maxVotingNum = 10;
   }
 
   //=======================================  ngOnInit  ===========================================================================================
@@ -187,18 +191,18 @@ export class DBprojectComponent implements OnInit
     
     if(this.isCommunitiesSnapshot==false){
 
-     this.communitiesExistaValues_Arr=[];
+      this.communitiesExistaValues_Arr=[];
      
-     this.communitiesExistaFBList=this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
-    let temp = this.communitiesExistaFBList.subscribe((snapshots)=>
-    {
-      snapshots.some(snapshot => 
+      this.communitiesExistaFBList=this.af.list(this.path + "/associatedCommunities/", { preserveSnapshot: true });
+      let temp = this.communitiesExistaFBList.subscribe((snapshots)=>
       {
-         this.communitiesExistaValues_Arr.push(snapshot);
+        snapshots.some(snapshot => 
+        {
+           this.communitiesExistaValues_Arr.push(snapshot);
+        });
       });
-    });
-    this.isCommunitiesSnapshot=true;
-     this.service.allSubscribe.push(temp);
+      this.isCommunitiesSnapshot=true;
+      this.service.allSubscribe.push(temp);
   }
   
 
@@ -252,7 +256,7 @@ PopMassage()
             return;}
 
       this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
-      this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.user.id + "", avoid: 9, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
+      this.projectFBList.update(this.user.community + "", { against: 0, associatedUser: this.user.id + "", avoid: this.maxVotingNum - 1, cost: cost, date: date, for: 1, uploudDate: new Date().getTime() + "" });
 
       this.usersVotingFBList = this.af.list(this.path + "/associatedCommunities/" + this.user.community + "/votingList");
       this.usersVotingFBList.update(this.user.id + "", { vote: "for" });
@@ -279,7 +283,7 @@ PopMassage()
       if (this.isExists == false) 
       {
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
-        this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "NULL", date: "NULL", for: 0, uploudDate: "NULL" });
+        this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: this.maxVotingNum, cost: "", date: "", for: 0, uploudDate: new Date().getTime() });
         this.whatToPop="pushedPop";
         this.doesNeedPop=true;
         this.community = "";
