@@ -1,6 +1,8 @@
 <div class="continer">
   <div class="col-lg-12">
     <main>
+          <h6>
+
       <!--<details ng-open="showDetails">
   <summary> Project's name: {{item.name}} </summary>
   <p> Description: {{item.description}}<br>
@@ -10,9 +12,9 @@
 </details>
 -->
       <div class="project">
-        <div class="title" (click)="viewMore()">Project's name: {{item.name}}</div>
-        <div class="more" *ngIf="more">
-          Description: {{item.description}}<br> Purpose for the jewish communuty: {{item.purpose}}<br><br>
+        <h5 class="title" (click)="viewMore()">Project's name: {{item.name}}</h5>
+        <h6 class="more" *ngIf="more">
+          Description:<br> {{item.description}}<br><br> Purpose for the jewish communuty:<br> {{item.purpose}}<br><br>
           <div class="commmm" (click)="viewComments('comments')">
             <span class="glyphicon glyphicon-comment"></span> ({{ (commentsFBList | async)?.length }})
           </div> 
@@ -55,7 +57,7 @@
             </div>
 
           </div>
-        </div>
+        </h6>
       </div>
 
   <!-- -->
@@ -121,7 +123,7 @@
 
       </div>
       <!--========================================================================================-->
-
+</h6>
     </main>
   </div>
 </div>
