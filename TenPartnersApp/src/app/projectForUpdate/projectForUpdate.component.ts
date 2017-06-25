@@ -50,8 +50,8 @@ export class ProjectForUpdateComponent implements OnInit
     this.updateCostFlag = false;
     this.whatToPop = "";
     this.doesNeedPop=false;
-    this.isSelected='10';
-    this.isUnSelected='7';
+    this.isSelected='7';
+    this.isUnSelected='9';
   }
 
   //====================================  ngOnInit  ==================================================

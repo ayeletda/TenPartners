@@ -72,7 +72,7 @@ export class ProjectForVoteComponent implements OnInit
     //initializes variables with corrent values
     this.projectsFBList = this.af.list('projects');
     this.votingNumForChoosingProject = 7;
-    this.maxVotingNum = 10;
+    this.maxVotingNum = 9;
     this.maxDaysForVoting = 14;    
   }
 

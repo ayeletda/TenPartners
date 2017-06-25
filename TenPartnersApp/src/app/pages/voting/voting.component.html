@@ -9,7 +9,7 @@
     <div class="part1 vertical-menu-x">
         <div class="temp" *ngFor="let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
             <div *ngFor="let community of associatedCommunities | async ">
-                <div *ngIf="community.$key == user.community && community.associatedUser != '' && saveProjectPath(community,i)">
+                <div *ngIf="community.$key == user.community && community.for < 7 && community.against != 9  && saveProjectPath(community,i)">
                     <app-projectForVote class="pull-left"
                                         [item]="projectPath"
                                         (click)="loadProjectDetails(community,i)">
