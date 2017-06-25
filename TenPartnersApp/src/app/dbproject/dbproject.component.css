@@ -16,7 +16,6 @@ main
 
 .from
 {
-	font-size: 17px;
 	display: inline;
 }
 
@@ -61,10 +60,6 @@ span
 	right: 0px;
 }
 
-form
-{
-	font-size: 20px;
-}
 
 .close 
 {
@@ -149,7 +144,6 @@ form
 
 .title
 {
-	font-size: 25px;
 	padding-bottom: 10px;
 	outline: 0;
 }
@@ -167,13 +161,11 @@ form
 
 .more
 {
-	font-size: 20px;
 	width: 100%;
 }
 
 .social
 {
-	font-size: 20px; 
 	padding-left: 8px; 
 	padding-right: 0.5%;
 }
