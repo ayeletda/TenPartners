@@ -52,7 +52,7 @@ p
 {
     margin: 5%;
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 1.5%;
     position: unset;
 }
 
@@ -71,6 +71,7 @@ p
     height: 13px;
     width: 13px;
     margin: 2%;
+    margin-bottom: 1%;
     margin-right: 5%; 
 }
 
