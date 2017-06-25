@@ -283,7 +283,7 @@ PopMassage()
       if (this.isExists == false) 
       {
         this.projectFBList = this.af.list(this.path + "/associatedCommunities/");
-        this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: this.maxVotingNum, cost: "", date: "", for: 0, uploudDate: new Date().getTime() });
+        this.projectFBList.update(this.community, { against: 0, associatedUser: "", avoid: 10, cost: "", date: "", for: 0, uploudDate: new Date().getTime() });
         this.whatToPop="pushedPop";
         this.doesNeedPop=true;
         this.community = "";
