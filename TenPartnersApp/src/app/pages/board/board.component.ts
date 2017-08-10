@@ -185,6 +185,7 @@ export class BoardComponent implements OnInit
         this.projectUpdate.update({'avoid': this.maxVotingNum - 1});
         this.projectUpdate.update({'against': '0'});
 
+
         //updating voteStatus
         this.usersVotingList.update(this.user.id, {vote: "for"});
 
