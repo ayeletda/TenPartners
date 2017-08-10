@@ -188,6 +188,8 @@ export class BoardComponent implements OnInit
         //updating voteStatus
         this.usersVotingList.update(this.user.id, {vote: "for"});
 
+        this.projectSelected = false;
+
         this.close();
         this.closeAlert();
     }

@@ -34,6 +34,7 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked
 
     constructor(private router: Router, private service: ServiceService, private af: AngularFireDatabase) 
     {
+
         this.projects = this.af.list('projects');
 
         (<any>$(".stopper")).each(function (k, v) 
@@ -61,8 +62,10 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked
 
     ngOnInit() 
     {
+
         this.projectInCommunityFBList = this.af.list(this.item); // item is a path
         this.projectInCommunityFBObject = this.af.object(this.item, {preserveSnapshot: true});
+
         this.projectUplodeDate = this.project.uploudDate;
 
         //initializes projectName
@@ -83,5 +86,6 @@ export class ProjectForSelectComponent implements OnInit, AfterViewChecked
     }
 
 
-    ngAfterViewChecked() {}
+    ngAfterViewChecked() {
+    }
 }
