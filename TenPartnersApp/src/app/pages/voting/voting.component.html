@@ -9,9 +9,10 @@
     <div class="part1 vertical-menu-x">
         <div class="temp" *ngFor="let associatedCommunities of projectsAssociatedCommunities_Arr; let i = index">
             <div *ngFor="let community of associatedCommunities | async ">
-                <div *ngIf="community.$key == user.community && community.for < 7 && community.against != 9  && saveProjectPath(community,i)">
+                <div *ngIf="community.$key == user.community && community.associatedUser != '' && saveProjectPath(community,i)">
                     <app-projectForVote class="pull-left"
                                         [item]="projectPath"
+                                        (projectDeleted) = 'updateProjectStatus($event)'
                                         (click)="loadProjectDetails(community,i)">
                     </app-projectForVote>
                 </div>
@@ -20,26 +21,23 @@
     </div>
 
     <h6 *ngIf = 'isNoProjects' class = "noProjects">
-        No projects have been selected for discussion yet. <br>
-        You can discuss a project only after one of your community has taken responsibility for it. <br>
+        No projects have been selected for discussion yet. <br><br>
+        You can discuss a project only after one of your community has taken responsibility for it. <br><br>
         If you want to discuss a particular project go to "Master-DB" or "Submitted projects" and associate it with you. 
     </h6>
 
 
     <!--======================== details of project that someone clicked on it ===================================== -->
     <div class=" part2">
-        <div class="vertical-menu1">
-            <div *ngIf='isProjectSelected'>
-                <p class="details"> Date: {{date}} </p>
-                <p class="details"> Cost: {{cost}} </p>
-                <p class="details"> Purpose: {{purpose}} </p>
-                <p *ngIf="!isNeedViewMore" class="clickText pull-right" (click)="viewMore(true)">Click for viewing more
-                    details </p>
-                <p *ngIf="isNeedViewMore" class="details" id="part2part3size"> Description: {{description}} </p>
-            </div>
+        <div *ngIf='isProjectSelected' class="vertical-menu1">   
+            <p class="details"> Date: {{date}} </p>
+            <p class="details"> Cost: {{cost}} </p>
+            <p class="details"> Purpose: {{purpose}} </p>
+            <p *ngIf="!isNeedViewMore" class="clickText pull-right" (click)="viewMore(true)">Click for viewing more
+                details </p>
+            <p *ngIf="isNeedViewMore" class="details" id="part2part3size"> Description: {{description}} </p>
         </div>
-        <p *ngIf="isNeedViewMore" class="clickText pull-right" (click)="viewMore(false)">Click for viewing less
-            details </p>
+        <p *ngIf="isNeedViewMore" class="clickText pull-right" (click)="viewMore(false)">Click for viewing less details </p>
 
         <h4 *ngIf='!isProjectSelected && !isNoProjects' class = "container"> Click on a project for viewing its details... </h4>
     </div>

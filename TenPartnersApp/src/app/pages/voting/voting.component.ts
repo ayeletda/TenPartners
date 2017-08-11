@@ -96,7 +96,15 @@ export class VotingComponent implements OnInit
   {
   }
 
-  //========================================================  saveProjectPath  =========================================================
+  //===================================================  updateProjectStatus  =========================================================
+
+  updateProjectStatus($event)
+  {
+    this.isProjectSelected = false;
+    this.isNoProjects = true;
+  }
+
+  //=====================================================  saveProjectPath  =========================================================
 
   saveProjectPath(community, i) 
   {

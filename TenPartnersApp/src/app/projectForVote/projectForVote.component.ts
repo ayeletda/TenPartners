@@ -18,7 +18,7 @@ import { ServiceService } from '../service.service';
 export class ProjectForVoteComponent implements OnInit
 {
   @Input() item;
-  @Output() voteChoose: EventEmitter<any> = new EventEmitter();
+  @Output() projectDeleted: EventEmitter<any> = new EventEmitter();
 
   @ViewChild('forVal')  forVal: any;
   @ViewChild('avoidVal')  avoidVal: any;
@@ -144,13 +144,16 @@ export class ProjectForVoteComponent implements OnInit
 
   updateLeftDays(projectUplodeDate)
   {
+    // if (projectUplodeDate == '')
+      // return;
+
     if (projectUplodeDate) 
     {
       let oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds    
       let timeDiff = Math.abs(projectUplodeDate - new Date().getTime());
       this.leftDays = this.maxDaysForVoting - (Math.ceil(timeDiff /oneDay)-1);
 
-      if(this.leftDays == 0)
+      if(this.leftDays <= 0)
       {
 -       this.removeProject("passed his voting time and therefore was deleted.");  
         return;
@@ -215,6 +218,21 @@ export class ProjectForVoteComponent implements OnInit
     this.updateVotingVarsAndVoteStatus(forVal, avoidVal, againstVal, newStatus);
   }
 
+  //===================================  checkVote  =========================================
+
+  checkVote(type, val)
+  {
+    //if a project was rejected by all of the team
+    if(type == 'against' && val == this.maxVotingNum)
+      this.removeProject( " was rejected by all of the team and therefore was deleted." );
+
+     //if a project was selected
+    if(type == 'for' && val >= this.votingNumForChoosingProject)
+-     this.removeProject(" was selected!");
+
+
+    return true;
+  }
   //===========================  updateVotingVarsAndVoteStatus  =========================================
   //updating the voting's vars & voteStatus on firebase
   
@@ -239,10 +257,16 @@ export class ProjectForVoteComponent implements OnInit
     this.af.list (this.item + "/votingList").remove();
     this.projectInCommunityFBObject.update({ 'cost': '' });
     this.projectInCommunityFBObject.update({ 'date': '' });
+    this.projectInCommunityFBObject.update({'associatedUser': ''});
+    // this.projectInCommunityFBObject.update({'projectUplodeDate': ''});
     
+
     //pop message
     let txt = 'The project "'+ this.projectName +'"' + deleteMessage;
  -  alert(txt);
+
+    //tells father that a project was deleted
+    this.projectDeleted.emit(); // this.projectDeleted.emit(values)
   }
 
 }
