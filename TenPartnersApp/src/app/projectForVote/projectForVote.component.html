@@ -1,59 +1,50 @@
 <main>
 
     <!-- up part of a project - the clock & the name of a project -->
-    <div id="up">
-        <i class="simbol fa fa-clock-o" id = "clock" aria-hidden="true">{{leftDays}}d</i>
-        <div class="row">
-            <div class=" align-right">
-                <i *ngIf="voteStatus!='for'"
-                   class="simbol fa fa-thumbs-o-up"
-                   id="like"
-                   aria-hidden="true"
-                   (click)="!votingFor && votFor()"></i>
-                <i *ngIf="voteStatus=='for'"
-                   class="simbol fa fa-thumbs-o-up"
-                   id="transparentElement"
-                   aria-hidden="true"></i>
+    <div id = "up">
+        <i class = "simbol fa fa-clock-o" id = "clock" aria-hidden = "true">{{leftDays}}d</i>
+        <div class = "row">
+
+            <!--LIKE-->
+            <div class = " align-right">
+                <i *ngIf = "voteStatus != 'for'" class = "simbol fa fa-thumbs-o-up" id = "like" aria-hidden = "true" (click) = "!votingFor && votFor()"></i>
+                <i *ngIf = "voteStatus == 'for'" class = "simbol fa fa-thumbs-o-up" id = "transparentElement" aria-hidden = "true"></i>
             </div>
-            <div class="projectName  container">
-                <h6> {{projectName}} </h6>
+            <!--PROJECT NAME-->
+            <div class = "projectName  container"> <h6> {{projectName}} </h6> 
             </div>
-            <div class=" align-right">
-                <i *ngIf="voteStatus != 'against' && !isAccuciatedUser"
-                   class="simbol fa fa-thumbs-o-down  pull-right"
-                   id="unlike"
-                   aria-hidden="true"
-                   (click)="votAgainst()"></i>
-                <i *ngIf="voteStatus == 'against'"
-                   class="simbol fa fa-thumbs-o-down  pull-right"
-                   id="transparentElement"
-                   aria-hidden="true"></i>
-                <!--<img *ngIf="isAccuciatedUser"
-                     class="simbol pull-right "
-                     id="blockUnlike"
-                     src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/unlikeavia.png?alt=media&token=9d63303f-4bf9-4072-98fd-b3f38d52c891">-->
+            <!--UNLIKE-->
+            <div class = " align-right">
+                <i *ngIf = "voteStatus != 'against' && !isAccuciatedUser" class = "simbol fa fa-thumbs-o-down  pull-right" id = "unlike" aria-hidden = "true" (click) = "votAgainst()"></i>
+                <i *ngIf = "voteStatus == 'against'" class = "simbol fa fa-thumbs-o-down  pull-right" id = "transparentElement" aria-hidden = "true"></i>
+                
+                <!--BLOCK UNLIKE-->
+                <!--<img *ngIf="isAccuciatedUser" class="simbol pull-right "id="blockUnlike" src="https://firebasestorage.googleapis.com/v0/b/application-5baf2.appspot.com/o/unlikeavia.png?alt=media&token=9d63303f-4bf9-4072-98fd-b3f38d52c891">-->
             </div>
+
         </div>
     </div>
 
     <!-- footer of a project - the voting status -->
-    <div *ngFor="let value of projectInCommunityFBList | async">
-        <div id="down">
-            <div *ngIf="value.$key == 'for'  && checkVote('for', value.$value)">
-                <label class="green" for="for" id="for"><i class="lable fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i>
-                    <p #forVal> {{ value.$value }} </p></label>
+    <div *ngFor = "let value of projectInCommunityFBList | async">
+        <div id = "down">
+            
+            <!--FOR-->
+            <div *ngIf = "value.$key == 'for'  && checkVote('for', value.$value)">
+                <label class = "green" for = "for" id = "for"><i class = "lable fa fa-thumbs-o-up fa-lg" aria-hidden="true"></i> <p #forVal> {{ value.$value }} </p></label>
             </div>
-            <div *ngIf="value.$key == 'avoid'">
-                <label class="yellow" for="avoidance" id="avoidance"><i class="lable fa fa-ban" aria-hidden="true"></i>
-                    <p #avoidVal> {{ value.$value }} </p></label>
+            <!--AVOID-->
+            <div *ngIf = "value.$key == 'avoid'">
+                <label class = "yellow" for = "avoidance" id = "avoidance"><i class = "lable fa fa-ban" aria-hidden = "true"></i> <p #avoidVal> {{ value.$value }} </p></label>
             </div>
-            <div *ngIf="value.$key == 'against' && checkVote('against', value.$value)">
-                <label class="red" for="against" id="against"><i class="lable fa fa-thumbs-o-down fa-lg "
-                                                                 aria-hidden="true"></i>
-                    <p #againstVal> {{ value.$value }} </p></label>
+            <!--AGAINST-->
+            <div *ngIf = "value.$key == 'against' && checkVote('against', value.$value)">
+                <label class = "red" for = "against" id = "against"><i class = "lable fa fa-thumbs-o-down fa-lg "aria-hidden="true"></i><p #againstVal> {{ value.$value }} </p></label>
             </div>
+
             <div *ngIf = "value.$key == 'uploudDate' && updateLeftDays(value.$value)">
             </div>
+            
         </div>
     </div>
 

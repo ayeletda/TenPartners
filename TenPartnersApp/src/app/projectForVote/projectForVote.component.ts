@@ -47,8 +47,6 @@ export class ProjectForVoteComponent implements OnInit
 
   //flags
   isAccuciatedUser: boolean;
-  // doesNeedPop: boolean;
-  // whatToPop: string;
 
   //===================================  constructor  ============================================
 
@@ -63,8 +61,6 @@ export class ProjectForVoteComponent implements OnInit
     this.projectInCommunityFBList = null;
     this.projectInCommunityFBObject = null;
     this.usersVotingFBList = null;
-    // this.whatToPop = '';
-    // this.doesNeedPop = false;
 
     //function (in servic.component.ts) that returns a pointer to user object that listen to firebase and initializes the variabels: userId, userCommunity, name, email 
     this.user = this.service.getUser();
@@ -132,7 +128,6 @@ export class ProjectForVoteComponent implements OnInit
         if (snapshot.$key == this.user.id)
           this.voteStatus = snapshot.vote;
       });
-
     });
     
     //pushes subscribe to an array for freeing it (listener to firebase) when login-out
@@ -144,9 +139,6 @@ export class ProjectForVoteComponent implements OnInit
 
   updateLeftDays(projectUplodeDate)
   {
-    // if (projectUplodeDate == '')
-      // return;
-
     if (projectUplodeDate) 
     {
       let oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds    
